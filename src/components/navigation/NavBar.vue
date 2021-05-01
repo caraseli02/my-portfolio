@@ -1,34 +1,41 @@
 <template>
-  <div class="font-sans antialiased gradient">
+  <div class="font-sans antialiased gradient rounded-b-lg">
     <nav class="flex items-center justify-between flex-wrap bg-teal p-6">
       <div class="flex items-center flex-no-shrink text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">Portfolio</span>
+        <span class="font-semibold text-2xl tracking-tight">Caraseli</span>
       </div>
       <div class="block sm:hidden">
         <button
           @click="toggle"
-          class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
+          class="flex items-center px-3 py-2 rounded outline-none"
         >
-          <svg
-            class="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="block w-5 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
+            <span
+              aria-hidden="true"
+              class="block absolute h-0.5 w-7 bg-current transform transition duration-500 ease-in-out"
+              :class="{ 'rotate-45': open, ' -translate-y-1.5': !open }"
+            ></span>
+
+            <span
+              aria-hidden="true"
+              class="block absolute h-0.5 w-7 bg-current transform transition duration-500 ease-in-out"
+              :class="{ '-rotate-45': open, ' translate-y-1.5': !open }"
+            ></span>
+          </div>
         </button>
       </div>
       <div
         :class="open ? 'block' : 'hidden'"
         class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
       >
-        <div class="text-sm sm:flex-grow">
+        <div class="text-sm font-semibold sm:flex-grow">
           <a
             href="#responsive-header"
             class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white mr-4"
           >
-            Home
+            Services
           </a>
           <a
             href="#responsive-header"
@@ -72,5 +79,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
