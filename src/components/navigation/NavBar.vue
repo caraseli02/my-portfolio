@@ -4,8 +4,9 @@
       <div class="flex items-center flex-no-shrink text-white mr-6">
         <span class="font-semibold text-2xl tracking-tight">Caraseli</span>
       </div>
+      <themeSwitch />
       <div class="block sm:hidden">
-        <button
+        <spna
           @click="toggle"
           class="flex items-center px-3 py-2 rounded outline-none"
         >
@@ -24,7 +25,7 @@
               :class="{ '-rotate-45': open, ' translate-y-1.5': !open }"
             ></span>
           </div>
-        </button>
+        </spna>
       </div>
       <div
         :class="open ? 'block' : 'hidden'"
@@ -63,20 +64,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from 'vue'
+import themeSwitch from '/src/components/themeSwitch.vue'
 
 export default defineComponent({
   data() {
     return {
       open: false,
-    };
+    }
   },
-  methods: {
-    toggle() {
-      this.open = !this.open;
-    },
+  setup(props) {
+    let open = ref(false)
+
+    function toggle() {
+      open.value = !open.value
+    }
+    // anything returned here will be available for the rest of the component
+    return { open, toggle }
   },
-});
+  components: {
+    themeSwitch,
+  },
+})
 </script>
 
 <style scoped></style>
