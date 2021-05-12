@@ -2,3 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  @apply light;
+}
+
+.dark {
+  --color-bg-primary: #17224d;
+  --color-bg-secondary: #021e69;
+  --color-text-primary: #F6EBFF;
+  --color-text-secondary: #6e8fc2;
+  --color-text-accent: #00C89D;
+}
+
+.light {
+  --color-bg-primary: #f5fafa;
+  --color-bg-secondary: #17e9e1;
+  --color-text-primary: #171718;
+  --color-text-secondary: #464555;
+  --color-text-accent: #1d4ed8;
+}
