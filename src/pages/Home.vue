@@ -138,6 +138,18 @@
                   {{ tech }}
                 </span>
               </div>
+
+              <!-- Case study link -->
+              <router-link
+                v-if="project.slug"
+                :to="{ name: 'case-study', params: { slug: project.slug } }"
+                class="inline-flex items-center gap-2 mt-5 text-vue-500 hover:text-vue-700 font-semibold text-sm transition-colors group/link"
+              >
+                Read the story
+                <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </router-link>
             </div>
           </div>
         </div>
@@ -230,21 +242,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive, onMounted } from "vue";
+import { defineComponent, reactive, onMounted } from "vue";
 import { useScrollReveal } from "../composables/useScrollReveal";
 import { useRipple } from "../composables/useRipple";
 import { useMagneticEffect } from "../composables/useMagneticEffect";
 import { useTiltEffect } from "../composables/useTiltEffect";
 import { useParallaxDepth } from "../composables/useParallaxDepth";
-
-interface FeaturedProject {
-  id: number;
-  title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  accent: string;
-}
+import { homeFeaturedProjects } from "../data/projects";
 
 interface SkillCategory {
   name: string;
@@ -269,40 +273,7 @@ export default defineComponent({
       { value: "161", label: "GitHub Stars" },
       { value: "15+", label: "Technologies" },
     ];
-    const featuredProjects: FeaturedProject[] = [
-      {
-        id: 1,
-        title: "Vue 3 Dashboard",
-        description: "A comprehensive Vue 3 dashboard application with modern UI components, data visualization, and responsive design built with the Composition API.",
-        tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS"],
-        github: "https://github.com/caraseli02/dashboard-vue3",
-        accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
-      },
-      {
-        id: 2,
-        title: "FastAPI Real-World App",
-        description: "A production-ready backend application built with Python and FastAPI, implementing real-world patterns including authentication, CRUD operations, and API design.",
-        tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
-        github: "https://github.com/caraseli02/fastapi-realworld-example-app",
-        accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
-      },
-      {
-        id: 3,
-        title: "Nuxt Travel Bookings",
-        description: "A travel booking platform built with Nuxt.js featuring server-side rendering, dynamic routes, and a polished user experience for browsing and booking trips.",
-        tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR"],
-        github: "https://github.com/caraseli02/nuxt-travels-bookings",
-        accent: "bg-gradient-to-r from-amber-500 to-orange-500",
-      },
-      {
-        id: 4,
-        title: "Inventory Management App",
-        description: "A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.",
-        tech: ["TypeScript", "Vue 3", "Vite", "Tailwind CSS"],
-        github: "https://github.com/caraseli02/inventory-app",
-        accent: "bg-gradient-to-r from-purple-500 to-pink-500",
-      },
-    ];
+    const featuredProjects = homeFeaturedProjects;
     const skills: SkillCategory[] = [
       { name: "Frontend Core", icon: "\u{1F3A8}", iconBg: "bg-green-100 text-green-700", items: ["Vue 3", "Nuxt 3", "TypeScript", "JavaScript", "HTML/CSS"] },
       { name: "Tooling & UI", icon: "\u{1F6E0}", iconBg: "bg-blue-100 text-blue-700", items: ["Vite", "Tailwind CSS", "PrimeVue", "Vuetify", "GSAP"] },

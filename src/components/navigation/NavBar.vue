@@ -23,7 +23,7 @@
             :to="link.path"
             class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
             :class="[
-              $route.path === link.path
+              (link.path === '/' ? $route.path === '/' : $route.path.startsWith(link.path))
                 ? (scrolled ? 'text-vue-500 bg-green-50' : 'text-white bg-white bg-opacity-20')
                 : (scrolled ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50' : 'text-gray-200 hover:text-white hover:bg-white hover:bg-opacity-10')
             ]"
@@ -79,7 +79,7 @@
               :to="link.path"
               @click="open = false"
               class="block px-4 py-3 rounded-lg text-sm font-medium transition-colors"
-              :class="$route.path === link.path
+              :class="(link.path === '/' ? $route.path === '/' : $route.path.startsWith(link.path))
                 ? 'text-vue-500 bg-green-50'
                 : 'text-gray-700 hover:bg-gray-50'"
             >
