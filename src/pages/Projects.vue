@@ -1,109 +1,81 @@
 <template>
-  <div class="bg-white min-h-screen">
-    <!-- Header Section -->
-    <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-5xl font-bold mb-4">Projects</h1>
-        <p class="text-xl text-blue-100">Transforming ideas into impactful solutions</p>
+  <div>
+    <!-- Hero Section -->
+    <section class="relative bg-vue-700 pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">Projects</h1>
+        <p class="text-lg text-gray-300 max-w-xl">A selection of applications and tools I've built with Vue.js and beyond</p>
       </div>
     </section>
 
-    <!-- Featured Case Studies -->
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Featured Projects -->
+    <section class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
         <div class="mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">Case Studies</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+          <h2 class="section-heading">Featured Work</h2>
+          <p class="section-subheading">Detailed look at key projects</p>
         </div>
 
-        <div class="space-y-12">
+        <div class="space-y-8">
           <div
-            v-for="project in caseStudies"
+            v-for="project in featuredProjects"
             :key="project.id"
-            class="group bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+            class="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden hover:border-vue-500 transition-all duration-300"
           >
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-10">
-              <!-- Left side - Content -->
-              <div>
-                <div class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
-                  Featured Project
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
+              <!-- Content -->
+              <div class="lg:col-span-3 p-8 lg:p-10">
+                <div class="inline-block px-3 py-1 bg-green-50 text-vue-500 rounded-lg text-xs font-semibold mb-4">
+                  {{ project.category }}
                 </div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition">{{ project.title }}</h3>
-                <p class="text-gray-700 text-lg mb-8 leading-relaxed">{{ project.description }}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-vue-500 transition-colors">
+                  {{ project.title }}
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6">{{ project.description }}</p>
 
-                <!-- Problem-Solution-Results -->
-                <div class="space-y-6 mb-8">
-                  <div class="border-l-4 border-blue-600 pl-4">
-                    <h4 class="font-bold text-gray-900 mb-2">🎯 Problem</h4>
-                    <p class="text-gray-600">{{ project.problem }}</p>
-                  </div>
-                  <div class="border-l-4 border-purple-600 pl-4">
-                    <h4 class="font-bold text-gray-900 mb-2">⚙️ Solution</h4>
-                    <p class="text-gray-600">{{ project.solution }}</p>
-                  </div>
-                  <div class="border-l-4 border-green-600 pl-4">
-                    <h4 class="font-bold text-gray-900 mb-2">✅ Results</h4>
-                    <p class="text-gray-600">{{ project.results }}</p>
+                <!-- Highlights -->
+                <div class="space-y-3 mb-6">
+                  <div v-for="highlight in project.highlights" :key="highlight" class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-vue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-gray-600 text-sm">{{ highlight }}</span>
                   </div>
                 </div>
 
                 <!-- Tech Stack -->
-                <div>
-                  <h4 class="font-bold text-gray-900 mb-3">Tech Stack</h4>
-                  <div class="flex flex-wrap gap-2">
-                    <span
-                      v-for="tech in project.tech"
-                      :key="tech"
-                      class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
-                    >
-                      {{ tech }}
-                    </span>
-                  </div>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="tech in project.tech"
+                    :key="tech"
+                    class="tech-badge bg-white text-gray-700 border border-gray-200"
+                  >
+                    {{ tech }}
+                  </span>
                 </div>
               </div>
 
-              <!-- Right side - Links & Stats -->
-              <div class="flex flex-col justify-center">
-                <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-xl p-8">
-                  <h4 class="text-lg font-bold mb-6">Project Links</h4>
-                  <div class="space-y-4">
-                    <a
-                      v-if="project.link"
-                      :href="project.link"
-                      target="_blank"
-                      class="flex items-center justify-between p-4 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition"
-                    >
-                      <span class="font-semibold">View Live Project</span>
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m4-6h-8m4 0V4m0 0L8 8"></path>
-                      </svg>
-                    </a>
-                    <a
-                      v-if="project.github"
-                      :href="project.github"
-                      target="_blank"
-                      class="flex items-center justify-between p-4 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition"
-                    >
-                      <span class="font-semibold">View Source Code</span>
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-                      </svg>
-                    </a>
-                  </div>
+              <!-- Links panel -->
+              <div class="lg:col-span-2 bg-vue-700 p-8 lg:p-10 flex flex-col justify-center">
+                <h4 class="text-white font-bold mb-6">Project Links</h4>
+                <div class="space-y-3">
+                  <a
+                    v-if="project.github"
+                    :href="project.github"
+                    target="_blank"
+                    class="flex items-center justify-between p-4 bg-white bg-opacity-10 rounded-xl hover:bg-opacity-20 transition-all text-white group/link"
+                  >
+                    <span class="font-medium text-sm">View Source Code</span>
+                    <svg class="w-5 h-5 group-hover/link:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                    </svg>
+                  </a>
+                </div>
 
-                  <div class="mt-8 pt-8 border-t border-white border-opacity-20">
-                    <p class="text-sm text-blue-100 mb-3">Impact Metrics</p>
-                    <div class="space-y-2 text-sm">
-                      <div class="flex justify-between">
-                        <span>Performance Gain</span>
-                        <span class="font-bold">+40%</span>
-                      </div>
-                      <div class="flex justify-between">
-                        <span>Scalability</span>
-                        <span class="font-bold">3x</span>
-                      </div>
-                    </div>
-                  </div>
+                <div class="mt-6 pt-6 border-t border-white border-opacity-20">
+                  <p class="text-gray-300 text-xs uppercase tracking-wider font-medium mb-3">Built With</p>
+                  <p class="text-white text-sm font-medium">{{ project.tech.slice(0, 3).join(' + ') }}</p>
                 </div>
               </div>
             </div>
@@ -112,68 +84,67 @@
       </div>
     </section>
 
-    <!-- Project Gallery -->
+    <!-- All Projects Grid -->
     <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
         <div class="mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">Other Projects</h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+          <h2 class="section-heading">More Projects</h2>
+          <p class="section-subheading">Other notable work from my portfolio</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a
             v-for="project in otherProjects"
             :key="project.id"
-            class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden hover:border-blue-300"
+            :href="project.github"
+            target="_blank"
+            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover"
           >
-            <!-- Top accent bar -->
-            <div class="h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
-
+            <!-- Accent bar -->
+            <div class="h-1" :class="project.accent"></div>
             <div class="p-6">
-              <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">{{ project.title }}</h3>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">{{ project.description }}</p>
-
-              <div class="mb-6">
-                <div class="flex flex-wrap gap-1">
-                  <span
-                    v-for="tech in project.tech.slice(0, 3)"
-                    :key="tech"
-                    class="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium border border-blue-200"
-                  >
-                    {{ tech }}
-                  </span>
-                  <span v-if="project.tech.length > 3" class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
-                    +{{ project.tech.length - 3 }}
-                  </span>
-                </div>
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-base font-bold text-gray-900 group-hover:text-vue-500 transition-colors">
+                  {{ project.title }}
+                </h3>
+                <svg class="w-4 h-4 text-gray-400 group-hover:text-vue-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
               </div>
-
-              <div class="flex gap-3 pt-4 border-t border-gray-200">
-                <a
-                  v-if="project.link"
-                  :href="project.link"
-                  target="_blank"
-                  class="flex items-center text-blue-600 hover:text-blue-800 text-sm font-semibold gap-1 group/link"
+              <p class="text-gray-500 text-sm mb-5 leading-relaxed">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  v-for="tech in project.tech"
+                  :key="tech"
+                  class="px-2.5 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium"
                 >
-                  Demo
-                  <svg class="w-3 h-3 group-hover/link:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-                <a
-                  v-if="project.github"
-                  :href="project.github"
-                  target="_blank"
-                  class="flex items-center text-blue-600 hover:text-blue-800 text-sm font-semibold gap-1 group/link"
-                >
-                  Code
-                  <svg class="w-3 h-3 group-hover/link:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+                  {{ tech }}
+                </span>
               </div>
             </div>
-          </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open Source CTA -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <div class="bg-vue-700 rounded-2xl p-10 lg:p-14">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">Want to see more?</h2>
+          <p class="text-gray-300 mb-8 max-w-lg mx-auto">
+            I have 58+ public repositories on GitHub covering Vue.js components, full-stack apps, and experimental projects.
+          </p>
+          <a
+            href="https://github.com/caraseli02?tab=repositories"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            Browse All Repositories
+          </a>
         </div>
       </div>
     </section>
@@ -188,89 +159,141 @@ interface Project {
   title: string;
   description: string;
   tech: string[];
-  link?: string;
   github?: string;
+  accent?: string;
 }
 
-interface CaseStudy extends Project {
-  problem: string;
-  solution: string;
-  results: string;
+interface FeaturedProject extends Project {
+  category: string;
+  highlights: string[];
 }
 
 export default defineComponent({
   name: "Projects",
   data(): {
-    caseStudies: CaseStudy[];
+    featuredProjects: FeaturedProject[];
     otherProjects: Project[];
   } {
     return {
-      caseStudies: [
+      featuredProjects: [
         {
           id: 1,
-          title: "E-Commerce Platform Redesign",
-          description: "Rebuilt a legacy e-commerce platform with modern architecture and improved performance.",
-          problem: "Monolithic architecture causing slow deployments and poor scalability with frequent downtime during peak hours.",
-          solution: "Migrated to microservices using Spring Boot, containerized with Docker, deployed on AWS ECS with auto-scaling.",
-          results: "50% reduction in deployment time, 3x improvement in scalability, 99.9% uptime achieved.",
-          tech: ["Java", "Spring Boot", "Docker", "AWS", "PostgreSQL", "React", "Kubernetes"],
-          link: "https://example.com",
-          github: "https://github.com/example",
+          title: "Vue 3 Dashboard",
+          category: "Frontend Application",
+          description:
+            "A comprehensive dashboard application built with Vue 3 and the Composition API. Features modern UI components, data visualization, and a fully responsive layout.",
+          highlights: [
+            "Built with Vue 3 Composition API and TypeScript",
+            "Responsive design with Tailwind CSS utility classes",
+            "Data visualization with interactive charts",
+            "Modular component architecture for reusability",
+          ],
+          tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Chart.js"],
+          github: "https://github.com/caraseli02/dashboard-vue3",
         },
         {
           id: 2,
-          title: "Real-Time Analytics Dashboard",
-          description: "Built a real-time data processing and visualization platform for financial analytics.",
-          problem: "Manual data processing causing 24-hour delays in decision-making, poor data insights.",
-          solution: "Created real-time pipeline with Node.js, WebSocket integration, MongoDB aggregation, and React frontend.",
-          results: "Real-time data insights, 10x faster analysis, 50% reduction in manual work.",
-          tech: ["Node.js", "React", "WebSocket", "MongoDB", "Redis", "Docker"],
-          github: "https://github.com/example",
+          title: "FastAPI Real-World Application",
+          category: "Full-Stack Application",
+          description:
+            "A production-ready backend built with Python and FastAPI following the RealWorld specification. Implements authentication, CRUD operations, and clean architecture patterns.",
+          highlights: [
+            "RESTful API with FastAPI async framework",
+            "JWT-based authentication and authorization",
+            "PostgreSQL database with SQLAlchemy ORM",
+            "Docker containerization for easy deployment",
+          ],
+          tech: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy"],
+          github: "https://github.com/caraseli02/fastapi-realworld-example-app",
+        },
+        {
+          id: 3,
+          title: "Nuxt Travel Bookings",
+          category: "Full-Stack Application",
+          description:
+            "A travel booking platform built with Nuxt.js featuring server-side rendering for SEO, dynamic routes for trip details, and a polished booking experience.",
+          highlights: [
+            "Server-side rendering with Nuxt 3 for optimal SEO",
+            "Dynamic routing for trip listings and details",
+            "Responsive design with modern UI patterns",
+            "Integrated booking flow with form validation",
+          ],
+          tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR", "Tailwind CSS"],
+          github: "https://github.com/caraseli02/nuxt-travels-bookings",
         },
       ],
       otherProjects: [
         {
-          id: 3,
-          title: "Task Management API",
-          description: "REST API for task management with user authentication and role-based access control.",
-          tech: ["Node.js", "Express", "MongoDB", "JWT", "Docker"],
-          github: "https://github.com/example",
-        },
-        {
           id: 4,
-          title: "Weather App",
-          description: "Real-time weather application with geolocation and multi-day forecasts.",
-          tech: ["React", "TypeScript", "Tailwind CSS", "OpenWeather API", "Axios"],
-          link: "https://example.com",
-          github: "https://github.com/example",
+          title: "Inventory Management App",
+          description:
+            "TypeScript-based inventory management with real-time tracking and CRUD operations.",
+          tech: ["TypeScript", "Vue 3", "Vite"],
+          github: "https://github.com/caraseli02/inventory-app",
+          accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
         },
         {
           id: 5,
-          title: "Microservices Infrastructure",
-          description: "Kubernetes cluster setup with CI/CD pipeline for automated deployments.",
-          tech: ["Kubernetes", "Docker", "Jenkins", "AWS", "Terraform"],
-          github: "https://github.com/example",
+          title: "MoldovaDirect",
+          description:
+            "A TypeScript web application connecting users with services and information about Moldova.",
+          tech: ["TypeScript", "Vue", "Tailwind CSS"],
+          github: "https://github.com/caraseli02/MoldovaDirect",
+          accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
         },
         {
           id: 6,
-          title: "Blog Platform",
-          description: "Full-stack blog with content management, user authentication, and SEO optimization.",
-          tech: ["Vue.js", "Node.js", "MongoDB", "Tailwind CSS", "JWT"],
-          link: "https://example.com",
+          title: "Jobs Hub",
+          description:
+            "A job listing platform built with TypeScript for browsing and managing job postings.",
+          tech: ["TypeScript", "Vue 3", "REST API"],
+          github: "https://github.com/caraseli02/jobs-hub",
+          accent: "bg-gradient-to-r from-amber-500 to-orange-500",
         },
         {
           id: 7,
-          title: "Payment Gateway Integration",
-          description: "Secure payment processing system with Stripe integration and webhook handling.",
-          tech: ["Java", "Spring Boot", "Stripe API", "PostgreSQL", "React"],
-          github: "https://github.com/example",
+          title: "Vite Vue 3 Starter",
+          description:
+            "A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.",
+          tech: ["Vue 3", "Vite", "TypeScript"],
+          github: "https://github.com/caraseli02/vite-vue3-starter",
+          accent: "bg-gradient-to-r from-purple-500 to-pink-500",
         },
         {
           id: 8,
-          title: "Machine Learning Pipeline",
-          description: "Data processing and ML model deployment pipeline with automated training.",
-          tech: ["Python", "TensorFlow", "AWS", "Docker", "Jenkins"],
-          github: "https://github.com/example",
+          title: "Tailwind Tabs Component",
+          description:
+            "A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.",
+          tech: ["Vue 3", "Tailwind CSS", "Vite"],
+          github: "https://github.com/caraseli02/vite-tailwind-tabs-component",
+          accent: "bg-gradient-to-r from-teal-500 to-cyan-500",
+        },
+        {
+          id: 9,
+          title: "Invoice Processing",
+          description:
+            "A Python-based invoice processing tool for automating document handling and data extraction.",
+          tech: ["Python", "Automation", "Data Processing"],
+          github: "https://github.com/caraseli02/InvoiceProcessing",
+          accent: "bg-gradient-to-r from-red-500 to-rose-500",
+        },
+        {
+          id: 10,
+          title: "Vuetify Barbershop",
+          description:
+            "A responsive barbershop website built with Vue.js and Vuetify material design components.",
+          tech: ["Vue.js", "Vuetify", "Responsive"],
+          github: "https://github.com/caraseli02/vuetify-responsive-barbershop",
+          accent: "bg-gradient-to-r from-gray-600 to-gray-800",
+        },
+        {
+          id: 11,
+          title: "Metrics App",
+          description:
+            "A Vue.js application for tracking and visualizing metrics with interactive dashboards.",
+          tech: ["Vue.js", "Charts", "MIT License"],
+          github: "https://github.com/caraseli02/metricsApp",
+          accent: "bg-gradient-to-r from-green-500 to-emerald-500",
         },
       ],
     };
