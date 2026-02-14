@@ -1,19 +1,20 @@
 <template>
-  <NavBar />
+  <div class="min-h-screen bg-gray-50 flex flex-col">
+    <NavBar />
+    <main class="flex-grow">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NavBar from "/src/components/navigation/NavBar.vue";
+import NavBar from "./components/navigation/NavBar.vue";
+import Footer from "./components/Footer.vue";
 
 export default defineComponent({
   name: "App",
-  components: { NavBar },
+  components: { NavBar, Footer },
 });
 </script>
-
-<style>
-.gradient {
-  background: linear-gradient(to right, #16c0b0, #84cf6a);
-}
-</style>
