@@ -1,65 +1,64 @@
 <template>
-  <div class="font-sans antialiased gradient rounded-b-lg">
-    <nav class="flex items-center justify-between flex-wrap bg-teal p-6">
-      <div class="flex items-center flex-no-shrink text-white mr-6">
-        <span class="font-semibold text-2xl tracking-tight">Caraseli</span>
-      </div>
-      <div class="block sm:hidden">
-        <button
-          @click="toggle"
-          class="flex items-center px-3 py-2 rounded outline-none"
-        >
-          <div
-            class="block w-5 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          >
-            <span
-              aria-hidden="true"
-              class="block absolute h-0.5 w-7 bg-current transform transition duration-500 ease-in-out"
-              :class="{ 'rotate-45': open, ' -translate-y-1.5': !open }"
-            ></span>
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <router-link to="/" class="flex items-center">
+          <span class="text-2xl font-bold text-blue-600">Vlad C</span>
+        </router-link>
 
-            <span
-              aria-hidden="true"
-              class="block absolute h-0.5 w-7 bg-current transform transition duration-500 ease-in-out"
-              :class="{ '-rotate-45': open, ' translate-y-1.5': !open }"
-            ></span>
-          </div>
-        </button>
-      </div>
-      <div
-        :class="open ? 'block' : 'hidden'"
-        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
-      >
-        <div class="text-sm font-semibold sm:flex-grow">
-          <a
-            href="#responsive-header"
-            class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white mr-4"
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <router-link
+            to="/"
+            class="text-gray-700 hover:text-blue-600 transition"
+            :class="{ 'text-blue-600 font-semibold': $route.path === '/' }"
           >
-            Services
-          </a>
-          <a
-            href="#responsive-header"
-            class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white mr-4"
+            Home
+          </router-link>
+          <router-link
+            to="/projects"
+            class="text-gray-700 hover:text-blue-600 transition"
+            :class="{ 'text-blue-600 font-semibold': $route.path === '/projects' }"
+          >
+            Projects
+          </router-link>
+          <router-link
+            to="/about"
+            class="text-gray-700 hover:text-blue-600 transition"
+            :class="{ 'text-blue-600 font-semibold': $route.path === '/about' }"
           >
             About
-          </a>
+          </router-link>
           <a
-            href="#responsive-header"
-            class="no-underline block mt-4 sm:inline-block sm:mt-0 text-teal-lighter hover:text-white"
+            href="https://linkedin.com/in/vlad"
+            target="_blank"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           >
-            Contact
+            LinkedIn
           </a>
         </div>
-        <div>
-          <a
-            href="#"
-            class="no-underline inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 sm:mt-0"
-            >Viev Resume</a
-          >
-        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          @click="open = !open"
+          class="md:hidden flex flex-col gap-1"
+        >
+          <span :class="['w-6 h-0.5 bg-gray-700 transition', { 'rotate-45 translate-y-1.5': open }]"></span>
+          <span :class="['w-6 h-0.5 bg-gray-700 transition', { 'opacity-0': open }]"></span>
+          <span :class="['w-6 h-0.5 bg-gray-700 transition', { '-rotate-45 -translate-y-1.5': open }]"></span>
+        </button>
       </div>
-    </nav>
-  </div>
+
+      <!-- Mobile Menu -->
+      <div v-if="open" class="md:hidden pb-4">
+        <router-link to="/" class="block py-2 text-gray-700 hover:text-blue-600">Home</router-link>
+        <router-link to="/projects" class="block py-2 text-gray-700 hover:text-blue-600">Projects</router-link>
+        <router-link to="/about" class="block py-2 text-gray-700 hover:text-blue-600">About</router-link>
+        <a href="https://linkedin.com/in/vlad" target="_blank" class="block py-2 text-gray-700 hover:text-blue-600">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script lang="ts">
