@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center bg-vue-700 overflow-hidden">
+    <section ref="heroRef" class="relative min-h-screen flex items-center bg-vue-700 overflow-hidden">
       <!-- Background decoration -->
       <div class="absolute inset-0">
-        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-vue-500 rounded-full opacity-10 animate-float"></div>
-        <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-emerald-400 rounded-full opacity-10 animate-float animation-delay-200"></div>
-        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-green-400 rounded-full opacity-5 animate-pulse-slow"></div>
+        <div data-depth="3" class="absolute top-1/4 -right-20 w-96 h-96 bg-vue-500 rounded-full opacity-10 animate-float"></div>
+        <div data-depth="2" class="absolute bottom-1/4 -left-20 w-80 h-80 bg-emerald-400 rounded-full opacity-10 animate-float animation-delay-200"></div>
+        <div data-depth="1" class="absolute top-1/2 left-1/2 w-64 h-64 bg-green-400 rounded-full opacity-5 animate-pulse-slow"></div>
         <!-- Grid pattern -->
-        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        <div data-depth="2" class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
       </div>
 
       <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-32">
@@ -32,8 +32,10 @@
 
           <div class="flex flex-wrap gap-4">
             <router-link
+              ref="ctaPrimaryRef"
               to="/projects"
-              class="group inline-flex items-center gap-2 px-7 py-3.5 bg-vue-500 text-white rounded-xl hover:bg-emerald-600 transition-all duration-200 font-semibold text-base shadow-lg shadow-emerald-500/25"
+              class="group inline-flex items-center gap-2 px-7 py-3.5 bg-vue-500 text-white rounded-xl hover:bg-emerald-600 transition-all duration-200 font-semibold text-base shadow-lg shadow-emerald-500/25 ripple-container"
+              data-cursor="button"
             >
               View My Work
               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,9 +43,11 @@
               </svg>
             </router-link>
             <a
+              ref="ctaSecondaryRef"
               href="https://www.linkedin.com/in/caraseli/"
               target="_blank"
-              class="inline-flex items-center gap-2 px-7 py-3.5 bg-white bg-opacity-10 text-white rounded-xl hover:bg-opacity-20 transition-all duration-200 font-semibold text-base border border-white border-opacity-20"
+              class="inline-flex items-center gap-2 px-7 py-3.5 bg-white bg-opacity-10 text-white rounded-xl hover:bg-opacity-20 transition-all duration-200 font-semibold text-base border border-white border-opacity-20 ripple-container"
+              data-cursor="button"
             >
               LinkedIn Profile
             </a>
@@ -65,7 +69,14 @@
     <section class="py-20 bg-white border-b border-gray-100">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <div v-for="stat in stats" :key="stat.label" class="text-center">
+          <div
+            v-for="(stat, i) in stats"
+            :key="stat.label"
+            :ref="el => { if (el) statRefs[i] = el }"
+            class="text-center reveal"
+            :class="{ revealed: statVisibility[i] }"
+            :style="{ transitionDelay: (i * 100) + 'ms' }"
+          >
             <div class="text-4xl font-extrabold text-vue-700 mb-2 tracking-tight">{{ stat.value }}</div>
             <p class="text-sm text-gray-500 font-medium uppercase tracking-wider">{{ stat.label }}</p>
           </div>
@@ -76,7 +87,11 @@
     <!-- Featured Projects Section -->
     <section class="py-24 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-4">
+        <div
+          ref="projectsHeadingRef"
+          class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-4 reveal"
+          :class="{ revealed: projectsHeadingVisible }"
+        >
           <div>
             <h2 class="section-heading">Featured Projects</h2>
             <p class="section-subheading">Selected work from my portfolio</p>
@@ -92,11 +107,15 @@
           </router-link>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="perspective: 1000px;">
           <div
-            v-for="project in featuredProjects"
+            v-for="(project, i) in featuredProjects"
             :key="project.id"
-            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover"
+            :ref="el => { if (el) projectCardRefs[i] = el }"
+            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover reveal"
+            :class="{ revealed: projectCardVisibility[i] }"
+            :style="{ transitionDelay: (i * 150) + 'ms' }"
+            data-cursor="card"
           >
             <!-- Project color header -->
             <div class="h-2" :class="project.accent"></div>
@@ -128,14 +147,23 @@
     <!-- Skills Section -->
     <section class="py-24 bg-white">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="mb-16">
+        <div
+          ref="skillsHeadingRef"
+          class="mb-16 reveal"
+          :class="{ revealed: skillsHeadingVisible }"
+        >
           <h2 class="section-heading">Tech Stack</h2>
           <p class="section-subheading">Technologies I work with daily</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div v-for="category in skills" :key="category.name"
-               class="group p-6 rounded-2xl border border-gray-200 hover:border-vue-500 transition-all duration-300 card-hover">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style="perspective: 1000px;">
+          <div v-for="(category, i) in skills" :key="category.name"
+               :ref="el => { if (el) skillCardRefs[i] = el }"
+               class="group p-6 rounded-2xl border border-gray-200 hover:border-vue-500 transition-all duration-300 card-hover reveal"
+               :class="{ revealed: skillCardVisibility[i] }"
+               :style="{ transitionDelay: (i * 100) + 'ms' }"
+               data-cursor="card"
+          >
             <div class="flex items-center gap-3 mb-5">
               <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
                    :class="category.iconBg">
@@ -160,15 +188,23 @@
     <!-- CTA Section -->
     <section class="py-24 bg-vue-700">
       <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Interested in working together?</h2>
-        <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
-          I'm always open to discussing new projects and collaboration opportunities.
-        </p>
+        <div
+          ref="ctaSectionRef"
+          class="reveal"
+          :class="{ revealed: ctaSectionVisible }"
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Interested in working together?</h2>
+          <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
+            I'm always open to discussing new projects and collaboration opportunities.
+          </p>
+        </div>
         <div class="flex flex-wrap justify-center gap-4">
           <a
+            ref="ctaLinkedInRef"
             href="https://www.linkedin.com/in/caraseli/"
             target="_blank"
-            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold ripple-container"
+            data-cursor="button"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
@@ -176,9 +212,11 @@
             Connect on LinkedIn
           </a>
           <a
+            ref="ctaGitHubRef"
             href="https://github.com/caraseli02"
             target="_blank"
-            class="inline-flex items-center gap-2 px-7 py-3.5 border border-white border-opacity-30 text-white rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-200 font-semibold"
+            class="inline-flex items-center gap-2 px-7 py-3.5 border border-white border-opacity-30 text-white rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-200 font-semibold ripple-container"
+            data-cursor="button"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
@@ -192,7 +230,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, reactive, onMounted } from "vue";
+import { useScrollReveal } from "../composables/useScrollReveal";
+import { useRipple } from "../composables/useRipple";
+import { useMagneticEffect } from "../composables/useMagneticEffect";
+import { useTiltEffect } from "../composables/useTiltEffect";
+import { useParallaxDepth } from "../composables/useParallaxDepth";
 
 interface FeaturedProject {
   id: number;
@@ -217,92 +260,178 @@ interface Stat {
 
 export default defineComponent({
   name: "Home",
-  data(): {
-    heroTechs: string[];
-    stats: Stat[];
-    featuredProjects: FeaturedProject[];
-    skills: SkillCategory[];
-  } {
+  setup() {
+    // Static data
+    const heroTechs = ["Vue 3", "Nuxt", "TypeScript", "Vite", "Tailwind", "Python"];
+    const stats: Stat[] = [
+      { value: "58+", label: "Repositories" },
+      { value: "6+", label: "Years Experience" },
+      { value: "161", label: "GitHub Stars" },
+      { value: "15+", label: "Technologies" },
+    ];
+    const featuredProjects: FeaturedProject[] = [
+      {
+        id: 1,
+        title: "Vue 3 Dashboard",
+        description: "A comprehensive Vue 3 dashboard application with modern UI components, data visualization, and responsive design built with the Composition API.",
+        tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS"],
+        github: "https://github.com/caraseli02/dashboard-vue3",
+        accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
+      },
+      {
+        id: 2,
+        title: "FastAPI Real-World App",
+        description: "A production-ready backend application built with Python and FastAPI, implementing real-world patterns including authentication, CRUD operations, and API design.",
+        tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
+        github: "https://github.com/caraseli02/fastapi-realworld-example-app",
+        accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
+      },
+      {
+        id: 3,
+        title: "Nuxt Travel Bookings",
+        description: "A travel booking platform built with Nuxt.js featuring server-side rendering, dynamic routes, and a polished user experience for browsing and booking trips.",
+        tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR"],
+        github: "https://github.com/caraseli02/nuxt-travels-bookings",
+        accent: "bg-gradient-to-r from-amber-500 to-orange-500",
+      },
+      {
+        id: 4,
+        title: "Inventory Management App",
+        description: "A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.",
+        tech: ["TypeScript", "Vue 3", "Vite", "Tailwind CSS"],
+        github: "https://github.com/caraseli02/inventory-app",
+        accent: "bg-gradient-to-r from-purple-500 to-pink-500",
+      },
+    ];
+    const skills: SkillCategory[] = [
+      { name: "Frontend Core", icon: "\u{1F3A8}", iconBg: "bg-green-100 text-green-700", items: ["Vue 3", "Nuxt 3", "TypeScript", "JavaScript", "HTML/CSS"] },
+      { name: "Tooling & UI", icon: "\u{1F6E0}", iconBg: "bg-blue-100 text-blue-700", items: ["Vite", "Tailwind CSS", "PrimeVue", "Vuetify", "GSAP"] },
+      { name: "Backend & Data", icon: "\u{1F5C4}", iconBg: "bg-purple-100 text-purple-700", items: ["Python", "FastAPI", "Firebase", "Node.js", "REST APIs"] },
+      { name: "State & Ecosystem", icon: "\u{1F4E6}", iconBg: "bg-amber-100 text-amber-700", items: ["Pinia", "Vuex", "Vue Router", "VueFire", "Gridsome"] },
+      { name: "DevOps & Tools", icon: "\u{2699}", iconBg: "bg-red-100 text-red-700", items: ["Git", "Docker", "CI/CD", "Vercel", "Netlify"] },
+      { name: "Practices", icon: "\u{1F4CB}", iconBg: "bg-teal-100 text-teal-700", items: ["Agile", "TDD", "Code Review", "Component Design", "SSR/SSG"] },
+    ];
+
+    // Parallax depth on hero
+    const { containerRef: heroRef } = useParallaxDepth({ intensity: 15 });
+
+    // Magnetic effect on CTA buttons
+    const { magneticRef: ctaPrimaryRef } = useMagneticEffect({ strength: 0.25, radius: 120 });
+    const { magneticRef: ctaSecondaryRef } = useMagneticEffect({ strength: 0.25, radius: 120 });
+    const { magneticRef: ctaLinkedInRef } = useMagneticEffect({ strength: 0.2, radius: 100 });
+    const { magneticRef: ctaGitHubRef } = useMagneticEffect({ strength: 0.2, radius: 100 });
+
+    // Ripple on CTA buttons
+    const ripple1 = useRipple();
+    const ripple2 = useRipple();
+    const ripple3 = useRipple();
+    const ripple4 = useRipple({ color: 'rgba(255, 255, 255, 0.2)' });
+
+    // Scroll reveals
+    const { revealRef: projectsHeadingRef, isVisible: projectsHeadingVisible } = useScrollReveal();
+    const { revealRef: skillsHeadingRef, isVisible: skillsHeadingVisible } = useScrollReveal();
+    const { revealRef: ctaSectionRef, isVisible: ctaSectionVisible } = useScrollReveal();
+
+    // Stats scroll reveal (manual refs for v-for)
+    const statRefs = reactive<Record<number, HTMLElement>>({});
+    const statVisibility = reactive<Record<number, boolean>>({});
+    const statObservers: IntersectionObserver[] = [];
+
+    // Project cards scroll reveal + tilt
+    const projectCardRefs = reactive<Record<number, HTMLElement>>({});
+    const projectCardVisibility = reactive<Record<number, boolean>>({});
+    const projectObservers: IntersectionObserver[] = [];
+
+    // Skill cards scroll reveal + tilt
+    const skillCardRefs = reactive<Record<number, HTMLElement>>({});
+    const skillCardVisibility = reactive<Record<number, boolean>>({});
+    const skillObservers: IntersectionObserver[] = [];
+
+    // Tilt effect refs for project cards
+    const tiltEffects = [
+      useTiltEffect({ maxTilt: 6, scale: 1.01 }),
+      useTiltEffect({ maxTilt: 6, scale: 1.01 }),
+      useTiltEffect({ maxTilt: 6, scale: 1.01 }),
+      useTiltEffect({ maxTilt: 6, scale: 1.01 }),
+    ];
+
+    // Tilt for skill cards
+    const skillTilts = Array.from({ length: 6 }, () => useTiltEffect({ maxTilt: 5, scale: 1.01, glare: false }));
+
+    onMounted(() => {
+      // Wire ripple to magnetic refs (they share the same elements)
+      ripple1.rippleRef.value = ctaPrimaryRef.value;
+      ripple2.rippleRef.value = ctaSecondaryRef.value;
+      ripple3.rippleRef.value = ctaLinkedInRef.value;
+      ripple4.rippleRef.value = ctaGitHubRef.value;
+
+      // Manual observers for v-for items
+      const createObserver = (
+        refs: Record<number, HTMLElement>,
+        visibility: Record<number, boolean>,
+        observers: IntersectionObserver[]
+      ) => {
+        Object.keys(refs).forEach((key) => {
+          const idx = Number(key);
+          const el = refs[idx];
+          if (!el) return;
+          const obs = new IntersectionObserver(
+            (entries) => {
+              if (entries[0]?.isIntersecting) {
+                visibility[idx] = true;
+                obs.unobserve(el);
+              }
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+          );
+          obs.observe(el);
+          observers.push(obs);
+        });
+      };
+
+      createObserver(statRefs, statVisibility, statObservers);
+      createObserver(projectCardRefs, projectCardVisibility, projectObservers);
+      createObserver(skillCardRefs, skillCardVisibility, skillObservers);
+
+      // Wire tilt to project cards
+      Object.keys(projectCardRefs).forEach((key) => {
+        const idx = Number(key);
+        if (tiltEffects[idx]) {
+          tiltEffects[idx].tiltRef.value = projectCardRefs[idx];
+        }
+      });
+
+      // Wire tilt to skill cards
+      Object.keys(skillCardRefs).forEach((key) => {
+        const idx = Number(key);
+        if (skillTilts[idx]) {
+          skillTilts[idx].tiltRef.value = skillCardRefs[idx];
+        }
+      });
+    });
+
     return {
-      heroTechs: ["Vue 3", "Nuxt", "TypeScript", "Vite", "Tailwind", "Python"],
-      stats: [
-        { value: "58+", label: "Repositories" },
-        { value: "6+", label: "Years Experience" },
-        { value: "161", label: "GitHub Stars" },
-        { value: "15+", label: "Technologies" },
-      ],
-      featuredProjects: [
-        {
-          id: 1,
-          title: "Vue 3 Dashboard",
-          description: "A comprehensive Vue 3 dashboard application with modern UI components, data visualization, and responsive design built with the Composition API.",
-          tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS"],
-          github: "https://github.com/caraseli02/dashboard-vue3",
-          accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
-        },
-        {
-          id: 2,
-          title: "FastAPI Real-World App",
-          description: "A production-ready backend application built with Python and FastAPI, implementing real-world patterns including authentication, CRUD operations, and API design.",
-          tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
-          github: "https://github.com/caraseli02/fastapi-realworld-example-app",
-          accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
-        },
-        {
-          id: 3,
-          title: "Nuxt Travel Bookings",
-          description: "A travel booking platform built with Nuxt.js featuring server-side rendering, dynamic routes, and a polished user experience for browsing and booking trips.",
-          tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR"],
-          github: "https://github.com/caraseli02/nuxt-travels-bookings",
-          accent: "bg-gradient-to-r from-amber-500 to-orange-500",
-        },
-        {
-          id: 4,
-          title: "Inventory Management App",
-          description: "A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.",
-          tech: ["TypeScript", "Vue 3", "Vite", "Tailwind CSS"],
-          github: "https://github.com/caraseli02/inventory-app",
-          accent: "bg-gradient-to-r from-purple-500 to-pink-500",
-        },
-      ],
-      skills: [
-        {
-          name: "Frontend Core",
-          icon: "\u{1F3A8}",
-          iconBg: "bg-green-100 text-green-700",
-          items: ["Vue 3", "Nuxt 3", "TypeScript", "JavaScript", "HTML/CSS"],
-        },
-        {
-          name: "Tooling & UI",
-          icon: "\u{1F6E0}",
-          iconBg: "bg-blue-100 text-blue-700",
-          items: ["Vite", "Tailwind CSS", "PrimeVue", "Vuetify", "GSAP"],
-        },
-        {
-          name: "Backend & Data",
-          icon: "\u{1F5C4}",
-          iconBg: "bg-purple-100 text-purple-700",
-          items: ["Python", "FastAPI", "Firebase", "Node.js", "REST APIs"],
-        },
-        {
-          name: "State & Ecosystem",
-          icon: "\u{1F4E6}",
-          iconBg: "bg-amber-100 text-amber-700",
-          items: ["Pinia", "Vuex", "Vue Router", "VueFire", "Gridsome"],
-        },
-        {
-          name: "DevOps & Tools",
-          icon: "\u{2699}",
-          iconBg: "bg-red-100 text-red-700",
-          items: ["Git", "Docker", "CI/CD", "Vercel", "Netlify"],
-        },
-        {
-          name: "Practices",
-          icon: "\u{1F4CB}",
-          iconBg: "bg-teal-100 text-teal-700",
-          items: ["Agile", "TDD", "Code Review", "Component Design", "SSR/SSG"],
-        },
-      ],
+      heroTechs,
+      stats,
+      featuredProjects,
+      skills,
+      heroRef,
+      ctaPrimaryRef,
+      ctaSecondaryRef,
+      ctaLinkedInRef,
+      ctaGitHubRef,
+      projectsHeadingRef,
+      projectsHeadingVisible,
+      skillsHeadingRef,
+      skillsHeadingVisible,
+      ctaSectionRef,
+      ctaSectionVisible,
+      statRefs,
+      statVisibility,
+      projectCardRefs,
+      projectCardVisibility,
+      skillCardRefs,
+      skillCardVisibility,
     };
   },
 });

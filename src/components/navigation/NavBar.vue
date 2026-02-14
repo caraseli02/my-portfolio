@@ -34,6 +34,7 @@
           <a
             href="https://github.com/caraseli02"
             target="_blank"
+            data-cursor="button"
             class="ml-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
             :class="scrolled
               ? 'bg-vue-700 text-white hover:bg-vue-800'
