@@ -88,6 +88,39 @@
     position: relative;
     overflow: hidden;
   }
+
+  /* Timeline progress line fill */
+  .timeline-progress-fill {
+    @apply absolute top-0 left-0 w-full rounded-full;
+    transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Timeline phase markers */
+  .phase-marker {
+    @apply w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .phase-marker--active {
+    @apply border-vue-500 bg-vue-500 text-white;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 4px rgba(66, 184, 131, 0.2);
+  }
+  .phase-marker--completed {
+    @apply border-vue-500 bg-vue-500 text-white;
+  }
+  .phase-marker--upcoming {
+    @apply border-gray-300 bg-white text-gray-400;
+  }
+
+  /* Narrative callout */
+  .narrative-callout {
+    @apply pl-6 border-l-4 border-vue-500;
+  }
+
+  /* Outcome metric */
+  .outcome-metric {
+    @apply text-5xl font-extrabold text-vue-700 tracking-tight;
+  }
 }
 
 @layer utilities {

@@ -40,7 +40,13 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-vue-500 transition-colors">
                   {{ project.title }}
                 </h3>
-                <p class="text-gray-600 leading-relaxed mb-6">{{ project.description }}</p>
+                <p class="text-gray-600 leading-relaxed mb-2">{{ project.description }}</p>
+
+                <!-- Metaphor tagline -->
+                <p v-if="project.caseStudy" class="text-vue-500 text-sm font-medium italic mb-6">
+                  "{{ project.caseStudy.metaphor.phrase }}"
+                </p>
+                <div v-else class="mb-6"></div>
 
                 <!-- Highlights -->
                 <div class="space-y-3 mb-6">
@@ -79,6 +85,18 @@
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
                     </svg>
                   </a>
+
+                  <!-- Case Study link -->
+                  <router-link
+                    v-if="project.caseStudy"
+                    :to="{ name: 'case-study', params: { slug: project.caseStudy.slug } }"
+                    class="flex items-center justify-between p-4 bg-vue-500 bg-opacity-30 rounded-xl hover:bg-opacity-50 transition-all text-white group/link"
+                  >
+                    <span class="font-medium text-sm">Read Case Study</span>
+                    <svg class="w-5 h-5 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </router-link>
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-white border-opacity-20">
@@ -179,79 +197,11 @@ import { useScrollReveal } from "../composables/useScrollReveal";
 import { useRipple } from "../composables/useRipple";
 import { useMagneticEffect } from "../composables/useMagneticEffect";
 import { useTiltEffect } from "../composables/useTiltEffect";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  accent?: string;
-}
-
-interface FeaturedProject extends Project {
-  category: string;
-  highlights: string[];
-}
+import { featuredProjects, otherProjects } from "../data/projects";
 
 export default defineComponent({
   name: "Projects",
   setup() {
-    const featuredProjects: FeaturedProject[] = [
-      {
-        id: 1,
-        title: "Vue 3 Dashboard",
-        category: "Frontend Application",
-        description: "A comprehensive dashboard application built with Vue 3 and the Composition API. Features modern UI components, data visualization, and a fully responsive layout.",
-        highlights: [
-          "Built with Vue 3 Composition API and TypeScript",
-          "Responsive design with Tailwind CSS utility classes",
-          "Data visualization with interactive charts",
-          "Modular component architecture for reusability",
-        ],
-        tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Chart.js"],
-        github: "https://github.com/caraseli02/dashboard-vue3",
-      },
-      {
-        id: 2,
-        title: "FastAPI Real-World Application",
-        category: "Full-Stack Application",
-        description: "A production-ready backend built with Python and FastAPI following the RealWorld specification. Implements authentication, CRUD operations, and clean architecture patterns.",
-        highlights: [
-          "RESTful API with FastAPI async framework",
-          "JWT-based authentication and authorization",
-          "PostgreSQL database with SQLAlchemy ORM",
-          "Docker containerization for easy deployment",
-        ],
-        tech: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy"],
-        github: "https://github.com/caraseli02/fastapi-realworld-example-app",
-      },
-      {
-        id: 3,
-        title: "Nuxt Travel Bookings",
-        category: "Full-Stack Application",
-        description: "A travel booking platform built with Nuxt.js featuring server-side rendering for SEO, dynamic routes for trip details, and a polished booking experience.",
-        highlights: [
-          "Server-side rendering with Nuxt 3 for optimal SEO",
-          "Dynamic routing for trip listings and details",
-          "Responsive design with modern UI patterns",
-          "Integrated booking flow with form validation",
-        ],
-        tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR", "Tailwind CSS"],
-        github: "https://github.com/caraseli02/nuxt-travels-bookings",
-      },
-    ];
-    const otherProjects: Project[] = [
-      { id: 4, title: "Inventory Management App", description: "TypeScript-based inventory management with real-time tracking and CRUD operations.", tech: ["TypeScript", "Vue 3", "Vite"], github: "https://github.com/caraseli02/inventory-app", accent: "bg-gradient-to-r from-vue-500 to-emerald-400" },
-      { id: 5, title: "MoldovaDirect", description: "A TypeScript web application connecting users with services and information about Moldova.", tech: ["TypeScript", "Vue", "Tailwind CSS"], github: "https://github.com/caraseli02/MoldovaDirect", accent: "bg-gradient-to-r from-blue-500 to-indigo-500" },
-      { id: 6, title: "Jobs Hub", description: "A job listing platform built with TypeScript for browsing and managing job postings.", tech: ["TypeScript", "Vue 3", "REST API"], github: "https://github.com/caraseli02/jobs-hub", accent: "bg-gradient-to-r from-amber-500 to-orange-500" },
-      { id: 7, title: "Vite Vue 3 Starter", description: "A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.", tech: ["Vue 3", "Vite", "TypeScript"], github: "https://github.com/caraseli02/vite-vue3-starter", accent: "bg-gradient-to-r from-purple-500 to-pink-500" },
-      { id: 8, title: "Tailwind Tabs Component", description: "A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.", tech: ["Vue 3", "Tailwind CSS", "Vite"], github: "https://github.com/caraseli02/vite-tailwind-tabs-component", accent: "bg-gradient-to-r from-teal-500 to-cyan-500" },
-      { id: 9, title: "Invoice Processing", description: "A Python-based invoice processing tool for automating document handling and data extraction.", tech: ["Python", "Automation", "Data Processing"], github: "https://github.com/caraseli02/InvoiceProcessing", accent: "bg-gradient-to-r from-red-500 to-rose-500" },
-      { id: 10, title: "Vuetify Barbershop", description: "A responsive barbershop website built with Vue.js and Vuetify material design components.", tech: ["Vue.js", "Vuetify", "Responsive"], github: "https://github.com/caraseli02/vuetify-responsive-barbershop", accent: "bg-gradient-to-r from-gray-600 to-gray-800" },
-      { id: 11, title: "Metrics App", description: "A Vue.js application for tracking and visualizing metrics with interactive dashboards.", tech: ["Vue.js", "Charts", "MIT License"], github: "https://github.com/caraseli02/metricsApp", accent: "bg-gradient-to-r from-green-500 to-emerald-500" },
-    ];
-
     // Scroll reveals for headings
     const { revealRef: featuredHeadingRef, isVisible: featuredHeadingVisible } = useScrollReveal();
     const { revealRef: otherHeadingRef, isVisible: otherHeadingVisible } = useScrollReveal();

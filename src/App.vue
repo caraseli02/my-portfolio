@@ -3,7 +3,7 @@
     <CustomCursor />
     <NavBar />
     <main class="flex-grow">
-      <router-view />
+      <router-view :key="$route.fullPath" />
     </main>
     <Footer />
   </div>
