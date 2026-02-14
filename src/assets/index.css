@@ -2,3 +2,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background-color: #42b883;
+    color: white;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-gray-500 max-w-2xl;
+  }
+
+  .glass {
+    @apply bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg;
+  }
+
+  .tech-badge {
+    @apply px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}

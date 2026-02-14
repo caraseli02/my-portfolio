@@ -1,142 +1,156 @@
 <template>
-  <div class="bg-white">
-    <!-- Hero Section with Gradient -->
-    <section class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 text-white overflow-hidden py-32">
-      <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl"></div>
+  <div>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center bg-vue-700 overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-vue-500 rounded-full opacity-10 animate-float"></div>
+        <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-emerald-400 rounded-full opacity-10 animate-float animation-delay-200"></div>
+        <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-green-400 rounded-full opacity-5 animate-pulse-slow"></div>
+        <!-- Grid pattern -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
       </div>
 
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-6xl font-bold mb-6 leading-tight">
-          Full-Stack Engineer & Cloud Specialist
-        </h1>
-        <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Transforming complex technical challenges into elegant solutions. Specialized in cloud architecture, microservices, and scalable applications.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://linkedin.com/in/vlad"
-            target="_blank"
-            class="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition font-bold text-lg shadow-lg hover:shadow-xl"
-          >
-            View on LinkedIn
-          </a>
-          <router-link
-            to="/projects"
-            class="px-8 py-4 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition font-bold text-lg border-2 border-blue-300 hover:border-white"
-          >
-            Explore Projects
-          </router-link>
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-32">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white bg-opacity-10 rounded-full text-green-300 text-sm font-medium mb-8 backdrop-filter backdrop-blur-sm">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            Available for new projects
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            Hi, I'm Vlad
+            <span class="block text-vue-500">Caraseli</span>
+          </h1>
+
+          <p class="text-xl text-gray-300 mb-4 max-w-xl leading-relaxed">
+            Vue.js Web Developer based in Palma de Mallorca.
+          </p>
+          <p class="text-lg text-gray-400 mb-10 max-w-xl leading-relaxed">
+            Building modern, performant web applications with Vue 3, Nuxt, TypeScript, and the tools I love. After all, when you really love what you do, it doesn't seem like work.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <router-link
+              to="/projects"
+              class="group inline-flex items-center gap-2 px-7 py-3.5 bg-vue-500 text-white rounded-xl hover:bg-emerald-600 transition-all duration-200 font-semibold text-base shadow-lg shadow-emerald-500/25"
+            >
+              View My Work
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </router-link>
+            <a
+              href="https://www.linkedin.com/in/caraseli/"
+              target="_blank"
+              class="inline-flex items-center gap-2 px-7 py-3.5 bg-white bg-opacity-10 text-white rounded-xl hover:bg-opacity-20 transition-all duration-200 font-semibold text-base border border-white border-opacity-20"
+            >
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- Tech stack floating badges -->
+        <div class="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-3">
+          <div v-for="(tech, i) in heroTechs" :key="tech"
+               class="px-4 py-2 bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm rounded-lg text-white text-sm font-medium border border-white border-opacity-10 animate-fade-in"
+               :style="{ animationDelay: (i * 150) + 'ms' }">
+            {{ tech }}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-16 bg-gray-50 border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center p-8">
-            <div class="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">5+</div>
-            <p class="text-gray-700 font-semibold text-lg">Years of Experience</p>
-            <p class="text-gray-600 text-sm mt-2">Building scalable solutions</p>
-          </div>
-          <div class="text-center p-8">
-            <div class="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">20+</div>
-            <p class="text-gray-700 font-semibold text-lg">Projects Completed</p>
-            <p class="text-gray-600 text-sm mt-2">From concept to production</p>
-          </div>
-          <div class="text-center p-8">
-            <div class="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-3">10+</div>
-            <p class="text-gray-700 font-semibold text-lg">Technologies Mastered</p>
-            <p class="text-gray-600 text-sm mt-2">Modern tech stack expertise</p>
+    <section class="py-20 bg-white border-b border-gray-100">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div v-for="stat in stats" :key="stat.label" class="text-center">
+            <div class="text-4xl font-extrabold text-vue-700 mb-2 tracking-tight">{{ stat.value }}</div>
+            <p class="text-sm text-gray-500 font-medium uppercase tracking-wider">{{ stat.label }}</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Projects Section -->
-    <section class="py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Work</h2>
-          <p class="text-xl text-gray-600">Showcasing recent projects and case studies</p>
-          <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6"></div>
+    <section class="py-24 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-16 gap-4">
+          <div>
+            <h2 class="section-heading">Featured Projects</h2>
+            <p class="section-subheading">Selected work from my portfolio</p>
+          </div>
+          <router-link
+            to="/projects"
+            class="group inline-flex items-center gap-2 text-vue-500 hover:text-vue-700 font-semibold text-sm transition-colors"
+          >
+            View all projects
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </router-link>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div
             v-for="project in featuredProjects"
             :key="project.id"
-            class="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover"
           >
-            <div class="bg-gradient-to-br from-blue-500 to-purple-600 h-40 relative overflow-hidden">
-              <div class="absolute inset-0 opacity-20 flex items-center justify-center">
-                <div class="text-6xl text-white opacity-30">{{ project.id }}</div>
-              </div>
-            </div>
+            <!-- Project color header -->
+            <div class="h-2" :class="project.accent"></div>
             <div class="p-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">{{ project.title }}</h3>
-              <p class="text-gray-600 mb-6 leading-relaxed">{{ project.description }}</p>
-              <div class="flex flex-wrap gap-2 mb-6">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900 group-hover:text-vue-500 transition-colors">{{ project.title }}</h3>
+                <a v-if="project.github" :href="project.github" target="_blank" class="text-gray-400 hover:text-gray-700 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                </a>
+              </div>
+              <p class="text-gray-600 mb-6 leading-relaxed text-sm">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-2">
                 <span
                   v-for="tech in project.tech"
                   :key="tech"
-                  class="px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 rounded-full text-sm font-medium border border-blue-200"
+                  class="tech-badge bg-gray-100 text-gray-700"
                 >
                   {{ tech }}
                 </span>
               </div>
-              <router-link
-                to="/projects"
-                class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold group/link"
-              >
-                View Project
-                <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </router-link>
             </div>
           </div>
-        </div>
-
-        <div class="text-center">
-          <router-link
-            to="/projects"
-            class="inline-block px-10 py-4 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition font-bold text-lg"
-          >
-            View All Projects
-          </router-link>
         </div>
       </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold mb-4">Skills & Expertise</h2>
-          <p class="text-xl text-gray-300">Comprehensive tech stack across full-stack development</p>
-          <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6"></div>
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="mb-16">
+          <h2 class="section-heading">Tech Stack</h2>
+          <p class="section-subheading">Technologies I work with daily</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div v-for="category in skills" :key="category.name" class="group">
-            <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg p-6 h-full hover:shadow-xl transition">
-              <h3 class="text-xl font-bold mb-6 flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                {{ category.name }}
-              </h3>
-              <div class="space-y-3">
-                <div
-                  v-for="skill in category.items"
-                  :key="skill"
-                  class="flex items-center text-gray-100 group-hover:text-white transition"
-                >
-                  <span class="w-1.5 h-1.5 bg-white rounded-full mr-3 opacity-75"></span>
-                  {{ skill }}
-                </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div v-for="category in skills" :key="category.name"
+               class="group p-6 rounded-2xl border border-gray-200 hover:border-vue-500 transition-all duration-300 card-hover">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
+                   :class="category.iconBg">
+                {{ category.icon }}
               </div>
+              <h3 class="text-lg font-bold text-gray-900">{{ category.name }}</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in category.items"
+                :key="skill"
+                class="tech-badge bg-gray-50 text-gray-600 group-hover:bg-green-50 group-hover:text-vue-700"
+              >
+                {{ skill }}
+              </span>
             </div>
           </div>
         </div>
@@ -144,16 +158,34 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-4xl font-bold mb-6">Ready to collaborate?</h2>
-        <p class="text-xl text-blue-100 mb-8">Let's build something amazing together</p>
-        <router-link
-          to="/about"
-          class="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition font-bold text-lg"
-        >
-          Get in Touch
-        </router-link>
+    <section class="py-24 bg-vue-700">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 tracking-tight">Interested in working together?</h2>
+        <p class="text-lg text-gray-300 mb-10 max-w-xl mx-auto">
+          I'm always open to discussing new projects and collaboration opportunities.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://www.linkedin.com/in/caraseli/"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
+            </svg>
+            Connect on LinkedIn
+          </a>
+          <a
+            href="https://github.com/caraseli02"
+            target="_blank"
+            class="inline-flex items-center gap-2 px-7 py-3.5 border border-white border-opacity-30 text-white rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-200 font-semibold"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            View GitHub
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -167,50 +199,108 @@ interface FeaturedProject {
   title: string;
   description: string;
   tech: string[];
+  github?: string;
+  accent: string;
 }
 
 interface SkillCategory {
   name: string;
+  icon: string;
+  iconBg: string;
   items: string[];
+}
+
+interface Stat {
+  value: string;
+  label: string;
 }
 
 export default defineComponent({
   name: "Home",
   data(): {
+    heroTechs: string[];
+    stats: Stat[];
     featuredProjects: FeaturedProject[];
     skills: SkillCategory[];
   } {
     return {
+      heroTechs: ["Vue 3", "Nuxt", "TypeScript", "Vite", "Tailwind", "Python"],
+      stats: [
+        { value: "58+", label: "Repositories" },
+        { value: "6+", label: "Years Experience" },
+        { value: "161", label: "GitHub Stars" },
+        { value: "15+", label: "Technologies" },
+      ],
       featuredProjects: [
         {
           id: 1,
-          title: "E-Commerce Platform",
-          description: "Full-stack e-commerce solution with microservices architecture, cloud deployment on AWS, and real-time inventory management.",
-          tech: ["Java", "Spring Boot", "React", "PostgreSQL", "AWS"],
+          title: "Vue 3 Dashboard",
+          description: "A comprehensive Vue 3 dashboard application with modern UI components, data visualization, and responsive design built with the Composition API.",
+          tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS"],
+          github: "https://github.com/caraseli02/dashboard-vue3",
+          accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
         },
         {
           id: 2,
-          title: "Real-Time Analytics Dashboard",
-          description: "Real-time data processing and visualization platform with WebSocket integration and advanced filtering capabilities.",
-          tech: ["Node.js", "React", "MongoDB", "Redis", "Docker"],
+          title: "FastAPI Real-World App",
+          description: "A production-ready backend application built with Python and FastAPI, implementing real-world patterns including authentication, CRUD operations, and API design.",
+          tech: ["Python", "FastAPI", "PostgreSQL", "Docker"],
+          github: "https://github.com/caraseli02/fastapi-realworld-example-app",
+          accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
+        },
+        {
+          id: 3,
+          title: "Nuxt Travel Bookings",
+          description: "A travel booking platform built with Nuxt.js featuring server-side rendering, dynamic routes, and a polished user experience for browsing and booking trips.",
+          tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR"],
+          github: "https://github.com/caraseli02/nuxt-travels-bookings",
+          accent: "bg-gradient-to-r from-amber-500 to-orange-500",
+        },
+        {
+          id: 4,
+          title: "Inventory Management App",
+          description: "A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.",
+          tech: ["TypeScript", "Vue 3", "Vite", "Tailwind CSS"],
+          github: "https://github.com/caraseli02/inventory-app",
+          accent: "bg-gradient-to-r from-purple-500 to-pink-500",
         },
       ],
       skills: [
         {
-          name: "Backend",
-          items: ["Java", "Spring Boot", "Node.js", "Python", "REST APIs"],
+          name: "Frontend Core",
+          icon: "\u{1F3A8}",
+          iconBg: "bg-green-100 text-green-700",
+          items: ["Vue 3", "Nuxt 3", "TypeScript", "JavaScript", "HTML/CSS"],
         },
         {
-          name: "Frontend",
-          items: ["React", "Vue.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
+          name: "Tooling & UI",
+          icon: "\u{1F6E0}",
+          iconBg: "bg-blue-100 text-blue-700",
+          items: ["Vite", "Tailwind CSS", "PrimeVue", "Vuetify", "GSAP"],
         },
         {
-          name: "Cloud & DevOps",
-          items: ["AWS", "Docker", "Kubernetes", "CI/CD", "Git"],
+          name: "Backend & Data",
+          icon: "\u{1F5C4}",
+          iconBg: "bg-purple-100 text-purple-700",
+          items: ["Python", "FastAPI", "Firebase", "Node.js", "REST APIs"],
         },
         {
-          name: "Databases",
-          items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+          name: "State & Ecosystem",
+          icon: "\u{1F4E6}",
+          iconBg: "bg-amber-100 text-amber-700",
+          items: ["Pinia", "Vuex", "Vue Router", "VueFire", "Gridsome"],
+        },
+        {
+          name: "DevOps & Tools",
+          icon: "\u{2699}",
+          iconBg: "bg-red-100 text-red-700",
+          items: ["Git", "Docker", "CI/CD", "Vercel", "Netlify"],
+        },
+        {
+          name: "Practices",
+          icon: "\u{1F4CB}",
+          iconBg: "bg-teal-100 text-teal-700",
+          items: ["Agile", "TDD", "Code Review", "Component Design", "SSR/SSG"],
         },
       ],
     };
