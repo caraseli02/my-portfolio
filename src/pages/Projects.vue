@@ -12,16 +12,24 @@
     <!-- Featured Projects -->
     <section class="py-20 bg-white">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="mb-16">
+        <div
+          ref="featuredHeadingRef"
+          class="mb-16 reveal"
+          :class="{ revealed: featuredHeadingVisible }"
+        >
           <h2 class="section-heading">Featured Work</h2>
           <p class="section-subheading">Detailed look at key projects</p>
         </div>
 
         <div class="space-y-8">
           <div
-            v-for="project in featuredProjects"
+            v-for="(project, i) in featuredProjects"
             :key="project.id"
-            class="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden hover:border-vue-500 transition-all duration-300"
+            :ref="el => { if (el) featuredRefs[i] = el }"
+            class="group bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden hover:border-vue-500 transition-all duration-300 reveal"
+            :class="{ revealed: featuredVisibility[i] }"
+            :style="{ transitionDelay: (i * 150) + 'ms' }"
+            data-cursor="card"
           >
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
               <!-- Content -->
@@ -87,18 +95,26 @@
     <!-- All Projects Grid -->
     <section class="py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="mb-16">
+        <div
+          ref="otherHeadingRef"
+          class="mb-16 reveal"
+          :class="{ revealed: otherHeadingVisible }"
+        >
           <h2 class="section-heading">More Projects</h2>
           <p class="section-subheading">Other notable work from my portfolio</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style="perspective: 1000px;">
           <a
-            v-for="project in otherProjects"
+            v-for="(project, i) in otherProjects"
             :key="project.id"
+            :ref="el => { if (el) otherRefs[i] = el }"
             :href="project.github"
             target="_blank"
-            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover"
+            class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover reveal"
+            :class="{ revealed: otherVisibility[i] }"
+            :style="{ transitionDelay: (i * 80) + 'ms' }"
+            data-cursor="card"
           >
             <!-- Accent bar -->
             <div class="h-1" :class="project.accent"></div>
@@ -130,15 +146,21 @@
     <!-- Open Source CTA -->
     <section class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-        <div class="bg-vue-700 rounded-2xl p-10 lg:p-14">
+        <div
+          ref="ctaBlockRef"
+          class="bg-vue-700 rounded-2xl p-10 lg:p-14 reveal-scale"
+          :class="{ revealed: ctaBlockVisible }"
+        >
           <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">Want to see more?</h2>
           <p class="text-gray-300 mb-8 max-w-lg mx-auto">
             I have 58+ public repositories on GitHub covering Vue.js components, full-stack apps, and experimental projects.
           </p>
           <a
+            ref="ctaBrowseRef"
             href="https://github.com/caraseli02?tab=repositories"
             target="_blank"
-            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold"
+            class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold ripple-container"
+            data-cursor="button"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
@@ -152,7 +174,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, onMounted } from "vue";
+import { useScrollReveal } from "../composables/useScrollReveal";
+import { useRipple } from "../composables/useRipple";
+import { useMagneticEffect } from "../composables/useMagneticEffect";
+import { useTiltEffect } from "../composables/useTiltEffect";
 
 interface Project {
   id: number;
@@ -170,132 +196,139 @@ interface FeaturedProject extends Project {
 
 export default defineComponent({
   name: "Projects",
-  data(): {
-    featuredProjects: FeaturedProject[];
-    otherProjects: Project[];
-  } {
+  setup() {
+    const featuredProjects: FeaturedProject[] = [
+      {
+        id: 1,
+        title: "Vue 3 Dashboard",
+        category: "Frontend Application",
+        description: "A comprehensive dashboard application built with Vue 3 and the Composition API. Features modern UI components, data visualization, and a fully responsive layout.",
+        highlights: [
+          "Built with Vue 3 Composition API and TypeScript",
+          "Responsive design with Tailwind CSS utility classes",
+          "Data visualization with interactive charts",
+          "Modular component architecture for reusability",
+        ],
+        tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Chart.js"],
+        github: "https://github.com/caraseli02/dashboard-vue3",
+      },
+      {
+        id: 2,
+        title: "FastAPI Real-World Application",
+        category: "Full-Stack Application",
+        description: "A production-ready backend built with Python and FastAPI following the RealWorld specification. Implements authentication, CRUD operations, and clean architecture patterns.",
+        highlights: [
+          "RESTful API with FastAPI async framework",
+          "JWT-based authentication and authorization",
+          "PostgreSQL database with SQLAlchemy ORM",
+          "Docker containerization for easy deployment",
+        ],
+        tech: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy"],
+        github: "https://github.com/caraseli02/fastapi-realworld-example-app",
+      },
+      {
+        id: 3,
+        title: "Nuxt Travel Bookings",
+        category: "Full-Stack Application",
+        description: "A travel booking platform built with Nuxt.js featuring server-side rendering for SEO, dynamic routes for trip details, and a polished booking experience.",
+        highlights: [
+          "Server-side rendering with Nuxt 3 for optimal SEO",
+          "Dynamic routing for trip listings and details",
+          "Responsive design with modern UI patterns",
+          "Integrated booking flow with form validation",
+        ],
+        tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR", "Tailwind CSS"],
+        github: "https://github.com/caraseli02/nuxt-travels-bookings",
+      },
+    ];
+    const otherProjects: Project[] = [
+      { id: 4, title: "Inventory Management App", description: "TypeScript-based inventory management with real-time tracking and CRUD operations.", tech: ["TypeScript", "Vue 3", "Vite"], github: "https://github.com/caraseli02/inventory-app", accent: "bg-gradient-to-r from-vue-500 to-emerald-400" },
+      { id: 5, title: "MoldovaDirect", description: "A TypeScript web application connecting users with services and information about Moldova.", tech: ["TypeScript", "Vue", "Tailwind CSS"], github: "https://github.com/caraseli02/MoldovaDirect", accent: "bg-gradient-to-r from-blue-500 to-indigo-500" },
+      { id: 6, title: "Jobs Hub", description: "A job listing platform built with TypeScript for browsing and managing job postings.", tech: ["TypeScript", "Vue 3", "REST API"], github: "https://github.com/caraseli02/jobs-hub", accent: "bg-gradient-to-r from-amber-500 to-orange-500" },
+      { id: 7, title: "Vite Vue 3 Starter", description: "A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.", tech: ["Vue 3", "Vite", "TypeScript"], github: "https://github.com/caraseli02/vite-vue3-starter", accent: "bg-gradient-to-r from-purple-500 to-pink-500" },
+      { id: 8, title: "Tailwind Tabs Component", description: "A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.", tech: ["Vue 3", "Tailwind CSS", "Vite"], github: "https://github.com/caraseli02/vite-tailwind-tabs-component", accent: "bg-gradient-to-r from-teal-500 to-cyan-500" },
+      { id: 9, title: "Invoice Processing", description: "A Python-based invoice processing tool for automating document handling and data extraction.", tech: ["Python", "Automation", "Data Processing"], github: "https://github.com/caraseli02/InvoiceProcessing", accent: "bg-gradient-to-r from-red-500 to-rose-500" },
+      { id: 10, title: "Vuetify Barbershop", description: "A responsive barbershop website built with Vue.js and Vuetify material design components.", tech: ["Vue.js", "Vuetify", "Responsive"], github: "https://github.com/caraseli02/vuetify-responsive-barbershop", accent: "bg-gradient-to-r from-gray-600 to-gray-800" },
+      { id: 11, title: "Metrics App", description: "A Vue.js application for tracking and visualizing metrics with interactive dashboards.", tech: ["Vue.js", "Charts", "MIT License"], github: "https://github.com/caraseli02/metricsApp", accent: "bg-gradient-to-r from-green-500 to-emerald-500" },
+    ];
+
+    // Scroll reveals for headings
+    const { revealRef: featuredHeadingRef, isVisible: featuredHeadingVisible } = useScrollReveal();
+    const { revealRef: otherHeadingRef, isVisible: otherHeadingVisible } = useScrollReveal();
+    const { revealRef: ctaBlockRef, isVisible: ctaBlockVisible } = useScrollReveal();
+
+    // Magnetic + ripple on CTA button
+    const { magneticRef: ctaBrowseRef } = useMagneticEffect({ strength: 0.25, radius: 120 });
+    const ctaRipple = useRipple();
+
+    // Featured projects scroll reveal refs
+    const featuredRefs = reactive<Record<number, HTMLElement>>({});
+    const featuredVisibility = reactive<Record<number, boolean>>({});
+    const featuredObservers: IntersectionObserver[] = [];
+
+    // Other projects scroll reveal + tilt refs
+    const otherRefs = reactive<Record<number, HTMLElement>>({});
+    const otherVisibility = reactive<Record<number, boolean>>({});
+    const otherObservers: IntersectionObserver[] = [];
+
+    // Tilt effects for other project cards
+    const otherTilts = Array.from({ length: otherProjects.length }, () =>
+      useTiltEffect({ maxTilt: 5, scale: 1.01, glare: false })
+    );
+
+    onMounted(() => {
+      // Wire ripple to CTA
+      ctaRipple.rippleRef.value = ctaBrowseRef.value;
+
+      const createObserver = (
+        refs: Record<number, HTMLElement>,
+        visibility: Record<number, boolean>,
+        observers: IntersectionObserver[]
+      ) => {
+        Object.keys(refs).forEach((key) => {
+          const idx = Number(key);
+          const el = refs[idx];
+          if (!el) return;
+          const obs = new IntersectionObserver(
+            (entries) => {
+              if (entries[0]?.isIntersecting) {
+                visibility[idx] = true;
+                obs.unobserve(el);
+              }
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+          );
+          obs.observe(el);
+          observers.push(obs);
+        });
+      };
+
+      createObserver(featuredRefs, featuredVisibility, featuredObservers);
+      createObserver(otherRefs, otherVisibility, otherObservers);
+
+      // Wire tilt to other project cards
+      Object.keys(otherRefs).forEach((key) => {
+        const idx = Number(key);
+        if (otherTilts[idx]) {
+          otherTilts[idx].tiltRef.value = otherRefs[idx];
+        }
+      });
+    });
+
     return {
-      featuredProjects: [
-        {
-          id: 1,
-          title: "Vue 3 Dashboard",
-          category: "Frontend Application",
-          description:
-            "A comprehensive dashboard application built with Vue 3 and the Composition API. Features modern UI components, data visualization, and a fully responsive layout.",
-          highlights: [
-            "Built with Vue 3 Composition API and TypeScript",
-            "Responsive design with Tailwind CSS utility classes",
-            "Data visualization with interactive charts",
-            "Modular component architecture for reusability",
-          ],
-          tech: ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Chart.js"],
-          github: "https://github.com/caraseli02/dashboard-vue3",
-        },
-        {
-          id: 2,
-          title: "FastAPI Real-World Application",
-          category: "Full-Stack Application",
-          description:
-            "A production-ready backend built with Python and FastAPI following the RealWorld specification. Implements authentication, CRUD operations, and clean architecture patterns.",
-          highlights: [
-            "RESTful API with FastAPI async framework",
-            "JWT-based authentication and authorization",
-            "PostgreSQL database with SQLAlchemy ORM",
-            "Docker containerization for easy deployment",
-          ],
-          tech: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy"],
-          github: "https://github.com/caraseli02/fastapi-realworld-example-app",
-        },
-        {
-          id: 3,
-          title: "Nuxt Travel Bookings",
-          category: "Full-Stack Application",
-          description:
-            "A travel booking platform built with Nuxt.js featuring server-side rendering for SEO, dynamic routes for trip details, and a polished booking experience.",
-          highlights: [
-            "Server-side rendering with Nuxt 3 for optimal SEO",
-            "Dynamic routing for trip listings and details",
-            "Responsive design with modern UI patterns",
-            "Integrated booking flow with form validation",
-          ],
-          tech: ["Nuxt 3", "Vue 3", "TypeScript", "SSR", "Tailwind CSS"],
-          github: "https://github.com/caraseli02/nuxt-travels-bookings",
-        },
-      ],
-      otherProjects: [
-        {
-          id: 4,
-          title: "Inventory Management App",
-          description:
-            "TypeScript-based inventory management with real-time tracking and CRUD operations.",
-          tech: ["TypeScript", "Vue 3", "Vite"],
-          github: "https://github.com/caraseli02/inventory-app",
-          accent: "bg-gradient-to-r from-vue-500 to-emerald-400",
-        },
-        {
-          id: 5,
-          title: "MoldovaDirect",
-          description:
-            "A TypeScript web application connecting users with services and information about Moldova.",
-          tech: ["TypeScript", "Vue", "Tailwind CSS"],
-          github: "https://github.com/caraseli02/MoldovaDirect",
-          accent: "bg-gradient-to-r from-blue-500 to-indigo-500",
-        },
-        {
-          id: 6,
-          title: "Jobs Hub",
-          description:
-            "A job listing platform built with TypeScript for browsing and managing job postings.",
-          tech: ["TypeScript", "Vue 3", "REST API"],
-          github: "https://github.com/caraseli02/jobs-hub",
-          accent: "bg-gradient-to-r from-amber-500 to-orange-500",
-        },
-        {
-          id: 7,
-          title: "Vite Vue 3 Starter",
-          description:
-            "A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.",
-          tech: ["Vue 3", "Vite", "TypeScript"],
-          github: "https://github.com/caraseli02/vite-vue3-starter",
-          accent: "bg-gradient-to-r from-purple-500 to-pink-500",
-        },
-        {
-          id: 8,
-          title: "Tailwind Tabs Component",
-          description:
-            "A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.",
-          tech: ["Vue 3", "Tailwind CSS", "Vite"],
-          github: "https://github.com/caraseli02/vite-tailwind-tabs-component",
-          accent: "bg-gradient-to-r from-teal-500 to-cyan-500",
-        },
-        {
-          id: 9,
-          title: "Invoice Processing",
-          description:
-            "A Python-based invoice processing tool for automating document handling and data extraction.",
-          tech: ["Python", "Automation", "Data Processing"],
-          github: "https://github.com/caraseli02/InvoiceProcessing",
-          accent: "bg-gradient-to-r from-red-500 to-rose-500",
-        },
-        {
-          id: 10,
-          title: "Vuetify Barbershop",
-          description:
-            "A responsive barbershop website built with Vue.js and Vuetify material design components.",
-          tech: ["Vue.js", "Vuetify", "Responsive"],
-          github: "https://github.com/caraseli02/vuetify-responsive-barbershop",
-          accent: "bg-gradient-to-r from-gray-600 to-gray-800",
-        },
-        {
-          id: 11,
-          title: "Metrics App",
-          description:
-            "A Vue.js application for tracking and visualizing metrics with interactive dashboards.",
-          tech: ["Vue.js", "Charts", "MIT License"],
-          github: "https://github.com/caraseli02/metricsApp",
-          accent: "bg-gradient-to-r from-green-500 to-emerald-500",
-        },
-      ],
+      featuredProjects,
+      otherProjects,
+      featuredHeadingRef,
+      featuredHeadingVisible,
+      otherHeadingRef,
+      otherHeadingVisible,
+      ctaBlockRef,
+      ctaBlockVisible,
+      ctaBrowseRef,
+      featuredRefs,
+      featuredVisibility,
+      otherRefs,
+      otherVisibility,
     };
   },
 });
