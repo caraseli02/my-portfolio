@@ -83,24 +83,42 @@ export default defineComponent({
   setup() {
     const words = ['daring', 'playful', 'immersive', 'enticing', 'joyful', 'intuitive', 'exciting'];
     const currentWordIndex = ref(0);
-    let interval: number | null = null;
+    let interval: ReturnType<typeof setInterval> | null = null;
 
     const hasPeriod = (index: number): boolean => {
       // Add period to certain words like in the reference
       return index === 0 || index === 1 || index === 5;
     };
 
-    onMounted(() => {
-      // Cycle through words every 2 seconds
+    const startInterval = () => {
       interval = window.setInterval(() => {
         currentWordIndex.value = (currentWordIndex.value + 1) % words.length;
       }, 2000);
+    };
+
+    const stopInterval = () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopInterval();
+      } else {
+        startInterval();
+      }
+    };
+
+    onMounted(() => {
+      startInterval();
+      document.addEventListener('visibilitychange', handleVisibilityChange);
     });
 
     onUnmounted(() => {
-      if (interval) {
-        clearInterval(interval);
-      }
+      stopInterval();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     });
 
     return {

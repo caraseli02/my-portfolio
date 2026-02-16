@@ -70,6 +70,7 @@
             ref="githubRef"
             :href="github"
             target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex items-center gap-2 px-6 py-3 bg-white bg-opacity-10 text-white rounded-xl hover:bg-opacity-20 transition-all duration-200 font-semibold text-sm border border-white border-opacity-20 ripple-container"
             data-cursor="button"
           >

@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, PropType } from 'vue'
+import { defineComponent, reactive, onMounted, onUnmounted, PropType } from 'vue'
 import { Outcome } from '../../types/projects'
 
 export default defineComponent({
@@ -53,6 +53,11 @@ export default defineComponent({
         obs.observe(el)
         observers.push(obs)
       })
+    })
+
+    onUnmounted(() => {
+      observers.forEach(obs => obs.disconnect())
+      observers.length = 0
     })
 
     return { outcomeRefs, outcomeVisibility }

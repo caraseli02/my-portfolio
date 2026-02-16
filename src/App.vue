@@ -3,7 +3,7 @@
     <CustomCursor />
     <Header />
     <main class="flex-grow">
-      <router-view :key="$route.fullPath" />
+      <router-view />
     </main>
   </div>
 </template>

@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, PropType } from 'vue'
+import { defineComponent, reactive, onMounted, onUnmounted, PropType } from 'vue'
 
 export default defineComponent({
   name: 'LessonsLearned',
@@ -55,6 +55,11 @@ export default defineComponent({
         obs.observe(el)
         observers.push(obs)
       })
+    })
+
+    onUnmounted(() => {
+      observers.forEach(obs => obs.disconnect())
+      observers.length = 0
     })
 
     return { lessonRefs, lessonVisibility }

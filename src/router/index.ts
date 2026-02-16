@@ -1,23 +1,51 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages/Home.vue'
-import About from '../pages/About.vue'
-import Contact from '../pages/Contact.vue'
-import CaseStudy from '../pages/CaseStudy.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-const routes = [
-  { path: '/', name: 'home', component: Home },
+const routes: RouteRecordRaw[] = [
+  { 
+    path: '/', 
+    name: 'home', 
+    component: () => import('../pages/Home.vue'),
+    meta: { 
+      title: 'Vlad Caraseli | Vue.js Developer',
+      description: 'Vue.js web developer based in Palma de Mallorca, building modern web applications with Vue 3, TypeScript, and Tailwind CSS.'
+    }
+  },
   {
     path: '/projects/:slug',
     name: 'case-study',
-    component: CaseStudy,
+    component: () => import('../pages/CaseStudy.vue'),
     props: true,
+    meta: {
+      title: 'Case Study | Vlad Caraseli',
+      description: 'Detailed case study of a web development project.'
+    }
   },
-  { path: '/about', name: 'about', component: About },
-  { path: '/contact', name: 'contact', component: Contact },
+  { 
+    path: '/about', 
+    name: 'about', 
+    component: () => import('../pages/About.vue'),
+    meta: {
+      title: 'About | Vlad Caraseli',
+      description: 'Learn more about Vlad Caraseli, a Vue.js developer based in Palma de Mallorca.'
+    }
+  },
+  { 
+    path: '/contact', 
+    name: 'contact', 
+    component: () => import('../pages/Contact.vue'),
+    meta: {
+      title: 'Contact | Vlad Caraseli',
+      description: 'Get in touch with Vlad Caraseli for web development projects.'
+    }
+  },
   { 
     path: '/extra', 
     name: 'extra',
-    component: () => import('../pages/Extra.vue') 
+    component: () => import('../pages/Extra.vue'),
+    meta: {
+      title: 'Extra | Vlad Caraseli',
+      description: 'Additional projects and experiments.'
+    }
   },
   // Redirect old /projects route to home with anchor
   { 
@@ -42,6 +70,15 @@ const router = createRouter({
     
     return { top: 0, behavior: 'smooth' }
   },
+})
+
+// Update document title based on route meta
+router.beforeEach((to, _from, next) => {
+  const title = to.meta.title as string | undefined
+  if (title) {
+    document.title = title
+  }
+  next()
 })
 
 export default router

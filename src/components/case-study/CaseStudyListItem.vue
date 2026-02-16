@@ -32,9 +32,12 @@
         v-if="image"
         class="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-56 h-36 rounded overflow-hidden shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 border border-cobalt-500/20"
       >
-        <img 
-          :src="image" 
+        <img
+          :src="image"
           :alt="title"
+          loading="lazy"
+          width="224"
+          height="144"
           class="w-full h-full object-cover"
         />
       </div>
@@ -43,7 +46,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue';
+import { defineComponent, computed, PropType } from 'vue';
 
 export default defineComponent({
   name: 'CaseStudyListItem',
@@ -61,7 +64,7 @@ export default defineComponent({
       required: true
     },
     tags: {
-      type: Array as () => string[],
+      type: Array as PropType<string[]>,
       default: () => []
     },
     image: {
@@ -70,15 +73,12 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const isHovered = ref(false);
-
     const formattedNumber = computed(() => {
       return props.number.toString().padStart(2, '0');
     });
 
     return {
-      formattedNumber,
-      isHovered
+      formattedNumber
     };
   }
 });

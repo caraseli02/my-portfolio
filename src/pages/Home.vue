@@ -13,12 +13,13 @@
           </h1>
         </div>
 
-        <!-- Role Descriptor -->
+        <!-- Role Descriptor with 3D Text Rotator -->
         <div class="flex items-center justify-center gap-3 text-cobalt-500 text-xl md:text-2xl mt-8">
           <span>I'm a</span>
-          <span class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-serif italic text-lg">
-            website
-          </span>
+          <TextRotator 
+            :words="['Webapps', 'UI/UX', 'Components']"
+            :interval="2500"
+          />
           <span>developer</span>
         </div>
 
@@ -44,52 +45,7 @@
       </div>
     </section>
 
-    <!-- "It's Nice to Meet You" Marquees -->
-    <section class="py-6 overflow-hidden border-y border-cobalt-500/20">
-      <!-- Row 1 - Left to Right -->
-      <Marquee :duration="20" class="py-2">
-        <div class="flex items-center gap-6 px-4">
-          <svg viewBox="0 0 40 40" class="w-8 h-8 text-cobalt-500"><polygon points="20,5 25,18 38,18 28,28 32,42 20,35 8,42 12,28 2,18 15,18" fill="currentColor"/></svg>
-          <svg viewBox="0 0 60 80" class="w-6 h-8 text-cobalt-500"><path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><polygon points="60,20 55,8 65,14 70,2 72,15 82,12 74,20 82,28 72,25 70,38 65,26 55,32" fill="currentColor"/><path d="M5 20 L50 20" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3"/></svg>
-          <span class="text-xl md:text-2xl font-serif italic text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
-        </div>
-      </Marquee>
 
-      <!-- Row 2 - Right to Left -->
-      <Marquee :duration="20" :reverse="true" class="py-2">
-        <div class="flex items-center gap-6 px-4">
-          <svg viewBox="0 0 40 40" class="w-8 h-8 text-cobalt-500"><polygon points="20,5 25,18 38,18 28,28 32,42 20,35 8,42 12,28 2,18 15,18" fill="currentColor"/></svg>
-          <svg viewBox="0 0 60 80" class="w-6 h-8 text-cobalt-500"><path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><polygon points="60,20 55,8 65,14 70,2 72,15 82,12 74,20 82,28 72,25 70,38 65,26 55,32" fill="currentColor"/><path d="M5 20 L50 20" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3"/></svg>
-          <span class="text-xl md:text-2xl font-serif italic text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
-        </div>
-      </Marquee>
-
-      <!-- Row 3 - Left to Right -->
-      <Marquee :duration="20" class="py-2">
-        <div class="flex items-center gap-6 px-4">
-          <svg viewBox="0 0 40 40" class="w-8 h-8 text-cobalt-500"><polygon points="20,5 25,18 38,18 28,28 32,42 20,35 8,42 12,28 2,18 15,18" fill="currentColor"/></svg>
-          <svg viewBox="0 0 60 80" class="w-6 h-8 text-cobalt-500"><path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><polygon points="60,20 55,8 65,14 70,2 72,15 82,12 74,20 82,28 72,25 70,38 65,26 55,32" fill="currentColor"/><path d="M5 20 L50 20" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3"/></svg>
-          <span class="text-xl md:text-2xl font-serif italic text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
-        </div>
-      </Marquee>
-
-      <!-- Row 4 - Right to Left -->
-      <Marquee :duration="20" :reverse="true" class="py-2">
-        <div class="flex items-center gap-6 px-4">
-          <svg viewBox="0 0 40 40" class="w-8 h-8 text-cobalt-500"><polygon points="20,5 25,18 38,18 28,28 32,42 20,35 8,42 12,28 2,18 15,18" fill="currentColor"/></svg>
-          <svg viewBox="0 0 60 80" class="w-6 h-8 text-cobalt-500"><path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><polygon points="60,20 55,8 65,14 70,2 72,15 82,12 74,20 82,28 72,25 70,38 65,26 55,32" fill="currentColor"/><path d="M5 20 L50 20" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3"/></svg>
-          <span class="text-xl md:text-2xl font-serif italic text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
-        </div>
-      </Marquee>
-    </section>
 
     <!-- Case Studies Section -->
     <section id="case-studies" class="py-16 px-6 lg:px-12">
@@ -110,20 +66,6 @@
       </div>
     </section>
 
-    <!-- Extra Section with Blob -->
-    <section class="py-16 px-6 lg:px-12">
-      <div class="max-w-6xl mx-auto flex justify-center">
-        <router-link 
-          to="/extra"
-          class="group flex items-center gap-4 text-cobalt-500 hover:opacity-70 transition-opacity"
-        >
-          <svg viewBox="0 0 120 100" class="w-20 h-16 fill-current group-hover:rotate-12 transition-transform">
-            <path d="M30 50 Q20 20, 50 15 Q80 10, 95 40 Q110 70, 80 85 Q50 100, 30 80 Q10 60, 30 50Z"/>
-          </svg>
-        </router-link>
-      </div>
-    </section>
-
     <!-- Footer -->
     <Footer />
   </div>
@@ -131,7 +73,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Marquee from '../components/ui/Marquee.vue';
+import TextRotator from '../components/ui/TextRotator.vue';
 import CaseStudyListItem from '../components/case-study/CaseStudyListItem.vue';
 import Footer from '../components/layout/Footer.vue';
 
@@ -145,7 +87,7 @@ interface CaseStudy {
 export default defineComponent({
   name: 'Home',
   components: {
-    Marquee,
+    TextRotator,
     CaseStudyListItem,
     Footer
   },
@@ -153,33 +95,21 @@ export default defineComponent({
     const caseStudies: CaseStudy[] = [
       {
         title: 'Vue 3 Dashboard',
-        slug: 'vue-dashboard',
+        slug: 'vue3-dashboard',
         tags: ['Vue 3', 'TypeScript', 'Dashboard'],
         image: '/project-images/dashboard.jpg'
       },
       {
-        title: 'Nuxt E-Commerce',
-        slug: 'nuxt-ecommerce',
-        tags: ['Nuxt', 'Stripe', 'SSR'],
-        image: '/project-images/ecommerce.jpg'
+        title: 'FastAPI Real-World Application',
+        slug: 'fastapi-realworld',
+        tags: ['Python', 'FastAPI', 'PostgreSQL'],
+        image: '/project-images/fastapi.jpg'
       },
       {
-        title: 'Real-time Chat App',
-        slug: 'chat-app',
-        tags: ['Firebase', 'Vue 3', 'WebSockets'],
-        image: '/project-images/chat.jpg'
-      },
-      {
-        title: 'Portfolio Generator',
-        slug: 'portfolio-generator',
-        tags: ['Tooling', 'CLI', 'Automation'],
-        image: '/project-images/portfolio.jpg'
-      },
-      {
-        title: 'Component Library',
-        slug: 'component-library',
-        tags: ['Design System', 'Storybook', 'Testing'],
-        image: '/project-images/library.jpg'
+        title: 'Nuxt Travel Bookings',
+        slug: 'nuxt-travel-bookings',
+        tags: ['Nuxt 3', 'Vue 3', 'SSR'],
+        image: '/project-images/travel.jpg'
       }
     ];
 
