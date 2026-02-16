@@ -78,6 +78,7 @@
                     v-if="project.github"
                     :href="project.github"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="flex items-center justify-between p-4 bg-white bg-opacity-10 rounded-xl hover:bg-opacity-20 transition-all text-white group/link"
                   >
                     <span class="font-medium text-sm">View Source Code</span>
@@ -129,6 +130,7 @@
             :ref="el => { if (el) otherRefs[i] = el }"
             :href="project.github"
             target="_blank"
+            rel="noopener noreferrer"
             class="group bg-white rounded-2xl border border-gray-200 overflow-hidden card-hover reveal"
             :class="{ revealed: otherVisibility[i] }"
             :style="{ transitionDelay: (i * 80) + 'ms' }"
@@ -177,6 +179,7 @@
             ref="ctaBrowseRef"
             href="https://github.com/caraseli02?tab=repositories"
             target="_blank"
+            rel="noopener noreferrer"
             class="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-vue-700 rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold ripple-container"
             data-cursor="button"
           >
@@ -192,7 +195,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted } from "vue";
+import { defineComponent, reactive, onMounted, onUnmounted } from "vue";
 import { useScrollReveal } from "../composables/useScrollReveal";
 import { useRipple } from "../composables/useRipple";
 import { useMagneticEffect } from "../composables/useMagneticEffect";
@@ -263,6 +266,13 @@ export default defineComponent({
           otherTilts[idx].tiltRef.value = otherRefs[idx];
         }
       });
+    });
+
+    onUnmounted(() => {
+      featuredObservers.forEach(obs => obs.disconnect());
+      featuredObservers.length = 0;
+      otherObservers.forEach(obs => obs.disconnect());
+      otherObservers.length = 0;
     });
 
     return {

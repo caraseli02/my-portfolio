@@ -1,39 +1,32 @@
 <template>
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8">
-      <div
-        ref="headingRef"
-        class="mb-12 reveal"
-        :class="{ revealed: headingVisible }"
-      >
-        <h2 class="section-heading">Key Takeaways</h2>
-        <p class="section-subheading">What I learned building this project</p>
-      </div>
+  <section class="py-12">
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-serif italic text-cobalt-500 mb-4">Key Takeaways</h2>
+      <p class="text-lg text-cobalt-600">What I learned building this project</p>
+    </div>
 
-      <div class="space-y-4">
-        <div
-          v-for="(lesson, i) in lessons"
-          :key="i"
-          :ref="el => { if (el) lessonRefs[i] = el }"
-          class="flex items-start gap-4 p-6 bg-gray-50 rounded-xl reveal"
-          :class="{ revealed: lessonVisibility[i] }"
-          :style="{ transitionDelay: (i * 100) + 'ms' }"
-        >
-          <div class="w-8 h-8 bg-vue-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-          </div>
-          <p class="text-gray-700 leading-relaxed">{{ lesson }}</p>
+    <div class="space-y-4">
+      <div
+        v-for="(lesson, i) in lessons"
+        :key="i"
+        :ref="el => { if (el) lessonRefs[i] = el }"
+        class="flex items-start gap-4 p-6 bg-cream-100 border border-cobalt-500/20 reveal"
+        :class="{ revealed: lessonVisibility[i] }"
+        :style="{ transitionDelay: (i * 100) + 'ms' }"
+      >
+        <div class="w-8 h-8 bg-cobalt-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
         </div>
+        <p class="text-cobalt-700 leading-relaxed">{{ lesson }}</p>
       </div>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, PropType } from 'vue'
-import { useScrollReveal } from '../../composables/useScrollReveal'
+import { defineComponent, reactive, onMounted, onUnmounted, PropType } from 'vue'
 
 export default defineComponent({
   name: 'LessonsLearned',
@@ -41,8 +34,6 @@ export default defineComponent({
     lessons: { type: Array as PropType<string[]>, required: true },
   },
   setup() {
-    const { revealRef: headingRef, isVisible: headingVisible } = useScrollReveal()
-
     const lessonRefs = reactive<Record<number, HTMLElement>>({})
     const lessonVisibility = reactive<Record<number, boolean>>({})
     const observers: IntersectionObserver[] = []
@@ -66,7 +57,12 @@ export default defineComponent({
       })
     })
 
-    return { headingRef, headingVisible, lessonRefs, lessonVisibility }
+    onUnmounted(() => {
+      observers.forEach(obs => obs.disconnect())
+      observers.length = 0
+    })
+
+    return { lessonRefs, lessonVisibility }
   },
 })
 </script>

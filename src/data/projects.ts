@@ -284,6 +284,10 @@ export function getAllCaseStudySlugs(): string[] {
     .map(p => p.caseStudy!.slug)
 }
 
+export function getProjectIndex(slug: string): number {
+  return featuredProjects.findIndex(p => p.caseStudy?.slug === slug)
+}
+
 export const homeFeaturedProjects: HomeFeaturedProject[] = [
   ...featuredProjects.map(p => ({
     id: p.id,

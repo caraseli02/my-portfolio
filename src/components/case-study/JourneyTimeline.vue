@@ -1,54 +1,47 @@
 <template>
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-      <div
-        ref="headingRef"
-        class="mb-16 reveal"
-        :class="{ revealed: headingVisible }"
-      >
-        <h2 class="section-heading">The Journey</h2>
-        <p class="section-subheading">How this project unfolded, step by step</p>
+  <section class="py-12">
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-serif italic text-cobalt-500 mb-4">The Journey</h2>
+      <p class="text-lg text-cobalt-600">How this project unfolded, step by step</p>
+    </div>
+
+    <div ref="containerRef" class="relative">
+      <!-- Progress line (desktop only) -->
+      <div class="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-cobalt-500/20 rounded-full">
+        <div
+          class="absolute top-0 left-0 w-full bg-cobalt-500 rounded-full transition-all duration-300"
+          :style="{ height: (progress * 100) + '%' }"
+        ></div>
       </div>
 
-      <div ref="containerRef" class="relative">
-        <!-- Progress line (desktop only) -->
-        <div class="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 rounded-full">
-          <div
-            class="timeline-progress-fill bg-gradient-to-b"
-            :class="accentGradient"
-            :style="{ height: (progress * 100) + '%' }"
-          ></div>
-        </div>
-
-        <!-- Phase cards -->
-        <div class="space-y-8 lg:pl-24">
-          <div
-            v-for="(phase, i) in phases"
-            :key="phase.id"
-            data-phase
-            class="relative"
-          >
-            <!-- Phase marker (desktop, on the line) -->
-            <div class="hidden lg:flex absolute -left-24 top-6 w-16 h-16 items-center justify-center">
-              <div
-                class="phase-marker"
-                :class="{
-                  'phase-marker--active': i === activeIndex,
-                  'phase-marker--completed': i < activeIndex,
-                  'phase-marker--upcoming': i > activeIndex,
-                }"
-              >
-                {{ phase.icon }}
-              </div>
+      <!-- Phase cards -->
+      <div class="space-y-8 lg:pl-24">
+        <div
+          v-for="(phase, i) in phases"
+          :key="phase.id"
+          data-phase
+          class="relative"
+        >
+          <!-- Phase marker (desktop, on the line) -->
+          <div class="hidden lg:flex absolute -left-24 top-6 w-16 h-16 items-center justify-center">
+            <div
+              class="w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg transition-all duration-500"
+              :class="{
+                'border-cobalt-500 bg-cobalt-500 text-white scale-110': i === activeIndex,
+                'border-cobalt-500 bg-cobalt-500 text-white': i < activeIndex,
+                'border-cobalt-500/30 bg-cream-100 text-cobalt-500/50': i > activeIndex,
+              }"
+            >
+              {{ phase.icon }}
             </div>
-
-            <TimelinePhaseCard
-              :phase="phase"
-              :is-active="i === activeIndex"
-              :is-completed="i < activeIndex"
-              :index="i"
-            />
           </div>
+
+          <TimelinePhaseCard
+            :phase="phase"
+            :is-active="i === activeIndex"
+            :is-completed="i < activeIndex"
+            :index="i"
+          />
         </div>
       </div>
     </div>
@@ -58,7 +51,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { TimelinePhase } from '../../types/projects'
-import { useScrollReveal } from '../../composables/useScrollReveal'
 import { useScrollProgress } from '../../composables/useScrollProgress'
 import TimelinePhaseCard from './TimelinePhaseCard.vue'
 
@@ -67,17 +59,14 @@ export default defineComponent({
   components: { TimelinePhaseCard },
   props: {
     phases: { type: Array as PropType<TimelinePhase[]>, required: true },
-    accentGradient: { type: String, default: 'from-vue-500 to-emerald-400' },
+    accentColor: { type: String, default: 'cobalt-500' },
   },
   setup() {
-    const { revealRef: headingRef, isVisible: headingVisible } = useScrollReveal()
     const { containerRef, activeIndex, progress } = useScrollProgress({
       activationOffset: 0.4,
     })
 
     return {
-      headingRef,
-      headingVisible,
       containerRef,
       activeIndex,
       progress,
