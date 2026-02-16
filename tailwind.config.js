@@ -5,9 +5,25 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
+        // Josie-style cream/beige background (warm off-white)
+        cream: {
+          50: '#FAF9F6',
+          100: '#F5F5DC', // Main background
+          200: '#F0EAD6',
+          300: '#E8E0D0',
+        },
+        // Electric cobalt blue - the main color from reference
+        cobalt: {
+          400: '#3333FF',
+          500: '#0000FF', // Primary blue
+          600: '#0000CC',
+          700: '#000099',
+        },
+        // Keep vue colors for backward compatibility
         vue: {
           50: '#f0fdf4',
           100: '#dcfce7',
@@ -26,7 +42,9 @@ module.exports = {
         'slide-up': 'slideUp 0.6s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'ripple': 'ripple-expand 0.6s ease-out forwards',
+        'marquee': 'marquee 25s linear infinite',
+        'marquee-reverse': 'marquee-reverse 25s linear infinite',
+        'spin-slow': 'spin 20s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -41,11 +59,25 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ['hover', 'focus'],
+    },
   },
   plugins: [],
 }
