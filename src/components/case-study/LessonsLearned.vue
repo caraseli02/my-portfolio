@@ -1,8 +1,8 @@
 <template>
   <section class="py-12">
     <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 mb-4">Key Takeaways</h2>
-      <p class="text-lg text-cobalt-600">What I learned building this project</p>
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">Key Takeaways</h2>
+      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">What I learned building this project</p>
     </div>
 
     <div class="space-y-4">
@@ -10,16 +10,22 @@
         v-for="(lesson, i) in lessons"
         :key="i"
         :ref="el => { if (el) lessonRefs[i] = el }"
-        class="flex items-start gap-4 p-6 bg-cream-100 border border-cobalt-500/20 reveal"
+        class="flex items-start gap-5 p-6 border border-cobalt-500/15 dark:border-charcoal-200/40 bg-cream-100 dark:bg-charcoal-50 reveal group"
         :class="{ revealed: lessonVisibility[i] }"
         :style="{ transitionDelay: (i * 100) + 'ms' }"
       >
-        <div class="w-8 h-8 bg-cobalt-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
+        <!-- Numbered marker -->
+        <div class="flex-shrink-0 mt-0.5 relative" aria-hidden="true">
+          <span class="text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 group-hover:scale-110 transition-transform duration-200 inline-block">
+            {{ String(i + 1).padStart(2, '0') }}
+          </span>
         </div>
-        <p class="text-cobalt-700 leading-relaxed">{{ lesson }}</p>
+
+        <!-- Divider -->
+        <div class="w-px self-stretch bg-cobalt-500/15 dark:bg-charcoal-200/30 flex-shrink-0"></div>
+
+        <!-- Content -->
+        <p class="text-cobalt-700 dark:text-cobalt-100 leading-relaxed pt-1">{{ lesson }}</p>
       </div>
     </div>
   </section>
@@ -36,30 +42,27 @@ export default defineComponent({
   setup() {
     const lessonRefs = reactive<Record<number, HTMLElement>>({})
     const lessonVisibility = reactive<Record<number, boolean>>({})
-    const observers: IntersectionObserver[] = []
+    let observer: IntersectionObserver | null = null
 
     onMounted(() => {
-      Object.keys(lessonRefs).forEach((key) => {
-        const idx = Number(key)
-        const el = lessonRefs[idx]
-        if (!el) return
-        const obs = new IntersectionObserver(
-          (entries) => {
-            if (entries[0]?.isIntersecting) {
-              lessonVisibility[idx] = true
-              obs.unobserve(el)
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = Object.values(lessonRefs).indexOf(entry.target as HTMLElement)
+              if (idx !== -1) lessonVisibility[idx] = true
+              observer?.unobserve(entry.target)
             }
-          },
-          { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-        )
-        obs.observe(el)
-        observers.push(obs)
-      })
+          })
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      )
+      Object.values(lessonRefs).forEach((el) => observer?.observe(el))
     })
 
     onUnmounted(() => {
-      observers.forEach(obs => obs.disconnect())
-      observers.length = 0
+      observer?.disconnect()
+      observer = null
     })
 
     return { lessonRefs, lessonVisibility }
