@@ -38,6 +38,18 @@
       </div>
     </section>
 
+    <!-- Hero Image -->
+    <section class="border-b border-cobalt-500/20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
+        <img
+          :src="`/project-images/${caseStudy.slug}.jpg`"
+          :alt="`${project.title} screenshot`"
+          class="w-full rounded-lg shadow-2xl"
+          loading="eager"
+        />
+      </div>
+    </section>
+
     <!-- About Section -->
     <section class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20">
       <div class="max-w-4xl mx-auto">
