@@ -3,3 +3,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.agents/
+.claude/
+skills/
+skills-lock.json
