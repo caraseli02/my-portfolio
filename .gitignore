@@ -7,3 +7,4 @@ dist-ssr
 .claude/
 skills/
 skills-lock.json
+node-compile-cache/
