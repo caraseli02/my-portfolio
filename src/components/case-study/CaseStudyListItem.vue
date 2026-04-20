@@ -10,9 +10,14 @@
       </span>
 
       <!-- Title -->
-      <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cobalt-500 flex-1 px-4">
-        {{ title }}
-      </h3>
+      <div class="flex-1 px-4">
+        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cobalt-500">
+          {{ title }}
+        </h3>
+        <p v-if="description" class="hidden md:block text-sm text-cobalt-500/60 mt-1">
+          {{ description }}
+        </p>
+      </div>
 
       <!-- Tags -->
       <div class="hidden md:flex items-center gap-2 px-4">
@@ -25,10 +30,10 @@
         </span>
       </div>
 
-      <!-- Hover Image -->
+      <!-- Project Image -->
       <div 
         v-if="image"
-        class="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-56 h-36 rounded overflow-hidden shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 border border-cobalt-500/20"
+        class="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-56 h-36 rounded overflow-hidden shadow-lg transition-opacity duration-300 pointer-events-none z-10 border border-cobalt-500/20"
       >
         <img
           :src="image"
@@ -66,6 +71,10 @@ export default defineComponent({
       default: () => []
     },
     image: {
+      type: String,
+      default: ''
+    },
+    description: {
       type: String,
       default: ''
     }

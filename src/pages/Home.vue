@@ -62,6 +62,7 @@
           :slug="project.slug"
           :tags="project.tags"
           :image="project.image"
+          :description="project.description"
         />
       </div>
     </section>
@@ -82,6 +83,7 @@ interface CaseStudy {
   slug: string;
   tags: string[];
   image: string;
+  description: string;
 }
 
 export default defineComponent({
@@ -97,19 +99,22 @@ export default defineComponent({
         title: 'Top Properties',
         slug: 'topproperties',
         tags: ['React 18', 'TypeScript', 'Leaflet'],
-        image: '/project-images/topproperties.jpg'
+        image: '/project-images/topproperties.jpg',
+        description: 'Luxury real estate browser with interactive map and multi-currency pricing'
       },
       {
         title: 'ECAS',
         slug: 'ecas',
         tags: ['Nuxt 3', 'Stripe', 'Firebase'],
-        image: '/project-images/ecas.jpg'
+        image: '/project-images/ecas.jpg',
+        description: 'Full e-commerce platform with smart pricing engine and admin dashboard'
       },
       {
         title: 'ABS Storybook',
         slug: 'abs-storybook',
         tags: ['React 19', 'Storybook 10', 'Chromatic'],
-        image: '/project-images/abs-storybook.jpg'
+        image: '/project-images/abs-storybook.jpg',
+        description: 'Hotel booking component library with enforced UI/business logic separation'
       }
     ];
 

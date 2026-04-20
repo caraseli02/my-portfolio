@@ -2,13 +2,9 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-cream-100/95 backdrop-blur-sm border-b border-cobalt-500/10">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <nav class="flex items-center justify-between h-20">
-        <!-- Logo Mark (Stylized VC) -->
+        <!-- Logo Mark -->
         <router-link to="/" class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm" aria-label="Home">
-          <svg viewBox="0 0 80 80" class="w-14 h-14 text-cobalt-500 group-hover:scale-105 transition-transform" aria-hidden="true">
-            <!-- Stylized VC monogram -->
-            <text x="10" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">V</text>
-            <text x="35" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">C</text>
-          </svg>
+          <span class="text-2xl font-display font-bold text-cobalt-500 lowercase group-hover:opacity-70 transition-opacity">vlad</span>
         </router-link>
 
         <!-- Navigation Links -->
@@ -25,8 +21,6 @@
           </router-link>
         </div>
 
-        <!-- Dark Circle Element -->
-        <div class="w-5 h-5 rounded-full bg-cobalt-500/80"></div>
       </nav>
     </div>
   </header>
@@ -47,7 +41,7 @@ export default defineComponent({
     const route = useRoute();
 
     const navLinks: NavLink[] = [
-      { label: 'index', path: '/' },
+      { label: 'work', path: '/' },
       { label: 'about', path: '/about' },
       { label: 'contact', path: '/contact' }
     ];
