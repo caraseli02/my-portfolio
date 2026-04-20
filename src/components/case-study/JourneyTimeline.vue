@@ -1,48 +1,26 @@
 <template>
   <section class="py-12">
-    <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 mb-4">The Journey</h2>
-      <p class="text-lg text-cobalt-600">How this project unfolded, step by step</p>
+    <div class="mb-10">
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">The Journey</h2>
+      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">How this project unfolded, step by step</p>
     </div>
 
-    <div ref="containerRef" class="relative">
-      <!-- Progress line (desktop only) -->
-      <div class="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-cobalt-500/20 rounded-full">
-        <div
-          class="absolute top-0 left-0 w-full bg-cobalt-500 rounded-full transition-all duration-300"
-          :style="{ height: (progress * 100) + '%' }"
-        ></div>
-      </div>
-
-      <!-- Phase cards -->
-      <div class="space-y-8 lg:pl-24">
-        <div
-          v-for="(phase, i) in phases"
-          :key="phase.id"
-          data-phase
-          class="relative"
-        >
-          <!-- Phase marker (desktop, on the line) -->
-          <div class="hidden lg:flex absolute -left-24 top-6 w-16 h-16 items-center justify-center">
-            <div
-              class="w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg transition-all duration-500"
-              :class="{
-                'border-cobalt-500 bg-cobalt-500 text-white scale-110': i === activeIndex,
-                'border-cobalt-500 bg-cobalt-500 text-white': i < activeIndex,
-                'border-cobalt-500/30 bg-cream-100 text-cobalt-500/50': i > activeIndex,
-              }"
-            >
-              {{ phase.icon }}
-            </div>
-          </div>
-
-          <TimelinePhaseCard
-            :phase="phase"
-            :is-active="i === activeIndex"
-            :is-completed="i < activeIndex"
-            :index="i"
-          />
-        </div>
+    <div ref="containerRef" class="space-y-0">
+      <div
+        v-for="(phase, i) in phases"
+        :key="phase.id"
+        data-phase
+        class="reveal"
+        :class="{ revealed: true }"
+        :style="{ transitionDelay: (i * 80) + 'ms' }"
+      >
+        <TimelinePhaseCard
+          :phase="phase"
+          :is-active="i === activeIndex"
+          :is-completed="i < activeIndex"
+          :index="i"
+          :total="phases.length"
+        />
       </div>
     </div>
   </section>
@@ -62,15 +40,11 @@ export default defineComponent({
     accentColor: { type: String, default: 'cobalt-500' },
   },
   setup() {
-    const { containerRef, activeIndex, progress } = useScrollProgress({
+    const { containerRef, activeIndex } = useScrollProgress({
       activationOffset: 0.4,
     })
 
-    return {
-      containerRef,
-      activeIndex,
-      progress,
-    }
+    return { containerRef, activeIndex }
   },
 })
 </script>

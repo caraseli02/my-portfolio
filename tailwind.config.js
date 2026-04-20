@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: false,
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -9,32 +9,26 @@ module.exports = {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {
-        // Josie-style cream/beige background (warm off-white)
         cream: {
           50: '#FAF9F6',
-          100: '#F5F5DC', // Main background
+          100: '#F5F5DC',
           200: '#F0EAD6',
           300: '#E8E0D0',
         },
-        // Electric cobalt blue - the main color from reference
         cobalt: {
+          100: '#B3B3FF',
+          200: '#8080FF',
+          300: '#4D4DFF',
           400: '#3333FF',
-          500: '#0000FF', // Primary blue
+          500: '#0000FF',
           600: '#0000CC',
           700: '#000099',
         },
-        // Keep vue colors for backward compatibility
-        vue: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#42b883',
-          600: '#35495e',
-          700: '#2c3e50',
-          800: '#1a252f',
-          900: '#0f172a',
+        charcoal: {
+          DEFAULT: '#0D1117',
+          50: '#161B22',
+          100: '#21262D',
+          200: '#30363D',
         },
       },
       animation: {

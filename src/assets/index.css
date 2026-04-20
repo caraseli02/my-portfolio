@@ -21,6 +21,21 @@
     --color-selection: oklch(0.45 0.2 265);
   }
 
+  .dark {
+    --color-bg: oklch(0.14 0.015 265);
+    --color-bg-subtle: oklch(0.18 0.018 265);
+    --color-surface: oklch(0.16 0.015 265);
+    --color-primary: oklch(0.65 0.2 265);
+    --color-primary-hover: oklch(0.72 0.22 265);
+    --color-primary-light: oklch(0.25 0.06 265);
+    --color-text: oklch(0.9 0.02 265);
+    --color-text-muted: oklch(0.7 0.03 265);
+    --color-text-subtle: oklch(0.5 0.03 265);
+    --color-border: oklch(0.3 0.02 265);
+    --color-border-light: oklch(0.22 0.015 265);
+    --color-selection: oklch(0.55 0.2 265);
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -30,6 +45,8 @@
   body {
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
@@ -46,11 +63,11 @@
 @layer components {
   /* Pill badge style for tags */
   .pill-badge {
-    @apply px-4 py-1.5 border border-cobalt-500 rounded-full text-sm text-cobalt-500 lowercase transition-all duration-300;
+    @apply px-4 py-1.5 border border-cobalt-500 dark:border-cobalt-300 rounded-full text-sm text-cobalt-500 dark:text-cobalt-300 lowercase transition-all duration-300;
   }
-  
+
   .pill-badge:hover {
-    @apply bg-cobalt-500 text-white;
+    @apply bg-cobalt-500 dark:bg-cobalt-300 text-white dark:text-charcoal;
   }
 
   .card-hover {
@@ -79,6 +96,14 @@
   .reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
