@@ -14,7 +14,7 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ['Vue 3', 'TypeScript', 'Vite', 'Tailwind CSS', 'Chart.js'],
     github: 'https://github.com/caraseli02/dashboard-vue3',
-    accent: 'bg-gradient-to-r from-vue-500 to-emerald-400',
+    accent: 'bg-cobalt-500',
     caseStudy: {
       slug: 'vue3-dashboard',
       metaphor: {
@@ -101,7 +101,7 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'SQLAlchemy'],
     github: 'https://github.com/caraseli02/fastapi-realworld-example-app',
-    accent: 'bg-gradient-to-r from-blue-500 to-indigo-500',
+    accent: 'bg-cobalt-600',
     caseStudy: {
       slug: 'fastapi-realworld',
       metaphor: {
@@ -188,7 +188,7 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ['Nuxt 3', 'Vue 3', 'TypeScript', 'SSR', 'Tailwind CSS'],
     github: 'https://github.com/caraseli02/nuxt-travels-bookings',
-    accent: 'bg-gradient-to-r from-amber-500 to-orange-500',
+    accent: 'bg-cobalt-700',
     caseStudy: {
       slug: 'nuxt-travel-bookings',
       metaphor: {
@@ -264,14 +264,14 @@ export const featuredProjects: FeaturedProject[] = [
 ]
 
 export const otherProjects: Project[] = [
-  { id: 4, title: 'Inventory Management App', description: 'TypeScript-based inventory management with real-time tracking and CRUD operations.', tech: ['TypeScript', 'Vue 3', 'Vite'], github: 'https://github.com/caraseli02/inventory-app', accent: 'bg-gradient-to-r from-vue-500 to-emerald-400' },
-  { id: 5, title: 'MoldovaDirect', description: 'A TypeScript web application connecting users with services and information about Moldova.', tech: ['TypeScript', 'Vue', 'Tailwind CSS'], github: 'https://github.com/caraseli02/MoldovaDirect', accent: 'bg-gradient-to-r from-blue-500 to-indigo-500' },
-  { id: 6, title: 'Jobs Hub', description: 'A job listing platform built with TypeScript for browsing and managing job postings.', tech: ['TypeScript', 'Vue 3', 'REST API'], github: 'https://github.com/caraseli02/jobs-hub', accent: 'bg-gradient-to-r from-amber-500 to-orange-500' },
-  { id: 7, title: 'Vite Vue 3 Starter', description: 'A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.', tech: ['Vue 3', 'Vite', 'TypeScript'], github: 'https://github.com/caraseli02/vite-vue3-starter', accent: 'bg-gradient-to-r from-purple-500 to-pink-500' },
-  { id: 8, title: 'Tailwind Tabs Component', description: 'A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.', tech: ['Vue 3', 'Tailwind CSS', 'Vite'], github: 'https://github.com/caraseli02/vite-tailwind-tabs-component', accent: 'bg-gradient-to-r from-teal-500 to-cyan-500' },
-  { id: 9, title: 'Invoice Processing', description: 'A Python-based invoice processing tool for automating document handling and data extraction.', tech: ['Python', 'Automation', 'Data Processing'], github: 'https://github.com/caraseli02/InvoiceProcessing', accent: 'bg-gradient-to-r from-red-500 to-rose-500' },
-  { id: 10, title: 'Vuetify Barbershop', description: 'A responsive barbershop website built with Vue.js and Vuetify material design components.', tech: ['Vue.js', 'Vuetify', 'Responsive'], github: 'https://github.com/caraseli02/vuetify-responsive-barbershop', accent: 'bg-gradient-to-r from-gray-600 to-gray-800' },
-  { id: 11, title: 'Metrics App', description: 'A Vue.js application for tracking and visualizing metrics with interactive dashboards.', tech: ['Vue.js', 'Charts', 'MIT License'], github: 'https://github.com/caraseli02/metricsApp', accent: 'bg-gradient-to-r from-green-500 to-emerald-500' },
+  { id: 4, title: 'Inventory Management App', description: 'TypeScript-based inventory management with real-time tracking and CRUD operations.', tech: ['TypeScript', 'Vue 3', 'Vite'], github: 'https://github.com/caraseli02/inventory-app', accent: 'bg-cobalt-500' },
+  { id: 5, title: 'MoldovaDirect', description: 'A TypeScript web application connecting users with services and information about Moldova.', tech: ['TypeScript', 'Vue', 'Tailwind CSS'], github: 'https://github.com/caraseli02/MoldovaDirect', accent: 'bg-cobalt-600' },
+  { id: 6, title: 'Jobs Hub', description: 'A job listing platform built with TypeScript for browsing and managing job postings.', tech: ['TypeScript', 'Vue 3', 'REST API'], github: 'https://github.com/caraseli02/jobs-hub', accent: 'bg-cobalt-700' },
+  { id: 7, title: 'Vite Vue 3 Starter', description: 'A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.', tech: ['Vue 3', 'Vite', 'TypeScript'], github: 'https://github.com/caraseli02/vite-vue3-starter', accent: 'bg-cobalt-500' },
+  { id: 8, title: 'Tailwind Tabs Component', description: 'A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.', tech: ['Vue 3', 'Tailwind CSS', 'Vite'], github: 'https://github.com/caraseli02/vite-tailwind-tabs-component', accent: 'bg-cobalt-600' },
+  { id: 9, title: 'Invoice Processing', description: 'A Python-based invoice processing tool for automating document handling and data extraction.', tech: ['Python', 'Automation', 'Data Processing'], github: 'https://github.com/caraseli02/InvoiceProcessing', accent: 'bg-cobalt-400' },
+  { id: 10, title: 'Vuetify Barbershop', description: 'A responsive barbershop website built with Vue.js and Vuetify material design components.', tech: ['Vue.js', 'Vuetify', 'Responsive'], github: 'https://github.com/caraseli02/vuetify-responsive-barbershop', accent: 'bg-cobalt-700' },
+  { id: 11, title: 'Metrics App', description: 'A Vue.js application for tracking and visualizing metrics with interactive dashboards.', tech: ['Vue.js', 'Charts', 'MIT License'], github: 'https://github.com/caraseli02/metricsApp', accent: 'bg-cobalt-500' },
 ]
 
 export function getProjectBySlug(slug: string): FeaturedProject | undefined {
@@ -295,7 +295,7 @@ export const homeFeaturedProjects: HomeFeaturedProject[] = [
     description: p.description,
     tech: p.tech,
     github: p.github,
-    accent: p.accent || 'bg-gradient-to-r from-vue-500 to-emerald-400',
+    accent: p.accent || 'bg-cobalt-500',
     slug: p.caseStudy?.slug,
   })),
   {
@@ -304,6 +304,6 @@ export const homeFeaturedProjects: HomeFeaturedProject[] = [
     description: 'A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.',
     tech: ['TypeScript', 'Vue 3', 'Vite', 'Tailwind CSS'],
     github: 'https://github.com/caraseli02/inventory-app',
-    accent: 'bg-gradient-to-r from-purple-500 to-pink-500',
+    accent: 'bg-cobalt-400',
   },
 ]

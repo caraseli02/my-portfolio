@@ -10,10 +10,10 @@
           <p
             v-for="(word, index) in words"
             :key="index"
-            class="text-3xl md:text-5xl lg:text-6xl font-serif italic text-cobalt-500 transition-all duration-500"
+            class="text-3xl md:text-5xl lg:text-6xl font-display text-cobalt-500 transition-all duration-500"
             :class="{
               'opacity-100': currentWordIndex === index,
-              'opacity-20': currentWordIndex !== index
+              'opacity-30': currentWordIndex !== index
             }"
           >
             {{ word }}<span v-if="hasPeriod(index)">.</span>
@@ -36,7 +36,7 @@
             </g>
             <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-          <span class="absolute inset-0 flex items-center justify-center font-serif italic text-cobalt-500 text-base md:text-lg">
+          <span class="absolute inset-0 flex items-center justify-center font-display text-cobalt-500 text-base md:text-lg">
             email
           </span>
         </a>
@@ -56,14 +56,14 @@
             </g>
             <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-          <span class="absolute inset-0 flex items-center justify-center font-serif italic text-cobalt-500 text-base md:text-lg">
+          <span class="absolute inset-0 flex items-center justify-center font-display text-cobalt-500 text-base md:text-lg">
             linkedin
           </span>
         </a>
       </div>
 
       <!-- Playful Text -->
-      <p class="text-center text-cobalt-500 text-xl lowercase font-serif italic">
+      <p class="text-center text-cobalt-500 text-xl lowercase font-display">
         don't be shy
       </p>
     </div>

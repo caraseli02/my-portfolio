@@ -1,7 +1,7 @@
 <template>
   <section class="py-12">
     <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-serif italic text-cobalt-500 mb-4">The Journey</h2>
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 mb-4">The Journey</h2>
       <p class="text-lg text-cobalt-600">How this project unfolded, step by step</p>
     </div>
 

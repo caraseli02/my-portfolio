@@ -8,7 +8,7 @@
         </svg>
       </div>
 
-      <h1 class="text-3xl md:text-5xl font-serif italic text-cobalt-500 mb-6">
+      <h1 class="text-3xl md:text-5xl font-display text-cobalt-500 mb-6">
         You found the extra page!
       </h1>
 
@@ -16,7 +16,7 @@
         Here's a random fun fact:
       </p>
 
-      <p class="text-lg text-cobalt-500 mb-12 font-serif italic">
+      <p class="text-lg text-cobalt-500 mb-12 font-display">
         "{{ currentFact }}"
       </p>
 
@@ -35,7 +35,7 @@
       <div class="mt-12">
         <router-link 
           to="/"
-          class="text-cobalt-500 hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-colors lowercase font-serif italic"
+          class="text-cobalt-500 hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-colors lowercase font-display"
         >
           ← take me home
         </router-link>

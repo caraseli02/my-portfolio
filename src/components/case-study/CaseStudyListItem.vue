@@ -5,7 +5,7 @@
       class="group flex items-center py-6 px-4 md:px-6 relative focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
     >
       <!-- Number -->
-      <span class="text-3xl md:text-4xl lg:text-5xl font-serif text-cobalt-500 w-16 md:w-20 shrink-0 tabular-nums">
+      <span class="text-3xl md:text-4xl lg:text-5xl font-display text-cobalt-500 w-16 md:w-20 shrink-0 tabular-nums">
         {{ formattedNumber }}
       </span>
 

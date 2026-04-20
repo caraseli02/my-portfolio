@@ -1,7 +1,7 @@
 <template>
   <div class="perspective-1000 inline-flex">
     <div 
-      class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-serif italic text-lg relative overflow-hidden"
+      class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-display text-lg relative overflow-hidden"
       style="min-width: 100px;"
     >
       <div 

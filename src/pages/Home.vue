@@ -8,7 +8,7 @@
           <p class="text-2xl md:text-3xl text-cobalt-500 mb-4 font-normal">
             Hi my name is
           </p>
-          <h1 class="font-serif italic text-5xl md:text-7xl lg:text-8xl text-cobalt-500 tracking-tight leading-none">
+          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-cobalt-500 tracking-tight leading-none">
             Vlad Caraseli
           </h1>
         </div>
@@ -30,7 +30,7 @@
               <defs>
                 <path id="circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
               </defs>
-              <text font-size="10" fill="currentColor" font-family="Inter, sans-serif" letter-spacing="1">
+              <text font-size="10" fill="currentColor" font-family="Manrope, sans-serif" letter-spacing="1">
                 <textPath href="#circle">case studies • case studies • </textPath>
               </text>
             </svg>
@@ -50,7 +50,7 @@
     <!-- Case Studies Section -->
     <section id="case-studies" class="py-16 px-6 lg:px-12">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-lg font-serif italic text-cobalt-500 lowercase mb-8 px-4">
+        <h2 class="text-lg font-display text-cobalt-500 lowercase mb-8 px-4">
           case studies
         </h2>
 

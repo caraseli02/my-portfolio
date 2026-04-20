@@ -1,7 +1,7 @@
 <template>
   <section class="py-12">
     <div class="mb-12 text-center">
-      <h2 class="text-3xl md:text-4xl font-serif italic text-cobalt-500 mb-4">The Impact</h2>
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 mb-4">The Impact</h2>
       <p class="text-lg text-cobalt-600">Measurable results from the project</p>
     </div>
 

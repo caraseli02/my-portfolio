@@ -3,10 +3,10 @@
     <div class="max-w-4xl mx-auto px-6 lg:px-12 pb-24">
       <!-- Hero -->
       <div class="mb-16">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight mb-4">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight mb-4">
           I'm Vlad Caraseli,
         </h1>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight">
           it's nice to meet you
         </h2>
       </div>
@@ -38,7 +38,7 @@
           believe in building software that's not just functional, but delightful to use.
         </p>
 
-        <p class="font-serif italic text-cobalt-500">
+        <p class="font-display text-cobalt-500">
           Let's create something amazing together.
         </p>
       </div>
@@ -56,7 +56,7 @@
         </svg>
 
         <!-- Profile Photo Placeholder -->
-        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-serif italic" role="img" aria-label="Vlad Caraseli profile photo">
+        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-display" role="img" aria-label="Vlad Caraseli profile photo">
           <span class="text-lg">photo</span>
         </div>
       </div>

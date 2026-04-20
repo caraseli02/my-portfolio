@@ -5,7 +5,7 @@
       <div class="max-w-6xl mx-auto">
         <!-- Number and Title -->
         <div class="mb-8">
-          <span class="text-6xl md:text-7xl lg:text-8xl font-serif text-cobalt-500 block mb-4">
+          <span class="text-6xl md:text-7xl lg:text-8xl font-display text-cobalt-500 block mb-4">
             {{ formattedNumber }}
           </span>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-cobalt-500 leading-tight">
@@ -25,13 +25,13 @@
         </div>
 
         <!-- Tagline -->
-        <p class="text-xl md:text-2xl font-serif italic text-cobalt-500 max-w-3xl">
+        <p class="text-xl md:text-2xl font-display text-cobalt-500 max-w-3xl">
           {{ caseStudy.tagline }}
         </p>
 
         <!-- Down Arrow -->
         <div class="mt-8 flex justify-center">
-          <svg viewBox="0 0 24 24" class="w-8 h-8 text-cobalt-500 animate-bounce">
+          <svg viewBox="0 0 24 24" class="w-8 h-8 text-cobalt-500 animate-float">
             <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
@@ -48,92 +48,17 @@
       </div>
     </section>
 
-    <!-- Section Marquees -->
-    <section class="overflow-hidden border-b border-cobalt-500/20">
-      <!-- Row 1 -->
-      <Marquee :duration="15" class="py-4 border-b border-cobalt-500/10">
-        <div class="flex items-center gap-8 px-8">
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#01branding</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
+    <!-- Tech Stack Marquee -->
+    <section class="overflow-hidden border-b border-cobalt-500/20 py-4">
+      <Marquee :duration="20" class="py-2">
+        <div class="flex items-center gap-6 px-4">
+          <span
+            v-for="tag in project.tags"
+            :key="tag"
+            class="text-xl md:text-2xl font-display font-bold text-cobalt-500 lowercase whitespace-nowrap"
+          >{{ tag }}</span>
+          <svg viewBox="0 0 40 24" class="w-8 h-5 text-cobalt-500/40">
             <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#02website</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#03motion</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#04editorial</span>
-          <svg viewBox="0 0 50 50" class="w-10 h-10 text-cobalt-500">
-            <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
-          </svg>
-        </div>
-      </Marquee>
-
-      <!-- Row 2 -->
-      <Marquee :duration="15" :reverse="true" class="py-4 border-b border-cobalt-500/10">
-        <div class="flex items-center gap-8 px-8">
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#01branding</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#02website</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#03motion</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#04editorial</span>
-          <svg viewBox="0 0 50 50" class="w-10 h-10 text-cobalt-500">
-            <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
-          </svg>
-        </div>
-      </Marquee>
-
-      <!-- Row 3 -->
-      <Marquee :duration="15" class="py-4 border-b border-cobalt-500/10">
-        <div class="flex items-center gap-8 px-8">
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#01branding</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#02website</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#03motion</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#04editorial</span>
-          <svg viewBox="0 0 50 50" class="w-10 h-10 text-cobalt-500">
-            <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
-          </svg>
-        </div>
-      </Marquee>
-
-      <!-- Row 4 -->
-      <Marquee :duration="15" :reverse="true" class="py-4">
-        <div class="flex items-center gap-8 px-8">
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#01branding</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#02website</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#03motion</span>
-          <svg viewBox="0 0 40 24" class="w-10 h-6 text-cobalt-500">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="text-3xl md:text-4xl font-bold text-cobalt-500">#04editorial</span>
-          <svg viewBox="0 0 50 50" class="w-10 h-10 text-cobalt-500">
-            <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
           </svg>
         </div>
       </Marquee>
@@ -168,7 +93,7 @@
             aria-label="Previous project"
           >
             <svg viewBox="0 0 80 40" class="w-16 h-8 text-cobalt-500 group-hover:-translate-x-2 transition-transform">
-              <text x="10" y="25" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" fill="currentColor">This Way</text>
+              <text x="10" y="25" font-family="Azeret Mono, monospace" font-size="14" fill="currentColor">This Way</text>
             </svg>
             <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500 rotate-180">
               <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -179,7 +104,7 @@
           <!-- Home -->
           <router-link
             to="/"
-            class="font-serif italic text-cobalt-500 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+            class="font-display text-cobalt-500 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-opacity"
           >
             take me home
           </router-link>
@@ -195,7 +120,7 @@
               <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <svg viewBox="0 0 80 40" class="w-16 h-8 text-cobalt-500 group-hover:translate-x-2 transition-transform">
-              <text x="10" y="25" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" fill="currentColor">That Way</text>
+              <text x="10" y="25" font-family="Azeret Mono, monospace" font-size="14" fill="currentColor">That Way</text>
             </svg>
           </router-link>
           <div v-else class="w-24"></div>
@@ -211,7 +136,7 @@
           <svg viewBox="0 0 60 80" class="w-6 h-8 text-cobalt-500"><path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
           <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
           <svg viewBox="0 0 80 40" class="w-14 h-6 text-cobalt-500"><polygon points="60,20 55,8 65,14 70,2 72,15 82,12 74,20 82,28 72,25 70,38 65,26 55,32" fill="currentColor"/><path d="M5 20 L50 20" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3"/></svg>
-          <span class="text-xl md:text-2xl font-serif italic text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
+          <span class="text-xl md:text-2xl font-display text-cobalt-500 whitespace-nowrap">it's nice to meet you</span>
         </div>
       </Marquee>
     </section>

@@ -6,8 +6,8 @@
         <router-link to="/" class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm" aria-label="Home">
           <svg viewBox="0 0 80 80" class="w-14 h-14 text-cobalt-500 group-hover:scale-105 transition-transform" aria-hidden="true">
             <!-- Stylized VC monogram -->
-            <text x="10" y="55" font-family="Cormorant Garamond, serif" font-size="48" font-weight="600" font-style="italic" fill="currentColor">V</text>
-            <text x="35" y="55" font-family="Cormorant Garamond, serif" font-size="48" font-weight="600" font-style="italic" fill="currentColor">C</text>
+            <text x="10" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">V</text>
+            <text x="35" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">C</text>
           </svg>
         </router-link>
 

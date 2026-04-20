@@ -52,8 +52,7 @@ export default defineComponent({
   border: 2px solid white;
   border-radius: 50%;
   pointer-events: none;
-  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease,
-              background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -66,8 +65,7 @@ export default defineComponent({
   background: white;
   border-radius: 50%;
   pointer-events: none;
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease,
-              border-radius 0.2s ease, opacity 0.3s ease;
+  transition: background-color 0.2s ease, opacity 0.3s ease;
   will-change: transform;
 }
 
