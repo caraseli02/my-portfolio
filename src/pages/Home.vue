@@ -94,22 +94,22 @@ export default defineComponent({
   setup() {
     const caseStudies: CaseStudy[] = [
       {
-        title: 'Vue 3 Dashboard',
-        slug: 'vue3-dashboard',
-        tags: ['Vue 3', 'TypeScript', 'Dashboard'],
-        image: '/project-images/dashboard.jpg'
+        title: 'Top Properties',
+        slug: 'topproperties',
+        tags: ['React 18', 'TypeScript', 'Leaflet'],
+        image: '/project-images/topproperties.jpg'
       },
       {
-        title: 'FastAPI Real-World Application',
-        slug: 'fastapi-realworld',
-        tags: ['Python', 'FastAPI', 'PostgreSQL'],
-        image: '/project-images/fastapi.jpg'
+        title: 'ECAS',
+        slug: 'ecas',
+        tags: ['Nuxt 3', 'Stripe', 'Firebase'],
+        image: '/project-images/ecas.jpg'
       },
       {
-        title: 'Nuxt Travel Bookings',
-        slug: 'nuxt-travel-bookings',
-        tags: ['Nuxt 3', 'Vue 3', 'SSR'],
-        image: '/project-images/travel.jpg'
+        title: 'ABS Storybook',
+        slug: 'abs-storybook',
+        tags: ['React 19', 'Storybook 10', 'Chromatic'],
+        image: '/project-images/abs-storybook.jpg'
       }
     ];
 
