@@ -1,17 +1,17 @@
 <template>
-  <section ref="heroRef" class="relative min-h-[70vh] flex items-center bg-vue-700 overflow-hidden">
+  <section ref="heroRef" class="relative min-h-[70vh] flex items-center bg-cobalt-700 overflow-hidden">
     <!-- Background decoration -->
     <div class="absolute inset-0">
-      <div data-depth="3" class="absolute top-1/4 -right-20 w-96 h-96 bg-vue-500 rounded-full opacity-10 animate-float"></div>
-      <div data-depth="2" class="absolute bottom-1/4 -left-20 w-80 h-80 bg-emerald-400 rounded-full opacity-10 animate-float animation-delay-200"></div>
-      <div data-depth="1" class="absolute top-1/2 left-1/2 w-64 h-64 bg-green-400 rounded-full opacity-5 animate-pulse-slow"></div>
+      <div data-depth="3" class="absolute top-1/4 -right-20 w-96 h-96 bg-cobalt-500 rounded-full opacity-10 animate-float"></div>
+      <div data-depth="2" class="absolute bottom-1/4 -left-20 w-80 h-80 bg-cobalt-400 rounded-full opacity-10 animate-float animation-delay-200"></div>
+      <div data-depth="1" class="absolute top-1/2 left-1/2 w-64 h-64 bg-cobalt-400 rounded-full opacity-5 animate-pulse-slow"></div>
       <div data-depth="2" class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6 lg:px-8 py-32 w-full">
       <div class="max-w-3xl">
         <!-- Category badge -->
-        <div class="inline-block px-3 py-1 bg-white bg-opacity-10 rounded-lg text-green-300 text-xs font-semibold mb-6 backdrop-filter backdrop-blur-sm">
+        <div class="inline-block px-3 py-1 bg-white/10 rounded-lg text-cream-200 text-xs font-semibold mb-6 backdrop-filter backdrop-blur-sm">
           {{ category }}
         </div>
 
@@ -28,25 +28,24 @@
           :phrase="metaphor.phrase"
           :description="metaphor.description"
           :icon="metaphor.icon"
-          :gradient-class="metaphor.color"
         />
 
         <!-- Meta row -->
         <div class="flex flex-wrap gap-6 mt-8 text-sm">
           <div class="flex items-center gap-2 text-gray-300">
-            <svg class="w-4 h-4 text-vue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-cobalt-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             {{ duration }}
           </div>
           <div class="flex items-center gap-2 text-gray-300">
-            <svg class="w-4 h-4 text-vue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-cobalt-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
             </svg>
             {{ role }}
           </div>
           <div class="flex items-center gap-2 text-gray-300">
-            <svg class="w-4 h-4 text-vue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-cobalt-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
             {{ year }}

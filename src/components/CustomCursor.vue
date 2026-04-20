@@ -52,8 +52,7 @@ export default defineComponent({
   border: 2px solid white;
   border-radius: 50%;
   pointer-events: none;
-  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease,
-              background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -66,8 +65,7 @@ export default defineComponent({
   background: white;
   border-radius: 50%;
   pointer-events: none;
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease,
-              border-radius 0.2s ease, opacity 0.3s ease;
+  transition: background-color 0.2s ease, opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -75,27 +73,27 @@ export default defineComponent({
 .cursor-ring--link {
   width: 48px;
   height: 48px;
-  border-color: #42b883;
-  background: rgba(66, 184, 131, 0.08);
+  border-color: oklch(0.45 0.2 265);
+  background: oklch(0.45 0.2 265 / 0.08);
 }
 .cursor-ring--link + .cursor-dot--link,
 .cursor-dot--link {
   width: 4px;
   height: 4px;
-  background: #42b883;
+  background: oklch(0.45 0.2 265);
 }
 
 /* Button state */
 .cursor-ring--button {
   width: 56px;
   height: 56px;
-  border-color: #42b883;
-  background: rgba(66, 184, 131, 0.12);
+  border-color: oklch(0.45 0.2 265);
+  background: oklch(0.45 0.2 265 / 0.12);
 }
 .cursor-dot--button {
   width: 4px;
   height: 4px;
-  background: #42b883;
+  background: oklch(0.45 0.2 265);
 }
 
 /* Card state */

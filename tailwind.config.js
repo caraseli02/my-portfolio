@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Azeret Mono', 'JetBrains Mono', 'monospace'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       colors: {

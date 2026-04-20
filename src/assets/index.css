@@ -1,11 +1,26 @@
 /* ./src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg: oklch(0.96 0.01 90);
+    --color-bg-subtle: oklch(0.93 0.012 90);
+    --color-surface: oklch(0.98 0.008 90);
+    --color-primary: oklch(0.45 0.2 265);
+    --color-primary-hover: oklch(0.38 0.22 265);
+    --color-primary-light: oklch(0.92 0.06 265);
+    --color-text: oklch(0.28 0.02 265);
+    --color-text-muted: oklch(0.45 0.03 265);
+    --color-text-subtle: oklch(0.65 0.03 265);
+    --color-border: oklch(0.85 0.02 265);
+    --color-border-light: oklch(0.92 0.015 265);
+    --color-selection: oklch(0.45 0.2 265);
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -13,13 +28,18 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #F5F5DC;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg);
   }
 
   ::selection {
-    background-color: #0000FF;
+    background-color: var(--color-selection);
     color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 }
 

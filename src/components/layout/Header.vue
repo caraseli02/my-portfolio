@@ -3,11 +3,11 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <nav class="flex items-center justify-between h-20">
         <!-- Logo Mark (Stylized VC) -->
-        <router-link to="/" class="flex items-center group">
-          <svg viewBox="0 0 80 80" class="w-14 h-14 text-cobalt-500 group-hover:scale-105 transition-transform">
+        <router-link to="/" class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm" aria-label="Home">
+          <svg viewBox="0 0 80 80" class="w-14 h-14 text-cobalt-500 group-hover:scale-105 transition-transform" aria-hidden="true">
             <!-- Stylized VC monogram -->
-            <text x="10" y="55" font-family="Cormorant Garamond, serif" font-size="48" font-weight="600" font-style="italic" fill="currentColor">V</text>
-            <text x="35" y="55" font-family="Cormorant Garamond, serif" font-size="48" font-weight="600" font-style="italic" fill="currentColor">C</text>
+            <text x="10" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">V</text>
+            <text x="35" y="55" font-family="Azeret Mono, monospace" font-size="48" font-weight="600" fill="currentColor">C</text>
           </svg>
         </router-link>
 
@@ -17,8 +17,9 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-cobalt-500 hover:text-cobalt-700 text-base font-normal lowercase relative transition-colors pb-1"
+            class="text-cobalt-500 hover:text-cobalt-700 text-base font-normal lowercase relative transition-colors pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm"
             :class="{ 'border-b-2 border-cobalt-500': isActive(link.path) }"
+            :aria-current="isActive(link.path) ? 'page' : undefined"
           >
             {{ link.label }}
           </router-link>
