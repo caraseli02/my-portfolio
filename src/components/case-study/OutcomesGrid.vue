@@ -1,8 +1,8 @@
 <template>
   <section class="py-12">
-    <div class="mb-12 text-center">
-      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 mb-4">The Impact</h2>
-      <p class="text-lg text-cobalt-600">Measurable results from the project</p>
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">The Impact</h2>
+      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">Measurable results from the project</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -10,13 +10,42 @@
         v-for="(outcome, i) in outcomes"
         :key="outcome.label"
         :ref="el => { if (el) outcomeRefs[i] = el }"
-        class="text-center p-8 bg-cream-100 border border-cobalt-500/30 reveal"
+        class="relative p-8 border border-cobalt-500/20 dark:border-charcoal-200/40 bg-cream-100 dark:bg-charcoal-50 reveal group"
         :class="{ revealed: outcomeVisibility[i] }"
         :style="{ transitionDelay: (i * 150) + 'ms' }"
       >
-        <div class="text-4xl md:text-5xl font-bold text-cobalt-500 mb-2">{{ outcome.metric }}</div>
-        <p class="text-cobalt-600 font-medium text-sm uppercase tracking-wider">{{ outcome.label }}</p>
-        <p v-if="outcome.description" class="text-cobalt-500/70 text-sm mt-2">{{ outcome.description }}</p>
+        <!-- Top accent line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-cobalt-500/20 dark:bg-cobalt-300/20 group-hover:bg-cobalt-500/60 dark:group-hover:bg-cobalt-300/60 transition-colors duration-300" aria-hidden="true"></div>
+
+        <!-- Corner index number -->
+        <span class="absolute top-3 right-4 text-xs font-mono text-cobalt-500/30 dark:text-cobalt-300/30" aria-hidden="true">
+          {{ String(i + 1).padStart(2, '0') }}
+        </span>
+
+        <!-- Large metric -->
+        <div class="text-4xl md:text-5xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 mb-3">
+          {{ outcome.metric }}
+        </div>
+
+        <!-- Label -->
+        <p class="text-cobalt-600 dark:text-cobalt-200 font-medium text-sm uppercase tracking-wider">
+          {{ outcome.label }}
+        </p>
+
+        <!-- Decorative bottom bar -->
+        <div class="mt-4 flex gap-1" aria-hidden="true">
+          <div
+            v-for="n in 5"
+            :key="n"
+            class="h-0.5 flex-1 transition-colors duration-300"
+            :class="n <= i + 2 ? 'bg-cobalt-500/40 dark:bg-cobalt-300/40' : 'bg-cobalt-500/10 dark:bg-charcoal-200/20'"
+          ></div>
+        </div>
+
+        <!-- Description -->
+        <p v-if="outcome.description" class="text-cobalt-500/70 dark:text-cobalt-300/70 text-sm mt-3">
+          {{ outcome.description }}
+        </p>
       </div>
     </div>
   </section>
@@ -34,30 +63,27 @@ export default defineComponent({
   setup() {
     const outcomeRefs = reactive<Record<number, HTMLElement>>({})
     const outcomeVisibility = reactive<Record<number, boolean>>({})
-    const observers: IntersectionObserver[] = []
+    let observer: IntersectionObserver | null = null
 
     onMounted(() => {
-      Object.keys(outcomeRefs).forEach((key) => {
-        const idx = Number(key)
-        const el = outcomeRefs[idx]
-        if (!el) return
-        const obs = new IntersectionObserver(
-          (entries) => {
-            if (entries[0]?.isIntersecting) {
-              outcomeVisibility[idx] = true
-              obs.unobserve(el)
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const idx = Object.values(outcomeRefs).indexOf(entry.target as HTMLElement)
+              if (idx !== -1) outcomeVisibility[idx] = true
+              observer?.unobserve(entry.target)
             }
-          },
-          { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-        )
-        obs.observe(el)
-        observers.push(obs)
-      })
+          })
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      )
+      Object.values(outcomeRefs).forEach((el) => observer?.observe(el))
     })
 
     onUnmounted(() => {
-      observers.forEach(obs => obs.disconnect())
-      observers.length = 0
+      observer?.disconnect()
+      observer = null
     })
 
     return { outcomeRefs, outcomeVisibility }

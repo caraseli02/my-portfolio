@@ -1,38 +1,59 @@
 <template>
   <div
     ref="cardRef"
-    class="group bg-cream-100 border overflow-hidden transition-all duration-500 reveal"
-    :class="{
-      revealed: isRevealed,
-      'border-cobalt-500 shadow-lg shadow-cobalt-500/10': isActive,
-      'border-cobalt-500/30': !isActive && !isCompleted,
-      'border-cobalt-500/20': isCompleted && !isActive,
-    }"
-    :style="{ transitionDelay: (index * 100) + 'ms' }"
-    data-cursor="card"
+    class="group reveal"
+    :class="{ revealed: isRevealed }"
+    :style="{ transitionDelay: (index * 80) + 'ms' }"
   >
-    <!-- Mobile phase icon + label -->
-    <div class="lg:hidden flex items-center gap-3 px-6 pt-6">
-      <span class="text-2xl">{{ phase.icon }}</span>
-      <span class="text-xs font-semibold uppercase tracking-wider text-cobalt-500">{{ phase.label }}</span>
-    </div>
+    <!-- Phase entry -->
+    <div
+      class="py-6 px-4 md:px-0 md:flex md:items-start md:gap-6 transition-colors duration-200"
+      :class="{
+        'bg-cobalt-500/[0.03] dark:bg-cobalt-300/[0.05]': isActive,
+      }"
+    >
+      <!-- Index + label column -->
+      <div class="flex items-baseline gap-3 mb-2 md:mb-0 md:w-40 shrink-0">
+        <span
+          class="text-sm font-mono tabular-nums"
+          :class="{
+            'text-cobalt-500 dark:text-cobalt-300': isActive || isCompleted,
+            'text-cobalt-500/30 dark:text-cobalt-300/30': !isActive && !isCompleted,
+          }"
+        >{{ String(index + 1).padStart(2, '0') }}</span>
+        <span class="text-xs font-mono uppercase tracking-wider text-cobalt-500/50 dark:text-cobalt-300/50">{{ phase.label }}</span>
+      </div>
 
-    <div class="p-6 lg:p-8">
-      <p class="text-xs font-semibold uppercase tracking-wider text-cobalt-500 mb-2 hidden lg:block">{{ phase.label }}</p>
-      <h3 class="text-xl font-bold text-cobalt-500 mb-3">{{ phase.title }}</h3>
-      <p class="text-cobalt-600 leading-relaxed mb-4">{{ phase.narrative }}</p>
-      <p v-if="phase.detail" class="text-cobalt-500 text-sm leading-relaxed mb-4 pl-4 border-l-2 border-cobalt-500">{{ phase.detail }}</p>
+      <!-- Content column -->
+      <div class="flex-1 md:border-t md:border-cobalt-500/10 dark:md:border-charcoal-200/30 md:pt-6 md:pb-2">
+        <h3 class="text-lg md:text-xl font-bold text-cobalt-500 dark:text-cobalt-300 mb-2">{{ phase.title }}</h3>
+        <p class="text-cobalt-600 dark:text-cobalt-200 leading-relaxed text-sm md:text-base mb-3">{{ phase.narrative }}</p>
 
-      <div
-        v-if="phase.highlight"
-        class="inline-flex items-center gap-2 px-4 py-2 bg-cobalt-500/10 rounded-lg text-cobalt-500 text-sm font-medium"
-      >
-        <svg class="w-4 h-4 text-cobalt-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        {{ phase.highlight }}
+        <!-- Detail -->
+        <p
+          v-if="phase.detail"
+          class="text-cobalt-500/60 dark:text-cobalt-300/60 text-sm mb-3"
+        >
+          <span class="font-mono text-xs text-cobalt-500/40 dark:text-cobalt-300/40 mr-1">&gt;</span>
+          {{ phase.detail }}
+        </p>
+
+        <!-- Highlight -->
+        <p
+          v-if="phase.highlight"
+          class="text-sm font-display text-cobalt-500/80 dark:text-cobalt-300/80"
+        >
+          &#x2192; {{ phase.highlight }}
+        </p>
       </div>
     </div>
+
+    <!-- Separator -->
+    <div
+      v-if="index < total - 1"
+      class="mx-4 md:mx-0 md:ml-[11.5rem] h-px bg-cobalt-500/8 dark:bg-charcoal-200/20"
+      aria-hidden="true"
+    ></div>
   </div>
 </template>
 
@@ -48,6 +69,7 @@ export default defineComponent({
     isActive: { type: Boolean, default: false },
     isCompleted: { type: Boolean, default: false },
     index: { type: Number, default: 0 },
+    total: { type: Number, default: 6 },
   },
   setup() {
     const { revealRef: cardRef, isVisible: isRevealed } = useScrollReveal({ threshold: 0.1 })
