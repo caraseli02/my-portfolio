@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 bg-vue-700">
+  <section class="py-16 bg-cobalt-700">
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
       <div class="flex items-center" :class="prevSlug && nextSlug ? 'justify-between' : (nextSlug ? 'justify-end' : 'justify-start')">
         <router-link

@@ -8,7 +8,7 @@
           <p class="text-2xl md:text-3xl text-cobalt-500 mb-4 font-normal">
             Hi my name is
           </p>
-          <h1 class="font-serif italic text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-cobalt-500 tracking-tight leading-none">
+          <h1 class="font-serif italic text-5xl md:text-7xl lg:text-8xl text-cobalt-500 tracking-tight leading-none">
             Vlad Caraseli
           </h1>
         </div>
@@ -26,7 +26,7 @@
         <!-- Circular Case Studies Stamp -->
         <div class="mt-16 flex justify-center">
           <a href="#case-studies" class="group relative w-28 h-28">
-            <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 animate-spin-slow">
+            <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 animate-spin-slow" aria-hidden="true">
               <defs>
                 <path id="circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
               </defs>
@@ -36,7 +36,7 @@
             </svg>
             <!-- Arrow pointing down -->
             <div class="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500 group-hover:translate-y-1 transition-transform">
+              <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500 group-hover:translate-y-1 transition-transform" aria-hidden="true">
                 <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </div>

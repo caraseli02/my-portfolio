@@ -2,9 +2,7 @@
   <div class="border border-cobalt-500 mb-4 hover:bg-cobalt-500/5 transition-colors">
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
-      class="group flex items-center py-6 px-4 md:px-6 relative"
-      @mouseenter="isHovered = true"
-      @mouseleave="isHovered = false"
+      class="group flex items-center py-6 px-4 md:px-6 relative focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
     >
       <!-- Number -->
       <span class="text-3xl md:text-4xl lg:text-5xl font-serif text-cobalt-500 w-16 md:w-20 shrink-0 tabular-nums">

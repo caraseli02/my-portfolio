@@ -3,10 +3,10 @@
     <div class="max-w-4xl mx-auto px-6 lg:px-12 pb-24">
       <!-- Hero -->
       <div class="mb-16">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight mb-4">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight mb-4">
           I'm Vlad Caraseli,
         </h1>
-        <h2 class="text-5xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif italic text-cobalt-500 leading-tight">
           it's nice to meet you
         </h2>
       </div>
@@ -46,17 +46,17 @@
       <!-- Decorative Elements -->
       <div class="relative flex items-center justify-center gap-8 py-12">
         <!-- Star -->
-        <svg viewBox="0 0 50 50" class="w-16 h-16 text-cobalt-500 animate-pulse-slow">
+        <svg viewBox="0 0 50 50" class="w-16 h-16 text-cobalt-500 animate-pulse-slow" aria-hidden="true">
           <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
         </svg>
 
         <!-- Snake -->
-        <svg viewBox="0 0 80 40" class="w-24 h-12 text-cobalt-500">
+        <svg viewBox="0 0 80 40" class="w-24 h-12 text-cobalt-500" aria-hidden="true">
           <path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
         </svg>
 
         <!-- Profile Photo Placeholder -->
-        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-serif italic">
+        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-serif italic" role="img" aria-label="Vlad Caraseli profile photo">
           <span class="text-lg">photo</span>
         </div>
       </div>

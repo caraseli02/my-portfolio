@@ -10,7 +10,7 @@
           <p
             v-for="(word, index) in words"
             :key="index"
-            class="text-4xl md:text-5xl lg:text-6xl font-serif italic text-cobalt-500 transition-all duration-500"
+            class="text-3xl md:text-5xl lg:text-6xl font-serif italic text-cobalt-500 transition-all duration-500"
             :class="{
               'opacity-100': currentWordIndex === index,
               'opacity-20': currentWordIndex !== index
@@ -24,11 +24,12 @@
       <!-- Contact Links -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-12 mb-16">
         <!-- Email Sunburst -->
-        <a 
+        <a
           href="mailto:vlad@example.com"
-          class="group relative w-32 h-32 md:w-36 md:h-36"
+          class="group relative w-32 h-32 md:w-36 md:h-36 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-full"
+          aria-label="Send email"
         >
-          <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 group-hover:rotate-45 transition-transform duration-700">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 group-hover:rotate-45 transition-transform duration-700" aria-hidden="true">
             <!-- Sunburst rays -->
             <g v-for="n in 16" :key="n" :transform="`rotate(${n * 22.5} 50 50)`">
               <line x1="50" y1="5" x2="50" y2="20" stroke="currentColor" stroke-width="1.5"/>
@@ -41,13 +42,14 @@
         </a>
 
         <!-- LinkedIn Sunburst -->
-        <a 
+        <a
           href="https://www.linkedin.com/in/caraseli/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative w-32 h-32 md:w-36 md:h-36"
+          class="group relative w-32 h-32 md:w-36 md:h-36 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-full"
+          aria-label="LinkedIn profile"
         >
-          <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 group-hover:rotate-45 transition-transform duration-700">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-cobalt-500 group-hover:rotate-45 transition-transform duration-700" aria-hidden="true">
             <!-- Sunburst rays -->
             <g v-for="n in 16" :key="n" :transform="`rotate(${n * 22.5} 50 50)`">
               <line x1="50" y1="5" x2="50" y2="20" stroke="currentColor" stroke-width="1.5"/>

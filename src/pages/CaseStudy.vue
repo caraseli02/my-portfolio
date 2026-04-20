@@ -164,7 +164,8 @@
           <router-link
             v-if="prevProject"
             :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
-            class="group flex items-center gap-4 text-cobalt-500 hover:opacity-70 transition-opacity"
+            class="group flex items-center gap-4 text-cobalt-500 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+            aria-label="Previous project"
           >
             <svg viewBox="0 0 80 40" class="w-16 h-8 text-cobalt-500 group-hover:-translate-x-2 transition-transform">
               <text x="10" y="25" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" fill="currentColor">This Way</text>
@@ -178,7 +179,7 @@
           <!-- Home -->
           <router-link
             to="/"
-            class="font-serif italic text-cobalt-500 hover:opacity-70 transition-opacity"
+            class="font-serif italic text-cobalt-500 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-opacity"
           >
             take me home
           </router-link>
@@ -187,7 +188,8 @@
           <router-link
             v-if="nextProject"
             :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
-            class="group flex items-center gap-4 text-cobalt-500 hover:opacity-70 transition-opacity"
+            class="group flex items-center gap-4 text-cobalt-500 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+            aria-label="Next project"
           >
             <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500">
               <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
