@@ -1,7 +1,8 @@
 <template>
   <div
     ref="cardRef"
-    class="group reveal revealed"
+    class="group reveal"
+    :class="{ revealed: isRevealed }"
     :style="{ transitionDelay: (index * 80) + 'ms' }"
   >
     <!-- Phase entry -->
