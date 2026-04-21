@@ -51,13 +51,17 @@
       <!-- Hero Image -->
       <section class="border-b border-cobalt-500/20">
         <div class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
-          <img
-            :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
-            :alt="`${project.title} screenshot`"
-            class="w-full shadow-2xl"
-            loading="eager"
-            @error="handleImageError"
-          />
+          <div
+            class="overflow-hidden rounded-[2rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] shadow-2xl"
+          >
+            <img
+              :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
+              :alt="`${project.title} screenshot`"
+              class="h-auto max-h-[70vh] w-full object-cover object-top"
+              loading="eager"
+              @error="handleImageError"
+            />
+          </div>
         </div>
       </section>
 

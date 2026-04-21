@@ -53,7 +53,7 @@
 
       <div
         v-if="image"
-        class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:min-h-[14rem]"
+        class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
       >
         <img
           :src="image"
@@ -61,7 +61,7 @@
           loading="lazy"
           width="640"
           height="440"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
         />
       </div>
     </router-link>

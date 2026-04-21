@@ -3,17 +3,24 @@
     class="border-t border-cobalt-500/10 bg-cream-100/70 px-6 py-8 dark:bg-charcoal dark:border-cobalt-300/10"
   >
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-      <div class="panel-surface rounded-[2rem] p-6 md:p-8">
-        <p class="editorial-kicker mb-3">currently open to</p>
-        <h2 class="max-w-xl text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-200">
-          Product-facing frontend work, design systems, and UI polish that ships clean.
-        </h2>
-        <div
-          class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-600 dark:text-cobalt-100/70"
-        >
-          <span>Based in Palma de Mallorca</span>
-          <span aria-hidden="true">•</span>
-          <span>Vue, React, Nuxt, TypeScript</span>
+      <div
+        class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/20 bg-cobalt-700 p-6 text-cream-50 shadow-[0_28px_80px_rgba(17,27,143,0.22)] md:p-8 dark:border-cobalt-300/20 dark:bg-cobalt-700"
+      >
+        <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
+          <div class="paper-grid h-full w-full"></div>
+        </div>
+        <div class="relative">
+          <p class="mb-3 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70">
+            currently open to
+          </p>
+          <h2 class="max-w-xl text-3xl font-display text-white md:text-4xl">
+            Product-facing frontend work, design systems, and UI polish that ships clean.
+          </h2>
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/78">
+            <span>Based in Palma de Mallorca</span>
+            <span aria-hidden="true">•</span>
+            <span>Vue, React, Nuxt, TypeScript</span>
+          </div>
         </div>
       </div>
 
