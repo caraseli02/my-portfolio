@@ -6,7 +6,7 @@
       <section>
         <p class="editorial-kicker mb-4">contact</p>
         <h1
-          class="max-w-4xl text-[3.2rem] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-200 sm:text-[4.2rem] md:text-[5.4rem]"
+          class="max-w-4xl text-[3.2rem] leading-[0.94] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.4rem]"
         >
           Bring me in when the interface needs to feel
           <span class="italic">sharper</span>, <span class="italic">clearer</span>, and harder to
@@ -29,7 +29,7 @@
         </div>
 
         <p
-          class="mt-8 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78 md:text-xl"
+          class="mt-8 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/78 md:text-xl"
         >
           Best first touch is LinkedIn. Send the project, the role, the timeline, and where the
           product currently feels weak. I can tell pretty quickly where the leverage is.

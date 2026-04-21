@@ -1,11 +1,12 @@
 <template>
   <section class="py-12">
     <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">
-        Key Takeaways
+      <p class="editorial-kicker mb-3">takeaways</p>
+      <h2 class="mb-4 text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl">
+        What this project sharpened
       </h2>
-      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">
-        What I learned building this project
+      <p class="text-lg text-charcoal-200 dark:text-cobalt-100/72">
+        Actionable lessons pulled from the build, not filler reflection.
       </p>
     </div>
 

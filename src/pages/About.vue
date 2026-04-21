@@ -5,12 +5,12 @@
         <div>
           <p class="editorial-kicker mb-4">about vlad caraseli</p>
           <h1
-            class="max-w-5xl text-[3.3rem] leading-[0.95] font-display text-cobalt-500 dark:text-cobalt-200 sm:text-[4.2rem] md:text-[5.6rem]"
+            class="max-w-5xl text-[3.3rem] leading-[0.95] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.6rem]"
           >
             I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
           </h1>
           <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78 md:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/78 md:text-xl"
           >
             Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
             under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
