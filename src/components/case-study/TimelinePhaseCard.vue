@@ -1,14 +1,8 @@
 <template>
   <div
     ref="cardRef"
-    class="group bg-cream-100 border overflow-hidden transition-all duration-500 reveal revealed"
-    :class="{
-      'border-cobalt-500 shadow-lg shadow-cobalt-500/10': isActive,
-      'border-cobalt-500/30': !isActive && !isCompleted,
-      'border-cobalt-500/20': isCompleted && !isActive,
-    }"
-    :style="{ transitionDelay: (index * 100) + 'ms' }"
-    data-cursor="card"
+    class="group reveal revealed"
+    :style="{ transitionDelay: (index * 80) + 'ms' }"
   >
     <!-- Phase entry -->
     <div
