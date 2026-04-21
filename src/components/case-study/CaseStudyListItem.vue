@@ -5,7 +5,9 @@
       class="group flex items-center py-6 px-4 md:px-6 gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
     >
       <!-- Number -->
-      <span class="text-3xl md:text-4xl lg:text-5xl font-display text-cobalt-500 w-12 md:w-16 shrink-0 tabular-nums">
+      <span
+        class="text-3xl md:text-4xl lg:text-5xl font-display text-cobalt-500 w-12 md:w-16 shrink-0 tabular-nums"
+      >
         {{ formattedNumber }}
       </span>
 
@@ -21,17 +23,13 @@
 
       <!-- Tags -->
       <div class="hidden md:flex items-center gap-2 shrink-0">
-        <span 
-          v-for="tag in tags" 
-          :key="tag"
-          class="pill-badge"
-        >
+        <span v-for="tag in tags" :key="tag" class="pill-badge">
           {{ tag }}
         </span>
       </div>
 
       <!-- Image -->
-      <div 
+      <div
         v-if="image"
         class="hidden lg:block shrink-0 w-40 h-24 rounded overflow-hidden border border-cobalt-500/20"
       >
@@ -48,45 +46,26 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed, PropType } from 'vue';
+<script setup lang="ts">
+import { computed } from "vue";
 
-export default defineComponent({
-  name: 'CaseStudyListItem',
-  props: {
-    number: {
-      type: Number,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    slug: {
-      type: String,
-      required: true
-    },
-    tags: {
-      type: Array as PropType<string[]>,
-      default: () => []
-    },
-    image: {
-      type: String,
-      default: ''
-    },
-    description: {
-      type: String,
-      default: ''
-    }
+const props = withDefaults(
+  defineProps<{
+    number: number;
+    title: string;
+    slug: string;
+    tags?: string[];
+    image?: string;
+    description?: string;
+  }>(),
+  {
+    tags: () => [],
+    image: "",
+    description: "",
   },
-  setup(props) {
-    const formattedNumber = computed(() => {
-      return props.number.toString().padStart(2, '0');
-    });
+);
 
-    return {
-      formattedNumber
-    };
-  }
+const formattedNumber = computed(() => {
+  return props.number.toString().padStart(2, "0");
 });
 </script>

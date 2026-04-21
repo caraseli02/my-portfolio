@@ -2,10 +2,18 @@
   <div>
     <!-- Hero Section -->
     <section class="relative bg-cobalt-700 pt-32 pb-20 overflow-hidden">
-      <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+          background-size: 40px 40px;
+        "
+      ></div>
       <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
         <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">Projects</h1>
-        <p class="text-lg text-cream-200 max-w-xl">A selection of applications and tools I've built with Vue.js and beyond</p>
+        <p class="text-lg text-cream-200 max-w-xl">
+          A selection of applications and tools I've built with Vue.js and beyond
+        </p>
       </div>
     </section>
 
@@ -25,19 +33,27 @@
           <div
             v-for="(project, i) in featuredProjects"
             :key="project.id"
-            :ref="el => { if (el) featuredRefs[i] = el }"
+            :ref="
+              (el) => {
+                if (el) featuredRefs[i] = el as HTMLElement;
+              }
+            "
             class="group bg-white rounded-2xl border border-cobalt-500/15 overflow-hidden hover:border-cobalt-500/40 transition-all duration-300 reveal"
             :class="{ revealed: featuredVisibility[i] }"
-            :style="{ transitionDelay: (i * 150) + 'ms' }"
+            :style="{ transitionDelay: i * 150 + 'ms' }"
             data-cursor="card"
           >
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
               <!-- Content -->
               <div class="lg:col-span-3 p-8 lg:p-10">
-                <div class="inline-block px-3 py-1 bg-cobalt-500/10 text-cobalt-500 rounded-lg text-xs font-semibold mb-4">
+                <div
+                  class="inline-block px-3 py-1 bg-cobalt-500/10 text-cobalt-500 rounded-lg text-xs font-semibold mb-4"
+                >
                   {{ project.category }}
                 </div>
-                <h3 class="text-2xl font-bold text-cobalt-700 mb-3 group-hover:text-cobalt-500 transition-colors">
+                <h3
+                  class="text-2xl font-bold text-cobalt-700 mb-3 group-hover:text-cobalt-500 transition-colors"
+                >
                   {{ project.title }}
                 </h3>
                 <p class="text-cobalt-600/70 leading-relaxed mb-2">{{ project.description }}</p>
@@ -50,9 +66,23 @@
 
                 <!-- Highlights -->
                 <div class="space-y-3 mb-6">
-                  <div v-for="highlight in project.highlights" :key="highlight" class="flex items-start gap-2">
-                    <svg class="w-5 h-5 text-cobalt-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  <div
+                    v-for="highlight in project.highlights"
+                    :key="highlight"
+                    class="flex items-start gap-2"
+                  >
+                    <svg
+                      class="w-5 h-5 text-cobalt-500 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
                     </svg>
                     <span class="text-cobalt-600/70 text-sm">{{ highlight }}</span>
                   </div>
@@ -82,8 +112,14 @@
                     class="flex items-center justify-between p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all text-white group/link"
                   >
                     <span class="font-medium text-sm">View Source Code</span>
-                    <svg class="w-5 h-5 group-hover/link:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                    <svg
+                      class="w-5 h-5 group-hover/link:translate-x-1 transition-transform"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      ></path>
                     </svg>
                   </a>
 
@@ -94,15 +130,29 @@
                     class="flex items-center justify-between p-4 bg-cobalt-500/30 rounded-xl hover:bg-cobalt-500/50 transition-all text-white group/link"
                   >
                     <span class="font-medium text-sm">Read Case Study</span>
-                    <svg class="w-5 h-5 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    <svg
+                      class="w-5 h-5 group-hover/link:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
                     </svg>
                   </router-link>
                 </div>
 
                 <div class="mt-6 pt-6 border-t border-white/20">
-                  <p class="text-cream-200 text-xs uppercase tracking-wider font-medium mb-3">Built With</p>
-                  <p class="text-white text-sm font-medium">{{ project.tech.slice(0, 3).join(' + ') }}</p>
+                  <p class="text-cream-200 text-xs uppercase tracking-wider font-medium mb-3">
+                    Built With
+                  </p>
+                  <p class="text-white text-sm font-medium">
+                    {{ project.tech.slice(0, 3).join(" + ") }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -114,40 +164,57 @@
     <!-- All Projects Grid -->
     <section class="py-20 bg-cream-100 dark:bg-charcoal">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div
-          ref="otherHeadingRef"
-          class="mb-16 reveal"
-          :class="{ revealed: otherHeadingVisible }"
-        >
+        <div ref="otherHeadingRef" class="mb-16 reveal" :class="{ revealed: otherHeadingVisible }">
           <h2 class="section-heading">More Projects</h2>
           <p class="section-subheading">Other notable work from my portfolio</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style="perspective: 1000px;">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          style="perspective: 1000px"
+        >
           <a
             v-for="(project, i) in otherProjects"
             :key="project.id"
-            :ref="el => { if (el) otherRefs[i] = el }"
+            :ref="
+              (el) => {
+                if (el) otherRefs[i] = el as HTMLElement;
+              }
+            "
             :href="project.github"
             target="_blank"
             rel="noopener noreferrer"
             class="group bg-white rounded-2xl border border-cobalt-500/15 overflow-hidden card-hover reveal"
             :class="{ revealed: otherVisibility[i] }"
-            :style="{ transitionDelay: (i * 80) + 'ms' }"
+            :style="{ transitionDelay: i * 80 + 'ms' }"
             data-cursor="card"
           >
             <!-- Accent bar -->
             <div class="h-1" :class="project.accent"></div>
             <div class="p-6">
               <div class="flex items-start justify-between mb-3">
-                <h3 class="text-base font-bold text-cobalt-700 group-hover:text-cobalt-500 transition-colors">
+                <h3
+                  class="text-base font-bold text-cobalt-700 group-hover:text-cobalt-500 transition-colors"
+                >
                   {{ project.title }}
                 </h3>
-                <svg class="w-4 h-4 text-cobalt-500/40 group-hover:text-cobalt-500 transition-colors flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                <svg
+                  class="w-4 h-4 text-cobalt-500/40 group-hover:text-cobalt-500 transition-colors flex-shrink-0 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  ></path>
                 </svg>
               </div>
-              <p class="text-cobalt-600/60 text-sm mb-5 leading-relaxed">{{ project.description }}</p>
+              <p class="text-cobalt-600/60 text-sm mb-5 leading-relaxed">
+                {{ project.description }}
+              </p>
               <div class="flex flex-wrap gap-1.5">
                 <span
                   v-for="tech in project.tech"
@@ -171,9 +238,12 @@
           class="bg-cobalt-700 rounded-2xl p-10 lg:p-14 reveal-scale"
           :class="{ revealed: ctaBlockVisible }"
         >
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">Want to see more?</h2>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">
+            Want to see more?
+          </h2>
           <p class="text-cream-200 mb-8 max-w-lg mx-auto">
-            I have 58+ public repositories on GitHub covering Vue.js components, full-stack apps, and experimental projects.
+            I have 58+ public repositories on GitHub covering Vue.js components, full-stack apps,
+            and experimental projects.
           </p>
           <a
             ref="ctaBrowseRef"
@@ -184,7 +254,9 @@
             data-cursor="button"
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              ></path>
             </svg>
             Browse All Repositories
           </a>
@@ -194,95 +266,74 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, onMounted, onUnmounted } from "vue";
+<script setup lang="ts">
+import { reactive, onMounted, onUnmounted } from "vue";
 import { useScrollReveal } from "../composables/useScrollReveal";
 import { useRipple } from "../composables/useRipple";
 import { useMagneticEffect } from "../composables/useMagneticEffect";
 import { useTiltEffect } from "../composables/useTiltEffect";
 import { featuredProjects, otherProjects } from "../data/projects";
 
-export default defineComponent({
-  name: "Projects",
-  setup() {
-    const { revealRef: featuredHeadingRef, isVisible: featuredHeadingVisible } = useScrollReveal();
-    const { revealRef: otherHeadingRef, isVisible: otherHeadingVisible } = useScrollReveal();
-    const { revealRef: ctaBlockRef, isVisible: ctaBlockVisible } = useScrollReveal();
+const { revealRef: featuredHeadingRef, isVisible: featuredHeadingVisible } = useScrollReveal();
+const { revealRef: otherHeadingRef, isVisible: otherHeadingVisible } = useScrollReveal();
+const { revealRef: ctaBlockRef, isVisible: ctaBlockVisible } = useScrollReveal();
 
-    const { magneticRef: ctaBrowseRef } = useMagneticEffect({ strength: 0.25, radius: 120 });
-    const ctaRipple = useRipple();
+const { magneticRef: ctaBrowseRef } = useMagneticEffect({ strength: 0.25, radius: 120 });
+const ctaRipple = useRipple();
 
-    const featuredRefs = reactive<Record<number, HTMLElement>>({});
-    const featuredVisibility = reactive<Record<number, boolean>>({});
-    const featuredObservers: IntersectionObserver[] = [];
+const featuredRefs = reactive<Record<number, HTMLElement>>({});
+const featuredVisibility = reactive<Record<number, boolean>>({});
+const featuredObservers: IntersectionObserver[] = [];
 
-    const otherRefs = reactive<Record<number, HTMLElement>>({});
-    const otherVisibility = reactive<Record<number, boolean>>({});
-    const otherObservers: IntersectionObserver[] = [];
+const otherRefs = reactive<Record<number, HTMLElement>>({});
+const otherVisibility = reactive<Record<number, boolean>>({});
+const otherObservers: IntersectionObserver[] = [];
 
-    const otherTilts = Array.from({ length: otherProjects.length }, () =>
-      useTiltEffect({ maxTilt: 5, scale: 1.01, glare: false })
-    );
+const otherTilts = Array.from({ length: otherProjects.length }, () =>
+  useTiltEffect({ maxTilt: 5, scale: 1.01, glare: false }),
+);
 
-    onMounted(() => {
-      ctaRipple.rippleRef.value = ctaBrowseRef.value;
+onMounted(() => {
+  ctaRipple.rippleRef.value = ctaBrowseRef.value;
 
-      const createObserver = (
-        refs: Record<number, HTMLElement>,
-        visibility: Record<number, boolean>,
-        observers: IntersectionObserver[]
-      ) => {
-        Object.keys(refs).forEach((key) => {
-          const idx = Number(key);
-          const el = refs[idx];
-          if (!el) return;
-          const obs = new IntersectionObserver(
-            (entries) => {
-              if (entries[0]?.isIntersecting) {
-                visibility[idx] = true;
-                obs.unobserve(el);
-              }
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-          );
-          obs.observe(el);
-          observers.push(obs);
-        });
-      };
-
-      createObserver(featuredRefs, featuredVisibility, featuredObservers);
-      createObserver(otherRefs, otherVisibility, otherObservers);
-
-      Object.keys(otherRefs).forEach((key) => {
-        const idx = Number(key);
-        if (otherTilts[idx]) {
-          otherTilts[idx].tiltRef.value = otherRefs[idx];
-        }
-      });
+  const createObserver = (
+    refs: Record<number, HTMLElement>,
+    visibility: Record<number, boolean>,
+    observers: IntersectionObserver[],
+  ) => {
+    Object.keys(refs).forEach((key) => {
+      const idx = Number(key);
+      const el = refs[idx];
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            visibility[idx] = true;
+            obs.unobserve(el);
+          }
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+      );
+      obs.observe(el);
+      observers.push(obs);
     });
+  };
 
-    onUnmounted(() => {
-      featuredObservers.forEach(obs => obs.disconnect());
-      featuredObservers.length = 0;
-      otherObservers.forEach(obs => obs.disconnect());
-      otherObservers.length = 0;
-    });
+  createObserver(featuredRefs, featuredVisibility, featuredObservers);
+  createObserver(otherRefs, otherVisibility, otherObservers);
 
-    return {
-      featuredProjects,
-      otherProjects,
-      featuredHeadingRef,
-      featuredHeadingVisible,
-      otherHeadingRef,
-      otherHeadingVisible,
-      ctaBlockRef,
-      ctaBlockVisible,
-      ctaBrowseRef,
-      featuredRefs,
-      featuredVisibility,
-      otherRefs,
-      otherVisibility,
-    };
-  },
+  Object.keys(otherRefs).forEach((key) => {
+    const idx = Number(key);
+    if (otherTilts[idx]) {
+      otherTilts[idx].tiltRef.value = otherRefs[idx];
+    }
+  });
+});
+
+onUnmounted(() => {
+  featuredObservers.forEach((obs) => obs.disconnect());
+  featuredObservers.length = 0;
+  otherObservers.forEach((obs) => obs.disconnect());
+  otherObservers.length = 0;
 });
 </script>

@@ -3,7 +3,7 @@
     ref="cardRef"
     class="group reveal"
     :class="{ revealed: isRevealed }"
-    :style="{ transitionDelay: (index * 80) + 'ms' }"
+    :style="{ transitionDelay: index * 80 + 'ms' }"
   >
     <!-- Phase entry -->
     <div
@@ -20,21 +20,29 @@
             'text-cobalt-500 dark:text-cobalt-300': isActive || isCompleted,
             'text-cobalt-500/30 dark:text-cobalt-300/30': !isActive && !isCompleted,
           }"
-        >{{ String(index + 1).padStart(2, '0') }}</span>
-        <span class="text-xs font-mono tracking-wider text-cobalt-500/50 dark:text-cobalt-300/50">{{ phase.label }}</span>
+          >{{ String(index + 1).padStart(2, "0") }}</span
+        >
+        <span class="text-xs font-mono tracking-wider text-cobalt-500/50 dark:text-cobalt-300/50">{{
+          phase.label
+        }}</span>
       </div>
 
       <!-- Content column -->
-      <div class="flex-1 md:border-t md:border-cobalt-500/10 dark:md:border-charcoal-200/30 md:pt-6 md:pb-2">
-        <h3 class="text-lg md:text-xl font-bold text-cobalt-500 dark:text-cobalt-300 mb-2">{{ phase.title }}</h3>
-        <p class="text-cobalt-600 dark:text-cobalt-200 leading-relaxed text-sm md:text-base mb-3">{{ phase.narrative }}</p>
+      <div
+        class="flex-1 md:border-t md:border-cobalt-500/10 dark:md:border-charcoal-200/30 md:pt-6 md:pb-2"
+      >
+        <h3 class="text-lg md:text-xl font-bold text-cobalt-500 dark:text-cobalt-300 mb-2">
+          {{ phase.title }}
+        </h3>
+        <p class="text-cobalt-600 dark:text-cobalt-200 leading-relaxed text-sm md:text-base mb-3">
+          {{ phase.narrative }}
+        </p>
 
         <!-- Detail -->
-        <p
-          v-if="phase.detail"
-          class="text-cobalt-500/60 dark:text-cobalt-300/60 text-sm mb-3"
-        >
-          <span class="font-mono text-xs text-cobalt-500/40 dark:text-cobalt-300/40 mr-1">&gt;</span>
+        <p v-if="phase.detail" class="text-cobalt-500/60 dark:text-cobalt-300/60 text-sm mb-3">
+          <span class="font-mono text-xs text-cobalt-500/40 dark:text-cobalt-300/40 mr-1"
+            >&gt;</span
+          >
           {{ phase.detail }}
         </p>
 
@@ -57,23 +65,25 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { TimelinePhase } from '../../types/projects'
-import { useScrollReveal } from '../../composables/useScrollReveal'
+<script setup lang="ts">
+import { TimelinePhase } from "../../types/projects";
+import { useScrollReveal } from "../../composables/useScrollReveal";
 
-export default defineComponent({
-  name: 'TimelinePhaseCard',
-  props: {
-    phase: { type: Object as PropType<TimelinePhase>, required: true },
-    isActive: { type: Boolean, default: false },
-    isCompleted: { type: Boolean, default: false },
-    index: { type: Number, default: 0 },
-    total: { type: Number, default: 6 },
+withDefaults(
+  defineProps<{
+    phase: TimelinePhase;
+    isActive?: boolean;
+    isCompleted?: boolean;
+    index?: number;
+    total?: number;
+  }>(),
+  {
+    isActive: false,
+    isCompleted: false,
+    index: 0,
+    total: 6,
   },
-  setup() {
-    const { revealRef: cardRef, isVisible: isRevealed } = useScrollReveal({ threshold: 0.1 })
-    return { cardRef, isRevealed }
-  },
-})
+);
+
+const { revealRef: cardRef, isVisible: isRevealed } = useScrollReveal({ threshold: 0.1 });
 </script>

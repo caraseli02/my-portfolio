@@ -9,3 +9,18 @@ dist-ssr
 !.claude/skills/
 node-compile-cache/
 .gstack/
+*.tsbuildinfo
+
+# Prevent screenshots and reference images from being committed to root
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+/*.webp
+# But allow images in public/ and src/assets/
+!public/**/*
+!src/assets/**/*
+
+# Other lockfiles (using pnpm)
+package-lock.json
+yarn.lock

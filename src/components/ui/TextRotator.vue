@@ -1,15 +1,12 @@
 <template>
   <div class="perspective-1000 inline-flex">
-    <div 
+    <div
       class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-display text-lg relative overflow-hidden"
-      :style="{ minWidth: containerWidth + 'px' }"
+      style="min-width: 100px"
     >
-      <div 
-        class="text-rotator-inner"
-        :style="{ transform: `rotateX(${currentRotation}deg)` }"
-      >
-        <div 
-          v-for="(word, index) in words" 
+      <div class="text-rotator-inner" :style="{ transform: `rotateX(${currentRotation}deg)` }">
+        <div
+          v-for="(word, index) in words"
           :key="index"
           class="text-rotator-face"
           :style="getFaceStyle(index)"
@@ -21,88 +18,63 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted, PropType } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
 
-export default defineComponent({
-  name: 'TextRotator',
-  props: {
-    words: {
-      type: Array as PropType<string[]>,
-      required: true
-    },
-    interval: {
-      type: Number,
-      default: 2000
-    }
+const props = withDefaults(
+  defineProps<{
+    words: string[];
+    interval?: number;
+  }>(),
+  {
+    interval: 2000,
   },
-  setup(props) {
-    const currentIndex = ref(0);
-    const currentRotation = ref(0);
-    let intervalId: number | null = null;
+);
 
-    const rotate = () => {
-      currentIndex.value = (currentIndex.value + 1) % props.words.length;
-      currentRotation.value = -currentIndex.value * 90;
-    };
+const currentIndex = ref(0);
+const currentRotation = ref(0);
+let intervalId: number | null = null;
 
-    const getFaceStyle = (index: number) => {
-      const angle = index * 90;
-      return {
-        transform: `rotateX(${angle}deg) translateZ(20px)`,
-        opacity: index === currentIndex.value ? 1 : 0.3,
-      };
-    };
+const rotate = () => {
+  currentIndex.value = (currentIndex.value + 1) % props.words.length;
+  currentRotation.value = -currentIndex.value * 90;
+};
 
-    const containerWidth = ref(100);
+const getFaceStyle = (index: number) => {
+  const angle = index * 90;
+  return {
+    transform: `rotateX(${angle}deg) translateZ(20px)`,
+    opacity: index === currentIndex.value ? 1 : 0.3,
+  };
+};
 
-    const measureWidth = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      // Approximate Manrope text-lg (18px)
-      ctx.font = '400 18px Manrope, sans-serif';
-      const maxPx = Math.max(...props.words.map(w => ctx.measureText(w).width));
-      containerWidth.value = Math.ceil(maxPx) + 4; // 4px buffer
-    };
+const startInterval = () => {
+  intervalId = window.setInterval(rotate, props.interval);
+};
 
-    const startInterval = () => {
-      intervalId = window.setInterval(rotate, props.interval);
-    };
-
-    const stopInterval = () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        stopInterval();
-      } else {
-        startInterval();
-      }
-    };
-
-    onMounted(() => {
-      measureWidth();
-      startInterval();
-      document.addEventListener('visibilitychange', handleVisibilityChange);
-    });
-
-    onUnmounted(() => {
-      stopInterval();
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    });
-
-    return {
-      currentRotation,
-      currentIndex,
-      containerWidth,
-      getFaceStyle
-    };
+const stopInterval = () => {
+  if (intervalId) {
+    clearInterval(intervalId);
+    intervalId = null;
   }
+};
+
+const handleVisibilityChange = () => {
+  if (document.hidden) {
+    stopInterval();
+  } else {
+    startInterval();
+  }
+};
+
+onMounted(() => {
+  startInterval();
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+});
+
+onUnmounted(() => {
+  stopInterval();
+  document.removeEventListener("visibilitychange", handleVisibilityChange);
 });
 </script>
 
