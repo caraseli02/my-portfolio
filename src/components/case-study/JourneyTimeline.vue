@@ -12,7 +12,7 @@
         data-phase
         class="reveal"
         :class="{ revealed: true }"
-        :style="{ transitionDelay: (i * 80) + 'ms' }"
+        :style="{ transitionDelay: i * 80 + 'ms' }"
       >
         <TimelinePhaseCard
           :phase="phase"
@@ -26,25 +26,22 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { TimelinePhase } from '../../types/projects'
-import { useScrollProgress } from '../../composables/useScrollProgress'
-import TimelinePhaseCard from './TimelinePhaseCard.vue'
+<script setup lang="ts">
+import { TimelinePhase } from "../../types/projects";
+import { useScrollProgress } from "../../composables/useScrollProgress";
+import TimelinePhaseCard from "./TimelinePhaseCard.vue";
 
-export default defineComponent({
-  name: 'JourneyTimeline',
-  components: { TimelinePhaseCard },
-  props: {
-    phases: { type: Array as PropType<TimelinePhase[]>, required: true },
-    accentColor: { type: String, default: 'cobalt-500' },
+withDefaults(
+  defineProps<{
+    phases: TimelinePhase[];
+    accentColor?: string;
+  }>(),
+  {
+    accentColor: "cobalt-500",
   },
-  setup() {
-    const { containerRef, activeIndex } = useScrollProgress({
-      activationOffset: 0.4,
-    })
+);
 
-    return { containerRef, activeIndex }
-  },
-})
+const { containerRef, activeIndex } = useScrollProgress({
+  activationOffset: 0.4,
+});
 </script>

@@ -1,8 +1,5 @@
 <template>
-  <div 
-    class="overflow-hidden whitespace-nowrap"
-    :class="{ 'hover:[&>*]:pause': pauseOnHover }"
-  >
+  <div class="overflow-hidden whitespace-nowrap" :class="{ 'hover:[&>*]:pause': pauseOnHover }">
     <div
       class="inline-flex items-center gap-8 animate-marquee"
       :class="{ 'animate-marquee-reverse': reverse }"
@@ -15,26 +12,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'Marquee',
-  props: {
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    duration: {
-      type: Number,
-      default: 30
-    },
-    pauseOnHover: {
-      type: Boolean,
-      default: false
-    }
-  }
-});
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    reverse?: boolean;
+    duration?: number;
+    pauseOnHover?: boolean;
+  }>(),
+  {
+    reverse: false,
+    duration: 30,
+    pauseOnHover: false,
+  },
+);
 </script>
 
 <style scoped>

@@ -1,23 +1,33 @@
 <template>
   <section class="py-12">
     <div class="mb-12">
-      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">Key Takeaways</h2>
-      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">What I learned building this project</p>
+      <h2 class="text-3xl md:text-4xl font-display text-cobalt-500 dark:text-cobalt-300 mb-4">
+        Key Takeaways
+      </h2>
+      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">
+        What I learned building this project
+      </p>
     </div>
 
     <div class="space-y-4">
       <div
         v-for="(lesson, i) in lessons"
         :key="i"
-        :ref="el => { if (el) lessonRefs[i] = el }"
+        :ref="
+          (el) => {
+            if (el) lessonRefs[i] = el;
+          }
+        "
         class="flex items-start gap-5 p-6 border border-cobalt-500/15 dark:border-charcoal-200/40 bg-cream-100 dark:bg-charcoal-50 reveal group"
         :class="{ revealed: lessonVisibility[i] }"
-        :style="{ transitionDelay: (i * 100) + 'ms' }"
+        :style="{ transitionDelay: i * 100 + 'ms' }"
       >
         <!-- Numbered marker -->
         <div class="flex-shrink-0 mt-0.5 relative" aria-hidden="true">
-          <span class="text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 group-hover:scale-110 transition-transform duration-200 inline-block">
-            {{ String(i + 1).padStart(2, '0') }}
+          <span
+            class="text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 group-hover:scale-110 transition-transform duration-200 inline-block"
+          >
+            {{ String(i + 1).padStart(2, "0") }}
           </span>
         </div>
 
@@ -31,41 +41,35 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, onMounted, onUnmounted, PropType } from 'vue'
+<script setup lang="ts">
+import { reactive, onMounted, onUnmounted } from "vue";
 
-export default defineComponent({
-  name: 'LessonsLearned',
-  props: {
-    lessons: { type: Array as PropType<string[]>, required: true },
-  },
-  setup() {
-    const lessonRefs = reactive<Record<number, HTMLElement>>({})
-    const lessonVisibility = reactive<Record<number, boolean>>({})
-    let observer: IntersectionObserver | null = null
+defineProps<{
+  lessons: string[];
+}>();
 
-    onMounted(() => {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const idx = Object.values(lessonRefs).indexOf(entry.target as HTMLElement)
-              if (idx !== -1) lessonVisibility[idx] = true
-              observer?.unobserve(entry.target)
-            }
-          })
-        },
-        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-      )
-      Object.values(lessonRefs).forEach((el) => observer?.observe(el))
-    })
+const lessonRefs = reactive<Record<number, HTMLElement>>({});
+const lessonVisibility = reactive<Record<number, boolean>>({});
+let observer: IntersectionObserver | null = null;
 
-    onUnmounted(() => {
-      observer?.disconnect()
-      observer = null
-    })
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const idx = Object.values(lessonRefs).indexOf(entry.target as HTMLElement);
+          if (idx !== -1) lessonVisibility[idx] = true;
+          observer?.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+  );
+  Object.values(lessonRefs).forEach((el) => observer?.observe(el));
+});
 
-    return { lessonRefs, lessonVisibility }
-  },
-})
+onUnmounted(() => {
+  observer?.disconnect();
+  observer = null;
+});
 </script>

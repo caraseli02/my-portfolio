@@ -6,7 +6,7 @@
       :class="`cursor-ring--${cursorType}`"
       :style="{
         transform: `translate3d(${smoothCursorX - 16}px, ${smoothCursorY - 16}px, 0)`,
-        opacity: cursorVisible ? 1 : 0
+        opacity: cursorVisible ? 1 : 0,
       }"
     ></div>
     <!-- Inner dot (snappy raw position) -->
@@ -15,22 +15,17 @@
       :class="`cursor-dot--${cursorType}`"
       :style="{
         transform: `translate3d(${cursorX - 4}px, ${cursorY - 4}px, 0)`,
-        opacity: cursorVisible ? 1 : 0
+        opacity: cursorVisible ? 1 : 0,
       }"
     ></div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { useCustomCursor } from '../composables/useCustomCursor'
+<script setup lang="ts">
+import { useCustomCursor } from "../composables/useCustomCursor";
 
-export default defineComponent({
-  name: 'CustomCursor',
-  setup() {
-    return useCustomCursor()
-  }
-})
+const { isTouchDevice, cursorX, cursorY, smoothCursorX, smoothCursorY, cursorVisible, cursorType } =
+  useCustomCursor();
 </script>
 
 <style>
@@ -52,7 +47,10 @@ export default defineComponent({
   border: 2px solid white;
   border-radius: 50%;
   pointer-events: none;
-  transition: background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -65,7 +63,9 @@ export default defineComponent({
   background: white;
   border-radius: 50%;
   pointer-events: none;
-  transition: background-color 0.2s ease, opacity 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    opacity 0.3s ease;
   will-change: transform;
 }
 
