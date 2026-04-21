@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { getProjectBySlug } from "../data/projects";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -6,9 +7,9 @@ const routes: RouteRecordRaw[] = [
     name: "home",
     component: () => import("../pages/Home.vue"),
     meta: {
-      title: "Vlad Caraseli | Vue.js Developer",
+      title: "Vlad Caraseli | Frontend Engineer for Product Teams",
       description:
-        "Vue.js web developer based in Palma de Mallorca, building modern web applications with Vue 3, TypeScript, and Tailwind CSS.",
+        "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences with Vue, React, TypeScript, and Nuxt.",
     },
   },
   {
@@ -18,7 +19,8 @@ const routes: RouteRecordRaw[] = [
     props: true,
     meta: {
       title: "Case Study | Vlad Caraseli",
-      description: "Detailed case study of a web development project.",
+      description:
+        "Deep dives into frontend engineering, interface architecture, and product-facing UI systems.",
     },
   },
   {
@@ -26,8 +28,9 @@ const routes: RouteRecordRaw[] = [
     name: "about",
     component: () => import("../pages/About.vue"),
     meta: {
-      title: "About | Vlad Caraseli",
-      description: "Learn more about Vlad Caraseli, a Vue.js developer based in Palma de Mallorca.",
+      title: "About Vlad Caraseli | Frontend Engineer",
+      description:
+        "Learn how Vlad Caraseli approaches product UI, design systems, and frontend engineering from Palma de Mallorca.",
     },
   },
   {
@@ -35,8 +38,9 @@ const routes: RouteRecordRaw[] = [
     name: "contact",
     component: () => import("../pages/Contact.vue"),
     meta: {
-      title: "Contact | Vlad Caraseli",
-      description: "Get in touch with Vlad Caraseli for web development projects.",
+      title: "Contact Vlad Caraseli | Product UI & Frontend",
+      description:
+        "Get in touch with Vlad Caraseli for frontend builds, design systems, and product-facing interface work.",
     },
   },
   {
@@ -45,10 +49,9 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/Extra.vue"),
     meta: {
       title: "Extra | Vlad Caraseli",
-      description: "Additional projects and experiments.",
+      description: "Additional experiments, side projects, and interface explorations.",
     },
   },
-  // Redirect old /projects route to home with anchor
   {
     path: "/projects",
     redirect: { name: "home", hash: "#case-studies" },
@@ -59,6 +62,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/NotFound.vue"),
     meta: {
       title: "404 | Vlad Caraseli",
+      description: "Page not found.",
     },
   },
 ];
@@ -69,7 +73,6 @@ const router = createRouter({
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
 
-    // Handle anchor links
     if (to.hash) {
       return {
         el: to.hash,
@@ -81,12 +84,39 @@ const router = createRouter({
   },
 });
 
-// Update document title based on route meta
+const ensureMetaDescription = (): HTMLMetaElement => {
+  let tag = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.name = "description";
+    document.head.appendChild(tag);
+  }
+
+  return tag;
+};
+
 router.beforeEach((to, _from, next) => {
-  const title = to.meta.title as string | undefined;
+  let title = to.meta.title as string | undefined;
+  let description = to.meta.description as string | undefined;
+
+  if (to.name === "case-study" && typeof to.params.slug === "string") {
+    const project = getProjectBySlug(to.params.slug);
+
+    if (project?.caseStudy) {
+      title = `${project.title} Case Study | Vlad Caraseli`;
+      description = `${project.description} Built with ${project.tech.slice(0, 3).join(", ")} and documented as a product-focused frontend case study.`;
+    }
+  }
+
   if (title) {
     document.title = title;
   }
+
+  if (description) {
+    ensureMetaDescription().content = description;
+  }
+
   next();
 });
 

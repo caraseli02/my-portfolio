@@ -7,13 +7,14 @@
   >
     <!-- Phase entry -->
     <div
-      class="py-6 px-4 md:px-0 md:flex md:items-start md:gap-6 transition-colors duration-200"
+      class="rounded-[1.5rem] border border-cobalt-500/12 bg-white/72 px-4 py-5 transition-colors duration-200 dark:border-cobalt-300/12 dark:bg-charcoal-50/72 md:px-5"
       :class="{
-        'bg-cobalt-500/[0.03] dark:bg-cobalt-300/[0.05]': isActive,
+        'shadow-[0_18px_40px_rgba(31,50,255,0.08)] ring-1 ring-cobalt-500/12 dark:ring-cobalt-300/12':
+          isActive,
       }"
     >
       <!-- Index + label column -->
-      <div class="flex items-baseline gap-3 mb-2 md:mb-0 md:w-40 shrink-0">
+      <div class="mb-3 flex items-baseline gap-3 md:mb-0 md:w-40 md:shrink-0">
         <span
           class="text-sm font-mono tabular-nums"
           :class="{
@@ -28,10 +29,8 @@
       </div>
 
       <!-- Content column -->
-      <div
-        class="flex-1 md:border-t md:border-cobalt-500/10 dark:md:border-charcoal-200/30 md:pt-6 md:pb-2"
-      >
-        <h3 class="text-lg md:text-xl font-bold text-cobalt-500 dark:text-cobalt-300 mb-2">
+      <div class="flex-1 md:border-l md:border-cobalt-500/10 md:pl-6 dark:md:border-cobalt-300/12">
+        <h3 class="mb-2 text-xl font-semibold text-charcoal dark:text-cobalt-100 md:text-2xl">
           {{ phase.title }}
         </h3>
         <p class="text-cobalt-600 dark:text-cobalt-200 leading-relaxed text-sm md:text-base mb-3">

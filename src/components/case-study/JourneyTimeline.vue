@@ -1,8 +1,10 @@
 <template>
   <section class="py-12">
     <div class="mb-10">
-      <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-2">### journey</h2>
-      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">How this project unfolded</p>
+      <p class="editorial-kicker mb-3">project journey</p>
+      <h2 class="text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl">
+        How the build unfolded from problem to payoff
+      </h2>
     </div>
 
     <div ref="containerRef" class="space-y-0">

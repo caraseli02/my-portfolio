@@ -1,27 +1,54 @@
-# Vue 3 + Typescript + Vite
+# Vlad Caraseli Portfolio
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+Personal portfolio built with Vue 3, TypeScript, Vite, and Tailwind CSS v4.
 
-## Recommended IDE Setup
+Live goals for this site:
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+- make hiring managers understand the value fast
+- show real product/frontend range through case studies
+- keep the visual language editorial, high-contrast, and memorable
 
-### If Using `<script setup>`
+## Stack
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+- Vue 3
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Vue Router
 
-## Type Support For `.vue` Imports in TS
+## Main sections
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
+- Home: positioning, proof, and featured case studies
+- About: working style, specialties, and background
+- Contact: fast path for LinkedIn/GitHub outreach
+- Case studies: deep dives into selected projects
 
-### If Using Volar
+## Local development
 
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
+```bash
+pnpm install
+pnpm dev
+```
 
-### If Using Vetur
+## Production build
 
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+```bash
+pnpm build
+pnpm preview
+```
+
+## Design direction
+
+This iteration leans into an editorial portfolio aesthetic:
+
+- Bodoni Moda for high-impact display moments
+- Familjen Grotesk for cleaner body copy
+- cream paper background + cobalt accents
+- stronger proof-first homepage structure
+- more scannable about/contact pages
+
+## Notes
+
+- Route metadata is updated per page for stronger SEO/share text.
+- `/projects` redirects to the homepage case studies section.
+- External links use `rel="noopener noreferrer"`.

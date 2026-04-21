@@ -1,8 +1,10 @@
 <template>
   <section>
     <div class="mb-10">
-      <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-2">### impact</h2>
-      <p class="text-lg text-cobalt-600 dark:text-cobalt-200">Measurable results</p>
+      <p class="editorial-kicker mb-3">measurable impact</p>
+      <h2 class="text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl">
+        The proof points that matter on a fast scan
+      </h2>
     </div>
 
     <!-- Horizontal metrics strip -->

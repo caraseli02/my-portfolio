@@ -1,105 +1,146 @@
 <template>
-  <div class="bg-cream-100 dark:bg-charcoal min-h-screen pt-32">
-    <div class="max-w-4xl mx-auto px-6 lg:px-12 pb-24">
-      <!-- Hero -->
-      <div class="mb-16">
-        <h1
-          class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight mb-4"
-        >
-          I'm Vlad Caraseli,
-        </h1>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight">
-          it's nice to meet you
-        </h2>
-      </div>
+  <div class="min-h-screen bg-cream-100 pt-28 dark:bg-charcoal md:pt-32">
+    <div class="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12">
+      <section class="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_22rem] lg:items-start">
+        <div>
+          <p class="editorial-kicker mb-4">about vlad caraseli</p>
+          <h1
+            class="max-w-5xl text-[3.3rem] leading-[0.95] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.6rem]"
+          >
+            I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
+          </h1>
+          <p
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88 md:text-xl"
+          >
+            Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
+            under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
+            layers teams actually rely on.
+          </p>
+        </div>
 
-      <!-- Bio Content -->
-      <div class="space-y-6 text-lg md:text-xl text-cobalt-600 leading-relaxed mb-16">
-        <p>
-          I was born in Moldova and have spent the last decade crafting digital experiences across
-          Europe. Currently, I'm based in the beautiful Mediterranean city of Palma de Mallorca,
-          where I combine work with a passion for sailing and sunshine.
-        </p>
-
-        <p>
-          My journey into web development started with a curiosity for how things work on the
-          internet. That curiosity led me to specialize in Vue.js and the modern JavaScript
-          ecosystem, where I've spent 6+ years building everything from interactive dashboards to
-          complex e-commerce platforms.
-        </p>
-
-        <p>
-          I've worked with startups, agencies, and enterprise clients, helping them bring their
-          visions to life through clean code and thoughtful user interfaces. My approach combines
-          technical precision with creative problem-solving.
-        </p>
-
-        <p>
-          When I'm not coding, you'll find me exploring Mallorca's coastline, contributing to
-          open-source projects, or diving deep into the latest frontend frameworks. I believe in
-          building software that's not just functional, but delightful to use.
-        </p>
-
-        <p class="font-display text-cobalt-500">Let's create something amazing together.</p>
-      </div>
-
-      <!-- Profile Panel -->
-      <div class="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-start py-12">
-        <div class="border border-cobalt-500/20 p-8 md:p-10">
-          <p class="text-xs uppercase tracking-[0.3em] text-cobalt-500/70 mb-4">Currently</p>
-          <div class="space-y-4 text-cobalt-600">
+        <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
+          <p class="editorial-kicker mb-4">snapshot</p>
+          <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/86">
             <div>
-              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Base</p>
-              <p class="text-xl font-serif italic text-cobalt-500">Palma de Mallorca</p>
-            </div>
-            <div>
-              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Focus</p>
-              <p class="text-lg leading-relaxed">
-                Vue 3 interfaces, component systems, and frontends that feel calm and considered.
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                base
+              </p>
+              <p class="mt-1 text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
+                Palma de Mallorca
               </p>
             </div>
+            <div class="editorial-rule"></div>
             <div>
-              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Off-screen</p>
-              <p class="text-lg leading-relaxed">
-                Sailing, open-source, and long walks that usually turn into product ideas.
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                specialty
+              </p>
+              <p class="mt-1">
+                Frontend architecture, UX clarity, design systems, and product-facing
+                implementation.
+              </p>
+            </div>
+            <div class="editorial-rule"></div>
+            <div>
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                off-screen
+              </p>
+              <p class="mt-1">
+                Sailing, long walks, open-source rabbit holes, and interface references I probably
+                should not be collecting.
               </p>
             </div>
           </div>
-        </div>
+        </aside>
+      </section>
 
-        <div
-          class="border border-cobalt-500/30 p-8 md:p-10 min-h-[22rem] flex flex-col justify-between"
-        >
-          <div>
-            <p class="text-7xl md:text-8xl font-serif italic text-cobalt-500 leading-none">VC</p>
-            <p class="mt-4 text-cobalt-600 leading-relaxed">
-              I like interfaces with strong hierarchy, restrained motion, and enough personality to
-              be remembered.
+      <section class="mt-14 grid gap-5 md:grid-cols-3">
+        <article class="panel-surface p-6">
+          <p class="editorial-kicker mb-3">01 — what I do best</p>
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
+            Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
+            better decision-making built into the layout.
+          </p>
+        </article>
+        <article class="panel-surface p-6">
+          <p class="editorial-kicker mb-3">02 — how I work</p>
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
+            Design-minded engineering: thoughtful systems, clean implementation, and enough visual
+            restraint that the important moments hit harder.
+          </p>
+        </article>
+        <article class="panel-surface p-6">
+          <p class="editorial-kicker mb-3">03 — where I add leverage</p>
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
+            Complex frontends, refactors that improve trust, and design-system work that keeps teams
+            shipping without turning every screen into a one-off.
+          </p>
+        </article>
+      </section>
+
+      <section class="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+        <div>
+          <p class="editorial-kicker mb-4">working style</p>
+          <h2 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
+            I care about interfaces that earn trust fast.
+          </h2>
+          <div
+            class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88"
+          >
+            <p>
+              That usually means fewer gimmicks, stronger copy hierarchy, and components that feel
+              like they belong to the same product universe.
+            </p>
+            <p>
+              I enjoy the work between “looks good” and “actually holds up” — accessibility,
+              resilience, edge states, motion restraint, and making dense product logic feel
+              legible.
             </p>
           </div>
+        </div>
 
-          <div class="flex items-center gap-5 pt-10 text-cobalt-500">
-            <svg viewBox="0 0 50 50" class="w-12 h-12">
-              <polygon
-                points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18"
-                fill="currentColor"
-              />
-            </svg>
-            <svg viewBox="0 0 80 40" class="w-16 h-8">
-              <path
-                d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-            </svg>
+        <div class="border border-cobalt-500/15 p-6 md:p-8">
+          <p class="editorial-kicker mb-5">good fit projects</p>
+          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100/88">
+            <div>
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                product UI
+              </p>
+              <p class="mt-1 text-lg">Dashboards, commerce flows, account areas, internal tools.</p>
+            </div>
+            <div>
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                systems
+              </p>
+              <p class="mt-1 text-lg">
+                Component libraries, design systems, typed frontend architecture.
+              </p>
+            </div>
+            <div>
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+              >
+                polish
+              </p>
+              <p class="mt-1 text-lg">
+                UX cleanup, visual hierarchy, interaction refinement, and handoff-ready frontend
+                implementation.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
 
-    <!-- Footer -->
     <Footer />
   </div>
 </template>

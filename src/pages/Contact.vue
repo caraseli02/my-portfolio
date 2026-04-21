@@ -1,101 +1,118 @@
 <template>
-  <div class="bg-cream-100 dark:bg-charcoal min-h-screen pt-32 flex flex-col">
-    <div class="flex-1 max-w-4xl mx-auto px-6 lg:px-12 pb-24 flex flex-col justify-center">
-      <!-- Animated Headlines -->
-      <div class="mb-12 md:mb-16 max-w-2xl">
-        <p class="text-xl md:text-2xl text-cobalt-600 mb-6">Reach out to create something</p>
-        <div class="space-y-2 md:space-y-3">
-          <p
-            v-for="(word, index) in words"
-            :key="index"
-            class="text-3xl md:text-5xl lg:text-6xl font-display text-cobalt-500 transition-all duration-500"
-            :class="{
-              'opacity-100': currentWordIndex === index,
-              'opacity-40': currentWordIndex !== index,
-            }"
+  <div class="min-h-screen bg-cream-100 dark:bg-charcoal pt-28 md:pt-32">
+    <div
+      class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:px-12"
+    >
+      <section>
+        <p class="editorial-kicker mb-4">contact</p>
+        <h1
+          class="max-w-4xl text-[3.2rem] leading-[0.94] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.4rem]"
+        >
+          Bring me in when the interface needs to feel
+          <span class="italic">sharper</span>, <span class="italic">clearer</span>, and harder to
+          forget.
+        </h1>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span
+            v-for="word in words"
+            :key="word"
+            class="pill-badge"
+            :class="
+              currentWord === word
+                ? '!bg-cobalt-500 !text-white dark:!bg-cobalt-300 dark:!text-charcoal'
+                : ''
+            "
           >
-            {{ word }}<span v-if="hasPeriod(index)">.</span>
-          </p>
+            {{ word }}
+          </span>
         </div>
-        <p class="mt-8 text-lg md:text-xl text-cobalt-600 leading-relaxed">
-          Best first touch is LinkedIn. Send a short note with the project, the role, and the
-          timeline. That gets the fastest response.
+
+        <p
+          class="mt-8 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88 md:text-xl"
+        >
+          Best first touch is LinkedIn. Send the project, the role, the timeline, and where the
+          product currently feels weak. I can tell pretty quickly where the leverage is.
         </p>
-      </div>
 
-      <!-- Primary Actions -->
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-14">
-        <a
-          href="https://www.linkedin.com/in/caraseli/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-7 py-3 bg-cobalt-500 text-cream-100 font-medium hover:opacity-85 transition-opacity"
-        >
-          Start on LinkedIn
-        </a>
-
-        <a
-          href="https://github.com/caraseli02?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-7 py-3 border border-cobalt-500 text-cobalt-500 font-medium hover:bg-cobalt-500 hover:text-cream-100 transition-colors"
-        >
-          Browse GitHub
-        </a>
-      </div>
-
-      <!-- Supporting Notes -->
-      <div class="grid gap-4 md:grid-cols-2 text-cobalt-600 mb-12 md:mb-16">
-        <div class="border border-cobalt-500/20 p-5">
-          <p class="text-xs uppercase tracking-[0.25em] text-cobalt-500/60 mb-2">Good fit</p>
-          <p class="leading-relaxed">
-            Frontend builds, design system work, UI polish, and product-facing Vue projects.
-          </p>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="https://www.linkedin.com/in/caraseli/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
+          >
+            Start on LinkedIn ↗
+          </a>
+          <a
+            href="https://github.com/caraseli02?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+          >
+            Browse GitHub ↗
+          </a>
         </div>
-        <div class="border border-cobalt-500/20 p-5">
-          <p class="text-xs uppercase tracking-[0.25em] text-cobalt-500/60 mb-2">
-            Helpful in the first message
-          </p>
-          <p class="leading-relaxed">
-            What you are building, what stage it is in, and where the interface currently feels
-            weak.
-          </p>
-        </div>
-      </div>
+      </section>
 
-      <p class="text-cobalt-500 text-xl lowercase font-serif italic">don't be shy</p>
+      <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
+        <p class="editorial-kicker mb-4">good first message</p>
+        <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/88">
+          <div>
+            <p
+              class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+            >
+              tell me
+            </p>
+            <p class="mt-1">
+              What you are building, who it is for, and what is not clicking in the current UX.
+            </p>
+          </div>
+          <div class="editorial-rule"></div>
+          <div>
+            <p
+              class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+            >
+              best fit
+            </p>
+            <p class="mt-1">
+              Frontend builds, product UI cleanup, design systems, complex component work, and
+              thoughtful refactors.
+            </p>
+          </div>
+          <div class="editorial-rule"></div>
+          <div>
+            <p
+              class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
+            >
+              location
+            </p>
+            <p class="mt-1 text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+              Palma de Mallorca
+            </p>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <!-- Arch SVG at bottom -->
-    <div class="flex justify-center pb-8">
-      <svg viewBox="0 0 60 80" class="w-20 h-24 text-cobalt-500">
-        <path
-          d="M10 70 Q10 10, 30 10 Q50 10, 50 70"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="3"
-          stroke-linecap="round"
-        />
-      </svg>
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
+import Footer from "../components/layout/Footer.vue";
 
-const words = ["daring", "playful", "immersive", "enticing", "joyful", "intuitive", "exciting"];
-const currentWordIndex = ref(0);
+const words = ["decisive", "editorial", "usable", "faster", "clearer", "credible", "memorable"];
+const currentWord = ref(words[0]);
 let interval: ReturnType<typeof setInterval> | null = null;
-
-const hasPeriod = (index: number): boolean => {
-  return index === 0 || index === 1 || index === 5;
-};
+let currentIndex = 0;
 
 const startInterval = () => {
   interval = window.setInterval(() => {
-    currentWordIndex.value = (currentWordIndex.value + 1) % words.length;
-  }, 2000);
+    currentIndex = (currentIndex + 1) % words.length;
+    currentWord.value = words[currentIndex];
+  }, 1600);
 };
 
 const stopInterval = () => {
@@ -108,7 +125,7 @@ const stopInterval = () => {
 const handleVisibilityChange = () => {
   if (document.hidden) {
     stopInterval();
-  } else {
+  } else if (!interval) {
     startInterval();
   }
 };

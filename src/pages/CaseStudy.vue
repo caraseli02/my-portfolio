@@ -1,275 +1,289 @@
 <template>
-  <div class="bg-cream-100 dark:bg-charcoal min-h-screen">
-    <!-- Error state -->
+  <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
     <div
       v-if="!project || !caseStudy"
-      class="flex flex-col items-center justify-center min-h-screen px-6"
+      class="flex min-h-screen flex-col items-center justify-center px-6"
     >
-      <span class="text-6xl font-display text-cobalt-500/20 dark:text-cobalt-300/20 mb-4">404</span>
-      <p class="text-lg text-cobalt-500 dark:text-cobalt-300 mb-8">Project not found</p>
+      <span class="mb-4 text-6xl font-display text-cobalt-500/20 dark:text-cobalt-300/20">404</span>
+      <p class="mb-8 text-lg text-cobalt-700 dark:text-cobalt-100">Project not found</p>
       <router-link
         to="/"
-        class="font-mono text-sm text-cobalt-500 dark:text-cobalt-300 border border-cobalt-500/20 dark:border-cobalt-300/20 px-4 py-2 hover:bg-cobalt-500/5 dark:hover:bg-cobalt-300/5 transition-colors"
+        class="border border-cobalt-500/20 px-4 py-2 font-mono text-sm text-cobalt-700 transition-colors hover:bg-cobalt-500/5 dark:border-cobalt-300/20 dark:text-cobalt-100 dark:hover:bg-cobalt-300/5"
       >
         cd ~/
       </router-link>
     </div>
 
     <template v-else>
-      <!-- Header Section -->
       <section
-        class="pt-32 pb-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40"
+        class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12"
       >
-        <div class="max-w-6xl mx-auto">
-          <div class="mb-8">
-            <span
-              class="text-6xl md:text-7xl lg:text-8xl font-display text-cobalt-500 dark:text-cobalt-300 block mb-4"
+        <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-50"></div>
+
+        <div class="relative mx-auto max-w-7xl">
+          <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-stretch">
+            <div
+              class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_30px_90px_rgba(17,27,143,0.22)] md:p-8 lg:p-10"
             >
-              {{ formattedNumber }}
-            </span>
-            <h1
-              class="text-4xl md:text-5xl lg:text-6xl font-bold text-cobalt-500 dark:text-cobalt-300 leading-tight"
-            >
-              {{ project.title }}
-            </h1>
-          </div>
-
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span v-for="tag in project.tech" :key="tag" class="pill-badge">
-              {{ tag }}
-            </span>
-          </div>
-
-          <p
-            class="text-xl md:text-2xl font-display text-cobalt-500 dark:text-cobalt-300 max-w-3xl"
-          >
-            {{ caseStudy.tagline }}
-          </p>
-        </div>
-      </section>
-
-      <!-- Hero Image -->
-      <section class="border-b border-cobalt-500/20">
-        <div class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
-          <img
-            :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
-            :alt="`${project.title} screenshot`"
-            class="w-full shadow-2xl"
-            loading="eager"
-            @error="handleImageError"
-          />
-        </div>
-      </section>
-
-      <!-- About + Metadata — side by side -->
-      <section
-        class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40"
-      >
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div class="lg:col-span-2">
-            <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-6">### about</h2>
-            <p class="text-lg md:text-xl text-cobalt-600 dark:text-cobalt-200 leading-relaxed">
-              {{ caseStudy.description || project.description }}
-            </p>
-          </div>
-          <div class="lg:col-span-1">
-            <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-6">### details</h2>
-            <dl class="space-y-4">
-              <div
-                class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2"
-              >
-                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">
-                  Duration
-                </dt>
-                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">
-                  {{ caseStudy.duration }}
-                </dd>
+              <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
+                <div class="paper-grid h-full w-full"></div>
               </div>
-              <div
-                class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2"
-              >
-                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Role</dt>
-                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">
-                  {{ caseStudy.role }}
-                </dd>
-              </div>
-              <div
-                class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2"
-              >
-                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Year</dt>
-                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">
-                  {{ caseStudy.year }}
-                </dd>
-              </div>
-              <div
-                v-if="caseStudy.liveUrl"
-                class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2"
-              >
-                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Live</dt>
-                <dd>
+
+              <div class="relative">
+                <p
+                  class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70"
+                >
+                  {{ formattedNumber }} • {{ project.category }}
+                </p>
+
+                <h1
+                  class="max-w-4xl text-[3.2rem] leading-[0.92] font-display text-white sm:text-[4.2rem] md:text-[5.2rem] lg:text-[6rem]"
+                >
+                  {{ project.title }}
+                </h1>
+
+                <p class="mt-5 max-w-3xl text-xl leading-relaxed text-cobalt-100/82 md:text-2xl">
+                  {{ caseStudy.tagline }}
+                </p>
+
+                <p class="mt-6 max-w-3xl text-base leading-relaxed text-cobalt-100/72 md:text-lg">
+                  {{ caseStudy.description || project.description }}
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-2.5">
+                  <span
+                    v-for="tag in project.tech"
+                    :key="tag"
+                    class="border border-white/12 bg-white/7 px-3 py-1.5 text-xs font-mono uppercase tracking-[0.16em] text-cobalt-100/82"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center gap-4">
                   <a
+                    v-if="caseStudy.liveUrl"
                     :href="caseStudy.liveUrl"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-sm font-display text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity inline-flex items-center gap-1"
+                    class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-opacity hover:opacity-85"
                   >
-                    website
-                    <svg
-                      class="w-3 h-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      ></path>
-                    </svg>
+                    View live ↗
                   </a>
-                </dd>
-              </div>
-              <div v-if="project.github" class="flex justify-between pb-2">
-                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Source</dt>
-                <dd>
                   <a
+                    v-if="project.github"
                     :href="project.github"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="text-sm font-display text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity inline-flex items-center gap-1"
+                    class="inline-flex items-center justify-center border border-white/18 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-cobalt-700"
                   >
-                    github
-                    <svg
-                      class="w-3 h-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      ></path>
-                    </svg>
+                    View source ↗
                   </a>
-                </dd>
+                </div>
               </div>
-            </dl>
+            </div>
+
+            <aside class="panel-surface flex flex-col justify-between rounded-[2rem] p-6 md:p-8">
+              <div>
+                <p class="editorial-kicker mb-5">project facts</p>
+                <dl class="space-y-4">
+                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
+                    <dt
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
+                    >
+                      duration
+                    </dt>
+                    <dd class="mt-1 text-2xl font-display text-charcoal dark:text-cobalt-100">
+                      {{ caseStudy.duration }}
+                    </dd>
+                  </div>
+                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
+                    <dt
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
+                    >
+                      role
+                    </dt>
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
+                      {{ caseStudy.role }}
+                    </dd>
+                  </div>
+                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
+                    <dt
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
+                    >
+                      year
+                    </dt>
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
+                      {{ caseStudy.year }}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="mt-8">
+                <p class="editorial-kicker mb-4">top outcomes</p>
+                <div class="space-y-3">
+                  <div
+                    v-for="outcome in heroOutcomes"
+                    :key="outcome.label"
+                    class="rounded-[1.5rem] border border-cobalt-500/12 bg-white/75 p-4 dark:border-cobalt-300/12 dark:bg-charcoal-50/75"
+                  >
+                    <p class="text-3xl font-display text-charcoal dark:text-cobalt-100">
+                      {{ outcome.metric }}
+                    </p>
+                    <p
+                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84"
+                    >
+                      {{ outcome.label }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
 
-      <!-- Architecture Diagram -->
-      <section
-        class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40"
-      >
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-8">
-            ### architecture
-          </h2>
+      <section class="px-6 pb-14 md:px-10 lg:px-12">
+        <div class="mx-auto max-w-7xl">
+          <div
+            class="overflow-hidden rounded-[2rem] border border-cobalt-500/15 bg-white/75 shadow-[0_24px_70px_rgba(31,50,255,0.08)] dark:border-cobalt-300/15 dark:bg-charcoal-50/75"
+          >
+            <img
+              :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
+              :alt="`${project.title} screenshot`"
+              class="h-auto max-h-[70vh] w-full object-cover object-top"
+              loading="eager"
+              @error="handleImageError"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 pb-16 md:px-10 lg:px-12">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+            <p class="editorial-kicker mb-4">why this project matters</p>
+            <h2
+              class="max-w-3xl text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl"
+            >
+              Built to show product judgment, not just implementation range.
+            </h2>
+            <p
+              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88"
+            >
+              {{ caseStudy.description || project.description }}
+            </p>
+            <p
+              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/90"
+            >
+              The goal was not just to make something work. It was to make complex logic feel
+              legible, credible, and fast to trust on first scan.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article
+              v-for="(highlight, index) in projectHighlights"
+              :key="highlight"
+              class="panel-surface rounded-[1.6rem] p-5"
+            >
+              <p class="editorial-kicker mb-3">0{{ index + 1 }} — what shipped</p>
+              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/88">
+                {{ highlight }}
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 pb-16 md:px-10 lg:px-12">
+        <div class="mx-auto max-w-7xl panel-surface rounded-[2rem] p-6 md:p-8">
+          <p class="editorial-kicker mb-6">system view</p>
           <ArchitectureDiagram :slug="slug" />
         </div>
       </section>
 
-      <!-- Journey Timeline — full bleed bg variation -->
-      <section class="py-16 px-6 lg:px-12 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]">
-        <div class="max-w-4xl mx-auto">
-          <JourneyTimeline :phases="caseStudy.timeline" accent-color="cobalt-500" />
+      <section class="px-6 pb-16 md:px-10 lg:px-12">
+        <div
+          class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-start"
+        >
+          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+            <JourneyTimeline :phases="caseStudy.timeline" accent-color="cobalt-500" />
+          </div>
+
+          <aside
+            v-if="caseStudy.metaphor"
+            class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_24px_70px_rgba(17,27,143,0.2)] md:p-8"
+          >
+            <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
+              <div class="paper-grid h-full w-full"></div>
+            </div>
+            <div class="relative">
+              <p class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70">
+                core idea
+              </p>
+              <p class="text-3xl font-display text-white md:text-4xl">
+                {{ caseStudy.metaphor.phrase }}
+              </p>
+              <p class="mt-5 text-base leading-relaxed text-cobalt-100/78">
+                {{ caseStudy.metaphor.description }}
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
 
-      <!-- Outcomes — compact horizontal strip -->
-      <section
-        class="py-16 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40"
-      >
-        <div class="max-w-4xl mx-auto">
-          <OutcomesGrid :outcomes="caseStudy.outcomes" />
-        </div>
-      </section>
-
-      <section class="py-8 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
-        <div class="max-w-4xl mx-auto">
-          <LessonsLearned :lessons="caseStudy.lessonsLearned" />
-        </div>
-      </section>
-
-      <!-- Navigation — with project titles -->
-      <section
-        class="py-12 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40"
-      >
-        <div class="max-w-6xl mx-auto">
-          <div class="flex items-center justify-between">
-            <router-link
-              v-if="prevProject"
-              :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
-              class="group flex items-center gap-4 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
-              :aria-label="`Previous project: ${prevProject.title}`"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="w-6 h-6 text-cobalt-500 dark:text-cobalt-300 group-hover:-translate-x-1 transition-transform"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 5v14M5 12l7 7 7-7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <div>
-                <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 block"
-                  >Previous</span
-                >
-                <span class="font-display text-sm">{{ prevProject.title }}</span>
-              </div>
-            </router-link>
-            <div v-else class="w-24"></div>
-
-            <router-link
-              to="/"
-              class="font-mono text-sm text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
-            >
-              cd ~/
-            </router-link>
-
-            <router-link
-              v-if="nextProject"
-              :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
-              class="group flex items-center gap-4 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
-              :aria-label="`Next project: ${nextProject.title}`"
-            >
-              <div class="text-right">
-                <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 block"
-                  >Next</span
-                >
-                <span class="font-display text-sm">{{ nextProject.title }}</span>
-              </div>
-              <svg
-                viewBox="0 0 24 24"
-                class="w-6 h-6 text-cobalt-500 dark:text-cobalt-300 group-hover:translate-x-1 transition-transform"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 5v14M5 12l7 7 7-7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </router-link>
-            <div v-else class="w-24"></div>
+      <section class="px-6 pb-16 md:px-10 lg:px-12">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
+          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+            <OutcomesGrid :outcomes="caseStudy.outcomes" />
+          </div>
+          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+            <LessonsLearned :lessons="caseStudy.lessonsLearned" />
           </div>
         </div>
       </section>
 
-      <!-- Footer -->
+      <section class="px-6 pb-16 md:px-10 lg:px-12">
+        <div class="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+          <router-link
+            v-if="prevProject"
+            :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
+            class="panel-surface group rounded-[1.5rem] p-5 transition-transform hover:-translate-y-1"
+          >
+            <p class="editorial-kicker mb-3">previous project</p>
+            <p
+              class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
+            >
+              {{ prevProject.title }}
+            </p>
+          </router-link>
+          <div v-else class="hidden md:block"></div>
+
+          <router-link
+            to="/"
+            class="panel-surface flex items-center justify-center rounded-[1.5rem] p-5 text-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-transform hover:-translate-y-1 dark:text-cobalt-100"
+          >
+            Back to work
+          </router-link>
+
+          <router-link
+            v-if="nextProject"
+            :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
+            class="panel-surface group rounded-[1.5rem] p-5 text-right transition-transform hover:-translate-y-1"
+          >
+            <p class="editorial-kicker mb-3">next project</p>
+            <p
+              class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
+            >
+              {{ nextProject.title }}
+            </p>
+          </router-link>
+          <div v-else class="hidden md:block"></div>
+        </div>
+      </section>
+
       <Footer />
     </template>
   </div>
@@ -295,6 +309,9 @@ const formattedNumber = computed(() => {
   const index = getProjectIndex(props.slug);
   return (index + 1).toString().padStart(2, "0");
 });
+
+const heroOutcomes = computed(() => caseStudy.value?.outcomes.slice(0, 3) ?? []);
+const projectHighlights = computed(() => project.value?.highlights.slice(0, 4) ?? []);
 
 const prevProject = computed(() => {
   if (!caseStudy.value?.prevProject) return null;
