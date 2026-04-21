@@ -8,3 +8,4 @@ dist-ssr
 skills/
 skills-lock.json
 node-compile-cache/
+.gstack/
