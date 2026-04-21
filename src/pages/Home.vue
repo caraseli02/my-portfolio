@@ -1,126 +1,174 @@
 <template>
-  <div class="bg-cream-100 min-h-screen">
-    <!-- Hero Section -->
-    <section
-      class="pt-24 md:pt-32 pb-10 md:pb-16 px-6 lg:px-12 min-h-[78svh] md:min-h-screen flex flex-col justify-center"
-    >
-      <div class="max-w-5xl mx-auto text-center">
-        <!-- Main Hero Text -->
-        <div class="mb-5 md:mb-6">
-          <p class="text-xl md:text-3xl text-cobalt-500 mb-3 md:mb-4 font-normal">Hi my name is</p>
+  <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
+    <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
+      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
+      <div
+        class="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.2fr)_22rem] lg:items-end"
+      >
+        <div>
+          <p class="editorial-kicker mb-5">
+            frontend engineer • product interfaces • design systems
+          </p>
           <h1
-            class="font-serif italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-cobalt-500 tracking-tight leading-none"
+            class="max-w-5xl text-[3.6rem] leading-[0.92] font-display text-cobalt-500 dark:text-cobalt-200 sm:text-[4.6rem] md:text-[6rem] lg:text-[7.3rem]"
           >
-            Vlad Caraseli
+            I build interfaces that feel
+            <span class="italic text-stroke-soft text-transparent">decisive</span>
+            before they feel decorative.
           </h1>
-        </div>
+          <p
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78 md:text-xl"
+          >
+            Vlad Caraseli — frontend engineer for product teams that need sharper UX, cleaner
+            systems, and case-study-worthy execution across Vue, React, Nuxt, and TypeScript.
+          </p>
 
-        <!-- Role Descriptor with 3D Text Rotator -->
-        <div
-          class="flex items-center justify-center gap-2 md:gap-3 text-cobalt-500 text-lg sm:text-xl md:text-2xl mt-6 md:mt-8"
-        >
-          <span>I'm a</span>
-          <TextRotator :words="['Webapps', 'UI/UX', 'Components']" :interval="2500" />
-          <span>developer</span>
-        </div>
-
-        <!-- Circular Case Studies Stamp -->
-        <div class="mt-12 md:mt-16 flex justify-center">
-          <a href="#case-studies" class="group relative w-24 h-24 md:w-28 md:h-28">
-            <svg
-              viewBox="0 0 100 100"
-              class="w-full h-full text-cobalt-500 animate-spin-slow"
-              aria-hidden="true"
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#case-studies"
+              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
             >
-              <defs>
-                <path id="circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
-              </defs>
-              <text
-                font-size="10"
-                fill="currentColor"
-                font-family="Manrope, sans-serif"
-                letter-spacing="1"
-              >
-                <textPath href="#circle">case studies • case studies •</textPath>
-              </text>
-            </svg>
-            <!-- Arrow pointing down -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                class="w-6 h-6 text-cobalt-500 group-hover:translate-y-1 transition-transform"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 5v14M5 12l7 7 7-7"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
+              View case studies
+            </a>
+            <router-link
+              to="/contact"
+              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            >
+              Start a conversation
+            </router-link>
+          </div>
+
+          <div class="mt-12 grid gap-4 sm:grid-cols-3">
+            <div class="panel-surface p-5">
+              <p class="editorial-kicker mb-2">based in</p>
+              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
+                Palma de Mallorca
+              </p>
             </div>
-          </a>
+            <div class="panel-surface p-5">
+              <p class="editorial-kicker mb-2">focus</p>
+              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
+                Product UI + design systems
+              </p>
+            </div>
+            <div class="panel-surface p-5">
+              <p class="editorial-kicker mb-2">toolkit</p>
+              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
+                Vue, React, Nuxt, TypeScript
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel-surface relative overflow-hidden rounded-[2rem] p-6 md:p-8">
+          <p class="editorial-kicker mb-4">why teams bring me in</p>
+          <div class="space-y-5">
+            <div>
+              <p class="text-4xl font-display text-cobalt-500 dark:text-cobalt-200">6+</p>
+              <p
+                class="mt-1 text-sm uppercase tracking-[0.24em] text-cobalt-500/70 dark:text-cobalt-300/70"
+              >
+                years building product UI
+              </p>
+            </div>
+            <div class="editorial-rule"></div>
+            <ul class="space-y-3 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75">
+              <li>Complex frontend systems without enterprise bloat.</li>
+              <li>Interfaces with clear hierarchy, credible polish, and strong usability.</li>
+              <li>Case studies that prove range: commerce, maps, component libraries.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section
+      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.03] py-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
+    >
+      <Marquee :duration="24" pause-on-hover>
+        <div
+          class="flex items-center gap-4 pr-8 text-sm uppercase tracking-[0.22em] text-cobalt-500 dark:text-cobalt-200"
+        >
+          <span>Selected work</span>
+          <span aria-hidden="true">✦</span>
+          <span>Product UI</span>
+          <span aria-hidden="true">✦</span>
+          <span>Design Systems</span>
+          <span aria-hidden="true">✦</span>
+          <span>Frontend Architecture</span>
+          <span aria-hidden="true">✦</span>
+        </div>
+      </Marquee>
+    </section>
+
+    <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+          <div>
+            <p class="editorial-kicker mb-3">selected case studies</p>
+            <h2
+              class="max-w-3xl text-4xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-6xl"
+            >
+              Proof first. Three projects that show how I think, ship, and refine.
+            </h2>
+          </div>
+          <p
+            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75 md:text-lg lg:justify-self-end"
+          >
+            Each project highlights a different strength: product complexity, system design, or UI
+            architecture. Fast scan on top. Deep dive if you want the engineering decisions.
+          </p>
+        </div>
+
+        <div class="space-y-5">
+          <CaseStudyListItem
+            v-for="(project, index) in featuredProjects"
+            :key="project.caseStudy?.slug || project.id"
+            :number="index + 1"
+            :title="project.title"
+            :slug="project.caseStudy!.slug"
+            :tags="project.tech.slice(0, 4)"
+            :image="project.caseStudy?.image || ''"
+            :description="project.description"
+            :github="project.github"
+          />
         </div>
       </div>
     </section>
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="py-10 md:py-16 px-6 lg:px-12">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-lg font-display text-cobalt-500 lowercase mb-8 px-4">case studies</h2>
 
-        <CaseStudyListItem
-          v-for="(project, index) in caseStudies"
-          :key="project.slug"
-          :number="index + 1"
-          :title="project.title"
-          :slug="project.slug"
-          :tags="project.tags"
-          :image="project.image"
-          :description="project.description"
-        />
+    <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+        <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+          <p class="editorial-kicker mb-3">beyond the featured work</p>
+          <h3 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
+            More repos, more experiments, more proof of range.
+          </h3>
+          <p
+            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75"
+          >
+            Smaller builds cover inventory tools, job boards, starter templates, automation work,
+            and dashboard-style products.
+          </p>
+        </div>
+
+        <a
+          href="https://github.com/caraseli02?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+        >
+          Browse GitHub ↗
+        </a>
       </div>
     </section>
 
-    <!-- Footer -->
     <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
-import TextRotator from "../components/ui/TextRotator.vue";
-import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
 import Footer from "../components/layout/Footer.vue";
-
-interface CaseStudy {
-  title: string;
-  slug: string;
-  tags: string[];
-  image: string;
-  description: string;
-}
-
-const caseStudies: CaseStudy[] = [
-  {
-    title: "Top Properties",
-    slug: "topproperties",
-    tags: ["React 18", "TypeScript", "Leaflet"],
-    image: "/project-images/topproperties.jpg",
-    description: "Luxury real estate browser with interactive map and multi-currency pricing",
-  },
-  {
-    title: "ECAS",
-    slug: "ecas",
-    tags: ["Nuxt 3", "Stripe", "Firebase"],
-    image: "/project-images/ecas.jpg",
-    description: "Full e-commerce platform with smart pricing engine and admin dashboard",
-  },
-  {
-    title: "ABS Storybook",
-    slug: "abs-storybook",
-    tags: ["React 19", "Storybook 10", "Chromatic"],
-    image: "/project-images/abs-storybook.jpg",
-    description: "Hotel booking component library with enforced UI/business logic separation",
-  },
-];
+import Marquee from "../components/ui/Marquee.vue";
+import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
+import { featuredProjects } from "../data/projects";
 </script>
