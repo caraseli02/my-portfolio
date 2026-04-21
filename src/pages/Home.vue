@@ -125,6 +125,7 @@
             v-for="(project, index) in featuredProjects"
             :key="project.caseStudy?.slug || project.id"
             :number="index + 1"
+            :reverse="index % 2 === 1"
             :title="project.title"
             :slug="project.caseStudy!.slug"
             :tags="project.tech.slice(0, 4)"
@@ -137,7 +138,7 @@
     </section>
 
     <section class="px-6 pb-16 md:px-10 lg:px-12">
-      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+      <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
         <div class="panel-surface rounded-[2rem] p-6 md:p-8">
           <p class="editorial-kicker mb-3">beyond the featured work</p>
           <h3 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
@@ -149,16 +150,60 @@
             Smaller builds cover inventory tools, job boards, starter templates, automation work,
             and dashboard-style products.
           </p>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div
+              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
+            >
+              <p class="editorial-kicker mb-2">product UI cleanup</p>
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
+                Sharper hierarchy, cleaner states, fewer awkward edges in shipped product surfaces.
+              </p>
+            </div>
+            <div
+              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
+            >
+              <p class="editorial-kicker mb-2">design systems</p>
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
+                Components, tokens, and interaction patterns that make teams move faster without
+                drift.
+              </p>
+            </div>
+            <div
+              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
+            >
+              <p class="editorial-kicker mb-2">complex frontend builds</p>
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
+                Maps, commerce flows, dashboards, and logic-heavy interfaces that still feel calm.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <a
-          href="https://github.com/caraseli02?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
-        >
-          Browse GitHub ↗
-        </a>
+        <div class="grid gap-4 self-stretch sm:grid-cols-2 lg:grid-cols-1">
+          <div
+            class="border border-cobalt-500/15 bg-white/70 p-5 dark:border-cobalt-300/16 dark:bg-charcoal-50/72"
+          >
+            <p class="editorial-kicker mb-2">what I usually help fix</p>
+            <p class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+              Hierarchy, systems, and trust.
+            </p>
+            <p class="mt-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
+              The work usually starts where the product feels busy, inconsistent, or harder to trust
+              than it should.
+            </p>
+          </div>
+
+          <a
+            href="https://github.com/caraseli02?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[9.5rem] items-end justify-between border border-cobalt-500 px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+          >
+            <span>Browse GitHub</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
     </section>
 

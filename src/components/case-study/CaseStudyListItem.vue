@@ -4,7 +4,12 @@
   >
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
-      class="grid gap-6 px-5 py-6 md:grid-cols-[auto_minmax(0,1.3fr)_minmax(0,0.9fr)] md:px-7 md:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
+      class="grid gap-6 px-5 py-6 md:px-7 md:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
+      :class="
+        reverse
+          ? 'md:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)]'
+          : 'md:grid-cols-[auto_minmax(0,1.3fr)_minmax(0,0.9fr)]'
+      "
     >
       <div class="flex items-start gap-4 md:block md:pr-3">
         <span
@@ -15,7 +20,7 @@
         <span class="editorial-kicker mt-2 block">selected case study</span>
       </div>
 
-      <div class="min-w-0 space-y-4">
+      <div class="min-w-0 space-y-4" :class="reverse ? 'md:order-3' : 'md:order-2'">
         <div>
           <h3 class="text-2xl md:text-3xl font-semibold text-cobalt-500 dark:text-cobalt-200">
             {{ title }}
@@ -54,6 +59,7 @@
       <div
         v-if="image"
         class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
+        :class="reverse ? 'md:order-2' : 'md:order-3'"
       >
         <img
           :src="image"
@@ -76,12 +82,14 @@ const props = withDefaults(
     number: number;
     title: string;
     slug: string;
+    reverse?: boolean;
     tags?: string[];
     image?: string;
     description?: string;
     github?: string;
   }>(),
   {
+    reverse: false,
     tags: () => [],
     image: "",
     description: "",
