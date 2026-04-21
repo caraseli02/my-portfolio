@@ -140,6 +140,12 @@
         </div>
       </section>
 
+      <section class="py-8 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-4xl mx-auto">
+          <LessonsLearned :lessons="caseStudy.lessonsLearned" />
+        </div>
+      </section>
+
       <!-- Navigation — with project titles -->
       <section class="py-12 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
         <div class="max-w-6xl mx-auto">
@@ -198,6 +204,7 @@ import { getProjectBySlug, getProjectIndex } from '../data/projects'
 import JourneyTimeline from '../components/case-study/JourneyTimeline.vue'
 import OutcomesGrid from '../components/case-study/OutcomesGrid.vue'
 import ArchitectureDiagram from '../components/case-study/ArchitectureDiagram.vue'
+import LessonsLearned from '../components/case-study/LessonsLearned.vue'
 import Footer from '../components/layout/Footer.vue'
 
 export default defineComponent({
@@ -206,6 +213,7 @@ export default defineComponent({
     JourneyTimeline,
     OutcomesGrid,
     ArchitectureDiagram,
+    LessonsLearned,
     Footer,
   },
   props: {

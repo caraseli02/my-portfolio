@@ -61,7 +61,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType } from 'vue'
+import { defineComponent, ref, PropType } from 'vue'
 import { useMagneticEffect } from '../../composables/useMagneticEffect'
 
 export default defineComponent({
@@ -77,8 +77,9 @@ export default defineComponent({
     github: { type: String, default: undefined },
   },
   setup() {
+    const heroRef = ref<HTMLElement | null>(null)
     const { magneticRef: githubRef } = useMagneticEffect({ strength: 0.25, radius: 120 })
-    return { heroRef: githubRef, githubRef }
+    return { heroRef, githubRef }
   },
 })
 </script>
