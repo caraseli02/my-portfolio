@@ -10,7 +10,7 @@
             I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
           </h1>
           <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/78 md:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88 md:text-xl"
           >
             Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
             under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
@@ -20,10 +20,10 @@
 
         <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
           <p class="editorial-kicker mb-4">snapshot</p>
-          <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/75">
+          <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/86">
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 base
               </p>
@@ -34,7 +34,7 @@
             <div class="editorial-rule"></div>
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 specialty
               </p>
@@ -46,7 +46,7 @@
             <div class="editorial-rule"></div>
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 off-screen
               </p>
@@ -62,21 +62,21 @@
       <section class="mt-14 grid gap-5 md:grid-cols-3">
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">01 — what I do best</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
             Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
             better decision-making built into the layout.
           </p>
         </article>
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">02 — how I work</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
             Design-minded engineering: thoughtful systems, clean implementation, and enough visual
             restraint that the important moments hit harder.
           </p>
         </article>
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">03 — where I add leverage</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88">
             Complex frontends, refactors that improve trust, and design-system work that keeps teams
             shipping without turning every screen into a one-off.
           </p>
@@ -90,7 +90,7 @@
             I care about interfaces that earn trust fast.
           </h2>
           <div
-            class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78"
+            class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88"
           >
             <p>
               That usually means fewer gimmicks, stronger copy hierarchy, and components that feel
@@ -106,10 +106,10 @@
 
         <div class="border border-cobalt-500/15 p-6 md:p-8">
           <p class="editorial-kicker mb-5">good fit projects</p>
-          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100/78">
+          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100/88">
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 product UI
               </p>
@@ -117,7 +117,7 @@
             </div>
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 systems
               </p>
@@ -127,7 +127,7 @@
             </div>
             <div>
               <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 polish
               </p>

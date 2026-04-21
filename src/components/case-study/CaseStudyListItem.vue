@@ -20,7 +20,7 @@
           <h3 class="text-2xl md:text-3xl font-semibold text-cobalt-500 dark:text-cobalt-200">
             {{ title }}
           </h3>
-          <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/75">
+          <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/86">
             {{ description }}
           </p>
         </div>

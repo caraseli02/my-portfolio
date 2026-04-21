@@ -10,13 +10,11 @@
           <div class="paper-grid h-full w-full"></div>
         </div>
         <div class="relative">
-          <p class="mb-3 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70">
-            currently open to
-          </p>
+          <p class="editorial-kicker mb-3 text-cobalt-100/82">currently open to</p>
           <h2 class="max-w-xl text-3xl font-display text-white md:text-4xl">
             Product-facing frontend work, design systems, and UI polish that ships clean.
           </h2>
-          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/78">
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/88">
             <span>Based in Palma de Mallorca</span>
             <span aria-hidden="true">•</span>
             <span>Vue, React, Nuxt, TypeScript</span>
@@ -51,9 +49,9 @@
         <div class="editorial-rule"></div>
 
         <div
-          class="flex items-center justify-between gap-4 text-sm text-cobalt-500/65 dark:text-cobalt-300/65"
+          class="flex items-center justify-between gap-4 text-sm text-cobalt-500/65 dark:text-cobalt-100/62"
         >
-          <span class="font-mono lowercase">vlad caraseli © {{ year }}</span>
+          <span class="lowercase font-medium">vlad caraseli © {{ year }}</span>
           <span class="uppercase tracking-[0.2em]">palma de mallorca</span>
         </div>
       </div>

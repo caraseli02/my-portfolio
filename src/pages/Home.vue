@@ -10,14 +10,14 @@
             frontend engineer • product interfaces • design systems
           </p>
           <h1
-            class="max-w-5xl text-[3.6rem] leading-[0.92] font-display text-cobalt-500 dark:text-cobalt-200 sm:text-[4.6rem] md:text-[6rem] lg:text-[7.3rem]"
+            class="max-w-5xl text-[3.4rem] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-[4.3rem] md:text-[5.4rem] lg:text-[6.5rem]"
           >
             I build interfaces that feel
-            <span class="italic text-stroke-soft text-transparent">decisive</span>
+            <span class="italic text-cobalt-400 dark:text-cobalt-200">decisive</span>
             before they feel decorative.
           </h1>
           <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/78 md:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88 md:text-xl"
           >
             Vlad Caraseli — frontend engineer for product teams that need sharper UX, cleaner
             systems, and case-study-worthy execution across Vue, React, Nuxt, and TypeScript.
@@ -66,13 +66,13 @@
             <div>
               <p class="text-4xl font-display text-cobalt-500 dark:text-cobalt-200">6+</p>
               <p
-                class="mt-1 text-sm uppercase tracking-[0.24em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                class="mt-1 text-sm uppercase tracking-[0.24em] text-cobalt-500/70 dark:text-cobalt-100/72"
               >
                 years building product UI
               </p>
             </div>
             <div class="editorial-rule"></div>
-            <ul class="space-y-3 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75">
+            <ul class="space-y-3 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86">
               <li>Complex frontend systems without enterprise bloat.</li>
               <li>Interfaces with clear hierarchy, credible polish, and strong usability.</li>
               <li>Case studies that prove range: commerce, maps, component libraries.</li>
@@ -113,7 +113,7 @@
             </h2>
           </div>
           <p
-            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75 md:text-lg lg:justify-self-end"
+            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86 md:text-lg lg:justify-self-end"
           >
             Each project highlights a different strength: product complexity, system design, or UI
             architecture. Fast scan on top. Deep dive if you want the engineering decisions.
@@ -144,7 +144,7 @@
             More repos, more experiments, more proof of range.
           </h3>
           <p
-            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/75"
+            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86"
           >
             Smaller builds cover inventory tools, job boards, starter templates, automation work,
             and dashboard-style products.

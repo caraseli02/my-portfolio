@@ -89,7 +89,7 @@
                 <dl class="space-y-4">
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                     <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
                     >
                       duration
                     </dt>
@@ -99,21 +99,21 @@
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                     <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
                     >
                       role
                     </dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/82">
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
                       {{ caseStudy.role }}
                     </dd>
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                     <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-300/70"
+                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
                     >
                       year
                     </dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/82">
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
                       {{ caseStudy.year }}
                     </dd>
                   </div>
@@ -132,7 +132,7 @@
                       {{ outcome.metric }}
                     </p>
                     <p
-                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/72"
+                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84"
                     >
                       {{ outcome.label }}
                     </p>
@@ -170,12 +170,12 @@
               Built to show product judgment, not just implementation range.
             </h2>
             <p
-              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/78"
+              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88"
             >
               {{ caseStudy.description || project.description }}
             </p>
             <p
-              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/68"
+              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/90"
             >
               The goal was not just to make something work. It was to make complex logic feel
               legible, credible, and fast to trust on first scan.
@@ -189,7 +189,7 @@
               class="panel-surface rounded-[1.6rem] p-5"
             >
               <p class="editorial-kicker mb-3">0{{ index + 1 }} — what shipped</p>
-              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/78">
+              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/88">
                 {{ highlight }}
               </p>
             </article>

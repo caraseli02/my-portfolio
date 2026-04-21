@@ -5,7 +5,7 @@
       <h2 class="mb-4 text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl">
         What this project sharpened
       </h2>
-      <p class="text-lg text-charcoal-200 dark:text-cobalt-100/72">
+      <p class="text-lg text-charcoal-200 dark:text-cobalt-100/84">
         Actionable lessons pulled from the build, not filler reflection.
       </p>
     </div>
