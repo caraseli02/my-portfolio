@@ -43,21 +43,42 @@
         </p>
       </div>
 
-      <!-- Decorative Elements -->
-      <div class="relative flex items-center justify-center gap-8 py-12">
-        <!-- Star -->
-        <svg viewBox="0 0 50 50" class="w-16 h-16 text-cobalt-500 animate-pulse-slow" aria-hidden="true">
-          <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
-        </svg>
+      <!-- Profile Panel -->
+      <div class="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-start py-12">
+        <div class="border border-cobalt-500/20 p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.3em] text-cobalt-500/70 mb-4">Currently</p>
+          <div class="space-y-4 text-cobalt-600">
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Base</p>
+              <p class="text-xl font-serif italic text-cobalt-500">Palma de Mallorca</p>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Focus</p>
+              <p class="text-lg leading-relaxed">Vue 3 interfaces, component systems, and frontends that feel calm and considered.</p>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-cobalt-500/60 mb-1">Off-screen</p>
+              <p class="text-lg leading-relaxed">Sailing, open-source, and long walks that usually turn into product ideas.</p>
+            </div>
+          </div>
+        </div>
 
-        <!-- Snake -->
-        <svg viewBox="0 0 80 40" class="w-24 h-12 text-cobalt-500" aria-hidden="true">
-          <path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <div class="border border-cobalt-500/30 p-8 md:p-10 min-h-[22rem] flex flex-col justify-between">
+          <div>
+            <p class="text-7xl md:text-8xl font-serif italic text-cobalt-500 leading-none">VC</p>
+            <p class="mt-4 text-cobalt-600 leading-relaxed">
+              I like interfaces with strong hierarchy, restrained motion, and enough personality to be remembered.
+            </p>
+          </div>
 
-        <!-- Profile Photo Placeholder -->
-        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-display" role="img" aria-label="Vlad Caraseli profile photo">
-          <span class="text-lg">photo</span>
+          <div class="flex items-center gap-5 pt-10 text-cobalt-500">
+            <svg viewBox="0 0 50 50" class="w-12 h-12">
+              <polygon points="25,2 31,18 48,18 34,28 40,45 25,35 10,45 16,28 2,18 19,18" fill="currentColor"/>
+            </svg>
+            <svg viewBox="0 0 80 40" class="w-16 h-8">
+              <path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20 Q75 35, 75 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
