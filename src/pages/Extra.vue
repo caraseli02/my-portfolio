@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-cream-100 min-h-screen pt-32 flex flex-col items-center justify-center px-6">
+  <div class="bg-cream-100 dark:bg-charcoal min-h-screen pt-32 flex flex-col items-center justify-center px-6">
     <div class="text-center max-w-2xl">
       <!-- Decorative Blob -->
       <div class="w-32 h-32 mx-auto mb-8 text-cobalt-500">

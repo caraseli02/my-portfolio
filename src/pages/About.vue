@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-cream-100 min-h-screen pt-32">
+  <div class="bg-cream-100 dark:bg-charcoal min-h-screen pt-32">
     <div class="max-w-4xl mx-auto px-6 lg:px-12 pb-24">
       <!-- Hero -->
       <div class="mb-16">

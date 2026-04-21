@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-cream-100 min-h-screen">
+  <div class="bg-cream-100 dark:bg-charcoal min-h-screen">
     <!-- Hero Section -->
     <section class="pt-24 md:pt-32 pb-10 md:pb-16 px-6 lg:px-12 min-h-[78svh] md:min-h-screen flex flex-col justify-center">
       <div class="max-w-5xl mx-auto text-center">
