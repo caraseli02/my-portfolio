@@ -17,6 +17,7 @@ export const featuredProjects: FeaturedProject[] = [
     accent: 'bg-cobalt-500',
     caseStudy: {
       slug: 'topproperties',
+      image: '/project-images/topproperties.jpg',
       metaphor: {
         phrase: 'One Screen, Every Currency',
         description: 'Luxury real estate spans continents and currencies. This app collapses the distance — map, price, photos, and filters on a single screen, no matter what currency the listing is in.',
@@ -104,6 +105,7 @@ export const featuredProjects: FeaturedProject[] = [
     accent: 'bg-cobalt-600',
     caseStudy: {
       slug: 'ecas',
+      image: '/project-images/ecas.jpg',
       metaphor: {
         phrase: 'Pricing That Thinks',
         description: 'Flat pricing is a lie — real commerce has tiers, brackets, per-user discounts, and margins. This platform treats pricing as a multi-dimensional problem.',
@@ -192,6 +194,7 @@ export const featuredProjects: FeaturedProject[] = [
     accent: 'bg-cobalt-700',
     caseStudy: {
       slug: 'abs-storybook',
+      image: '/project-images/abs-storybook.jpg',
       metaphor: {
         phrase: 'Dumb UI, Rich Contracts',
         description: 'The smartest UI component is the one that does zero thinking. When components receive pre-computed data through rich type contracts, the compiler becomes your QA team.',

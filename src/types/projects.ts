@@ -27,6 +27,8 @@ export interface Outcome {
 /** Full case study data for a project */
 export interface CaseStudy {
   slug: string
+  image?: string
+  liveUrl?: string
   metaphor: ProjectMetaphor
   tagline: string
   duration: string
