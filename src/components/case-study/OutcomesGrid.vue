@@ -11,7 +11,7 @@
       :key="outcome.label"
       :ref="
         (el) => {
-          if (el) outcomeRefs[i] = el;
+          if (el) outcomeRefs[i] = el as HTMLElement;
         }
       "
       class="flex items-baseline gap-6 py-4 border-b border-cobalt-500/10 dark:border-charcoal-200/20 reveal group last:border-b-0"

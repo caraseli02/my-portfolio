@@ -35,7 +35,7 @@
             :key="project.id"
             :ref="
               (el) => {
-                if (el) featuredRefs[i] = el;
+                if (el) featuredRefs[i] = el as HTMLElement;
               }
             "
             class="group bg-white rounded-2xl border border-cobalt-500/15 overflow-hidden hover:border-cobalt-500/40 transition-all duration-300 reveal"
@@ -178,7 +178,7 @@
             :key="project.id"
             :ref="
               (el) => {
-                if (el) otherRefs[i] = el;
+                if (el) otherRefs[i] = el as HTMLElement;
               }
             "
             :href="project.github"

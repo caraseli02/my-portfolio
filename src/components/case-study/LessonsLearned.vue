@@ -15,7 +15,7 @@
         :key="i"
         :ref="
           (el) => {
-            if (el) lessonRefs[i] = el;
+            if (el) lessonRefs[i] = el as HTMLElement;
           }
         "
         class="flex items-start gap-5 p-6 border border-cobalt-500/15 dark:border-charcoal-200/40 bg-cream-100 dark:bg-charcoal-50 reveal group"
