@@ -48,9 +48,17 @@ const routes: RouteRecordRaw[] = [
     }
   },
   // Redirect old /projects route to home with anchor
-  { 
-    path: '/projects', 
-    redirect: { name: 'home', hash: '#case-studies' } 
+  {
+    path: '/projects',
+    redirect: { name: 'home', hash: '#case-studies' }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('../pages/NotFound.vue'),
+    meta: {
+      title: '404 | Vlad Caraseli'
+    }
   },
 ]
 
