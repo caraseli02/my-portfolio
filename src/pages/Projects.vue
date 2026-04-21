@@ -162,7 +162,7 @@
     </section>
 
     <!-- All Projects Grid -->
-    <section class="py-20 bg-cream-100">
+    <section class="py-20 bg-cream-100 dark:bg-charcoal">
       <div class="max-w-6xl mx-auto px-6 lg:px-8">
         <div ref="otherHeadingRef" class="mb-16 reveal" :class="{ revealed: otherHeadingVisible }">
           <h2 class="section-heading">More Projects</h2>

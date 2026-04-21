@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-cream-100 min-h-screen pt-32 flex flex-col">
+  <div class="bg-cream-100 dark:bg-charcoal min-h-screen pt-32 flex flex-col">
     <div class="flex-1 max-w-4xl mx-auto px-6 lg:px-12 pb-24 flex flex-col justify-center">
       <!-- Animated Headlines -->
       <div class="mb-12 md:mb-16 max-w-2xl">
