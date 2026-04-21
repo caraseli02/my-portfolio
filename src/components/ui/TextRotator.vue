@@ -2,7 +2,7 @@
   <div class="perspective-1000 inline-flex">
     <div 
       class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-display text-lg relative overflow-hidden"
-      style="min-width: 100px;"
+      :style="{ minWidth: containerWidth + 'px' }"
     >
       <div 
         class="text-rotator-inner"
@@ -54,6 +54,18 @@ export default defineComponent({
       };
     };
 
+    const containerWidth = ref(100);
+
+    const measureWidth = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      // Approximate Manrope text-lg (18px)
+      ctx.font = '400 18px Manrope, sans-serif';
+      const maxPx = Math.max(...props.words.map(w => ctx.measureText(w).width));
+      containerWidth.value = Math.ceil(maxPx) + 4; // 4px buffer
+    };
+
     const startInterval = () => {
       intervalId = window.setInterval(rotate, props.interval);
     };
@@ -74,6 +86,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      measureWidth();
       startInterval();
       document.addEventListener('visibilitychange', handleVisibilityChange);
     });
@@ -86,6 +99,7 @@ export default defineComponent({
     return {
       currentRotation,
       currentIndex,
+      containerWidth,
       getFaceStyle
     };
   }

@@ -11,10 +11,10 @@
 
       <!-- Title + Description -->
       <div class="flex-1 min-w-0 px-2">
-        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cobalt-500 truncate">
+        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-cobalt-500">
           {{ title }}
         </h3>
-        <p v-if="description" class="hidden md:block text-sm text-cobalt-500/60 mt-1 truncate">
+        <p v-if="description" class="hidden md:block text-sm text-cobalt-500/60 mt-1">
           {{ description }}
         </p>
       </div>
