@@ -3,9 +3,9 @@ node_modules
 dist
 dist-ssr
 *.local
-.agents/
-.claude/
-skills/
-skills-lock.json
+.agents/*
+!.agents/skills/
+.claude/*
+!.claude/skills/
 node-compile-cache/
 .gstack/
