@@ -6,29 +6,29 @@
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">client</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Browser</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">interactive map view</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Interactive map view</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">frontend</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">React 18</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">shadcn/ui + Tailwind CSS</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">UI components + styling</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">map</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Leaflet</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">auto-fitting bounds</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Auto-fitting map bounds</p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">services</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Pure Functions</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">filtering, pricing, XSS protection</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Filtering, pricing, security logic</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">resilience</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Portal Modals</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">z-index isolation + image fallback</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Layered popups + image fallbacks</p>
         </div>
       </div>
       <div class="bg-cream-100 dark:bg-charcoal-50 p-3 border-t border-cobalt-500/10 dark:border-charcoal-200/30 text-center">
@@ -42,33 +42,33 @@
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">frontend</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Nuxt 3</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">Pinia + Shadcn/Vue + layers</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Vue framework + state management</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">auth</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Firebase</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">email + Google OAuth → JWT</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Email + Google login</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">payments</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Stripe</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">cards, credit, bank, COD</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Cards, bank transfer, cash on delivery</p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">api layer</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">HttpFactory</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">17 services, generic call&lt;T&gt;</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Reusable API service pattern</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">security</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Error Sanitizer</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">masks secrets in console + UI</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Hides sensitive data from errors</p>
         </div>
       </div>
       <div class="bg-cream-100 dark:bg-charcoal-50 p-3 border-t border-cobalt-500/10 dark:border-charcoal-200/30 text-center">
-        <p class="text-xs font-mono text-cobalt-500/40 dark:text-cobalt-300/40">74 granular permissions + mock payment mode</p>
+        <p class="text-xs font-mono text-cobalt-500/40 dark:text-cobalt-300/40">74 permission levels + safe test payments</p>
       </div>
     </template>
 
@@ -78,34 +78,34 @@
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">components</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">React 19</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">Radix UI primitives</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Accessible UI building blocks</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">catalog</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Storybook 10</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">Chromatic + a11y addon</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Visual component documentation</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">i18n</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">i18next</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">multi-language stories</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Multi-language story support</p>
         </div>
       </div>
       <div class="grid grid-cols-3 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">types</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Discriminated Unions</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">variant-based rendering</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Type-safe component variants</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">layout</p>
-          <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">useDynamicMaxHeight</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">responsive sidebar pipeline</p>
+          <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Dynamic Height Hook</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Responsive sidebar sizing</p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">safety</p>
-          <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Fearless Refactoring</p>
-          <p class="text-xs text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">type-safe story contracts</p>
+          <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Type-safe Stories</p>
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-300/70 mt-1">Catch errors before production</p>
         </div>
       </div>
       <div class="bg-cream-100 dark:bg-charcoal-50 p-3 border-t border-cobalt-500/10 dark:border-charcoal-200/30 text-center">

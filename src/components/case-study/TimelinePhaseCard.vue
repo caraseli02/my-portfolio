@@ -21,7 +21,7 @@
             'text-cobalt-500/30 dark:text-cobalt-300/30': !isActive && !isCompleted,
           }"
         >{{ String(index + 1).padStart(2, '0') }}</span>
-        <span class="text-xs font-mono uppercase tracking-wider text-cobalt-500/50 dark:text-cobalt-300/50">{{ phase.label }}</span>
+        <span class="text-xs font-mono tracking-wider text-cobalt-500/50 dark:text-cobalt-300/50">{{ phase.label }}</span>
       </div>
 
       <!-- Content column -->

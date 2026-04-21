@@ -1,231 +1,223 @@
 <template>
-  <div v-if="project && caseStudy" class="bg-cream-100 dark:bg-charcoal min-h-screen">
+  <div class="bg-cream-100 dark:bg-charcoal min-h-screen">
+    <!-- Error state -->
+    <div v-if="!project || !caseStudy" class="flex flex-col items-center justify-center min-h-screen px-6">
+      <span class="text-6xl font-display text-cobalt-500/20 dark:text-cobalt-300/20 mb-4">404</span>
+      <p class="text-lg text-cobalt-500 dark:text-cobalt-300 mb-8">Project not found</p>
+      <router-link
+        to="/"
+        class="font-mono text-sm text-cobalt-500 dark:text-cobalt-300 border border-cobalt-500/20 dark:border-cobalt-300/20 px-4 py-2 hover:bg-cobalt-500/5 dark:hover:bg-cobalt-300/5 transition-colors"
+      >
+        cd ~/
+      </router-link>
+    </div>
 
-    <!-- 1. Hero Image — full-width, top of page -->
-    <section class="pt-24 pb-0 px-6 lg:px-12">
-      <div class="max-w-6xl mx-auto">
-        <img
-          :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
-          :alt="`${project.title} screenshot`"
-          class="w-full rounded-lg shadow-2xl"
-          loading="eager"
-        />
-      </div>
-    </section>
-
-    <!-- 2. Project Info — title, tags, overview, CTAs -->
-    <section class="py-16 px-6 lg:px-12">
-      <div class="max-w-4xl mx-auto">
-        <!-- Number + Title -->
-        <div class="mb-6">
-          <span class="text-sm font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-2">
-            / {{ formattedNumber }}
-          </span>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-cobalt-500 dark:text-cobalt-300 leading-tight">
-            {{ project.title }}
-          </h1>
-        </div>
-
-        <!-- Tech Tags -->
-        <div class="flex flex-wrap gap-2 mb-8">
-          <span
-            v-for="tech in project.tech"
-            :key="tech"
-            class="px-3 py-1.5 border border-cobalt-500/20 dark:border-charcoal-200/60 text-xs font-mono text-cobalt-500 dark:text-cobalt-300 lowercase rounded"
-          >
-            {{ tech }}
-          </span>
-        </div>
-
-        <!-- Project Overview — use metaphor description as the main overview -->
-        <p class="text-lg md:text-xl text-cobalt-600 dark:text-cobalt-200 leading-relaxed mb-8 max-w-3xl">
-          {{ caseStudy.metaphor.description }}
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-wrap gap-4">
-          <a
-            v-if="caseStudy.liveUrl"
-            :href="caseStudy.liveUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-cobalt-500 text-cream-100 dark:bg-cobalt-400 dark:text-charcoal rounded-lg hover:bg-cobalt-600 dark:hover:bg-cobalt-300 transition-colors duration-200 font-semibold text-sm"
-          >
-            Live Website
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-          <a
-            v-if="project.github"
-            :href="project.github"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 border border-cobalt-500/30 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300 rounded-lg hover:border-cobalt-500/60 dark:hover:border-cobalt-300/60 transition-colors duration-200 font-semibold text-sm"
-          >
-            View Source
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-
-        <!-- Metadata -->
-        <div class="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-cobalt-500/10 dark:border-charcoal-200/30">
-          <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Duration</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.duration }}</span>
+    <template v-else>
+      <!-- Header Section -->
+      <section class="pt-32 pb-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-8">
+            <span class="text-6xl md:text-7xl lg:text-8xl font-display text-cobalt-500 dark:text-cobalt-300 block mb-4">
+              {{ formattedNumber }}
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-cobalt-500 dark:text-cobalt-300 leading-tight">
+              {{ project.title }}
+            </h1>
           </div>
-          <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Role</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.role }}</span>
+
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span
+              v-for="tag in project.tech"
+              :key="tag"
+              class="pill-badge"
+            >
+              {{ tag }}
+            </span>
           </div>
-          <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Year</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.year }}</span>
+
+          <p class="text-xl md:text-2xl font-display text-cobalt-500 dark:text-cobalt-300 max-w-3xl">
+            {{ caseStudy.tagline }}
+          </p>
+        </div>
+      </section>
+
+      <!-- Hero Image -->
+      <section class="border-b border-cobalt-500/20">
+        <div class="max-w-6xl mx-auto px-6 lg:px-12 py-12">
+          <img
+            :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
+            :alt="`${project.title} screenshot`"
+            class="w-full shadow-2xl"
+            loading="eager"
+            @error="($event.target as HTMLImageElement).style.display = 'none'"
+          />
+        </div>
+      </section>
+
+      <!-- About + Metadata — side by side -->
+      <section class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div class="lg:col-span-2">
+            <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-6">### about</h2>
+            <p class="text-lg md:text-xl text-cobalt-600 dark:text-cobalt-200 leading-relaxed">
+              {{ caseStudy.description || project.description }}
+            </p>
+          </div>
+          <div class="lg:col-span-1">
+            <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-6">### details</h2>
+            <dl class="space-y-4">
+              <div class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2">
+                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Duration</dt>
+                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.duration }}</dd>
+              </div>
+              <div class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2">
+                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Role</dt>
+                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.role }}</dd>
+              </div>
+              <div class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2">
+                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Year</dt>
+                <dd class="text-sm font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.year }}</dd>
+              </div>
+              <div v-if="caseStudy.liveUrl" class="flex justify-between border-b border-cobalt-500/10 dark:border-charcoal-200/20 pb-2">
+                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Live</dt>
+                <dd>
+                  <a
+                    :href="caseStudy.liveUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-display text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity inline-flex items-center gap-1"
+                  >
+                    website
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </dd>
+              </div>
+              <div v-if="project.github" class="flex justify-between pb-2">
+                <dt class="text-sm font-mono text-cobalt-500/60 dark:text-cobalt-300/60">Source</dt>
+                <dd>
+                  <a
+                    :href="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-display text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity inline-flex items-center gap-1"
+                  >
+                    github
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- 3. Tech Stack Marquee -->
-    <section class="overflow-hidden border-y border-cobalt-500/20 dark:border-charcoal-200/40 py-4">
-      <Marquee :duration="20" class="py-2">
-        <div class="flex items-center gap-6 px-4">
-          <span
-            v-for="tag in project.tech"
-            :key="tag"
-            class="text-xl md:text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 lowercase whitespace-nowrap"
-          >{{ tag }}</span>
-          <svg viewBox="0 0 40 24" class="w-8 h-5 text-cobalt-500/40 dark:text-cobalt-300/40" aria-hidden="true">
-            <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+      <!-- Architecture Diagram -->
+      <section class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-8">### architecture</h2>
+          <ArchitectureDiagram :slug="slug" />
         </div>
-      </Marquee>
-    </section>
+      </section>
 
-    <!-- 4. Architecture Diagram -->
-    <section class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-8">### architecture</h2>
-        <ArchitectureDiagram :slug="slug" />
-      </div>
-    </section>
-
-    <!-- 5. Content Sections — Journey, Outcomes, Lessons -->
-    <section class="py-16 px-6 lg:px-12">
-      <div class="max-w-4xl mx-auto space-y-16">
-        <JourneyTimeline
-          :phases="caseStudy.timeline"
-          accent-color="cobalt-500"
-        />
-
-        <div class="flex items-center justify-center gap-4" aria-hidden="true">
-          <div class="h-px flex-1 bg-cobalt-500/15 dark:bg-charcoal-200/30"></div>
-          <svg viewBox="0 0 20 20" class="w-4 h-4 text-cobalt-500/30 dark:text-cobalt-300/30">
-            <polygon points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8" fill="currentColor"/>
-          </svg>
-          <div class="h-px flex-1 bg-cobalt-500/15 dark:bg-charcoal-200/30"></div>
+      <!-- Journey Timeline — full bleed bg variation -->
+      <section class="py-16 px-6 lg:px-12 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]">
+        <div class="max-w-4xl mx-auto">
+          <JourneyTimeline
+            :phases="caseStudy.timeline"
+            accent-color="cobalt-500"
+          />
         </div>
+      </section>
 
-        <OutcomesGrid :outcomes="caseStudy.outcomes" />
-
-        <div class="flex items-center justify-center gap-4" aria-hidden="true">
-          <div class="h-px flex-1 bg-cobalt-500/15 dark:bg-charcoal-200/30"></div>
-          <svg viewBox="0 0 40 20" class="w-6 h-3 text-cobalt-500/30 dark:text-cobalt-300/30">
-            <path d="M0 10 Q10 0, 20 10 Q30 20, 40 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <div class="h-px flex-1 bg-cobalt-500/15 dark:bg-charcoal-200/30"></div>
+      <!-- Outcomes — compact horizontal strip -->
+      <section class="py-16 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-4xl mx-auto">
+          <OutcomesGrid :outcomes="caseStudy.outcomes" />
         </div>
+      </section>
 
-        <LessonsLearned :lessons="caseStudy.lessonsLearned" />
-      </div>
-    </section>
+      <!-- Navigation — with project titles -->
+      <section class="py-12 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center justify-between">
+            <router-link
+              v-if="prevProject"
+              :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
+              class="group flex items-center gap-4 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+              :aria-label="`Previous project: ${prevProject.title}`"
+            >
+              <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500 dark:text-cobalt-300 group-hover:-translate-x-1 transition-transform" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <div>
+                <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 block">Previous</span>
+                <span class="font-display text-sm">{{ prevProject.title }}</span>
+              </div>
+            </router-link>
+            <div v-else class="w-24"></div>
 
-    <!-- 6. Navigation — Next Project -->
-    <section class="py-16 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center justify-between">
-          <router-link
-            v-if="prevProject"
-            :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
-            class="group flex items-center gap-3 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity"
-            aria-label="Previous project"
-          >
-            <svg viewBox="0 0 24 24" class="w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="text-sm font-mono">Previous</span>
-          </router-link>
-          <div v-else></div>
+            <router-link
+              to="/"
+              class="font-mono text-sm text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+            >
+              cd ~/
+            </router-link>
 
-          <router-link
-            to="/"
-            class="text-sm font-mono text-cobalt-500/50 dark:text-cobalt-300/50 hover:text-cobalt-500 dark:hover:text-cobalt-300 transition-colors"
-          >
-            all projects
-          </router-link>
-
-          <router-link
-            v-if="nextProject"
-            :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
-            class="group flex items-center gap-3 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 transition-opacity"
-            aria-label="Next project"
-          >
-            <span class="text-sm font-mono">Next Project</span>
-            <svg viewBox="0 0 24 24" class="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </router-link>
-          <div v-else></div>
+            <router-link
+              v-if="nextProject"
+              :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
+              class="group flex items-center gap-4 text-cobalt-500 dark:text-cobalt-300 hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm transition-opacity"
+              :aria-label="`Next project: ${nextProject.title}`"
+            >
+              <div class="text-right">
+                <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 block">Next</span>
+                <span class="font-display text-sm">{{ nextProject.title }}</span>
+              </div>
+              <svg viewBox="0 0 24 24" class="w-6 h-6 text-cobalt-500 dark:text-cobalt-300 group-hover:translate-x-1 transition-transform" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </router-link>
+            <div v-else class="w-24"></div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
-    <Footer />
+      <!-- Footer -->
+      <Footer />
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watchEffect } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { defineComponent, computed } from 'vue'
 import { getProjectBySlug, getProjectIndex } from '../data/projects'
 import JourneyTimeline from '../components/case-study/JourneyTimeline.vue'
 import OutcomesGrid from '../components/case-study/OutcomesGrid.vue'
-import LessonsLearned from '../components/case-study/LessonsLearned.vue'
 import ArchitectureDiagram from '../components/case-study/ArchitectureDiagram.vue'
 import Footer from '../components/layout/Footer.vue'
-import Marquee from '../components/ui/Marquee.vue'
 
 export default defineComponent({
   name: 'CaseStudy',
   components: {
     JourneyTimeline,
     OutcomesGrid,
-    LessonsLearned,
     ArchitectureDiagram,
     Footer,
-    Marquee,
   },
   props: {
     slug: { type: String, required: true },
   },
   setup(props) {
-    const router = useRouter()
-    const route = useRoute()
     const project = computed(() => getProjectBySlug(props.slug))
     const caseStudy = computed(() => project.value?.caseStudy)
 
     const formattedNumber = computed(() => {
       const index = getProjectIndex(props.slug)
       return (index + 1).toString().padStart(2, '0')
-    })
-
-    watchEffect(() => {
-      if (!project.value || !caseStudy.value) {
-        router.replace({ name: 'home', hash: '#case-studies' })
-      }
     })
 
     const prevProject = computed(() => {
