@@ -49,7 +49,7 @@
             :alt="`${project.title} screenshot`"
             class="w-full shadow-2xl"
             loading="eager"
-            @error="($event.target as HTMLImageElement).style.display = 'none'"
+            @error="handleImageError"
           />
         </div>
       </section>
@@ -240,12 +240,20 @@ export default defineComponent({
       return p ? { slug: caseStudy.value.nextProject, title: p.title } : null
     })
 
+    const handleImageError = (event: Event) => {
+      const image = event.target
+      if (image instanceof HTMLImageElement) {
+        image.style.display = 'none'
+      }
+    }
+
     return {
       project,
       caseStudy,
       prevProject,
       nextProject,
       formattedNumber,
+      handleImageError,
     }
   },
 })
