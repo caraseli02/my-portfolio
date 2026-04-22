@@ -15,117 +15,124 @@
     </div>
 
     <template v-else>
-      <section
-        class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12"
-      >
-        <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-50"></div>
-        <div class="relative mx-auto max-w-7xl">
-          <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-stretch">
-            <div
-              class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-24px_rgba(17,27,143,0.45)] md:p-8 lg:p-10"
-            >
-              <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
-                <div class="paper-grid h-full w-full"></div>
+      <section class="px-6 pb-10 pt-28 md:px-10 md:pt-36 lg:px-12">
+        <div class="mx-auto max-w-7xl">
+          <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_20rem] lg:items-start">
+            <div>
+              <p
+                class="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+              >
+                {{ formattedNumber }} • {{ project.category }}
+              </p>
+              <h1
+                class="max-w-4xl text-[3.1rem] leading-[0.92] font-display text-charcoal dark:text-cobalt-100 sm:text-[4rem] md:text-[5rem] lg:text-[5.7rem]"
+              >
+                {{ project.title }}
+              </h1>
+              <p
+                class="mt-5 max-w-3xl text-xl leading-relaxed text-cobalt-500 dark:text-cobalt-200 md:text-2xl"
+              >
+                {{ caseStudy.tagline }}
+              </p>
+              <p
+                class="mt-5 max-w-3xl text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/84 md:text-lg"
+              >
+                {{ caseStudy.description || project.description }}
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-2.5">
+                <span
+                  v-for="tag in project.tech"
+                  :key="tag"
+                  class="inline-flex items-center rounded-md border border-cobalt-500/18 bg-cobalt-500/[0.04] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-600 dark:border-cobalt-300/18 dark:bg-cobalt-300/[0.05] dark:text-cobalt-100"
+                >
+                  {{ tag }}
+                </span>
               </div>
-              <div class="relative">
-                <p
-                  class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70"
+
+              <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  v-if="caseStudy.liveUrl"
+                  :href="caseStudy.liveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
                 >
-                  {{ formattedNumber }} • {{ project.category }}
-                </p>
-
-                <h1
-                  class="max-w-4xl text-[3.2rem] leading-[0.92] font-display text-white sm:text-[4.2rem] md:text-[5.2rem] lg:text-[6rem]"
+                  View live ↗
+                </a>
+                <a
+                  v-if="project.github"
+                  :href="project.github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center border border-cobalt-500/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300/20 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
                 >
-                  {{ project.title }}
-                </h1>
-
-                <p class="mt-5 max-w-3xl text-xl leading-relaxed text-cobalt-100/80 md:text-2xl">
-                  {{ caseStudy.tagline }}
-                </p>
-
-                <p class="mt-6 max-w-3xl text-base leading-relaxed text-cobalt-100/70 md:text-lg">
-                  {{ caseStudy.description || project.description }}
-                </p>
-
-                <div class="mt-8 flex flex-wrap gap-2.5">
-                  <span
-                    v-for="tag in project.tech"
-                    :key="tag"
-                    class="border border-white/12 bg-white/7 px-3 py-1.5 text-xs font-mono uppercase tracking-[0.16em] text-cobalt-100/80"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
-
-                <div class="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    v-if="caseStudy.liveUrl"
-                    :href="caseStudy.liveUrl"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-opacity hover:opacity-85"
-                  >
-                    View live ↗
-                  </a>
-                  <a
-                    v-if="project.github"
-                    :href="project.github"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center border border-white/18 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-cobalt-700"
-                  >
-                    View source ↗
-                  </a>
-                </div>
+                  View source ↗
+                </a>
               </div>
             </div>
 
-            <aside class="panel-surface flex flex-col justify-between p-6 md:p-8">
-              <div>
-                <p class="editorial-kicker mb-5">project facts</p>
-                <dl class="space-y-4">
-                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt class="editorial-kicker">duration</dt>
-                    <dd class="mt-1 text-2xl font-display text-charcoal dark:text-cobalt-100">
-                      {{ caseStudy.duration }}
-                    </dd>
-                  </div>
-                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt class="editorial-kicker">role</dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/85">
-                      {{ caseStudy.role }}
-                    </dd>
-                  </div>
-                  <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt class="editorial-kicker">year</dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/85">
-                      {{ caseStudy.year }}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-
-              <div class="mt-8">
-                <p class="editorial-kicker mb-4">top outcomes</p>
-                <div class="space-y-3">
-                  <div
-                    v-for="outcome in heroOutcomes"
-                    :key="outcome.label"
-                    class="rounded-[1.5rem] border border-cobalt-500/12 bg-white/75 p-4 dark:border-cobalt-300/12 dark:bg-charcoal-50/75"
+            <aside class="border border-cobalt-500/14 p-6 md:p-8 dark:border-cobalt-300/16">
+              <p
+                class="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+              >
+                project facts
+              </p>
+              <dl class="space-y-4">
+                <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
+                  <dt
+                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
                   >
-                    <p class="text-3xl font-display text-charcoal dark:text-cobalt-100">
-                      {{ outcome.metric }}
-                    </p>
-                    <p
-                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/80"
-                    >
-                      {{ outcome.label }}
-                    </p>
-                  </div>
+                    duration
+                  </dt>
+                  <dd class="mt-2 text-2xl font-display text-charcoal dark:text-cobalt-100">
+                    {{ caseStudy.duration }}
+                  </dd>
                 </div>
-              </div>
+                <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
+                  <dt
+                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                  >
+                    role
+                  </dt>
+                  <dd class="mt-2 text-base text-charcoal-200 dark:text-cobalt-100/86">
+                    {{ caseStudy.role }}
+                  </dd>
+                </div>
+                <div>
+                  <dt
+                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                  >
+                    year
+                  </dt>
+                  <dd class="mt-2 text-base text-charcoal-200 dark:text-cobalt-100/86">
+                    {{ caseStudy.year }}
+                  </dd>
+                </div>
+              </dl>
             </aside>
+          </div>
+
+          <div
+            class="mt-10 grid gap-px overflow-hidden border border-cobalt-500/14 bg-cobalt-500/10 dark:border-cobalt-300/14 dark:bg-cobalt-300/10 md:grid-cols-3"
+          >
+            <div
+              v-for="outcome in heroOutcomes"
+              :key="outcome.label"
+              class="bg-cream-50 p-6 dark:bg-charcoal-50"
+            >
+              <p
+                class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+              >
+                top outcome
+              </p>
+              <p class="mt-2 text-3xl font-display text-charcoal dark:text-cobalt-100">
+                {{ outcome.metric }}
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/82">
+                {{ outcome.label }}
+              </p>
+            </div>
           </div>
         </div>
       </section>
