@@ -13,15 +13,15 @@ Transform the current Vue 3 portfolio from a sophisticated dark-themed developer
 
 ## Current State vs Target
 
-| Aspect | Current | Target |
-|--------|---------|--------|
-| **Aesthetic** | Dark, sophisticated, tech-focused | Light, playful, personality-driven |
-| **Color Palette** | Vue green (#42b883) on dark backgrounds | Cream/off-white with playful accents |
-| **Typography** | Modern sans-serif, gradient accents | Bold, large-scale typography |
-| **Case Studies** | Grid cards with hover effects | Numbered list (01, 02...) with hover reveals |
-| **Navigation** | Home, Projects, About + GitHub button | index, about, contact (simplified) |
-| **Animations** | Custom cursor, parallax, tilt, magnetic effects | Marquees, scroll-triggered reveals |
-| **Footer** | Standard links and tech stack | Personality descriptors marquee |
+| Aspect            | Current                                         | Target                                       |
+| ----------------- | ----------------------------------------------- | -------------------------------------------- |
+| **Aesthetic**     | Dark, sophisticated, tech-focused               | Light, playful, personality-driven           |
+| **Color Palette** | Vue green (#42b883) on dark backgrounds         | Cream/off-white with playful accents         |
+| **Typography**    | Modern sans-serif, gradient accents             | Bold, large-scale typography                 |
+| **Case Studies**  | Grid cards with hover effects                   | Numbered list (01, 02...) with hover reveals |
+| **Navigation**    | Home, Projects, About + GitHub button           | index, about, contact (simplified)           |
+| **Animations**    | Custom cursor, parallax, tilt, magnetic effects | Marquees, scroll-triggered reveals           |
+| **Footer**        | Standard links and tech stack                   | Personality descriptors marquee              |
 
 ## Problem Statement
 
@@ -98,19 +98,16 @@ Implement a complete visual redesign maintaining the Vue 3 + TypeScript + Tailwi
   - Marquee scrolling "case studies" banner
   - Numbered case study list (01-11)
   - Playful footer with personality marquee
-  
 - [ ] **About** redesigned with:
   - Hero section with greeting
   - Bio content
   - Decorative SVGs
   - Location tagline
-  
 - [ ] **Contact** created with:
   - Animated cycling adjectives headline
   - Email link with burst icon
   - LinkedIn link with burst icon
   - "don't be shy" playful text
-  
 - [ ] **Case Study Detail** updated to match new aesthetic while maintaining timeline structure
 
 ### Navigation
@@ -155,13 +152,13 @@ Implement a complete visual redesign maintaining the Vue 3 + TypeScript + Tailwi
 
 ### Risks
 
-| Risk | Probability | Impact | Mitigation |
-|------|-------------|--------|------------|
-| **Content restructuring confuses existing users** | Medium | Medium | Add redirects, maintain bookmark compatibility |
-| **Accessibility issues with marquees** | High | High | Implement pause controls, static fallbacks |
-| **Performance problems with animations** | Medium | High | Use CSS transforms, viewport-based activation |
-| **Design inconsistency mixing old/new elements** | High | Medium | Complete redesign in single branch |
-| **Copy/voice mismatch** | Medium | Medium | Develop brand voice guidelines before writing |
+| Risk                                              | Probability | Impact | Mitigation                                     |
+| ------------------------------------------------- | ----------- | ------ | ---------------------------------------------- |
+| **Content restructuring confuses existing users** | Medium      | Medium | Add redirects, maintain bookmark compatibility |
+| **Accessibility issues with marquees**            | High        | High   | Implement pause controls, static fallbacks     |
+| **Performance problems with animations**          | Medium      | High   | Use CSS transforms, viewport-based activation  |
+| **Design inconsistency mixing old/new elements**  | High        | Medium | Complete redesign in single branch             |
+| **Copy/voice mismatch**                           | Medium      | Medium | Develop brand voice guidelines before writing  |
 
 ## Implementation Phases
 
@@ -212,44 +209,45 @@ Implement a complete visual redesign maintaining the Vue 3 + TypeScript + Tailwi
 ### Critical (Blocks Implementation)
 
 1. **Q1**: Do we eliminate the `/projects` route entirely or keep it as a redirect?
-   - *Assumption if unanswered*: Keep as redirect to `/#case-studies`
+   - _Assumption if unanswered_: Keep as redirect to `/#case-studies`
 
 2. **Q2**: What is the exact color palette for the new design?
-   - *Assumption if unanswered*: Extract from itsjosie.com (cream ~#F5F5F0, dark text ~#1a1a1a)
+   - _Assumption if unanswered_: Extract from itsjosie.com (cream ~#F5F5F0, dark text ~#1a1a1a)
 
 3. **Q3**: Do case studies keep their current detailed structure or simplify?
-   - *Assumption if unanswered*: Keep detailed structure, only change listing format
+   - _Assumption if unanswered_: Keep detailed structure, only change listing format
 
 4. **Q4**: How should reduced-motion preferences be handled?
-   - *Assumption if unanswered*: Disable all marquees and complex animations
+   - _Assumption if unanswered_: Disable all marquees and complex animations
 
 ### Important (Significantly Affects UX)
 
 5. **Q5**: What are the specific personality descriptors for the footer marquee?
-   - *Suggestion*: "compulsive coder+open source contributor+vue enthusiast+coffee drinker+bug hunter+..."
+   - _Suggestion_: "compulsive coder+open source contributor+vue enthusiast+coffee drinker+bug hunter+..."
 
 6. **Q6**: Should the custom cursor be retained or removed?
-   - *Suggestion*: Remove to match clean aesthetic
+   - _Suggestion_: Remove to match clean aesthetic
 
 7. **Q7**: What happens on the "extra" blob link?
-   - *Suggestion*: Remove or make it an easter egg page
+   - _Suggestion_: Remove or make it an easter egg page
 
 8. **Q8**: Do all 11 projects get numbered or just featured ones?
-   - *Suggestion*: Include all 11 (3 featured + 8 other) in numbered list 01-11
+   - _Suggestion_: Include all 11 (3 featured + 8 other) in numbered list 01-11
 
 ### Nice-to-Have
 
 9. **Q9**: What font family should be used?
-   - *Suggestion*: Keep Inter/system-ui with bolder weights
+   - _Suggestion_: Keep Inter/system-ui with bolder weights
 
 10. **Q10**: Should there be a contact form or just external links?
-    - *Suggestion*: Just email/LinkedIn links (simpler)
+    - _Suggestion_: Just email/LinkedIn links (simpler)
 
 ## Content Requirements
 
 ### Personality Descriptors (Footer Marquee)
 
 Need to develop 8-12 playful descriptors that capture personality:
+
 - Format: "descriptor+descriptor+descriptor..."
 - Examples: "compulsive coder+open source contributor+vue enthusiast+coffee drinker+bug hunter+documentation reader+stack overflow lurker+..."
 
@@ -259,6 +257,7 @@ Current: 3 featured + 8 other
 Target: Unified numbered list 01-11
 
 Need to define order:
+
 - By date (newest first)?
 - By importance/significance?
 - By category/type?
@@ -266,6 +265,7 @@ Need to define order:
 ### Case Study Preview Images
 
 Need images for hover reveal effect:
+
 - Use existing project screenshots?
 - Use metaphor banner images from case studies?
 - Create new preview thumbnails?
@@ -319,6 +319,7 @@ src/
 ### Related Patterns
 
 Current sophisticated animations to potentially remove:
+
 - Custom cursor (`CustomCursor.vue`)
 - Parallax depth effects (`useParallaxDepth.ts`)
 - Tilt effects (`useTiltEffect.ts`)
@@ -326,6 +327,7 @@ Current sophisticated animations to potentially remove:
 - Ripple effects (`useRipple.ts`)
 
 Keep for potential reuse:
+
 - Scroll reveal (`useScrollReveal.ts`)
 - Scroll progress (`useScrollProgress.ts`)
 
@@ -341,6 +343,7 @@ For initial implementation, focus on:
 6. **Footer update** - Basic personality marquee
 
 Defer to later:
+
 - Complex hover image reveals
 - Decorative SVG shapes
 - Multiple marquee instances

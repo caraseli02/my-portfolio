@@ -29,12 +29,14 @@ NavBar.vue scroll event handler runs on every scroll event (~60fps) without thro
 **Approach:** Wrap scroll handler in `requestAnimationFrame` for throttling and add `passive: true` flag to the event listener.
 
 **Pros:**
+
 - Synchronizes with browser repaint cycle for smooth 60fps
 - Passive flag allows browser to optimize scroll performance
 - Minimal code change, high performance gain
 - No external dependencies needed
 
 **Cons:**
+
 - Still runs at 60fps maximum (which is usually sufficient)
 - Slightly more complex cleanup logic needed
 
@@ -49,10 +51,12 @@ NavBar.vue scroll event handler runs on every scroll event (~60fps) without thro
 **Approach:** Use a debounce function with a small delay (e.g., 16ms or 100ms) to limit scroll event handling.
 
 **Pros:**
+
 - More control over execution frequency
 - Simpler implementation with lodash or custom utility
 
 **Cons:**
+
 - Adds latency to navbar visibility changes
 - May feel unresponsive if delay is too long
 - Requires debounce utility dependency
@@ -68,11 +72,13 @@ NavBar.vue scroll event handler runs on every scroll event (~60fps) without thro
 **Approach:** Replace scroll listener entirely with Intersection Observer API to detect when navbar should show/hide.
 
 **Pros:**
+
 - Most performant option
 - Native browser API designed for visibility detection
 - No scroll event overhead
 
 **Cons:**
+
 - Requires more significant refactoring
 - May need additional marker element in DOM
 - Overkill for simple show/hide on scroll
@@ -86,6 +92,7 @@ NavBar.vue scroll event handler runs on every scroll event (~60fps) without thro
 Implement Option 1: Add `requestAnimationFrame` throttling and `passive: true` flag to the scroll event listener in NavBar.vue. This provides optimal performance with minimal code changes.
 
 Implementation steps:
+
 1. Add `ticking` flag to component data
 2. Modify `handleScroll` to use `requestAnimationFrame`
 3. Update `addEventListener` call to include `{ passive: true }`
@@ -94,12 +101,15 @@ Implementation steps:
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/NavBar.vue:117-127` - scroll event listener and handler
 
 **Related components:**
+
 - NavBar.vue - main component
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -124,12 +134,14 @@ Implementation steps:
 **By:** Claude Code
 
 **Actions:**
+
 - Analyzed NavBar.vue scroll handling code
 - Identified lack of throttling and passive flag
 - Documented three solution options
 - Recommended requestAnimationFrame approach
 
 **Learnings:**
+
 - Current implementation fires at 60fps continuously during scroll
 - Browser optimization via passive flag is a quick win
 - requestAnimationFrame provides natural throttling aligned with repaint cycle

@@ -13,6 +13,7 @@ dependencies: []
 IntersectionObservers are created in `onMounted` hooks but never disconnected in `onUnmounted`, causing memory leaks. Each time these components are mounted and unmounted (e.g., during navigation), a new observer is created without cleaning up the previous one, leading to accumulating memory usage over time.
 
 **Impact:**
+
 - Memory leak increases with each page navigation
 - Performance degradation over extended sessions
 - Potential browser tab crash on long-running sessions
@@ -27,6 +28,7 @@ Investigation identified three components creating IntersectionObservers without
 - **Projects.vue:233-265** - Project card intersection detection for lazy loading/animations
 
 **Key discovery:** All three components follow the same anti-pattern:
+
 ```javascript
 onMounted(() => {
   const observer = new IntersectionObserver(...)
@@ -56,11 +58,13 @@ onUnmounted(() => {
 ```
 
 **Pros:**
+
 - Direct fix for the memory leak
 - Minimal code changes
 - Follows Vue 3 lifecycle best practices
 
 **Cons:**
+
 - Manual cleanup required for each component
 - Easy to forget in future components
 
@@ -76,28 +80,30 @@ onUnmounted(() => {
 
 ```javascript
 export function useIntersectionObserver(callback, options) {
-  const observer = ref<IntersectionObserver | null>(null)
-  
+  const observer = (ref < IntersectionObserver) | (null > null);
+
   const observe = (element) => {
-    observer.value = new IntersectionObserver(callback, options)
-    observer.value.observe(element)
-  }
-  
+    observer.value = new IntersectionObserver(callback, options);
+    observer.value.observe(element);
+  };
+
   onUnmounted(() => {
-    observer.value?.disconnect()
-  })
-  
-  return { observe }
+    observer.value?.disconnect();
+  });
+
+  return { observe };
 }
 ```
 
 **Pros:**
+
 - Automatic cleanup handling
 - Reusable across components
 - Centralized observer logic
 - Easier to maintain and test
 
 **Cons:**
+
 - Requires refactoring existing components
 - Additional abstraction layer
 
@@ -114,11 +120,13 @@ Implement Option 1 (add `onUnmounted` cleanup) as immediate fix. The pattern is 
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/LessonsLearned.vue:41-57` - Scroll-triggered animations
 - `src/components/OutcomesGrid.vue:39-55` - Grid visibility detection
 - `src/components/Projects.vue:233-265` - Project card intersection detection
 
 **Related components:**
+
 - Any component using scroll-based animations
 - Components with lazy loading patterns
 - Visibility-based feature toggles
@@ -149,12 +157,14 @@ Implement Option 1 (add `onUnmounted` cleanup) as immediate fix. The pattern is 
 **By:** Claude Code
 
 **Actions:**
+
 - Identified 3 components with IntersectionObserver memory leaks
 - Analyzed observer lifecycle in each component
 - Classified as P1 priority performance issue
 - Drafted solution approaches
 
 **Learnings:**
+
 - IntersectionObservers must be explicitly disconnected to prevent memory leaks
 - Vue 3's `onUnmounted` is the correct lifecycle hook for cleanup
 - Composables can encapsulate cleanup logic for better maintainability

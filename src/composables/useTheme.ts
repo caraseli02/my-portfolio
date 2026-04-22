@@ -1,32 +1,32 @@
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
-type Theme = 'light' | 'dark'
+type Theme = "light" | "dark";
 
-const theme = ref<Theme>('light')
-let initialized = false
+const theme = ref<Theme>("light");
+let initialized = false;
 
 function apply(t: Theme) {
-  theme.value = t
-  localStorage.setItem('theme', t)
-  document.documentElement.classList.toggle('dark', t === 'dark')
+  theme.value = t;
+  localStorage.setItem("theme", t);
+  document.documentElement.classList.toggle("dark", t === "dark");
 }
 
 export function useTheme() {
   onMounted(() => {
-    if (initialized) return
-    initialized = true
-    const stored = localStorage.getItem('theme') as Theme | null
+    if (initialized) return;
+    initialized = true;
+    const stored = localStorage.getItem("theme") as Theme | null;
     if (stored) {
-      apply(stored)
+      apply(stored);
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      apply(prefersDark ? 'dark' : 'light')
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      apply(prefersDark ? "dark" : "light");
     }
-  })
+  });
 
   function toggle() {
-    apply(theme.value === 'dark' ? 'light' : 'dark')
+    apply(theme.value === "dark" ? "light" : "dark");
   }
 
-  return { theme, toggle }
+  return { theme, toggle };
 }

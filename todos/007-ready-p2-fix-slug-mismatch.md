@@ -16,15 +16,16 @@ Home.vue contains hardcoded slugs for case study links that don't match the actu
 
 **Slug Mismatches:**
 
-| Home.vue (Wrong) | projects.ts (Correct) |
-|------------------|----------------------|
-| vue-dashboard | vue3-dashboard |
-| nuxt-ecommerce | nuxt-travel-bookings |
-| chat-app | fastapi-realworld |
-| portfolio-generator | *(doesn't exist)* |
-| component-library | *(doesn't exist)* |
+| Home.vue (Wrong)    | projects.ts (Correct) |
+| ------------------- | --------------------- |
+| vue-dashboard       | vue3-dashboard        |
+| nuxt-ecommerce      | nuxt-travel-bookings  |
+| chat-app            | fastapi-realworld     |
+| portfolio-generator | _(doesn't exist)_     |
+| component-library   | _(doesn't exist)_     |
 
 **Impact:**
+
 - Users clicking case study links get 404 errors
 - Broken navigation degrades user experience
 - Featured projects on homepage are inaccessible
@@ -39,10 +40,12 @@ Investigation revealed the root cause:
 - Two projects referenced in Home.vue don't exist in projects.ts at all
 
 **Affected Code:**
+
 - Home.vue has case study buttons with `to="/projects/vue-dashboard"` etc.
 - projects.ts defines slugs like `slug: 'vue3-dashboard'`
 
 **Additional Issues:**
+
 - Two projects listed on homepage have no corresponding data in projects.ts
 - This suggests either outdated homepage or missing project entries
 
@@ -53,17 +56,20 @@ Investigation revealed the root cause:
 **Approach:** Update the hardcoded slugs in Home.vue to match projects.ts exactly.
 
 **Changes needed:**
+
 - `vue-dashboard` → `vue3-dashboard`
 - `nuxt-ecommerce` → `nuxt-travel-bookings`
 - `chat-app` → `fastapi-realworld`
 - Remove or fix `portfolio-generator` and `component-library` references
 
 **Pros:**
+
 - Fastest solution (15 minutes)
 - Immediate fix for broken links
 - No structural changes needed
 
 **Cons:**
+
 - Still maintains hardcoded values
 - Risk of future mismatches if projects.ts changes
 
@@ -78,16 +84,19 @@ Investigation revealed the root cause:
 **Approach:** Import featured projects from projects.ts instead of hardcoding.
 
 **Implementation:**
+
 - Import projects array from projects.ts
 - Filter for featured projects or select by ID
 - Render dynamically in template
 
 **Pros:**
+
 - Single source of truth
 - Future-proof against changes
 - Consistent with data-driven approach
 
 **Cons:**
+
 - Requires more refactoring
 - May need to add "featured" flag to projects.ts
 
@@ -102,14 +111,17 @@ Investigation revealed the root cause:
 **Approach:** Export slug constants from projects.ts and import in Home.vue.
 
 **Implementation:**
+
 - Create PROJECT_SLUGS constant in projects.ts
 - Import and use in Home.vue
 
 **Pros:**
+
 - Prevents typos and mismatches
 - Maintains some flexibility
 
 **Cons:**
+
 - Still requires manual maintenance
 - Not as robust as Option 2
 
@@ -122,6 +134,7 @@ Investigation revealed the root cause:
 ## Recommended Action
 
 **Immediate fix (Option 1):** Update Home.vue slugs to match projects.ts:
+
 1. Open `src/pages/Home.vue`
 2. Find all router-link or button elements with `to="/projects/..."`
 3. Update slugs to match projects.ts:
@@ -139,17 +152,21 @@ Investigation revealed the root cause:
 ## Technical Details
 
 **Affected files:**
+
 - `src/pages/Home.vue` - Contains hardcoded slugs in router links
 - `src/data/projects.ts` - Source of truth for project slugs
 
 **Related components:**
+
 - Project detail pages (reached via these slugs)
 - Router configuration in `src/router/index.ts`
 
 **Database changes:**
+
 - Migration needed? No
 
 **Routing impact:**
+
 - Current broken routes: /projects/vue-dashboard, /projects/nuxt-ecommerce, /projects/chat-app
 - Working routes: /projects/vue3-dashboard, /projects/nuxt-travel-bookings, /projects/fastapi-realworld
 
@@ -175,12 +192,14 @@ Investigation revealed the root cause:
 **By:** Claude Code
 
 **Actions:**
+
 - Compared slugs in Home.vue with projects.ts
 - Identified 3 mismatched slugs and 2 non-existent projects
 - Tested navigation to confirm 404 errors
 - Documented all slug mappings
 
 **Learnings:**
+
 - Home.vue has 5 featured projects but only 3 exist in projects.ts
 - Hardcoded slugs are prone to getting out of sync
 - Projects.ts has different naming convention (vue3- vs vue-)

@@ -25,6 +25,7 @@ Multiple Vue 3 components were creating event listeners and observers without pr
 ### 1. IntersectionObserver Memory Leak
 
 **Affected Files:**
+
 - `src/components/case-study/LessonsLearned.vue`
 - `src/components/case-study/OutcomesGrid.vue`
 - `src/pages/Projects.vue`
@@ -39,12 +40,12 @@ import { onUnmounted } from 'vue'
 
 setup() {
   const observers: IntersectionObserver[] = []
-  
+
   onMounted(() => {
     // Create observers...
     observers.push(obs)
   })
-  
+
   // FIX: Add cleanup
   onUnmounted(() => {
     observers.forEach(obs => obs.disconnect())
@@ -63,31 +64,31 @@ setup() {
 
 ```typescript
 // useDeviceDetection.ts
-let hoverQuery: MediaQueryList | null = null
-let motionQuery: MediaQueryList | null = null
+let hoverQuery: MediaQueryList | null = null;
+let motionQuery: MediaQueryList | null = null;
 
 function handleHoverChange(e: MediaQueryListEvent) {
-  supportsHover.value = e.matches
-  isTouchDevice.value = !e.matches
+  supportsHover.value = e.matches;
+  isTouchDevice.value = !e.matches;
 }
 
 function handleMotionChange(e: MediaQueryListEvent) {
-  prefersReducedMotion.value = e.matches
+  prefersReducedMotion.value = e.matches;
 }
 
 function cleanup() {
   if (hoverQuery) {
-    hoverQuery.removeEventListener('change', handleHoverChange)
+    hoverQuery.removeEventListener("change", handleHoverChange);
   }
   if (motionQuery) {
-    motionQuery.removeEventListener('change', handleMotionChange)
+    motionQuery.removeEventListener("change", handleMotionChange);
   }
 }
 
 export function useDeviceDetection() {
-  onMounted(init)
-  onUnmounted(cleanup)  // FIX: Added cleanup
-  return { isTouchDevice, prefersReducedMotion, supportsHover }
+  onMounted(init);
+  onUnmounted(cleanup); // FIX: Added cleanup
+  return { isTouchDevice, prefersReducedMotion, supportsHover };
 }
 ```
 
@@ -98,6 +99,7 @@ export function useDeviceDetection() {
 **Problem:** `<router-view :key="$route.fullPath" />` forced Vue to destroy and recreate the entire component tree on every navigation.
 
 **Impact:**
+
 - 200-500ms additional navigation time
 - Loss of scroll position and component state
 - Unnecessary API calls
@@ -152,11 +154,11 @@ methods: {
 export function useSomeEffect() {
   onMounted(() => {
     // Setup
-  })
-  
+  });
+
   onUnmounted(() => {
     // Cleanup - ALWAYS include this
-  })
+  });
 }
 ```
 
@@ -164,9 +166,11 @@ export function useSomeEffect() {
 
 ```typescript
 // Good - handler defined outside so it can be removed
-const handler = (e) => { /* ... */ }
-element.addEventListener('event', handler)
-onUnmounted(() => element.removeEventListener('event', handler))
+const handler = (e) => {
+  /* ... */
+};
+element.addEventListener("event", handler);
+onUnmounted(() => element.removeEventListener("event", handler));
 ```
 
 3. **Avoid :key on router-view unless necessary:**
@@ -199,6 +203,7 @@ Test memory leaks using Chrome DevTools:
 ## Performance Impact
 
 After fixes:
+
 - **Navigation**: 200-500ms faster
 - **Memory usage**: Stable during route changes
 - **Scroll performance**: Smooth 60fps with throttling

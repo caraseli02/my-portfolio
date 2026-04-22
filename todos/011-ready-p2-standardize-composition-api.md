@@ -15,6 +15,7 @@ Convert all Options API components to <script setup> syntax for consistency.
 3 components use Options API while 13 use Composition API - inconsistent patterns across the codebase.
 
 **Components using Options API (data(), mounted()):**
+
 - `src/components/NavBar.vue`
 - `src/components/Footer.vue`
 - `src/pages/About.vue`
@@ -36,12 +37,14 @@ This inconsistency makes the codebase harder to maintain and understand. New dev
 **Approach:** Convert all three Options API components to Composition API using `<script setup>` syntax.
 
 **Pros:**
+
 - Consistent with the rest of the codebase
 - Better TypeScript inference
 - Less boilerplate code
 - Vue 3 standard
 
 **Cons:**
+
 - Requires manual conversion and testing
 - Small risk of introducing bugs during refactor
 
@@ -56,10 +59,12 @@ This inconsistency makes the codebase harder to maintain and understand. New dev
 **Approach:** Use `defineComponent` with explicit `setup()` function instead of `<script setup>`.
 
 **Pros:**
+
 - More explicit component structure
 - Easier to see what's exported
 
 **Cons:**
+
 - Still more verbose than `<script setup>`
 - Not the most modern pattern
 
@@ -76,14 +81,17 @@ Convert all three components to `<script setup>` syntax for maximum consistency 
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/NavBar.vue`
 - `src/components/Footer.vue`
 - `src/pages/About.vue`
 
 **Related components:**
+
 - None (these are standalone components)
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -107,6 +115,7 @@ Convert all three components to `<script setup>` syntax for maximum consistency 
 **By:** Claude Code
 
 **Actions:**
+
 - Analyzed all Vue components in the codebase
 - Identified 3 components using Options API vs 13 using Composition API
 - Documented affected files

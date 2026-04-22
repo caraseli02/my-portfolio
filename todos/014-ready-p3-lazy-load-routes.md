@@ -36,12 +36,14 @@ After reviewing the router configuration:
 **Approach:** Convert all static route imports to dynamic imports using `() => import()` syntax.
 
 **Pros:**
+
 - Reduces initial bundle size significantly
 - Only loads code when routes are accessed
 - Standard Vue Router optimization pattern
 - Quick implementation (single file change)
 
 **Cons:**
+
 - Slight delay on first navigation (acceptable trade-off)
 - Minimal complexity added to router file
 
@@ -56,26 +58,30 @@ After reviewing the router configuration:
 Convert all static route imports in `router/index.ts` to dynamic imports. This is a straightforward optimization with immediate performance benefits.
 
 **Example change:**
+
 ```typescript
 // Before:
-import Home from '../pages/Home.vue'
+import Home from "../pages/Home.vue";
 
 // After:
-const Home = () => import('../pages/Home.vue')
+const Home = () => import("../pages/Home.vue");
 ```
 
 ## Technical Details
 
 **Affected files:**
+
 - `src/router/index.ts` - Route definitions and imports
 
 **Related components:**
+
 - `src/pages/Home.vue`
 - `src/pages/Projects.vue`
 - `src/pages/About.vue`
 - `src/pages/Extra.vue` (already lazy loaded)
 
 **Database changes:**
+
 - Migration needed? No
 
 ## Resources
@@ -98,6 +104,7 @@ const Home = () => import('../pages/Home.vue')
 **By:** Claude Code
 
 **Actions:**
+
 - Identified eager loading issue in router configuration
 - Documented current state and proposed solution
 - Created todo with implementation plan
