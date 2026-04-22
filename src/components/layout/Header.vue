@@ -11,7 +11,7 @@
           aria-label="Home"
         >
           <span
-            class="text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 lowercase group-hover:opacity-70 transition-opacity"
+            class="text-2xl font-display font-medium tracking-[-0.04em] text-cobalt-500 dark:text-cobalt-300 lowercase group-hover:opacity-70 transition-opacity"
             >vlad</span
           >
         </router-link>
@@ -22,7 +22,7 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="inline-flex items-center min-h-[44px] text-cobalt-500 dark:text-cobalt-300 hover:text-cobalt-700 dark:hover:text-cobalt-100 text-base font-normal lowercase relative transition-colors pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm"
+            class="relative inline-flex min-h-[44px] items-center pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm dark:text-cobalt-300 dark:hover:text-cobalt-100"
             :class="{ 'border-b-2 border-cobalt-500 dark:border-cobalt-300': isActive(link.path) }"
             :aria-current="isActive(link.path) ? 'page' : undefined"
           >

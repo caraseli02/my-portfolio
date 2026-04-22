@@ -73,10 +73,10 @@
         <div class="editorial-rule"></div>
 
         <div
-          class="flex items-center justify-between gap-4 text-sm text-cobalt-500/65 dark:text-cobalt-100/62"
+          class="flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500/65 dark:text-cobalt-100/62"
         >
-          <span class="lowercase font-medium">vlad caraseli © {{ year }}</span>
-          <span class="uppercase tracking-[0.2em]">palma de mallorca</span>
+          <span>vlad caraseli © {{ year }}</span>
+          <span>palma de mallorca</span>
         </div>
       </div>
     </div>

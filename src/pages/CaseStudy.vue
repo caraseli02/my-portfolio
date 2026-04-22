@@ -88,31 +88,19 @@
                 <p class="editorial-kicker mb-5">project facts</p>
                 <dl class="space-y-4">
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
-                    >
-                      duration
-                    </dt>
+                    <dt class="editorial-kicker">duration</dt>
                     <dd class="mt-1 text-2xl font-display text-charcoal dark:text-cobalt-100">
                       {{ caseStudy.duration }}
                     </dd>
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
-                    >
-                      role
-                    </dt>
+                    <dt class="editorial-kicker">role</dt>
                     <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
                       {{ caseStudy.role }}
                     </dd>
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
-                    <dt
-                      class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/72"
-                    >
-                      year
-                    </dt>
+                    <dt class="editorial-kicker">year</dt>
                     <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
                       {{ caseStudy.year }}
                     </dd>
