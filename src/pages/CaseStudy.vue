@@ -2,22 +2,23 @@
   <div v-if="project && caseStudy" class="bg-cream-100 dark:bg-charcoal min-h-screen">
 
     <!-- 1. Hero Image — full-width, top of page -->
-    <section class="pt-24 pb-0 px-6 lg:px-12">
-      <div class="max-w-6xl mx-auto">
+    <section class="px-6 pb-0 pt-24 lg:px-12">
+      <div class="mx-auto max-w-6xl">
         <img
           :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
           :alt="`${project.title} screenshot`"
-          class="w-full rounded-lg shadow-2xl"
+          class="w-full border border-cobalt-500/15 object-cover object-top shadow-2xl dark:border-charcoal-200/30"
+          style="max-height: 72vh;"
           loading="eager"
         />
       </div>
     </section>
 
     <!-- 2. Project Info — title, tags, overview, CTAs -->
-    <section class="py-16 px-6 lg:px-12">
-      <div class="max-w-4xl mx-auto">
+    <section class="px-6 py-14 lg:px-12 lg:py-16">
+      <div class="mx-auto max-w-4xl">
         <!-- Number + Title -->
-        <div class="mb-6">
+        <div class="mb-8">
           <span class="text-sm font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-2">
             / {{ formattedNumber }}
           </span>
@@ -27,7 +28,7 @@
         </div>
 
         <!-- Tech Tags -->
-        <div class="flex flex-wrap gap-2 mb-8">
+        <div class="mb-8 flex flex-wrap gap-2.5">
           <span
             v-for="tech in project.tech"
             :key="tech"
@@ -71,7 +72,7 @@
         </div>
 
         <!-- Metadata -->
-        <div class="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-cobalt-500/10 dark:border-charcoal-200/30">
+        <div class="mt-10 grid grid-cols-1 gap-5 border-t border-cobalt-500/10 pt-8 dark:border-charcoal-200/30 sm:grid-cols-3 sm:gap-6">
           <div>
             <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Duration</span>
             <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.duration }}</span>
@@ -89,8 +90,8 @@
     </section>
 
     <!-- 3. Tech Stack Marquee -->
-    <section class="overflow-hidden border-y border-cobalt-500/20 dark:border-charcoal-200/40 py-4">
-      <Marquee :duration="20" class="py-2">
+    <section class="overflow-hidden border-y border-cobalt-500/20 py-4 dark:border-charcoal-200/40">
+      <Marquee :duration="20" class="py-1.5">
         <div class="flex items-center gap-6 px-4">
           <span
             v-for="tag in project.tech"
@@ -105,16 +106,16 @@
     </section>
 
     <!-- 4. Architecture Diagram -->
-    <section class="py-16 px-6 lg:px-12 border-b border-cobalt-500/20 dark:border-charcoal-200/40">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-sm font-mono text-cobalt-500 dark:text-cobalt-300 mb-8">### architecture</h2>
+    <section class="border-b border-cobalt-500/20 px-6 py-14 dark:border-charcoal-200/40 lg:px-12 lg:py-16">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-8 text-sm font-mono uppercase tracking-widest text-cobalt-500/70 dark:text-cobalt-300/70">architecture</h2>
         <ArchitectureDiagram :slug="slug" />
       </div>
     </section>
 
     <!-- 5. Content Sections — Journey, Outcomes, Lessons -->
-    <section class="py-16 px-6 lg:px-12">
-      <div class="max-w-4xl mx-auto space-y-16">
+    <section class="px-6 py-14 lg:px-12 lg:py-16">
+      <div class="mx-auto max-w-4xl space-y-16 lg:space-y-20">
         <JourneyTimeline
           :phases="caseStudy.timeline"
           accent-color="cobalt-500"
@@ -143,9 +144,9 @@
     </section>
 
     <!-- 6. Navigation — Next Project -->
-    <section class="py-16 px-6 lg:px-12 border-t border-cobalt-500/20 dark:border-charcoal-200/40">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex items-center justify-between">
+    <section class="border-t border-cobalt-500/20 px-6 py-14 dark:border-charcoal-200/40 lg:px-12 lg:py-16">
+      <div class="mx-auto max-w-4xl">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <router-link
             v-if="prevProject"
             :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
@@ -157,7 +158,7 @@
             </svg>
             <span class="text-sm font-mono">Previous</span>
           </router-link>
-          <div v-else></div>
+          <div v-else class="hidden sm:block"></div>
 
           <router-link
             to="/"
@@ -177,7 +178,7 @@
               <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </router-link>
-          <div v-else></div>
+          <div v-else class="hidden sm:block"></div>
         </div>
       </div>
     </section>
