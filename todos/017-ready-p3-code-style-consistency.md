@@ -33,13 +33,14 @@ After reviewing multiple source files:
 - Project uses TypeScript and Vue 3 (requires appropriate configs)
 
 **Current state:**
+
 ```typescript
 // Some files:
-import { ref } from 'vue'
-const x = 1
+import { ref } from "vue";
+const x = 1;
 
 // Other files:
-import {ref} from 'vue';
+import { ref } from "vue";
 const x = 1;
 ```
 
@@ -48,6 +49,7 @@ const x = 1;
 ### Option 1: Add ESLint with Prettier Integration
 
 **Approach:**
+
 1. Install ESLint, Prettier, and Vue/TypeScript plugins
 2. Create `.eslintrc.cjs` with recommended rules
 3. Create `.prettierrc` with project conventions
@@ -55,12 +57,14 @@ const x = 1;
 5. Configure VS Code settings for auto-format on save
 
 **Pros:**
+
 - Industry standard tooling
 - Automatic error detection
 - Consistent formatting across team
 - IDE integration for real-time feedback
 
 **Cons:**
+
 - Initial configuration time
 - Learning curve for contributors
 - May require large initial reformatting commit
@@ -76,11 +80,13 @@ const x = 1;
 **Approach:** Just add Prettier for formatting, skip ESLint for now.
 
 **Pros:**
+
 - Faster setup
 - Solves formatting inconsistencies
 - Simpler configuration
 
 **Cons:**
+
 - No linting for code quality issues
 - May need ESLint later anyway
 
@@ -95,11 +101,13 @@ const x = 1;
 **Approach:** Use Biome (formerly Rome) as an all-in-one linter/formatter.
 
 **Pros:**
+
 - Single tool for linting and formatting
 - Very fast execution
 - Modern alternative
 
 **Cons:**
+
 - Less mature ecosystem
 - Fewer integrations
 - Team familiarity with ESLint/Prettier
@@ -115,6 +123,7 @@ const x = 1;
 **Option 1 (ESLint + Prettier)** is recommended for a Vue/TypeScript project. This provides comprehensive tooling that the Vue ecosystem fully supports.
 
 **Configuration to use:**
+
 - ESLint with `eslint-plugin-vue` and `@typescript-eslint`
 - Prettier with single quotes, no semicolons (match existing patterns)
 - Pre-commit hook with Husky + lint-staged (optional but recommended)
@@ -122,18 +131,22 @@ const x = 1;
 ## Technical Details
 
 **Affected files:**
+
 - New: `.eslintrc.cjs` - ESLint configuration
 - New: `.prettierrc` - Prettier configuration
 - Modified: `package.json` - Add dev dependencies and scripts
 - Optional: `.vscode/settings.json` - Editor integration
 
 **Related components:**
+
 - All source files will be reformatted
 
 **Database changes:**
+
 - Migration needed? No
 
 **Recommended dev dependencies:**
+
 ```json
 {
   "eslint": "^8.x",
@@ -146,6 +159,7 @@ const x = 1;
 ```
 
 **Recommended npm scripts:**
+
 ```json
 {
   "lint": "eslint . --ext .vue,.ts,.tsx,.js,.jsx",
@@ -181,6 +195,7 @@ const x = 1;
 **By:** Claude Code
 
 **Actions:**
+
 - Identified style inconsistencies across codebase
 - Reviewed formatting patterns in existing files
 - Created ESLint + Prettier configuration plan

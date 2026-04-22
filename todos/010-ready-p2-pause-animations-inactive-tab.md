@@ -31,12 +31,14 @@ setInterval timers in TextRotator.vue and Contact.vue continue running when the 
 **Approach:** Listen for `visibilitychange` event and pause/resume setInterval based on document visibility state.
 
 **Pros:**
+
 - Native browser API with wide support
 - Minimal code changes needed
 - Immediate CPU/battery savings
 - Simple pause/resume logic
 
 **Cons:**
+
 - Need to handle state restoration when tab becomes visible
 - May need to catch up on missed animations (or skip)
 
@@ -51,11 +53,13 @@ setInterval timers in TextRotator.vue and Contact.vue continue running when the 
 **Approach:** Replace setInterval with requestAnimationFrame that only runs when tab is visible, or add visibility check within animation frame.
 
 **Pros:**
+
 - Synchronizes with display refresh rate
 - Automatically pauses when tab is hidden (browsers throttle rAF)
 - Smoother animations
 
 **Cons:**
+
 - Requires refactoring from setInterval pattern
 - More complex for non-visual operations
 
@@ -70,11 +74,13 @@ setInterval timers in TextRotator.vue and Contact.vue continue running when the 
 **Approach:** Move time-sensitive logic to Web Workers so it runs independently of tab visibility.
 
 **Pros:**
+
 - True background processing
 - Doesn't block main thread
 - Can notify main thread when needed
 
 **Cons:**
+
 - Overkill for simple animations
 - Requires message passing architecture
 - Not necessary for UI-only animations
@@ -88,6 +94,7 @@ setInterval timers in TextRotator.vue and Contact.vue continue running when the 
 Implement Option 1: Add Page Visibility API integration to both TextRotator.vue and Contact.vue. Clear intervals when document becomes hidden and restart them when visible again.
 
 Implementation steps:
+
 1. Add `visibilitychange` event listener in mounted hook
 2. Track interval IDs in component data
 3. Clear intervals when `document.hidden` is true
@@ -97,14 +104,17 @@ Implementation steps:
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/TextRotator.vue:58-64` - text rotation interval
 - `src/components/Contact.vue:93-104` - contact form interval/animation
 
 **Related components:**
+
 - TextRotator.vue - animated text display
 - Contact.vue - contact form with animations
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -130,12 +140,14 @@ Implementation steps:
 **By:** Claude Code
 
 **Actions:**
+
 - Analyzed TextRotator.vue and Contact.vue for setInterval usage
 - Identified lack of Page Visibility API integration
 - Documented three solution approaches
 - Recommended native API for simplicity and effectiveness
 
 **Learnings:**
+
 - Page Visibility API has excellent browser support (all modern browsers)
 - Simple pause/resume pattern saves significant battery life
 - requestAnimationFrame auto-throttles but setInterval does not

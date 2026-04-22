@@ -26,6 +26,7 @@ The codebase had accumulated dead code, unused dependencies, duplicate files, an
 ### 1. Dead Code Files
 
 **Removed Files:**
+
 - `src/store.ts` - Vuex store never imported in main.ts
 - `src/views/Home.vue` - Empty component, not in router
 - `src/components/navigation/NavBar.vue` - Unused, Header.vue used instead
@@ -42,8 +43,8 @@ The codebase had accumulated dead code, unused dependencies, duplicate files, an
 ```typescript
 // main.ts - No .use(store) call
 createApp(App)
-  .use(router)  // ❌ No .use(store)
-  .mount('#app')
+  .use(router) // ❌ No .use(store)
+  .mount("#app");
 ```
 
 **Solution:**
@@ -57,6 +58,7 @@ rm src/store.ts src/vuex.d.ts
 ```
 
 **Benefits:**
+
 - Smaller bundle size
 - One less dependency to maintain
 - Clearer architecture (state handled via props/composables)
@@ -67,9 +69,9 @@ rm src/store.ts src/vuex.d.ts
 
 ```typescript
 // Home.vue (WRONG)
-slug: 'vue-dashboard'      // Should be: 'vue3-dashboard'
-slug: 'nuxt-ecommerce'     // Should be: 'nuxt-travel-bookings'
-slug: 'chat-app'          // Should be: 'fastapi-realworld'
+slug: "vue-dashboard"; // Should be: 'vue3-dashboard'
+slug: "nuxt-ecommerce"; // Should be: 'nuxt-travel-bookings'
+slug: "chat-app"; // Should be: 'fastapi-realworld'
 ```
 
 **Impact:** Navigation to case studies returned 404/redirect errors
@@ -81,34 +83,38 @@ slug: 'chat-app'          // Should be: 'fastapi-realworld'
 **Fixed Issues:**
 
 #### a) `any` Type in shims-vue.d.ts
+
 ```typescript
 // BEFORE
-const component: DefineComponent<{}, {}, any>
+const component: DefineComponent<{}, {}, any>;
 
 // AFTER
-const component: DefineComponent<Record<string, never>, Record<string, never>, unknown>
+const component: DefineComponent<Record<string, never>, Record<string, never>, unknown>;
 ```
 
 #### b) Inconsistent PropType Pattern
+
 ```typescript
 // BEFORE (Vue 2 style)
-type: Array as () => string[]
+type: Array as () => string[];
 
 // AFTER (Vue 3 style)
-import { PropType } from 'vue'
-type: Array as PropType<string[]>
+import { PropType } from "vue";
+type: Array as PropType<string[]>;
 ```
 
 #### c) Unused Variable
+
 ```typescript
 // BEFORE
-const isHovered = ref(false);  // Defined but never used
+const isHovered = ref(false); // Defined but never used
 
 // AFTER
 // Removed unused ref
 ```
 
 #### d) Better Interval Type
+
 ```typescript
 // BEFORE
 let interval: number | null = null;
@@ -136,12 +142,12 @@ npx depcheck
 // .eslintrc.js
 module.exports = {
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error',
-    'no-unused-vars': 'off', // Use TypeScript version
-    'vue/no-unused-components': 'error',
-    'vue/no-unused-vars': 'error',
-  }
-}
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off", // Use TypeScript version
+    "vue/no-unused-components": "error",
+    "vue/no-unused-vars": "error",
+  },
+};
 ```
 
 3. **TypeScript Strict Mode:**
@@ -209,6 +215,7 @@ npx vite-bundle-visualizer
 ## Impact
 
 After cleanup:
+
 - **Codebase size**: Reduced by ~400 lines
 - **Bundle size**: Smaller without unused dependencies
 - **Maintainability**: Easier to understand

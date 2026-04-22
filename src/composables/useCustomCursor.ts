@@ -1,67 +1,67 @@
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useMousePosition } from './useMousePosition'
-import { useDeviceDetection } from './useDeviceDetection'
+import { ref, onMounted, onUnmounted } from "vue";
+import { useMousePosition } from "./useMousePosition";
+import { useDeviceDetection } from "./useDeviceDetection";
 
-export type CursorType = 'default' | 'link' | 'button' | 'card' | 'text' | 'hidden'
+export type CursorType = "default" | "link" | "button" | "card" | "text" | "hidden";
 
-const cursorType = ref<CursorType>('default')
-const cursorVisible = ref(false)
+const cursorType = ref<CursorType>("default");
+const cursorVisible = ref(false);
 
 export function useCustomCursor() {
-  const { x, y, smoothX, smoothY } = useMousePosition()
-  const { isTouchDevice } = useDeviceDetection()
+  const { x, y, smoothX, smoothY } = useMousePosition();
+  const { isTouchDevice } = useDeviceDetection();
 
   function detectType(target: EventTarget | null) {
     if (!target || !(target instanceof HTMLElement)) {
-      cursorType.value = 'default'
-      return
+      cursorType.value = "default";
+      return;
     }
 
-    const el = target as HTMLElement
+    const el = target as HTMLElement;
 
     // data-cursor attribute has highest priority
-    const dataCursor = el.closest('[data-cursor]') as HTMLElement | null
+    const dataCursor = el.closest("[data-cursor]") as HTMLElement | null;
     if (dataCursor) {
-      cursorType.value = dataCursor.dataset.cursor as CursorType
-      return
+      cursorType.value = dataCursor.dataset.cursor as CursorType;
+      return;
     }
 
     // Semantic detection
-    if (el.closest('a[href]')) {
-      cursorType.value = 'link'
+    if (el.closest("a[href]")) {
+      cursorType.value = "link";
     } else if (el.closest('button, [role="button"]')) {
-      cursorType.value = 'button'
+      cursorType.value = "button";
     } else {
-      cursorType.value = 'default'
+      cursorType.value = "default";
     }
   }
 
   function onMouseOver(e: MouseEvent) {
-    detectType(e.target)
+    detectType(e.target);
   }
 
   function onMouseEnter() {
-    cursorVisible.value = true
+    cursorVisible.value = true;
   }
 
   function onMouseLeave() {
-    cursorVisible.value = false
+    cursorVisible.value = false;
   }
 
   onMounted(() => {
-    if (isTouchDevice.value) return
+    if (isTouchDevice.value) return;
 
-    document.addEventListener('mouseover', onMouseOver, { passive: true })
-    document.addEventListener('mouseenter', onMouseEnter)
-    document.addEventListener('mouseleave', onMouseLeave)
-    cursorVisible.value = true
-  })
+    document.addEventListener("mouseover", onMouseOver, { passive: true });
+    document.addEventListener("mouseenter", onMouseEnter);
+    document.addEventListener("mouseleave", onMouseLeave);
+    cursorVisible.value = true;
+  });
 
   onUnmounted(() => {
-    document.removeEventListener('mouseover', onMouseOver)
-    document.removeEventListener('mouseenter', onMouseEnter)
-    document.removeEventListener('mouseleave', onMouseLeave)
-  })
+    document.removeEventListener("mouseover", onMouseOver);
+    document.removeEventListener("mouseenter", onMouseEnter);
+    document.removeEventListener("mouseleave", onMouseLeave);
+  });
 
   return {
     cursorX: x,
@@ -70,6 +70,6 @@ export function useCustomCursor() {
     smoothCursorY: smoothY,
     cursorType,
     cursorVisible,
-    isTouchDevice
-  }
+    isTouchDevice,
+  };
 }
