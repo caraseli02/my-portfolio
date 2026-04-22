@@ -17,7 +17,7 @@
         </router-link>
 
         <!-- Navigation Links -->
-        <div class="hidden items-center gap-8 md:flex">
+        <div class="flex items-center gap-8">
           <router-link
             v-for="link in navLinks"
             :key="link.path"
@@ -52,16 +52,6 @@
               <path d="m21 21-4.3-4.3" />
             </svg>
             <span class="font-mono text-[10px] uppercase tracking-[0.18em]">⌘K</span>
-          </button>
-
-          <button
-            type="button"
-            @click="$emit('open-shortcuts')"
-            class="hidden h-9 items-center justify-center border border-cobalt-500/20 px-3 font-mono text-[10px] uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300 md:inline-flex"
-            aria-label="Open keyboard shortcuts"
-            title="Keyboard shortcuts (?)"
-          >
-            ?
           </button>
 
           <!-- Custom cursor toggle -->
@@ -156,7 +146,6 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   { label: "work", path: "/" },
-  { label: "projects", path: "/projects" },
   { label: "about", path: "/about" },
   { label: "contact", path: "/contact" },
 ];

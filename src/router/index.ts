@@ -59,7 +59,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       title: "Projects | Vlad Caraseli",
       description:
-        "A scan-first index of Vlad Caraseli's frontend projects, case studies, and supporting repositories.",
+        "Full index of shipped projects: case-studied product work, component libraries, starters, and experiments across Vue, React, and TypeScript.",
     },
   },
   {
