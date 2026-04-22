@@ -54,7 +54,13 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/projects",
-    redirect: { name: "home", hash: "#case-studies" },
+    name: "projects",
+    component: () => import("../pages/Projects.vue"),
+    meta: {
+      title: "Projects | Vlad Caraseli",
+      description:
+        "Full index of shipped projects: case-studied product work, component libraries, starters, and experiments across Vue, React, and TypeScript.",
+    },
   },
   {
     path: "/:pathMatch(.*)*",

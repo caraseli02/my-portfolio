@@ -8,7 +8,7 @@
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">client</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Browser</p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Interactive map view
           </p>
         </div>
@@ -17,14 +17,14 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             React 18
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             UI components + styling
           </p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">map</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Leaflet</p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Auto-fitting map bounds
           </p>
         </div>
@@ -37,7 +37,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Pure Functions
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Filtering, pricing, security logic
           </p>
         </div>
@@ -48,7 +48,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Portal Modals
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Layered popups + image fallbacks
           </p>
         </div>
@@ -68,7 +68,7 @@
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">frontend</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Nuxt 3</p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Vue framework + state management
           </p>
         </div>
@@ -77,14 +77,14 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Firebase
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Email + Google login
           </p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">payments</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Stripe</p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Cards, bank transfer, cash on delivery
           </p>
         </div>
@@ -97,7 +97,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             HttpFactory
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Reusable API service pattern
           </p>
         </div>
@@ -106,7 +106,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Error Sanitizer
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Hides sensitive data from errors
           </p>
         </div>
@@ -130,7 +130,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             React 19
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Accessible UI building blocks
           </p>
         </div>
@@ -139,14 +139,14 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Storybook 10
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Visual component documentation
           </p>
         </div>
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">i18n</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">i18next</p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Multi-language story support
           </p>
         </div>
@@ -159,7 +159,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Discriminated Unions
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Type-safe component variants
           </p>
         </div>
@@ -168,7 +168,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Dynamic Height Hook
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Responsive sidebar sizing
           </p>
         </div>
@@ -177,7 +177,7 @@
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">
             Type-safe Stories
           </p>
-          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/72 mt-1">
+          <p class="text-xs text-cobalt-500/70 dark:text-cobalt-100/70 mt-1">
             Catch errors before production
           </p>
         </div>

@@ -12,8 +12,6 @@
         v-for="(phase, i) in phases"
         :key="phase.id"
         data-phase
-        class="reveal"
-        :class="{ revealed: true }"
         :style="{ transitionDelay: i * 80 + 'ms' }"
       >
         <TimelinePhaseCard

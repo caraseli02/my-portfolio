@@ -4,21 +4,18 @@
   >
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
       <div
-        class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/20 bg-cobalt-700 p-6 text-cream-50 shadow-[0_28px_80px_rgba(17,27,143,0.22)] md:p-8 dark:border-cobalt-300/20 dark:bg-cobalt-700"
+        class="relative overflow-hidden border border-cobalt-500/20 bg-cobalt-700 p-6 text-cream-50 shadow-[0_20px_60px_-28px_rgba(17,27,143,0.55)] md:p-8 dark:border-cobalt-300/20 dark:bg-cobalt-700"
       >
-        <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
-          <div class="paper-grid h-full w-full"></div>
-        </div>
         <div class="relative">
-          <p class="editorial-kicker mb-3 text-cobalt-100/82">currently open to</p>
+          <p class="editorial-kicker mb-3 text-cobalt-100/80">currently open to</p>
           <h2 class="max-w-xl text-3xl font-display text-white md:text-4xl">
             Product-facing frontend work, design systems, and UI polish that ships clean.
           </h2>
-          <p class="mt-4 max-w-lg text-base leading-relaxed text-cobalt-100/86">
+          <p class="mt-4 max-w-lg text-base leading-relaxed text-cobalt-100/85">
             Best fit is a team that already has momentum, but wants the interface to read as
             sharper, calmer, and more trustworthy.
           </p>
-          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/88">
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/85">
             <span>Based in Palma de Mallorca</span>
             <span aria-hidden="true">•</span>
             <span>Vue, React, Nuxt, TypeScript</span>
@@ -45,7 +42,7 @@
       <div class="flex flex-col justify-between gap-5 border border-cobalt-500/15 p-6 md:p-8">
         <div>
           <p class="editorial-kicker mb-4">find me fast</p>
-          <p class="mb-5 max-w-sm text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/82">
+          <p class="mb-5 max-w-sm text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
             Send the role, timeline, and where the product currently feels weak. That is usually
             enough to spot the leverage quickly.
           </p>
@@ -73,7 +70,7 @@
         <div class="editorial-rule"></div>
 
         <div
-          class="flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500/65 dark:text-cobalt-100/62"
+          class="flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500/60 dark:text-cobalt-100/60"
         >
           <span>vlad caraseli © {{ year }}</span>
           <span>palma de mallorca</span>
