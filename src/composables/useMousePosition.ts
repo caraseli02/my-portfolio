@@ -8,22 +8,43 @@ const smoothY = ref(0);
 
 let refCount = 0;
 let rafId: number | null = null;
+let idleFrames = 0;
 const LERP = 0.15;
+const CONVERGE_THRESHOLD = 0.1;
+const MAX_IDLE_FRAMES = 3;
 
 function onMouseMove(e: MouseEvent) {
   x.value = e.clientX;
   y.value = e.clientY;
+  idleFrames = 0;
+  if (rafId === null) {
+    rafId = requestAnimationFrame(tick);
+  }
 }
 
 function tick() {
-  smoothX.value += (x.value - smoothX.value) * LERP;
-  smoothY.value += (y.value - smoothY.value) * LERP;
+  const dx = x.value - smoothX.value;
+  const dy = y.value - smoothY.value;
+  smoothX.value += dx * LERP;
+  smoothY.value += dy * LERP;
+
+  if (Math.abs(dx) < CONVERGE_THRESHOLD && Math.abs(dy) < CONVERGE_THRESHOLD) {
+    idleFrames++;
+    if (idleFrames >= MAX_IDLE_FRAMES) {
+      smoothX.value = x.value;
+      smoothY.value = y.value;
+      rafId = null;
+      return;
+    }
+  } else {
+    idleFrames = 0;
+  }
+
   rafId = requestAnimationFrame(tick);
 }
 
 function start() {
   document.addEventListener("mousemove", onMouseMove, { passive: true });
-  rafId = requestAnimationFrame(tick);
 }
 
 function stop() {

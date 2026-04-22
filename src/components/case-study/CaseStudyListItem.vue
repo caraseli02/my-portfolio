@@ -63,14 +63,20 @@
         class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
         :class="reverse ? 'md:order-2' : 'md:order-3'"
       >
-        <img
-          :src="image"
-          :alt="`${title} preview`"
-          loading="lazy"
-          width="640"
-          height="440"
-          class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
-        />
+        <picture>
+          <source
+            :srcset="`${imageBase}-320.webp 320w, ${imageBase}-640.webp 640w, ${imageBase}.webp 1280w`"
+            type="image/webp"
+          />
+          <img
+            :src="image"
+            :alt="`${title} preview`"
+            loading="lazy"
+            width="640"
+            height="440"
+            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
+          />
+        </picture>
       </div>
     </router-link>
   </article>
@@ -100,4 +106,5 @@ const props = withDefaults(
 );
 
 const formattedNumber = computed(() => props.number.toString().padStart(2, "0"));
+const imageBase = computed(() => props.image.replace(/\.(jpg|png|webp)$/, ""));
 </script>

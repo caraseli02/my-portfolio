@@ -142,13 +142,16 @@
           <div
             class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
           >
-            <img
-              :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
-              :alt="`${project.title} screenshot`"
-              class="h-auto max-h-[70vh] w-full object-cover object-top"
-              loading="eager"
-              @error="handleImageError"
-            />
+            <picture>
+              <source :srcset="heroSrcset" type="image/webp" />
+              <img
+                :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
+                :alt="`${project.title} screenshot`"
+                class="h-auto max-h-[70vh] w-full object-cover object-top"
+                loading="eager"
+                @error="handleImageError"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -329,6 +332,13 @@ const nextProject = computed(() => {
 });
 
 const heroImageFailed = ref(false);
+const heroSrcset = computed(() => {
+  const base = (caseStudy.value?.image || `/project-images/${caseStudy.value?.slug}.jpg`).replace(
+    /\.(jpg|png|webp)$/,
+    "",
+  );
+  return `${base}-320.webp 320w, ${base}-640.webp 640w, ${base}.webp 1280w`;
+});
 
 watch(
   () => props.slug,
