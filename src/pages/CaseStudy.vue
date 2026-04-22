@@ -142,13 +142,18 @@
           <div
             class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
           >
-            <img
-              :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
-              :alt="`${project.title} screenshot`"
-              class="h-auto max-h-[70vh] w-full object-cover object-top"
-              loading="eager"
-              @error="handleImageError"
-            />
+            <picture>
+              <source type="image/webp" :srcset="heroWebpSrc" />
+              <img
+                :src="heroImgSrc"
+                :alt="`${project.title} screenshot`"
+                class="h-auto max-h-[70vh] w-full object-cover object-top"
+                loading="eager"
+                width="1280"
+                height="800"
+                @error="handleImageError"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -312,6 +317,9 @@ const formattedNumber = computed(() => {
   const index = getProjectIndex(props.slug);
   return (index + 1).toString().padStart(2, "0");
 });
+
+const heroImgSrc = computed(() => caseStudy.value?.image || `/project-images/${props.slug}.jpg`);
+const heroWebpSrc = computed(() => heroImgSrc.value.replace(/\.[^.]+$/, ".webp"));
 
 const heroOutcomes = computed(() => caseStudy.value?.outcomes.slice(0, 3) ?? []);
 const projectHighlights = computed(() => project.value?.highlights.slice(0, 4) ?? []);

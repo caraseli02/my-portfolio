@@ -9,6 +9,7 @@ const smoothY = ref(0);
 let refCount = 0;
 let rafId: number | null = null;
 const LERP = 0.15;
+let isVisible = true;
 
 function onMouseMove(e: MouseEvent) {
   x.value = e.clientX;
@@ -16,6 +17,7 @@ function onMouseMove(e: MouseEvent) {
 }
 
 function tick() {
+  if (!isVisible) return;
   smoothX.value += (x.value - smoothX.value) * LERP;
   smoothY.value += (y.value - smoothY.value) * LERP;
   rafId = requestAnimationFrame(tick);
@@ -23,14 +25,24 @@ function tick() {
 
 function start() {
   document.addEventListener("mousemove", onMouseMove, { passive: true });
+  document.addEventListener("visibilitychange", onVisibilityChange);
   rafId = requestAnimationFrame(tick);
 }
 
 function stop() {
   document.removeEventListener("mousemove", onMouseMove);
+  document.removeEventListener("visibilitychange", onVisibilityChange);
   if (rafId !== null) {
     cancelAnimationFrame(rafId);
     rafId = null;
+  }
+}
+
+function onVisibilityChange() {
+  isVisible = !document.hidden;
+  if (isVisible && refCount > 0) {
+    // Restart the rAF loop
+    if (rafId === null) rafId = requestAnimationFrame(tick);
   }
 }
 
