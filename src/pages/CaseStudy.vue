@@ -143,7 +143,11 @@
             class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
           >
             <picture>
-              <source :srcset="heroSrcset" type="image/webp" />
+              <source
+                :srcset="heroSrcset"
+                sizes="(min-width: 1280px) 80rem, 100vw"
+                type="image/webp"
+              />
               <img
                 :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
                 :alt="`${project.title} screenshot`"

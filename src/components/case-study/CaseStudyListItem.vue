@@ -66,6 +66,7 @@
         <picture>
           <source
             :srcset="`${imageBase}-320.webp 320w, ${imageBase}-640.webp 640w, ${imageBase}.webp 1280w`"
+            sizes="(min-width: 1024px) 28rem, (min-width: 768px) 40vw, 100vw"
             type="image/webp"
           />
           <img
