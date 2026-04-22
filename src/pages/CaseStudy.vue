@@ -19,10 +19,10 @@
       <div class="mx-auto max-w-4xl">
         <!-- Number + Title -->
         <div class="mb-8">
-          <span class="text-sm font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-2">
+          <span class="mono-label block mb-3">
             / {{ formattedNumber }}
           </span>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-cobalt-500 dark:text-cobalt-300 leading-tight">
+          <h1 class="display-title text-4xl md:text-5xl lg:text-6xl">
             {{ project.title }}
           </h1>
         </div>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Project Overview — use metaphor description as the main overview -->
-        <p class="text-lg md:text-xl text-cobalt-600 dark:text-cobalt-200 leading-relaxed mb-8 max-w-3xl">
+        <p class="body-lead mb-8 max-w-3xl">
           {{ caseStudy.metaphor.description }}
         </p>
 
@@ -74,16 +74,16 @@
         <!-- Metadata -->
         <div class="mt-10 grid grid-cols-1 gap-5 border-t border-cobalt-500/10 pt-8 dark:border-charcoal-200/30 sm:grid-cols-3 sm:gap-6">
           <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Duration</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.duration }}</span>
+            <span class="mono-label block mb-2">Duration</span>
+            <span class="text-base font-semibold text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.duration }}</span>
           </div>
           <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Role</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.role }}</span>
+            <span class="mono-label block mb-2">Role</span>
+            <span class="text-base font-semibold text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.role }}</span>
           </div>
           <div>
-            <span class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 uppercase tracking-wider block mb-1">Year</span>
-            <span class="text-base font-display text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.year }}</span>
+            <span class="mono-label block mb-2">Year</span>
+            <span class="text-base font-semibold text-cobalt-500 dark:text-cobalt-300">{{ caseStudy.year }}</span>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@
           <span
             v-for="tag in project.tech"
             :key="tag"
-            class="text-xl md:text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 lowercase whitespace-nowrap"
+            class="display-title text-xl md:text-2xl whitespace-nowrap"
           >{{ tag }}</span>
           <svg viewBox="0 0 40 24" class="w-8 h-5 text-cobalt-500/40 dark:text-cobalt-300/40" aria-hidden="true">
             <path d="M5 12h20M20 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -108,7 +108,7 @@
     <!-- 4. Architecture Diagram -->
     <section class="border-b border-cobalt-500/20 px-6 py-14 dark:border-charcoal-200/40 lg:px-12 lg:py-16">
       <div class="mx-auto max-w-4xl">
-        <h2 class="mb-8 text-sm font-mono uppercase tracking-widest text-cobalt-500/70 dark:text-cobalt-300/70">architecture</h2>
+        <h2 class="mono-label mb-8 text-cobalt-500/70 dark:text-cobalt-300/70">architecture</h2>
         <ArchitectureDiagram :slug="slug" />
       </div>
     </section>

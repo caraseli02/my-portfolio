@@ -1,7 +1,7 @@
 <template>
   <div class="perspective-1000 inline-flex">
     <div 
-      class="border-2 border-cobalt-500 rounded-full px-4 py-1 font-display text-lg relative overflow-hidden"
+      class="relative overflow-hidden rounded-full border border-cobalt-500/30 px-4 py-1.5 font-display text-lg font-medium tracking-[-0.04em] text-cobalt-500 dark:border-cobalt-300/40 dark:text-cobalt-300"
       style="min-width: 100px;"
     >
       <div 

@@ -1,18 +1,19 @@
 <template>
-  <div class="bg-cream-100 min-h-screen pt-32">
+  <div class="min-h-screen bg-cream-100 pt-32 dark:bg-charcoal">
     <div class="max-w-4xl mx-auto px-6 lg:px-12 pb-24">
       <!-- Hero -->
-      <div class="mb-16">
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight mb-4">
+      <div class="mb-16 space-y-3">
+        <p class="eyebrow-label">About</p>
+        <h1 class="display-hero text-4xl md:text-6xl lg:text-7xl">
           I'm Vlad Caraseli,
         </h1>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-display text-cobalt-500 leading-tight">
+        <h2 class="display-hero text-4xl md:text-6xl lg:text-7xl">
           it's nice to meet you
         </h2>
       </div>
 
       <!-- Bio Content -->
-      <div class="space-y-6 text-lg md:text-xl text-cobalt-600 leading-relaxed mb-16">
+      <div class="body-lead mb-16 space-y-6">
         <p>
           I was born in Moldova and have spent the last decade crafting digital experiences 
           across Europe. Currently, I'm based in the beautiful Mediterranean city of 
@@ -38,7 +39,7 @@
           believe in building software that's not just functional, but delightful to use.
         </p>
 
-        <p class="font-display text-cobalt-500">
+        <p class="display-title text-2xl md:text-3xl">
           Let's create something amazing together.
         </p>
       </div>
@@ -56,7 +57,7 @@
         </svg>
 
         <!-- Profile Photo Placeholder -->
-        <div class="w-48 h-64 bg-cobalt-500/10 border border-cobalt-500/30 rounded-lg flex items-center justify-center text-cobalt-500 font-display" role="img" aria-label="Vlad Caraseli profile photo">
+        <div class="flex h-64 w-48 items-center justify-center rounded-lg border border-cobalt-500/30 bg-cobalt-500/10 text-cobalt-500 dark:border-cobalt-300/30 dark:text-cobalt-300 font-display" role="img" aria-label="Vlad Caraseli profile photo">
           <span class="text-lg">photo</span>
         </div>
       </div>

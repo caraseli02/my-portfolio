@@ -5,22 +5,22 @@
       <div class="mx-auto max-w-5xl text-center">
         <!-- Main Hero Text -->
         <div class="space-y-4 md:space-y-5">
-          <p class="mb-4 text-2xl font-normal text-cobalt-500 dark:text-cobalt-300 md:text-3xl">
+          <p class="eyebrow-label mb-4">
             Hi my name is
           </p>
-          <h1 class="font-display text-5xl leading-none tracking-tight text-cobalt-500 dark:text-cobalt-300 md:text-7xl lg:text-8xl">
+          <h1 class="display-hero text-5xl md:text-7xl lg:text-[5.75rem]">
             Vlad Caraseli
           </h1>
         </div>
 
         <!-- Role Descriptor with 3D Text Rotator -->
-        <div class="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3 text-xl text-cobalt-500 dark:text-cobalt-300 md:mt-10 md:text-2xl">
-          <span>I'm a</span>
+        <div class="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3 text-lg text-cobalt-600 dark:text-cobalt-200 md:mt-10 md:text-xl">
+          <span class="font-medium">I'm a</span>
           <TextRotator 
             :words="['Webapps', 'UI/UX', 'Components']"
             :interval="2500"
           />
-          <span>developer</span>
+          <span class="font-medium">developer</span>
         </div>
 
         <!-- Circular Case Studies Stamp -->
@@ -50,7 +50,7 @@
     <!-- Case Studies Section -->
     <section id="case-studies" class="px-6 py-12 lg:px-12 lg:py-16">
       <div class="mx-auto max-w-6xl">
-        <h2 class="mb-8 px-4 text-lg font-display lowercase text-cobalt-500 dark:text-cobalt-300">
+        <h2 class="mono-label mb-8 px-4">
           case studies
         </h2>
 

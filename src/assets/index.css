@@ -82,6 +82,35 @@
     @apply text-lg text-cobalt-600 max-w-2xl;
   }
 
+  .eyebrow-label {
+    @apply text-sm font-medium uppercase text-cobalt-500 dark:text-cobalt-300 md:text-base;
+    opacity: 0.6;
+    letter-spacing: 0.24em;
+  }
+
+  .display-hero {
+    @apply font-display font-medium text-cobalt-500 dark:text-cobalt-300;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+  }
+
+  .display-title {
+    @apply font-display font-medium text-cobalt-500 dark:text-cobalt-300;
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+  }
+
+  .body-lead {
+    @apply text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-200 md:text-xl;
+  }
+
+  .mono-label {
+    @apply font-mono uppercase text-cobalt-500 dark:text-cobalt-300;
+    opacity: 0.55;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+  }
+
   .glass {
     @apply bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg;
   }

@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-cream-100 min-h-screen pt-32 flex flex-col">
+  <div class="flex min-h-screen flex-col bg-cream-100 pt-32 dark:bg-charcoal">
     <div class="flex-1 max-w-4xl mx-auto px-6 lg:px-12 pb-24 flex flex-col justify-center">
       <!-- Animated Headlines -->
       <div class="mb-16">
-        <p class="text-xl md:text-2xl text-cobalt-600 mb-6">
+        <p class="eyebrow-label mb-6">
           Reach out to create something
         </p>
         <div class="space-y-3">
           <p
             v-for="(word, index) in words"
             :key="index"
-            class="text-3xl md:text-5xl lg:text-6xl font-display text-cobalt-500 transition-all duration-500"
+            class="display-title text-3xl transition-all duration-500 md:text-5xl lg:text-6xl"
             :class="{
               'opacity-100': currentWordIndex === index,
               'opacity-30': currentWordIndex !== index
@@ -36,7 +36,7 @@
             </g>
             <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-          <span class="absolute inset-0 flex items-center justify-center font-display text-cobalt-500 text-base md:text-lg">
+          <span class="absolute inset-0 flex items-center justify-center font-display text-base font-medium tracking-[-0.04em] text-cobalt-500 dark:text-cobalt-300 md:text-lg">
             email
           </span>
         </a>
@@ -56,21 +56,21 @@
             </g>
             <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-          <span class="absolute inset-0 flex items-center justify-center font-display text-cobalt-500 text-base md:text-lg">
+          <span class="absolute inset-0 flex items-center justify-center font-display text-base font-medium tracking-[-0.04em] text-cobalt-500 dark:text-cobalt-300 md:text-lg">
             linkedin
           </span>
         </a>
       </div>
 
       <!-- Playful Text -->
-      <p class="text-center text-cobalt-500 text-xl lowercase font-display">
+      <p class="mono-label text-center text-cobalt-500 dark:text-cobalt-300">
         don't be shy
       </p>
     </div>
 
     <!-- Arch SVG at bottom -->
     <div class="flex justify-center pb-8">
-      <svg viewBox="0 0 60 80" class="w-20 h-24 text-cobalt-500">
+      <svg viewBox="0 0 60 80" class="w-20 h-24 text-cobalt-500 dark:text-cobalt-300">
         <path d="M10 70 Q10 10, 30 10 Q50 10, 50 70" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
       </svg>
     </div>

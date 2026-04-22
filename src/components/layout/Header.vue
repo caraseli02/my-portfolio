@@ -4,7 +4,7 @@
       <nav class="flex items-center justify-between h-20">
         <!-- Logo Mark -->
         <router-link to="/" class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm" aria-label="Home">
-          <span class="text-2xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 lowercase group-hover:opacity-70 transition-opacity">vlad</span>
+          <span class="font-display text-2xl font-medium tracking-[-0.05em] text-cobalt-500 dark:text-cobalt-300 lowercase group-hover:opacity-70 transition-opacity">vlad</span>
         </router-link>
 
         <!-- Navigation Links -->
@@ -13,7 +13,7 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-cobalt-500 dark:text-cobalt-300 hover:text-cobalt-700 dark:hover:text-cobalt-100 text-base font-normal lowercase relative transition-colors pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm"
+            class="relative pb-1 font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm dark:text-cobalt-300 dark:hover:text-cobalt-100"
             :class="{ 'border-b-2 border-cobalt-500 dark:border-cobalt-300': isActive(link.path) }"
             :aria-current="isActive(link.path) ? 'page' : undefined"
           >

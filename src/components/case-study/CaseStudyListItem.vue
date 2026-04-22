@@ -5,16 +5,16 @@
       class="group flex items-start gap-4 px-4 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2 md:gap-5 md:px-6 md:py-7 lg:items-center lg:gap-6"
     >
       <!-- Number -->
-      <span class="w-12 shrink-0 font-display text-3xl tabular-nums text-cobalt-500 md:w-16 md:text-4xl lg:text-5xl dark:text-cobalt-300">
+      <span class="w-12 shrink-0 font-display text-3xl font-medium tabular-nums tracking-[-0.05em] text-cobalt-500 md:w-16 md:text-4xl lg:text-5xl dark:text-cobalt-300">
         {{ formattedNumber }}
       </span>
 
       <!-- Title + Description -->
       <div class="min-w-0 flex-1 pr-2 md:pr-4">
-        <h3 class="text-lg font-bold leading-tight text-cobalt-500 transition-colors group-hover:text-cobalt-600 md:text-xl lg:text-2xl dark:text-cobalt-300 dark:group-hover:text-cobalt-100">
+        <h3 class="display-title text-lg transition-colors group-hover:text-cobalt-600 md:text-xl lg:text-2xl dark:group-hover:text-cobalt-100">
           {{ title }}
         </h3>
-        <p v-if="description" class="mt-2 hidden max-w-xl text-sm leading-relaxed text-cobalt-500/70 md:block dark:text-cobalt-300/70">
+        <p v-if="description" class="mt-2 hidden max-w-xl text-[0.95rem] leading-relaxed text-cobalt-500/70 md:block dark:text-cobalt-300/70">
           {{ description }}
         </p>
       </div>
