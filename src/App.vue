@@ -3,6 +3,8 @@
     class="min-h-screen flex flex-col bg-cream-100 dark:bg-charcoal"
     :class="{ 'custom-cursor-active': cursorEnabled }"
   >
+    <!-- Full-app grid background — uncomment to evaluate site-wide squares -->
+    <!-- <div class="paper-grid pointer-events-none fixed inset-0 z-0 opacity-40" aria-hidden="true"></div> -->
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cobalt-500 focus:text-white focus:rounded"

@@ -18,11 +18,15 @@
       <section
         class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12"
       >
+        <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-50"></div>
         <div class="relative mx-auto max-w-7xl">
           <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-stretch">
             <div
               class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-24px_rgba(17,27,143,0.45)] md:p-8 lg:p-10"
             >
+              <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
+                <div class="paper-grid h-full w-full"></div>
+              </div>
               <div class="relative">
                 <p
                   class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70"
@@ -208,15 +212,20 @@
             v-if="caseStudy.metaphor"
             class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-28px_rgba(17,27,143,0.5)] md:p-8"
           >
-            <p class="mb-4 font-mono text-[11px] uppercase tracking-[0.32em] text-cobalt-100/70">
-              core idea
-            </p>
-            <p class="text-3xl font-display text-white md:text-4xl">
-              {{ caseStudy.metaphor.phrase }}
-            </p>
-            <p class="mt-5 text-base leading-relaxed text-cobalt-100/80">
-              {{ caseStudy.metaphor.description }}
-            </p>
+            <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
+              <div class="paper-grid h-full w-full"></div>
+            </div>
+            <div class="relative">
+              <p class="mb-4 font-mono text-[11px] uppercase tracking-[0.32em] text-cobalt-100/70">
+                core idea
+              </p>
+              <p class="text-3xl font-display text-white md:text-4xl">
+                {{ caseStudy.metaphor.phrase }}
+              </p>
+              <p class="mt-5 text-base leading-relaxed text-cobalt-100/80">
+                {{ caseStudy.metaphor.description }}
+              </p>
+            </div>
           </aside>
         </div>
       </section>
