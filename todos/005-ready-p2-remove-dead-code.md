@@ -15,6 +15,7 @@ Delete all unused files that are cluttering the codebase and causing confusion d
 Multiple unused files are cluttering the codebase and causing confusion for developers. These files are never imported, empty, or duplicated, making it harder to understand the actual project structure and maintain the codebase.
 
 **Specific Issues:**
+
 - `src/store.ts` (27 lines) - Vuex store file that is never used
 - `src/views/Home.vue` - Empty file serving no purpose
 - `src/components/navigation/NavBar.vue` - Unused duplicate navigation component
@@ -40,11 +41,13 @@ Investigation confirmed these files are safe to remove:
 **Approach:** Remove all identified unused files in a single commit.
 
 **Pros:**
+
 - Clean, atomic change
 - Immediate codebase improvement
 - Single commit for easy rollback if needed
 
 **Cons:**
+
 - Slightly higher risk if any file is actually used
 
 **Effort:** 10 minutes
@@ -58,10 +61,12 @@ Investigation confirmed these files are safe to remove:
 **Approach:** Remove each file in its own commit for granular tracking.
 
 **Pros:**
+
 - Easier to identify which file caused issues if problems arise
 - More detailed git history
 
 **Cons:**
+
 - More overhead
 - Unnecessary for clearly unused files
 
@@ -74,6 +79,7 @@ Investigation confirmed these files are safe to remove:
 ## Recommended Action
 
 Delete all unused files in a single commit:
+
 1. Remove `src/store.ts`
 2. Remove `src/views/Home.vue`
 3. Remove `src/components/navigation/NavBar.vue`
@@ -85,6 +91,7 @@ Delete all unused files in a single commit:
 ## Technical Details
 
 **Affected files:**
+
 - `src/store.ts:1-27` - Unused Vuex store
 - `src/views/Home.vue` - Empty file
 - `src/components/navigation/NavBar.vue` - Unused navigation
@@ -92,10 +99,12 @@ Delete all unused files in a single commit:
 - `src/composables/useParallaxDepth.ts` - Never imported composable
 
 **Related components:**
+
 - Main navigation uses `src/components/NavBar.vue` instead
 - Footer is inline in page components
 
 **Database changes:**
+
 - Migration needed? No
 
 ## Resources
@@ -118,12 +127,14 @@ Delete all unused files in a single commit:
 **By:** Claude Code
 
 **Actions:**
+
 - Scanned codebase for unused files
 - Verified no imports exist for target files
 - Confirmed duplicate/empty file status
 - Created cleanup todo
 
 **Learnings:**
+
 - Store.ts is completely unused - Vuex dependency can also be removed
 - Navigation component exists in two locations, only one used
 - No composables from useParallaxDepth are imported anywhere

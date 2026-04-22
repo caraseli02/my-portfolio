@@ -15,6 +15,7 @@ Systematically fix multiple TypeScript issues identified in the codebase.
 Multiple TypeScript issues have been identified that reduce type safety and code quality.
 
 **Issues identified:**
+
 1. `any` type in `shims-vue.d.ts` - should use proper Vue component types
 2. Redundant default export in `TextRotator.vue` - component uses both default export and named export
 3. Inconsistent `PropType` patterns across components - some use `as PropType<T>`, others don't
@@ -36,11 +37,13 @@ Multiple TypeScript issues have been identified that reduce type safety and code
 **Approach:** Go through each identified issue and fix them one by one.
 
 **Pros:**
+
 - Addresses all type safety issues
 - Improves code consistency
 - Removes dead code
 
 **Cons:**
+
 - Requires multiple file changes
 - Need to test after each change
 
@@ -55,10 +58,12 @@ Multiple TypeScript issues have been identified that reduce type safety and code
 **Approach:** Only fix the `any` type and unused variable, leave PropType patterns as-is if they work.
 
 **Pros:**
+
 - Less invasive changes
 - Faster to implement
 
 **Cons:**
+
 - Leaves inconsistency in codebase
 - Doesn't fully address type safety
 
@@ -75,6 +80,7 @@ Fix all identified TypeScript issues systematically for maximum type safety and 
 ## Technical Details
 
 **Affected files:**
+
 - `src/shims-vue.d.ts` - fix `any` type
 - `src/components/TextRotator.vue` - remove redundant default export
 - Multiple components - standardize PropType patterns
@@ -82,10 +88,12 @@ Fix all identified TypeScript issues systematically for maximum type safety and 
 - `src/components/CaseStudyListItem.vue` - remove unused isHovered
 
 **Related components:**
+
 - All Vue components using props
 - Components with timers/intervals
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -110,6 +118,7 @@ Fix all identified TypeScript issues systematically for maximum type safety and 
 **By:** Claude Code
 
 **Actions:**
+
 - Identified 5 TypeScript issues across the codebase
 - Documented each issue with location and fix approach
 - Prioritized issues by impact

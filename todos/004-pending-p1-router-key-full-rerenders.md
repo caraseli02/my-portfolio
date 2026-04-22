@@ -16,6 +16,7 @@ dependencies: []
 <router-view :key="$route.fullPath" /> in App.vue:6 forces Vue to destroy and recreate the entire route component tree on every navigation, destroying component state and causing expensive DOM operations.
 
 **Impact:**
+
 - 200-500ms additional navigation time
 - Loss of scroll position on route changes
 - Unnecessary destruction of component state
@@ -24,12 +25,14 @@ dependencies: []
 ## Findings
 
 **Root Cause Analysis:**
+
 - **Location:** `src/App.vue:6` - `<router-view :key="$route.fullPath" />`
 - **Behavior:** Vue's `key` prop forces component recreation when the key changes
 - **Issue:** `$route.fullPath` changes on every navigation, even between similar routes with different params
 - **Consequence:** Entire page component tree is destroyed and recreated from scratch on every route change
 
 **Impact Assessment:**
+
 - All child components lose their local state
 - DOM is completely torn down and rebuilt
 - Scroll position resets to top
@@ -37,6 +40,7 @@ dependencies: []
 - Unnecessary re-fetching of data that could be cached
 
 **Why It Was Likely Added:**
+
 - May have been a workaround for stale component data when route params change
 - Quick fix to ensure fresh data on route changes
 - Common pattern that seems innocent but has severe performance implications
@@ -48,6 +52,7 @@ dependencies: []
 **Approach:** Remove the `:key="$route.fullPath"` prop from the router-view component.
 
 **Pros:**
+
 - Minimal code change
 - Vue Router's default behavior handles component reuse efficiently
 - Preserves component state and scroll position
@@ -55,6 +60,7 @@ dependencies: []
 - Immediate performance improvement
 
 **Cons:**
+
 - Components won't automatically re-render when query params change
 - May need manual reactivity handling if components depend on param changes
 
@@ -75,11 +81,13 @@ dependencies: []
 Then add `meta: { forceRefresh: true }` to routes that require it.
 
 **Pros:**
+
 - Fine-grained control over component recreation
 - Routes that don't need refresh get performance benefits
 - Maintains flexibility for edge cases
 
 **Cons:**
+
 - More complex to implement
 - Requires auditing all routes to determine which need `forceRefresh`
 - Adds cognitive overhead for future route additions
@@ -101,10 +109,12 @@ Then add `meta: { forceRefresh: true }` to routes that require it.
 ```
 
 **Pros:**
+
 - Maximum control over component caching
 - Can cache specific components across routes
 
 **Cons:**
+
 - Overkill for this issue
 - Adds complexity to component lifecycle management
 - May introduce memory issues if not carefully managed
@@ -118,6 +128,7 @@ Then add `meta: { forceRefresh: true }` to routes that require it.
 **Implement Option 1: Remove `:key="$route.fullPath"` entirely.**
 
 Vue Router's default behavior is optimized for performance and will reuse components appropriately. The `:key` prop was likely added as a quick fix but causes more problems than it solves. After removal:
+
 - Monitor for any routes that need explicit refresh handling
 - If issues arise with specific routes, implement local reactivity (watch on `$route.params`) rather than forcing full component recreation
 
@@ -126,9 +137,11 @@ Vue Router's default behavior is optimized for performance and will reuse compon
 ## Technical Details
 
 **Affected files:**
+
 - `src/App.vue:6` - router-view component with :key binding
 
 **Related components:**
+
 - All page components rendered by router-view
 - CustomCursor (wrapper component)
 - Header (persistent across routes)
@@ -157,12 +170,14 @@ Vue Router's default behavior is optimized for performance and will reuse compon
 **By:** Claude Code
 
 **Actions:**
+
 - Identified `:key="$route.fullPath"` on router-view in App.vue:6
 - Analyzed Vue Router's component reuse behavior
 - Documented performance impact and state destruction issues
 - Drafted 3 solution approaches with effort/risk estimates
 
 **Learnings:**
+
 - Vue's `:key` prop is powerful but can cause expensive operations when used incorrectly
 - `$route.fullPath` changes on every navigation, making it unsuitable for component keys
 - Vue Router handles component lifecycle efficiently by default; avoid premature optimization

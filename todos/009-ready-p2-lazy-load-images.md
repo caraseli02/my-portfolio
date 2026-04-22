@@ -29,12 +29,14 @@ Images in CaseStudyListItem.vue load immediately even when below the fold, causi
 **Approach:** Add `loading="lazy"` attribute to image tags and include explicit width/height attributes for layout stability.
 
 **Pros:**
+
 - Native browser support (90%+ of modern browsers)
 - Zero JavaScript overhead
 - Respects user scrolling behavior naturally
 - Simple, one-line change per image
 
 **Cons:**
+
 - Safari only added support in 2022 (iOS 15.4+)
 - No complex control over loading thresholds
 
@@ -49,11 +51,13 @@ Images in CaseStudyListItem.vue load immediately even when below the fold, causi
 **Approach:** Use JavaScript Intersection Observer API to manually control when images load, with fallback for older browsers.
 
 **Pros:**
+
 - Full control over loading triggers
 - Can add fancy loading animations
 - Works in older browsers with polyfill
 
 **Cons:**
+
 - More code complexity
 - Requires JavaScript execution
 - Overkill for simple lazy loading needs
@@ -69,11 +73,13 @@ Images in CaseStudyListItem.vue load immediately even when below the fold, causi
 **Approach:** Use `data-src` attributes and swap to `src` when images enter viewport.
 
 **Pros:**
+
 - Complete control over loading logic
 - Can implement complex loading strategies
 - Works everywhere with JavaScript
 
 **Cons:**
+
 - No images load without JavaScript
 - More complex implementation
 - Higher maintenance burden
@@ -89,13 +95,16 @@ Implement Option 1: Add `loading="lazy"` attribute to images and include explici
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/CaseStudyListItem.vue:35-39` - image element
 
 **Related components:**
+
 - CaseStudyListItem.vue - displays case study cards
 - Any other components displaying project thumbnails
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -120,12 +129,14 @@ Implement Option 1: Add `loading="lazy"` attribute to images and include explici
 **By:** Claude Code
 
 **Actions:**
+
 - Analyzed CaseStudyListItem.vue image implementation
 - Confirmed lack of lazy loading attributes
 - Documented three solution options
 - Recommended native lazy loading for simplicity
 
 **Learnings:**
+
 - Native lazy loading is now widely supported (Chrome, Firefox, Safari)
 - Adding dimensions prevents Cumulative Layout Shift
 - Small change with significant performance impact
