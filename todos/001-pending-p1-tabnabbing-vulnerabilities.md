@@ -13,6 +13,7 @@ dependencies: []
 9 external links with `target="_blank"` are missing `rel="noopener noreferrer"`, creating a security vulnerability known as tabnabbing. This allows the target page to access `window.opener` and manipulate the parent tab, potentially leading to phishing attacks.
 
 **Impact:**
+
 - Malicious external sites could redirect users to phishing pages
 - Bypasses same-origin policy protections when `rel` attribute is absent
 - Affects navigation bar, footer, contact page, and project links
@@ -38,12 +39,14 @@ Investigation identified multiple external links across the application that lac
 **Approach:** Add `rel="noopener noreferrer"` attribute to all external links identified above.
 
 **Pros:**
+
 - Direct fix for the vulnerability
 - Maintains current UX (links still open in new tab)
 - Quick to implement
 - Follows OWASP security best practices
 
 **Cons:**
+
 - Requires manual verification of each link
 - No automated enforcement of the pattern going forward
 
@@ -58,11 +61,13 @@ Investigation identified multiple external links across the application that lac
 **Approach:** Create a `<SafeLink>` component that automatically adds security attributes when `target="_blank"` is used.
 
 **Pros:**
+
 - Centralized security enforcement
 - Future-proof - new links automatically protected
 - Easy to audit - all external links in one component
 
 **Cons:**
+
 - Requires refactoring existing links to use component
 - Additional component complexity
 - Longer implementation time
@@ -80,6 +85,7 @@ Implement Option 1 (add `rel="noopener noreferrer"` to all affected links) as im
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/Contact.vue:45-48` - Social media links
 - `src/components/Projects.vue:77-80, 127-132, 177-180` - Project demo and source links
 - `src/components/NavBar.vue:34-37, 88-91` - Social media and external navigation links
@@ -87,6 +93,7 @@ Implement Option 1 (add `rel="noopener noreferrer"` to all affected links) as im
 - `src/components/Footer.vue:20-22, 31-33` - Footer social and external links
 
 **Related components:**
+
 - All components with external social media links (LinkedIn, GitHub, Twitter)
 - Project showcase components with live demo links
 
@@ -116,12 +123,14 @@ Implement Option 1 (add `rel="noopener noreferrer"` to all affected links) as im
 **By:** Claude Code
 
 **Actions:**
+
 - Identified 9 external links missing `rel="noopener noreferrer"`
 - Documented affected files and line numbers
 - Classified as P1 priority security vulnerability
 - Drafted solution approaches
 
 **Learnings:**
+
 - Tabnabbing is a common vulnerability in single-page applications
 - External links should always use `rel="noopener noreferrer"` when opening in new tabs
 - Manual code review needed to catch these issues

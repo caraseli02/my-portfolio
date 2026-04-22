@@ -8,5 +8,10 @@ export default defineConfig({
   },
   fmt: {},
   lint: { options: { typeAware: true, typeCheck: true } },
+  test: {
+    include: ["src/**/*.test.ts"],
+    setupFiles: ["src/test/setup.ts"],
+    environment: "happy-dom",
+  },
   plugins: [vue(), tailwindcss()],
 });

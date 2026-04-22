@@ -39,6 +39,7 @@ After reviewing the composables directory:
 - Composables add ~50-100 lines of code each
 
 **Key discovery:** CSS alternatives exist for most effects:
+
 - CSS `:hover` for mouse effects
 - CSS scroll-driven animations (modern browsers)
 - CSS transitions/animations for smooth effects
@@ -51,11 +52,13 @@ After reviewing the composables directory:
 **Approach:** Merge related effects into one composable with configuration options.
 
 **Pros:**
+
 - Reduces file count significantly
 - Easier to maintain one file
 - Clearer API surface
 
 **Cons:**
+
 - Still JavaScript-based (runtime overhead)
 - Doesn't solve touch device issue
 
@@ -70,6 +73,7 @@ After reviewing the composables directory:
 **Approach:** Replace JavaScript-based effects with CSS-only solutions where possible.
 
 **Pros:**
+
 - Zero JavaScript overhead
 - Better performance (GPU-accelerated)
 - Works better on all devices
@@ -77,6 +81,7 @@ After reviewing the composables directory:
 - Modern CSS supports scroll/mouse animations
 
 **Cons:**
+
 - Some complex effects may not be fully replaceable
 - Requires browser support check for newer features
 - May lose some fine-grained control
@@ -92,11 +97,13 @@ After reviewing the composables directory:
 **Approach:** Simply remove effects that provide marginal value.
 
 **Pros:**
+
 - Immediate code reduction
 - Fastest implementation
 - Clean slate for redesign
 
 **Cons:**
+
 - Loses some visual polish
 - May affect design aesthetic
 
@@ -111,6 +118,7 @@ After reviewing the composables directory:
 **Option 2 (Replace with CSS)** is recommended for a professional portfolio. Modern CSS can achieve most effects more efficiently. This is marked as optional major refactor due to time investment vs. current functionality.
 
 **Implementation approach:**
+
 1. Audit each composable and identify CSS alternatives
 2. Implement CSS replacements incrementally
 3. Keep critical effects, remove decorative ones
@@ -121,19 +129,23 @@ After reviewing the composables directory:
 ## Technical Details
 
 **Affected files:**
+
 - `src/composables/*.ts` - All effect composables (9 files)
 - `src/components/` - Components using effects
 - `src/assets/index.css` - Add CSS effect utilities
 
 **Related components:**
+
 - Components with hover/scroll effects
 - Page transition components
 - Custom cursor implementations
 
 **Database changes:**
+
 - Migration needed? No
 
 **CSS Alternatives Available:**
+
 - `@media (hover: hover)` for hover-capable devices
 - `scroll-timeline` for scroll-driven animations
 - `transition` and `animation` for smooth effects
@@ -164,6 +176,7 @@ After reviewing the composables directory:
 **By:** Claude Code
 
 **Actions:**
+
 - Identified 9 composables causing complexity
 - Analyzed CSS alternatives for modern browsers
 - Created 3 solution options with trade-offs

@@ -15,6 +15,7 @@ Consolidate duplicate Footer components into a single canonical location.
 Two Footer components exist in the codebase - one is now empty and unused, the other contains the full implementation.
 
 **Duplicate components:**
+
 - `src/components/layout/Footer.vue` - now empty/unused
 - `src/components/Footer.vue` - full implementation
 
@@ -34,11 +35,13 @@ This creates confusion about which component is canonical and clutters the codeb
 **Approach:** Delete the empty `src/components/layout/Footer.vue` and keep `src/components/Footer.vue`.
 
 **Pros:**
+
 - Simple cleanup
 - Keeps the working component in the standard location
 - Reduces directory complexity
 
 **Cons:**
+
 - Need to verify no imports reference layout/Footer.vue
 
 **Effort:** 10 minutes
@@ -52,10 +55,12 @@ This creates confusion about which component is canonical and clutters the codeb
 **Approach:** Keep the `layout/` subdirectory structure, delete the duplicate in `components/`, and update all imports.
 
 **Pros:**
+
 - Maintains layout/ organization if planned for future use
 - Consistent with some organizational patterns
 
 **Cons:**
+
 - Requires updating import statements
 - More effort for same outcome
 
@@ -72,13 +77,16 @@ Remove the empty `src/components/layout/Footer.vue` file and keep the full imple
 ## Technical Details
 
 **Affected files:**
+
 - `src/components/layout/Footer.vue` - delete
 - `src/components/Footer.vue` - keep (verify it's the full version)
 
 **Related components:**
+
 - Any files importing Footer components
 
 **Database changes:**
+
 - None
 
 ## Resources
@@ -100,6 +108,7 @@ Remove the empty `src/components/layout/Footer.vue` file and keep the full imple
 **By:** Claude Code
 
 **Actions:**
+
 - Identified duplicate Footer components
 - Confirmed layout/Footer.vue is empty/minimal
 - Documented cleanup approach

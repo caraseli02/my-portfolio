@@ -19,6 +19,7 @@ No test framework is configured.
 ## Architecture
 
 ### Tech Stack
+
 - **Framework**: Vue 3 with Options API (`defineComponent`)
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS with custom `vue-*` color palette
@@ -26,18 +27,21 @@ No test framework is configured.
 - **State**: Vuex (store.ts exists but is not actively used)
 
 ### Structure
+
 - `src/pages/` - Route-level components (Home, Projects, About)
 - `src/components/` - Shared components (NavBar, Footer)
 - `src/router/index.ts` - Route definitions
 - `src/assets/index.css` - Global styles with Tailwind layers and custom utility classes
 
 ### Styling Conventions
+
 - Custom color palette: `vue-50` through `vue-900` (defined in `tailwind.config.js`)
 - Reusable CSS classes: `.card-hover`, `.section-heading`, `.section-subheading`, `.tech-badge`, `.glass`, `.gradient-text`
 - Custom animations: `animate-fade-in`, `animate-slide-up`, `animate-float`, `animate-pulse-slow`
 - Animation delays: `.animation-delay-200`, `.animation-delay-400`, `.animation-delay-600`
 
 ### Component Patterns
+
 - TypeScript interfaces defined inline within `<script lang="ts">` blocks
 - Data typed via function return annotation: `data(): { ... }`
 - Components use Options API with `defineComponent`

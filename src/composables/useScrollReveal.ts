@@ -1,61 +1,57 @@
-import { ref, onMounted, onUnmounted, Ref } from 'vue'
-import { useDeviceDetection } from './useDeviceDetection'
+import { ref, onMounted, onUnmounted, Ref } from "vue";
+import { useDeviceDetection } from "./useDeviceDetection";
 
 interface ScrollRevealOptions {
-  threshold?: number
-  rootMargin?: string
-  once?: boolean
+  threshold?: number;
+  rootMargin?: string;
+  once?: boolean;
 }
 
 export function useScrollReveal(options: ScrollRevealOptions = {}) {
-  const {
-    threshold = 0.15,
-    rootMargin = '0px 0px -50px 0px',
-    once = true
-  } = options
+  const { threshold = 0.15, rootMargin = "0px 0px -50px 0px", once = true } = options;
 
-  const revealRef: Ref<HTMLElement | null> = ref(null)
-  const isVisible = ref(false)
-  let observer: IntersectionObserver | null = null
+  const revealRef: Ref<HTMLElement | null> = ref(null);
+  const isVisible = ref(false);
+  let observer: IntersectionObserver | null = null;
 
-  const { prefersReducedMotion } = useDeviceDetection()
+  const { prefersReducedMotion } = useDeviceDetection();
 
   onMounted(() => {
     if (prefersReducedMotion.value) {
-      isVisible.value = true
-      return
+      isVisible.value = true;
+      return;
     }
 
-    if (!revealRef.value) return
+    if (!revealRef.value) return;
 
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            isVisible.value = true
+            isVisible.value = true;
             if (once && observer && revealRef.value) {
-              observer.unobserve(revealRef.value)
+              observer.unobserve(revealRef.value);
             }
           }
-        })
+        });
       },
-      { threshold, rootMargin }
-    )
+      { threshold, rootMargin },
+    );
 
-    observer.observe(revealRef.value)
-  })
+    observer.observe(revealRef.value);
+  });
 
   onUnmounted(() => {
     if (observer) {
-      observer.disconnect()
-      observer = null
+      observer.disconnect();
+      observer = null;
     }
-  })
+  });
 
-  return { revealRef, isVisible }
+  return { revealRef, isVisible };
 }
 
 export function useScrollRevealGroup(count: number, options: ScrollRevealOptions = {}) {
-  const items = Array.from({ length: count }, () => useScrollReveal(options))
-  return items
+  const items = Array.from({ length: count }, () => useScrollReveal(options));
+  return items;
 }

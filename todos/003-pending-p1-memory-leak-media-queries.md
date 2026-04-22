@@ -13,6 +13,7 @@ dependencies: []
 Media query listeners in `useDeviceDetection.ts` are added via `addEventListener` but never cleaned up with `removeEventListener`. This causes memory leaks when components using this composable are unmounted, as the event listeners continue to exist and reference the component's reactive state.
 
 **Impact:**
+
 - Memory leak on every component unmount that uses device detection
 - Accumulating event listeners over time
 - Potential performance degradation on resize events
@@ -25,18 +26,19 @@ Investigation identified the memory leak in the device detection composable:
 - **useDeviceDetection.ts:19-26** - Media query listeners added without cleanup
 
 **Key discovery:** The composable adds resize listeners but doesn't return a cleanup function:
+
 ```typescript
 export function useDeviceDetection() {
   // ... reactive state
-  
+
   const handleResize = () => {
     // Update device state
-  }
-  
-  window.addEventListener('resize', handleResize)  // Added
+  };
+
+  window.addEventListener("resize", handleResize); // Added
   // Missing: cleanup function to remove listener
-  
-  return { isMobile, isTablet, isDesktop }
+
+  return { isMobile, isTablet, isDesktop };
 }
 ```
 
@@ -51,25 +53,27 @@ export function useDeviceDetection() {
 ```typescript
 export function useDeviceDetection() {
   // ... setup
-  
+
   const cleanup = () => {
-    window.removeEventListener('resize', handleResize)
-  }
-  
-  return { isMobile, isTablet, isDesktop, cleanup }
+    window.removeEventListener("resize", handleResize);
+  };
+
+  return { isMobile, isTablet, isDesktop, cleanup };
 }
 
 // In component:
-const { isMobile, cleanup } = useDeviceDetection()
-onUnmounted(cleanup)
+const { isMobile, cleanup } = useDeviceDetection();
+onUnmounted(cleanup);
 ```
 
 **Pros:**
+
 - Direct fix for the memory leak
 - Follows Vue composable best practices
 - Explicit cleanup pattern is clear
 
 **Cons:**
+
 - Requires changes in all consuming components
 - Manual cleanup is easy to forget
 
@@ -84,25 +88,27 @@ onUnmounted(cleanup)
 **Approach:** Use Vue's `onUnmounted` inside the composable for automatic cleanup.
 
 ```typescript
-import { onUnmounted } from 'vue'
+import { onUnmounted } from "vue";
 
 export function useDeviceDetection() {
   // ... setup
-  
+
   onUnmounted(() => {
-    window.removeEventListener('resize', handleResize)
-  })
-  
-  return { isMobile, isTablet, isDesktop }
+    window.removeEventListener("resize", handleResize);
+  });
+
+  return { isMobile, isTablet, isDesktop };
 }
 ```
 
 **Pros:**
+
 - Automatic cleanup - no changes needed in consuming components
 - Follows Vue 3 composition API patterns
 - Zero risk of forgetting cleanup
 
 **Cons:**
+
 - Composable must be called within setup context
 - Slightly less explicit
 
@@ -119,9 +125,11 @@ Implement Option 2 (auto-cleanup with onUnmounted) as it's cleaner and doesn't r
 ## Technical Details
 
 **Affected files:**
+
 - `src/composables/useDeviceDetection.ts:19-26` - Media query listener setup and cleanup
 
 **Related components:**
+
 - Any component importing and using `useDeviceDetection()`
 - Responsive layout components
 - Mobile-specific UI components
@@ -151,12 +159,14 @@ Implement Option 2 (auto-cleanup with onUnmounted) as it's cleaner and doesn't r
 **By:** Claude Code
 
 **Actions:**
+
 - Identified memory leak in useDeviceDetection composable
 - Analyzed listener setup pattern (lines 19-26)
 - Classified as P1 priority performance issue
 - Drafted solution approaches
 
 **Learnings:**
+
 - Composables should handle their own cleanup when possible
 - Vue's onUnmounted can be used inside composables for automatic cleanup
 - Event listeners without cleanup are a common source of memory leaks in SPAs
