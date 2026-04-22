@@ -1,10 +1,8 @@
 <template>
-  <article
-    class="group panel-surface relative overflow-hidden before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
-  >
+  <article class="group rule-panel overflow-hidden">
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
-      class="grid gap-6 px-5 py-6 md:px-7 md:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
+      class="grid gap-6 px-5 py-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2 md:px-7 md:py-8"
       :class="
         reverse
           ? 'md:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)]'
@@ -13,27 +11,27 @@
     >
       <div class="flex items-start gap-4 md:block md:pr-3">
         <span
-          class="block text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.04em] text-cobalt-500 leading-none tabular-nums"
+          class="block font-display text-4xl leading-none tracking-[-0.04em] text-cobalt-500 tabular-nums md:text-5xl lg:text-6xl"
         >
           {{ formattedNumber }}
         </span>
-        <span class="editorial-kicker mt-2 block">selected case study</span>
+        <span class="mono-label mt-2 block">selected case study</span>
       </div>
 
       <div class="min-w-0 space-y-4" :class="reverse ? 'md:order-3' : 'md:order-2'">
         <div>
           <h3
-            class="text-2xl md:text-3xl font-display leading-[0.96] text-cobalt-500 dark:text-cobalt-200"
+            class="text-2xl leading-[0.96] font-display text-cobalt-500 dark:text-cobalt-200 md:text-3xl"
           >
             {{ title }}
           </h3>
-          <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/86">
+          <p class="mt-3 max-w-2xl text-base text-cobalt-600 dark:text-cobalt-100/84 md:text-lg">
             {{ description }}
           </p>
         </div>
 
         <div class="flex flex-wrap gap-2">
-          <span v-for="tag in tags" :key="tag" class="pill-badge">
+          <span v-for="tag in tags" :key="tag" class="command-chip">
             {{ tag }}
           </span>
         </div>
@@ -60,7 +58,7 @@
 
       <div
         v-if="image"
-        class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
+        class="overflow-hidden border border-cobalt-500/12 bg-cobalt-500/[0.03] md:self-start"
         :class="reverse ? 'md:order-2' : 'md:order-3'"
       >
         <img
@@ -69,7 +67,7 @@
           loading="lazy"
           width="640"
           height="440"
-          class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
+          class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] md:max-h-[16rem]"
         />
       </div>
     </router-link>

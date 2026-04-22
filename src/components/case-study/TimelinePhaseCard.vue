@@ -9,7 +9,7 @@
     <div
       class="rounded-[1.5rem] border border-cobalt-500/12 bg-white/72 px-4 py-5 transition-colors duration-200 dark:border-cobalt-300/12 dark:bg-charcoal-50/72 md:px-5"
       :class="{
-        'shadow-[0_18px_40px_rgba(31,50,255,0.08)] ring-1 ring-cobalt-500/12 dark:ring-cobalt-300/12':
+        'bg-cobalt-500/[0.04] ring-1 ring-cobalt-500/12 dark:bg-cobalt-300/[0.06] dark:ring-cobalt-300/12':
           isActive,
       }"
     >

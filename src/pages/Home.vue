@@ -1,122 +1,128 @@
 <template>
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
-    <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
-      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
-      <div
-        class="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.2fr)_22rem] lg:items-end"
-      >
-        <div>
-          <p class="editorial-kicker mb-5">
-            frontend engineer • product interfaces • design systems
-          </p>
-          <h1
-            class="max-w-5xl text-[3.4rem] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-[4.3rem] md:text-[5.4rem] lg:text-[6.5rem]"
-          >
-            I build interfaces that feel
-            <span class="italic text-cobalt-400 dark:text-cobalt-200">decisive</span>
-            before they feel decorative.
-          </h1>
-          <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/88 md:text-xl"
-          >
-            Vlad Caraseli — frontend engineer for product teams that need sharper UX, cleaner
-            systems, and case-study-worthy execution across Vue, React, Nuxt, and TypeScript.
-          </p>
-
-          <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#case-studies"
-              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
+    <section class="px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_22rem] lg:items-end">
+          <div>
+            <p class="mono-label mb-5">frontend engineer • product interfaces • design systems</p>
+            <h1
+              class="max-w-5xl text-[3.25rem] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-[4.1rem] md:text-[5rem] lg:text-[5.8rem]"
             >
-              View case studies
-            </a>
-            <router-link
-              to="/contact"
-              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+              I build product interfaces that feel
+              <span class="italic text-cobalt-400 dark:text-cobalt-200">decisive</span>
+              under pressure.
+            </h1>
+            <p
+              class="mt-6 max-w-3xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/86 md:text-xl"
             >
-              Start a conversation
-            </router-link>
-          </div>
+              Vlad Caraseli — frontend engineer for teams that need clearer hierarchy, stronger
+              system thinking, and UI that reads as trustworthy on the first scan.
+            </p>
 
-          <div class="mt-12 grid gap-4 sm:grid-cols-3">
-            <div class="panel-surface p-5">
-              <p class="editorial-kicker mb-2">based in</p>
-              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
-                Palma de Mallorca
-              </p>
+            <div class="mt-8 data-strip md:grid-cols-4">
+              <div>
+                <p class="mono-label">experience</p>
+                <p class="mt-2 text-xl font-semibold text-charcoal dark:text-cobalt-100">
+                  6+ years
+                </p>
+              </div>
+              <div>
+                <p class="mono-label">stack</p>
+                <p class="mt-2 text-xl font-semibold text-charcoal dark:text-cobalt-100">
+                  Vue / React / Nuxt
+                </p>
+              </div>
+              <div>
+                <p class="mono-label">focus</p>
+                <p class="mt-2 text-xl font-semibold text-charcoal dark:text-cobalt-100">
+                  Product UI + systems
+                </p>
+              </div>
+              <div>
+                <p class="mono-label">base</p>
+                <p class="mt-2 text-xl font-semibold text-charcoal dark:text-cobalt-100">
+                  Palma / remote
+                </p>
+              </div>
             </div>
-            <div class="panel-surface p-5">
-              <p class="editorial-kicker mb-2">focus</p>
-              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
-                Product UI + design systems
-              </p>
-            </div>
-            <div class="panel-surface p-5">
-              <p class="editorial-kicker mb-2">toolkit</p>
-              <p class="text-xl font-medium text-cobalt-500 dark:text-cobalt-200">
-                Vue, React, Nuxt, TypeScript
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <aside class="panel-surface relative overflow-hidden rounded-[2rem] p-6 md:p-8">
-          <p class="editorial-kicker mb-4">why teams bring me in</p>
-          <div class="space-y-5">
-            <div>
-              <p class="text-4xl font-display text-cobalt-500 dark:text-cobalt-200">6+</p>
-              <p
-                class="mt-1 text-sm uppercase tracking-[0.24em] text-cobalt-500/70 dark:text-cobalt-100/72"
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="#case-studies"
+                class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
               >
-                years building product UI
-              </p>
+                View case studies
+              </a>
+              <router-link
+                to="/contact"
+                class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+              >
+                Start a conversation
+              </router-link>
             </div>
-            <div class="editorial-rule"></div>
-            <ul class="space-y-3 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86">
-              <li>Complex frontend systems without enterprise bloat.</li>
-              <li>Interfaces with clear hierarchy, credible polish, and strong usability.</li>
-              <li>Case studies that prove range: commerce, maps, component libraries.</li>
-            </ul>
           </div>
-        </aside>
+
+          <aside class="rule-panel p-6 md:p-8">
+            <p class="mono-label mb-4">recruiter scan</p>
+            <div class="space-y-5">
+              <div>
+                <p
+                  class="text-sm uppercase tracking-[0.2em] text-cobalt-500/68 dark:text-cobalt-100/72"
+                >
+                  what I get pulled into
+                </p>
+                <p class="mt-2 text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/86">
+                  Product surfaces that feel busy, inconsistent, or weaker than the engineering
+                  behind them.
+                </p>
+              </div>
+              <div class="editorial-rule"></div>
+              <div>
+                <p
+                  class="text-sm uppercase tracking-[0.2em] text-cobalt-500/68 dark:text-cobalt-100/72"
+                >
+                  strongest signal
+                </p>
+                <p class="mt-2 text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/86">
+                  Complex frontend systems explained through concrete case studies, not vague
+                  claims.
+                </p>
+              </div>
+              <div class="editorial-rule"></div>
+              <div class="flex flex-wrap gap-2">
+                <span class="command-chip">⌘K palette</span>
+                <span class="command-chip">? shortcuts</span>
+                <span class="command-chip">J / K case studies</span>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <section
-      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.03] py-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
-    >
-      <Marquee :duration="24" pause-on-hover>
-        <div
-          class="flex items-center gap-4 pr-8 text-sm uppercase tracking-[0.22em] text-cobalt-500 dark:text-cobalt-200"
-        >
-          <span>Selected work</span>
-          <span aria-hidden="true">✦</span>
-          <span>Product UI</span>
-          <span aria-hidden="true">✦</span>
-          <span>Design Systems</span>
-          <span aria-hidden="true">✦</span>
-          <span>Frontend Architecture</span>
-          <span aria-hidden="true">✦</span>
-        </div>
-      </Marquee>
+    <section class="section-shell py-4">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-6 md:px-10 lg:px-12">
+        <span class="mono-label">proof first</span>
+        <span class="command-chip">3 case studies</span>
+        <span class="command-chip">Commerce</span>
+        <span class="command-chip">Maps</span>
+        <span class="command-chip">Component systems</span>
+        <span class="command-chip">UI architecture</span>
+      </div>
     </section>
 
     <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
       <div class="mx-auto max-w-7xl">
-        <div class="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+        <div class="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end">
           <div>
-            <p class="editorial-kicker mb-3">selected case studies</p>
-            <h2
-              class="max-w-3xl text-4xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-6xl"
-            >
-              Proof first. Three projects that show how I think, ship, and refine.
+            <p class="mono-label mb-3">selected case studies</p>
+            <h2 class="section-heading max-w-3xl">
+              Three builds that show product judgment, system depth, and clean implementation.
             </h2>
           </div>
-          <p
-            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86 md:text-lg lg:justify-self-end"
-          >
-            Each project highlights a different strength: product complexity, system design, or UI
-            architecture. Fast scan on top. Deep dive if you want the engineering decisions.
+          <p class="section-subheading lg:justify-self-end">
+            Each one proves something different: hard product logic, frontend architecture, or
+            interface systems that scale. Quick scan on top. Deep dive when you need the details.
           </p>
         </div>
 
@@ -139,57 +145,48 @@
 
     <section class="px-6 pb-16 md:px-10 lg:px-12">
       <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
-        <div class="panel-surface rounded-[2rem] p-6 md:p-8">
-          <p class="editorial-kicker mb-3">beyond the featured work</p>
+        <div class="rule-panel p-6 md:p-8">
+          <p class="mono-label mb-3">beyond the featured work</p>
           <h3 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
             More repos, more experiments, more proof of range.
           </h3>
           <p
-            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/86"
+            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/84"
           >
-            Smaller builds cover inventory tools, job boards, starter templates, automation work,
-            and dashboard-style products.
+            Smaller builds cover inventory tools, job boards, starter kits, automation work, and
+            dashboard-style products. The consistent thread: practical UI, not portfolio theater.
           </p>
 
-          <div class="mt-8 grid gap-4 sm:grid-cols-3">
-            <div
-              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
-            >
-              <p class="editorial-kicker mb-2">product UI cleanup</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
-                Sharper hierarchy, cleaner states, fewer awkward edges in shipped product surfaces.
+          <div class="mt-8 data-strip sm:grid-cols-3">
+            <div>
+              <p class="mono-label">product cleanup</p>
+              <p class="mt-2 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84">
+                Stronger hierarchy, better states, fewer awkward edges in shipped surfaces.
               </p>
             </div>
-            <div
-              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
-            >
-              <p class="editorial-kicker mb-2">design systems</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
-                Components, tokens, and interaction patterns that make teams move faster without
-                drift.
+            <div>
+              <p class="mono-label">systems</p>
+              <p class="mt-2 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84">
+                Components, tokens, and patterns that keep teams moving without drift.
               </p>
             </div>
-            <div
-              class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
-            >
-              <p class="editorial-kicker mb-2">complex frontend builds</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
-                Maps, commerce flows, dashboards, and logic-heavy interfaces that still feel calm.
+            <div>
+              <p class="mono-label">logic-heavy UI</p>
+              <p class="mt-2 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84">
+                Commerce, maps, dashboards, and tools that still feel calm under complexity.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="grid gap-4 self-stretch sm:grid-cols-2 lg:grid-cols-1">
-          <div
-            class="border border-cobalt-500/15 bg-white/70 p-5 dark:border-cobalt-300/16 dark:bg-charcoal-50/72"
-          >
-            <p class="editorial-kicker mb-2">what I usually help fix</p>
-            <p class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+        <div class="flex flex-col gap-4">
+          <div class="subtle-panel p-5">
+            <p class="mono-label mb-2">what I usually fix</p>
+            <p class="text-2xl font-display text-charcoal dark:text-cobalt-100">
               Hierarchy, systems, and trust.
             </p>
-            <p class="mt-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/84">
-              The work usually starts where the product feels busy, inconsistent, or harder to trust
+            <p class="mt-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/82">
+              The work usually starts where the product feels busier, shakier, or harder to trust
               than it should.
             </p>
           </div>
@@ -198,7 +195,7 @@
             href="https://github.com/caraseli02?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex min-h-[9.5rem] items-end justify-between border border-cobalt-500 px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            class="inline-flex min-h-[9rem] items-end justify-between border border-cobalt-500 px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
           >
             <span>Browse GitHub</span>
             <span aria-hidden="true">↗</span>
@@ -213,7 +210,6 @@
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
-import Marquee from "../components/ui/Marquee.vue";
 import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
 import { featuredProjects } from "../data/projects";
 </script>

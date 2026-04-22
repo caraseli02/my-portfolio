@@ -4,7 +4,7 @@
   >
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
       <div
-        class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/20 bg-cobalt-700 p-6 text-cream-50 shadow-[0_28px_80px_rgba(17,27,143,0.22)] md:p-8 dark:border-cobalt-300/20 dark:bg-cobalt-700"
+        class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-cream-50 md:p-8 dark:border-cobalt-300/20 dark:bg-cobalt-700"
       >
         <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
           <div class="paper-grid h-full w-full"></div>

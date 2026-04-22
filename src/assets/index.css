@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Young+Serif&display=swap");
-
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -7,25 +5,25 @@
 @theme {
   --font-sans: "Figtree", system-ui, -apple-system, sans-serif;
   --font-display: "Young Serif", Georgia, serif;
-  --font-mono: "Figtree", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, monospace;
 
-  --color-cream-50: #fcfaf4;
-  --color-cream-100: #f5f0e6;
-  --color-cream-200: #ece2d1;
-  --color-cream-300: #dfd1bc;
+  --color-cream-50: oklch(0.986 0.012 85);
+  --color-cream-100: oklch(0.965 0.015 85);
+  --color-cream-200: oklch(0.93 0.02 83);
+  --color-cream-300: oklch(0.875 0.028 82);
 
-  --color-cobalt-100: #ccd1ff;
-  --color-cobalt-200: #99a1ff;
-  --color-cobalt-300: #6975ff;
-  --color-cobalt-400: #3d4cff;
-  --color-cobalt-500: #1f32ff;
-  --color-cobalt-600: #1724c9;
-  --color-cobalt-700: #111b8f;
+  --color-cobalt-100: oklch(0.92 0.06 279);
+  --color-cobalt-200: oklch(0.83 0.11 279);
+  --color-cobalt-300: oklch(0.72 0.16 278);
+  --color-cobalt-400: oklch(0.61 0.2 276);
+  --color-cobalt-500: oklch(0.49 0.23 273);
+  --color-cobalt-600: oklch(0.4 0.19 273);
+  --color-cobalt-700: oklch(0.31 0.14 273);
 
-  --color-charcoal: #0e1220;
-  --color-charcoal-50: #141a2a;
-  --color-charcoal-100: #1b2134;
-  --color-charcoal-200: #2a3248;
+  --color-charcoal: oklch(0.16 0.018 270);
+  --color-charcoal-50: oklch(0.2 0.018 270);
+  --color-charcoal-100: oklch(0.25 0.02 270);
+  --color-charcoal-200: oklch(0.39 0.03 272);
 
   --animate-fade-in: fadeIn 0.6s ease-out forwards;
   --animate-slide-up: slideUp 0.6s ease-out forwards;
@@ -38,33 +36,35 @@
 
 @layer base {
   :root {
-    --color-bg: oklch(0.965 0.012 85);
-    --color-bg-subtle: oklch(0.94 0.015 85);
-    --color-surface: oklch(0.985 0.01 85);
-    --color-primary: oklch(0.44 0.23 270);
-    --color-primary-hover: oklch(0.37 0.24 270);
-    --color-primary-light: oklch(0.91 0.055 270);
-    --color-text: oklch(0.23 0.03 275);
-    --color-text-muted: oklch(0.42 0.04 275);
-    --color-text-subtle: oklch(0.58 0.03 275);
-    --color-border: oklch(0.83 0.03 270);
-    --color-border-light: oklch(0.9 0.02 270);
-    --color-selection: oklch(0.44 0.23 270);
+    --color-bg: oklch(0.965 0.015 85);
+    --color-bg-subtle: oklch(0.946 0.014 85);
+    --color-surface: oklch(0.982 0.01 84);
+    --color-surface-strong: oklch(0.958 0.015 83);
+    --color-primary: oklch(0.49 0.23 273);
+    --color-primary-hover: oklch(0.43 0.21 273);
+    --color-primary-soft: oklch(0.92 0.035 274);
+    --color-text: oklch(0.24 0.022 274);
+    --color-text-muted: oklch(0.39 0.03 274);
+    --color-text-subtle: oklch(0.54 0.024 274);
+    --color-border: oklch(0.84 0.018 274);
+    --color-border-strong: oklch(0.75 0.028 274);
+    --color-selection: oklch(0.51 0.21 273);
   }
 
   .dark {
     --color-bg: oklch(0.16 0.018 270);
-    --color-bg-subtle: oklch(0.2 0.02 270);
-    --color-surface: oklch(0.19 0.018 270);
-    --color-primary: oklch(0.72 0.18 270);
-    --color-primary-hover: oklch(0.79 0.19 270);
-    --color-primary-light: oklch(0.29 0.05 270);
-    --color-text: oklch(0.95 0.015 270);
-    --color-text-muted: oklch(0.82 0.022 270);
-    --color-text-subtle: oklch(0.7 0.025 270);
-    --color-border: oklch(0.35 0.02 270);
-    --color-border-light: oklch(0.24 0.015 270);
-    --color-selection: oklch(0.61 0.18 270);
+    --color-bg-subtle: oklch(0.19 0.018 270);
+    --color-surface: oklch(0.22 0.02 270);
+    --color-surface-strong: oklch(0.25 0.022 270);
+    --color-primary: oklch(0.76 0.12 276);
+    --color-primary-hover: oklch(0.83 0.11 276);
+    --color-primary-soft: oklch(0.29 0.04 274);
+    --color-text: oklch(0.95 0.012 274);
+    --color-text-muted: oklch(0.82 0.018 274);
+    --color-text-subtle: oklch(0.7 0.02 274);
+    --color-border: oklch(0.33 0.018 274);
+    --color-border-strong: oklch(0.44 0.024 274);
+    --color-selection: oklch(0.7 0.14 276);
   }
 
   html {
@@ -74,24 +74,12 @@
   }
 
   body {
-    font-family:
-      "Figtree",
-      system-ui,
-      -apple-system,
-      sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(31, 50, 255, 0.07), transparent 28%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 22%), var(--color-bg);
+    font-family: var(--font-sans);
+    background: var(--color-bg);
     color: var(--color-text);
     transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-  }
-
-  .dark body {
-    background:
-      radial-gradient(circle at top left, rgba(153, 161, 255, 0.11), transparent 32%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%), var(--color-bg);
+      background-color 0.25s ease,
+      color 0.25s ease;
   }
 
   h1,
@@ -114,54 +102,77 @@
 
   :focus-visible {
     outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline-offset: 3px;
   }
 }
 
 @layer components {
-  .pill-badge {
-    @apply px-4 py-1.5 border border-cobalt-500/24 dark:border-cobalt-300/24 rounded-full text-sm text-cobalt-600 dark:text-cobalt-100 lowercase transition-all duration-300 bg-white/68 dark:bg-charcoal-50/82;
-  }
-
-  .pill-badge:hover {
-    @apply bg-cobalt-500 dark:bg-cobalt-300 text-white dark:text-charcoal;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
-  }
-
-  .section-heading {
-    @apply text-3xl sm:text-4xl font-bold text-cobalt-500 mb-4 tracking-tight;
-  }
-
-  .section-subheading {
-    @apply text-lg text-cobalt-600 dark:text-cobalt-100/80 max-w-2xl;
-  }
-
-  .glass {
-    @apply bg-white/70 dark:bg-charcoal-50/70 backdrop-blur-lg;
+  .section-shell {
+    @apply border-y border-cobalt-500/10 bg-cobalt-500/[0.03] dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04];
   }
 
   .panel-surface {
-    @apply border border-cobalt-500/14 dark:border-cobalt-300/16 bg-white/76 dark:bg-charcoal-50/84 backdrop-blur-md shadow-[0_20px_60px_rgba(31,50,255,0.08)] dark:shadow-[0_18px_48px_rgba(0,0,0,0.28)];
+    background: color-mix(in oklch, var(--color-surface) 92%, transparent);
+    border: 1px solid color-mix(in oklch, var(--color-border) 90%, transparent);
+    box-shadow: 0 10px 24px color-mix(in oklch, var(--color-primary) 8%, transparent);
   }
 
-  .ink-link {
-    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 dark:text-cobalt-100 transition-colors hover:text-cobalt-700 dark:hover:text-white;
+  .subtle-panel {
+    background: color-mix(in oklch, var(--color-surface-strong) 84%, transparent);
+    border: 1px solid color-mix(in oklch, var(--color-border) 92%, transparent);
+  }
+
+  .rule-panel {
+    @apply border border-cobalt-500/14 dark:border-cobalt-300/16 bg-transparent;
+  }
+
+  .pill-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-cobalt-500/18 bg-cobalt-500/[0.03] px-3 py-1.5 text-[12px] font-medium text-cobalt-600 transition-colors dark:border-cobalt-300/20 dark:bg-cobalt-300/[0.04] dark:text-cobalt-100;
+  }
+
+  .pill-badge:hover {
+    @apply border-cobalt-500/28 bg-cobalt-500/[0.08] dark:border-cobalt-300/30 dark:bg-cobalt-300/[0.12];
   }
 
   .editorial-kicker {
-    @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-cobalt-500/72 dark:text-cobalt-100/90;
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-cobalt-500/72 dark:text-cobalt-100/80;
+  }
+
+  .mono-label {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76;
   }
 
   .editorial-rule {
-    @apply h-px w-full bg-cobalt-500/15 dark:bg-cobalt-300/15;
+    @apply h-px w-full bg-cobalt-500/12 dark:bg-cobalt-300/12;
+  }
+
+  .ink-link {
+    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 transition-colors hover:text-cobalt-700 dark:text-cobalt-100 dark:hover:text-white;
+  }
+
+  .command-chip {
+    @apply inline-flex items-center rounded-md border border-cobalt-500/16 bg-cobalt-500/[0.04] px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt-600 dark:border-cobalt-300/18 dark:bg-cobalt-300/[0.05] dark:text-cobalt-100;
+  }
+
+  .data-strip {
+    @apply grid gap-px overflow-hidden border border-cobalt-500/14 bg-cobalt-500/10 dark:border-cobalt-300/14 dark:bg-cobalt-300/10;
+  }
+
+  .data-strip > * {
+    @apply bg-cream-50 p-4 dark:bg-charcoal-50;
+  }
+
+  .section-heading {
+    @apply text-3xl font-display tracking-tight text-cobalt-500 dark:text-cobalt-200 md:text-5xl;
+  }
+
+  .section-subheading {
+    @apply max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/84 md:text-lg;
   }
 
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
     transition:
       opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -196,19 +207,31 @@
 
   .paper-grid {
     background-image:
-      linear-gradient(to right, rgba(31, 50, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(31, 50, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        color-mix(in oklch, var(--color-primary) 9%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--color-primary) 9%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 40px 40px;
   }
 
   .dark .paper-grid {
     background-image:
-      linear-gradient(to right, rgba(204, 209, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(204, 209, 255, 0.05) 1px, transparent 1px);
-  }
-
-  .text-stroke-soft {
-    -webkit-text-stroke: 1px rgba(31, 50, 255, 0.2);
+      linear-gradient(
+        to right,
+        color-mix(in oklch, var(--color-primary) 11%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--color-primary) 11%, transparent) 1px,
+        transparent 1px
+      );
   }
 }
 
