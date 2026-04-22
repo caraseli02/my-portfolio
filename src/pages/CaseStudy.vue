@@ -19,16 +19,14 @@
         class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12"
       >
         <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-50"></div>
-
         <div class="relative mx-auto max-w-7xl">
           <div class="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-stretch">
             <div
-              class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_30px_90px_rgba(17,27,143,0.22)] md:p-8 lg:p-10"
+              class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-24px_rgba(17,27,143,0.45)] md:p-8 lg:p-10"
             >
               <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
                 <div class="paper-grid h-full w-full"></div>
               </div>
-
               <div class="relative">
                 <p
                   class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70"
@@ -42,11 +40,11 @@
                   {{ project.title }}
                 </h1>
 
-                <p class="mt-5 max-w-3xl text-xl leading-relaxed text-cobalt-100/82 md:text-2xl">
+                <p class="mt-5 max-w-3xl text-xl leading-relaxed text-cobalt-100/80 md:text-2xl">
                   {{ caseStudy.tagline }}
                 </p>
 
-                <p class="mt-6 max-w-3xl text-base leading-relaxed text-cobalt-100/72 md:text-lg">
+                <p class="mt-6 max-w-3xl text-base leading-relaxed text-cobalt-100/70 md:text-lg">
                   {{ caseStudy.description || project.description }}
                 </p>
 
@@ -54,7 +52,7 @@
                   <span
                     v-for="tag in project.tech"
                     :key="tag"
-                    class="border border-white/12 bg-white/7 px-3 py-1.5 text-xs font-mono uppercase tracking-[0.16em] text-cobalt-100/82"
+                    class="border border-white/12 bg-white/7 px-3 py-1.5 text-xs font-mono uppercase tracking-[0.16em] text-cobalt-100/80"
                   >
                     {{ tag }}
                   </span>
@@ -83,7 +81,7 @@
               </div>
             </div>
 
-            <aside class="panel-surface flex flex-col justify-between rounded-[2rem] p-6 md:p-8">
+            <aside class="panel-surface flex flex-col justify-between p-6 md:p-8">
               <div>
                 <p class="editorial-kicker mb-5">project facts</p>
                 <dl class="space-y-4">
@@ -95,13 +93,13 @@
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                     <dt class="editorial-kicker">role</dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/85">
                       {{ caseStudy.role }}
                     </dd>
                   </div>
                   <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                     <dt class="editorial-kicker">year</dt>
-                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/90">
+                    <dd class="mt-1 text-lg text-charcoal-200 dark:text-cobalt-100/85">
                       {{ caseStudy.year }}
                     </dd>
                   </div>
@@ -120,7 +118,7 @@
                       {{ outcome.metric }}
                     </p>
                     <p
-                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/84"
+                      class="mt-1 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/80"
                     >
                       {{ outcome.label }}
                     </p>
@@ -132,10 +130,10 @@
         </div>
       </section>
 
-      <section class="px-6 pb-14 md:px-10 lg:px-12">
+      <section v-if="!heroImageFailed" class="px-6 pb-14 md:px-10 lg:px-12">
         <div class="mx-auto max-w-7xl">
           <div
-            class="overflow-hidden rounded-[2rem] border border-cobalt-500/15 bg-white/75 shadow-[0_24px_70px_rgba(31,50,255,0.08)] dark:border-cobalt-300/15 dark:bg-charcoal-50/75"
+            class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
           >
             <img
               :src="caseStudy.image || `/project-images/${caseStudy.slug}.jpg`"
@@ -149,8 +147,8 @@
       </section>
 
       <section class="px-6 pb-16 md:px-10 lg:px-12">
-        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
-          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div>
             <p class="editorial-kicker mb-4">why this project matters</p>
             <h2
               class="max-w-3xl text-3xl font-display text-charcoal dark:text-cobalt-100 md:text-4xl"
@@ -158,26 +156,32 @@
               Built to show product judgment, not just implementation range.
             </h2>
             <p
-              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/88"
+              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85"
             >
               {{ caseStudy.description || project.description }}
             </p>
             <p
-              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/90"
+              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/85"
             >
               The goal was not just to make something work. It was to make complex logic feel
               legible, credible, and fast to trust on first scan.
             </p>
           </div>
 
-          <div class="grid gap-4 sm:grid-cols-2">
+          <div
+            class="grid gap-0 border-t border-cobalt-500/12 dark:border-cobalt-300/12 sm:grid-cols-2"
+          >
             <article
               v-for="(highlight, index) in projectHighlights"
               :key="highlight"
-              class="panel-surface rounded-[1.6rem] p-5"
+              class="border-b border-cobalt-500/12 px-1 py-5 dark:border-cobalt-300/12 sm:[&:not(:nth-child(2n))]:border-r sm:[&:not(:nth-child(2n))]:pr-5 sm:[&:nth-child(2n)]:pl-5"
             >
-              <p class="editorial-kicker mb-3">0{{ index + 1 }} — what shipped</p>
-              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/88">
+              <p class="editorial-kicker mb-3 font-mono">
+                <span class="text-cobalt-500/50 dark:text-cobalt-300/50">0{{ index + 1 }}</span>
+                <span class="mx-2 text-cobalt-500/30 dark:text-cobalt-300/30">—</span>
+                <span>what shipped</span>
+              </p>
+              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/85">
                 {{ highlight }}
               </p>
             </article>
@@ -186,35 +190,39 @@
       </section>
 
       <section class="px-6 pb-16 md:px-10 lg:px-12">
-        <div class="mx-auto max-w-7xl panel-surface rounded-[2rem] p-6 md:p-8">
+        <div class="mx-auto max-w-7xl">
           <p class="editorial-kicker mb-6">system view</p>
-          <ArchitectureDiagram :slug="slug" />
+          <div
+            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60 md:p-8"
+          >
+            <ArchitectureDiagram :slug="slug" />
+          </div>
         </div>
       </section>
 
       <section class="px-6 pb-16 md:px-10 lg:px-12">
         <div
-          class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-start"
+          class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-start"
         >
-          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+          <div>
             <JourneyTimeline :phases="caseStudy.timeline" accent-color="cobalt-500" />
           </div>
 
           <aside
             v-if="caseStudy.metaphor"
-            class="relative overflow-hidden rounded-[2rem] border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_24px_70px_rgba(17,27,143,0.2)] md:p-8"
+            class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-28px_rgba(17,27,143,0.5)] md:p-8"
           >
             <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
               <div class="paper-grid h-full w-full"></div>
             </div>
             <div class="relative">
-              <p class="mb-4 text-[11px] font-mono uppercase tracking-[0.32em] text-cobalt-100/70">
+              <p class="mb-4 font-mono text-[11px] uppercase tracking-[0.32em] text-cobalt-100/70">
                 core idea
               </p>
               <p class="text-3xl font-display text-white md:text-4xl">
                 {{ caseStudy.metaphor.phrase }}
               </p>
-              <p class="mt-5 text-base leading-relaxed text-cobalt-100/78">
+              <p class="mt-5 text-base leading-relaxed text-cobalt-100/80">
                 {{ caseStudy.metaphor.description }}
               </p>
             </div>
@@ -223,11 +231,11 @@
       </section>
 
       <section class="px-6 pb-16 md:px-10 lg:px-12">
-        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-12">
+          <div>
             <OutcomesGrid :outcomes="caseStudy.outcomes" />
           </div>
-          <div class="panel-surface rounded-[2rem] p-6 md:p-8">
+          <div>
             <LessonsLearned :lessons="caseStudy.lessonsLearned" />
           </div>
         </div>
@@ -238,9 +246,9 @@
           <router-link
             v-if="prevProject"
             :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
-            class="panel-surface group rounded-[1.5rem] p-5 transition-transform hover:-translate-y-1"
+            class="panel-surface group p-5 transition-transform hover:-translate-y-1"
           >
-            <p class="editorial-kicker mb-3">previous project</p>
+            <p class="editorial-kicker mb-3 font-mono">← prev</p>
             <p
               class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
             >
@@ -251,7 +259,7 @@
 
           <router-link
             to="/"
-            class="panel-surface flex items-center justify-center rounded-[1.5rem] p-5 text-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-transform hover:-translate-y-1 dark:text-cobalt-100"
+            class="panel-surface flex items-center justify-center p-5 text-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-transform hover:-translate-y-1 dark:text-cobalt-100"
           >
             Back to work
           </router-link>
@@ -259,9 +267,9 @@
           <router-link
             v-if="nextProject"
             :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
-            class="panel-surface group rounded-[1.5rem] p-5 text-right transition-transform hover:-translate-y-1"
+            class="panel-surface group p-5 text-right transition-transform hover:-translate-y-1"
           >
-            <p class="editorial-kicker mb-3">next project</p>
+            <p class="editorial-kicker mb-3 font-mono">next →</p>
             <p
               class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
             >
@@ -278,7 +286,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { getProjectBySlug, getProjectIndex } from "../data/projects";
 import JourneyTimeline from "../components/case-study/JourneyTimeline.vue";
 import OutcomesGrid from "../components/case-study/OutcomesGrid.vue";
@@ -313,10 +321,16 @@ const nextProject = computed(() => {
   return p ? { slug: caseStudy.value.nextProject, title: p.title } : null;
 });
 
-const handleImageError = (event: Event) => {
-  const image = event.target;
-  if (image instanceof HTMLImageElement) {
-    image.style.display = "none";
-  }
+const heroImageFailed = ref(false);
+
+watch(
+  () => props.slug,
+  () => {
+    heroImageFailed.value = false;
+  },
+);
+
+const handleImageError = () => {
+  heroImageFailed.value = true;
 };
 </script>

@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Young+Serif&display=swap");
-
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
@@ -7,7 +5,9 @@
 @theme {
   --font-sans: "Figtree", system-ui, -apple-system, sans-serif;
   --font-display: "Young Serif", Georgia, serif;
-  --font-mono: "Figtree", system-ui, -apple-system, sans-serif;
+  --font-mono:
+    "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
 
   --color-cream-50: #fcfaf4;
   --color-cream-100: #f5f0e6;
@@ -27,13 +27,9 @@
   --color-charcoal-100: #1b2134;
   --color-charcoal-200: #2a3248;
 
-  --animate-fade-in: fadeIn 0.6s ease-out forwards;
-  --animate-slide-up: slideUp 0.6s ease-out forwards;
-  --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-marquee: marquee 25s linear infinite;
   --animate-marquee-reverse: marquee-reverse 25s linear infinite;
-  --animate-spin-slow: spin 20s linear infinite;
 }
 
 @layer base {
@@ -144,7 +140,20 @@
   }
 
   .panel-surface {
-    @apply border border-cobalt-500/14 dark:border-cobalt-300/16 bg-white/76 dark:bg-charcoal-50/84 backdrop-blur-md shadow-[0_20px_60px_rgba(31,50,255,0.08)] dark:shadow-[0_18px_48px_rgba(0,0,0,0.28)];
+    @apply border border-cobalt-500/14 dark:border-cobalt-300/16 bg-white/92 dark:bg-charcoal-50/92 shadow-[0_10px_30px_-12px_rgba(17,27,143,0.1)] dark:shadow-[0_10px_28px_-14px_rgba(0,0,0,0.32)];
+  }
+
+  .paper-grid {
+    background-image:
+      linear-gradient(to right, rgba(31, 50, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 50, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .dark .paper-grid {
+    background-image:
+      linear-gradient(to right, rgba(204, 209, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(204, 209, 255, 0.05) 1px, transparent 1px);
   }
 
   .ink-link {
@@ -181,67 +190,6 @@
   }
 }
 
-@layer utilities {
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  .paper-grid {
-    background-image:
-      linear-gradient(to right, rgba(31, 50, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(31, 50, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .dark .paper-grid {
-    background-image:
-      linear-gradient(to right, rgba(204, 209, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(204, 209, 255, 0.05) 1px, transparent 1px);
-  }
-
-  .text-stroke-soft {
-    -webkit-text-stroke: 1px rgba(31, 50, 255, 0.2);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -257,14 +205,5 @@
   }
   to {
     transform: translateX(0);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
