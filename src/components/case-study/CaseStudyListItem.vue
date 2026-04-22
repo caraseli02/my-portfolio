@@ -13,7 +13,7 @@
     >
       <div class="flex items-start gap-4 md:block md:pr-3">
         <span
-          class="block text-4xl md:text-5xl lg:text-6xl font-display text-cobalt-500 leading-none tabular-nums"
+          class="block text-4xl md:text-5xl lg:text-6xl font-display font-medium tracking-[-0.04em] text-cobalt-500 leading-none tabular-nums"
         >
           {{ formattedNumber }}
         </span>
@@ -22,7 +22,9 @@
 
       <div class="min-w-0 space-y-4" :class="reverse ? 'md:order-3' : 'md:order-2'">
         <div>
-          <h3 class="text-2xl md:text-3xl font-semibold text-cobalt-500 dark:text-cobalt-200">
+          <h3
+            class="text-2xl md:text-3xl font-display leading-[0.96] text-cobalt-500 dark:text-cobalt-200"
+          >
             {{ title }}
           </h3>
           <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/86">
