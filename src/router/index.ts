@@ -90,17 +90,18 @@ const router = createRouter({
   },
 });
 
-const ensureMetaDescription = (): HTMLMetaElement => {
-  let tag = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
-
+const ensureMeta = (attr: string, val: string): HTMLMetaElement => {
+  const selector = attr === "name" ? `meta[name="${val}"]` : `meta[property="${val}"]`;
+  let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
   if (!tag) {
     tag = document.createElement("meta");
-    tag.name = "description";
+    tag.setAttribute(attr, val);
     document.head.appendChild(tag);
   }
-
   return tag;
 };
+
+const ensureMetaDescription = (): HTMLMetaElement => ensureMeta("name", "description");
 
 router.beforeEach((to, _from, next) => {
   let title = to.meta.title as string | undefined;
@@ -117,11 +118,17 @@ router.beforeEach((to, _from, next) => {
 
   if (title) {
     document.title = title;
+    ensureMeta("property", "og:title").content = title;
+    ensureMeta("name", "twitter:title").content = title;
   }
 
   if (description) {
     ensureMetaDescription().content = description;
+    ensureMeta("property", "og:description").content = description;
+    ensureMeta("name", "twitter:description").content = description;
   }
+
+  ensureMeta("property", "og:url").content = `https://vladcaraseli.com${to.path}`;
 
   next();
 });

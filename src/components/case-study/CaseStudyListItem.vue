@@ -1,6 +1,6 @@
 <template>
   <article
-    class="group panel-surface relative overflow-hidden before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
+    class="group panel-surface relative overflow-hidden [contain:layout_style_paint] before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
   >
     <router-link
       :to="{ name: 'case-study', params: { slug } }"

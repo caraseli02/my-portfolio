@@ -54,6 +54,7 @@ export function useCustomCursor() {
     document.addEventListener("mouseover", onMouseOver, { passive: true });
     document.addEventListener("mouseenter", onMouseEnter);
     document.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("visibilitychange", onVisChange);
     cursorVisible.value = true;
   });
 
@@ -61,7 +62,20 @@ export function useCustomCursor() {
     document.removeEventListener("mouseover", onMouseOver);
     document.removeEventListener("mouseenter", onMouseEnter);
     document.removeEventListener("mouseleave", onMouseLeave);
+    document.removeEventListener("visibilitychange", onVisChange);
   });
+
+  function onVisChange() {
+    if (document.hidden) {
+      document.removeEventListener("mouseover", onMouseOver);
+      document.removeEventListener("mouseenter", onMouseEnter);
+      document.removeEventListener("mouseleave", onMouseLeave);
+    } else {
+      document.addEventListener("mouseover", onMouseOver, { passive: true });
+      document.addEventListener("mouseenter", onMouseEnter);
+      document.addEventListener("mouseleave", onMouseLeave);
+    }
+  }
 
   return {
     cursorX: x,

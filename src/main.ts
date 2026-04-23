@@ -9,7 +9,7 @@ import "@fontsource/figtree/700.css";
 import "@fontsource/figtree/800.css";
 import "@fontsource/figtree/400-italic.css";
 import "@fontsource/young-serif/400.css";
-import "@fontsource-variable/jetbrains-mono";
+import "@fontsource/jetbrains-mono/latin-400.css";
 
 import "./assets/index.css";
 

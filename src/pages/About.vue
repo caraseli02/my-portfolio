@@ -147,4 +147,20 @@
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
+import { useJsonLd } from "../composables/useJsonLd";
+
+useJsonLd({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Vlad Caraseli",
+  jobTitle: "Frontend Engineer",
+  url: "https://vladcaraseli.com",
+  sameAs: ["https://github.com/caraseli02", "https://linkedin.com/in/vlad-caraseli"],
+  knowsAbout: ["Vue", "React", "TypeScript", "Nuxt", "Design Systems", "Frontend Architecture"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Palma de Mallorca",
+    addressCountry: "ES",
+  },
+});
 </script>
