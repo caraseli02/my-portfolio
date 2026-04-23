@@ -63,14 +63,21 @@
         class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
         :class="reverse ? 'md:order-2' : 'md:order-3'"
       >
-        <img
-          :src="image"
-          :alt="`${title} preview`"
-          loading="lazy"
-          width="640"
-          height="440"
-          class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            :srcset="`${webpBase}-320.webp 320w, ${webpBase}-640.webp 640w, ${webpBase}.webp 1280w`"
+            sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
+          />
+          <img
+            :src="image"
+            :alt="`${title} preview`"
+            loading="lazy"
+            width="640"
+            height="400"
+            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
+          />
+        </picture>
       </div>
     </router-link>
   </article>
@@ -100,4 +107,10 @@ const props = withDefaults(
 );
 
 const formattedNumber = computed(() => props.number.toString().padStart(2, "0"));
+
+const webpBase = computed(() => {
+  // e.g. "/project-images/topproperties" → strip extension from image path
+  if (!props.image) return "";
+  return props.image.replace(/\.[^.]+$/, "");
+});
 </script>
