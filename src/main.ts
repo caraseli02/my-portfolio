@@ -26,19 +26,27 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         }
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
   );
 
   const observeReveals = () => {
     document.querySelectorAll(".reveal, .reveal-stagger, .footer-reveal").forEach((el) => {
-      if (!el.classList.contains("revealed")) {
+      if (el.classList.contains("revealed")) return;
+      // If already in viewport, reveal immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("revealed");
+      } else {
         revealObserver.observe(el);
       }
     });
   };
 
   observeReveals();
+
   router.afterEach(() => {
-    setTimeout(observeReveals, 100);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(observeReveals);
+    });
   });
 }
