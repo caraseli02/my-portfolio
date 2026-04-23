@@ -25,7 +25,7 @@
           >
             {{ title }}
           </h3>
-          <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100">
             {{ description }}
           </p>
         </div>

@@ -42,7 +42,7 @@
       <div class="flex flex-col justify-between gap-5 border border-cobalt-500/15 p-6 md:p-8">
         <div>
           <p class="editorial-kicker mb-4">find me fast</p>
-          <p class="mb-5 max-w-sm text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+          <p class="mb-5 max-w-sm text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Send the role, timeline, and where the product currently feels weak. That is usually
             enough to spot the leverage quickly.
           </p>

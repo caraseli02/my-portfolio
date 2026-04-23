@@ -36,27 +36,25 @@
             <dt class="flex items-center gap-1">
               <kbd class="kbd">⌘</kbd><kbd class="kbd">K</kbd>
             </dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">
-              open command palette
-            </dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">open command palette</dd>
 
             <dt><kbd class="kbd">J</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">next case study</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">next case study</dd>
 
             <dt><kbd class="kbd">K</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">previous case study</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">previous case study</dd>
 
             <dt><kbd class="kbd">G</kbd> <kbd class="kbd">H</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">go home</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">go home</dd>
 
             <dt><kbd class="kbd">G</kbd> <kbd class="kbd">P</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">go to all projects</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">go to all projects</dd>
 
             <dt><kbd class="kbd">?</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">show this legend</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">show this legend</dd>
 
             <dt><kbd class="kbd">esc</kbd></dt>
-            <dd class="self-center text-cobalt-600 dark:text-cobalt-100/80">close overlay</dd>
+            <dd class="self-center text-cobalt-600 dark:text-cobalt-100">close overlay</dd>
           </dl>
         </div>
       </div>

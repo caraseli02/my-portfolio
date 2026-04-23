@@ -12,7 +12,7 @@
             I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
           </h1>
           <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85 md:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100 md:text-xl"
           >
             Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
             under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
@@ -22,7 +22,7 @@
 
         <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
           <p class="editorial-kicker mb-4">snapshot</p>
-          <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/85">
+          <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100">
             <div>
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
@@ -64,21 +64,21 @@
       <section class="reveal mt-14 grid gap-5 md:grid-cols-3">
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">01 — what I do best</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
             better decision-making built into the layout.
           </p>
         </article>
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">02 — how I work</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Design-minded engineering: thoughtful systems, clean implementation, and enough visual
             restraint that the important moments hit harder.
           </p>
         </article>
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">03 — where I add leverage</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Complex frontends, refactors that improve trust, and design-system work that keeps teams
             shipping without turning every screen into a one-off.
           </p>
@@ -93,9 +93,7 @@
           <h2 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
             I care about interfaces that earn trust fast.
           </h2>
-          <div
-            class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85"
-          >
+          <div class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             <p>
               That usually means fewer gimmicks, stronger copy hierarchy, and components that feel
               like they belong to the same product universe.
@@ -110,7 +108,7 @@
 
         <div class="border border-cobalt-500/15 p-6 md:p-8">
           <p class="editorial-kicker mb-5">good fit projects</p>
-          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100/85">
+          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100">
             <div>
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"

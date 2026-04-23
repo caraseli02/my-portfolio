@@ -169,12 +169,12 @@
               Built to show product judgment, not just implementation range.
             </h2>
             <p
-              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85"
+              class="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100"
             >
               {{ caseStudy.description || project.description }}
             </p>
             <p
-              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100/85"
+              class="mt-5 max-w-2xl text-base leading-relaxed text-cobalt-700 dark:text-cobalt-100"
             >
               The goal was not just to make something work. It was to make complex logic feel
               legible, credible, and fast to trust on first scan.
@@ -194,7 +194,7 @@
                 <span class="mx-2 text-cobalt-500/30 dark:text-cobalt-300/30">—</span>
                 <span>what shipped</span>
               </p>
-              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/85">
+              <p class="text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100">
                 {{ highlight }}
               </p>
             </article>

@@ -29,7 +29,7 @@
         </div>
 
         <p
-          class="mt-8 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85 md:text-xl"
+          class="mt-8 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100 md:text-xl"
         >
           Best first touch is LinkedIn. Send the project, the role, the timeline, and where the
           product currently feels weak. I can tell pretty quickly where the leverage is.
@@ -57,7 +57,7 @@
 
       <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
         <p class="editorial-kicker mb-4">good first message</p>
-        <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/85">
+        <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100">
           <div>
             <p
               class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"

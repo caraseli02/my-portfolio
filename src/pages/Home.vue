@@ -14,44 +14,46 @@
         class="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.25fr)_20rem] lg:items-start"
       >
         <div class="reveal-stagger">
-          <p class="editorial-kicker mb-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <p
+            class="mb-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-cobalt-500/80 dark:text-cobalt-100"
+          >
             <span>vlad caraseli</span>
-            <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/40">·</span>
+            <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/50">·</span>
             <span>frontend engineer</span>
-            <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/40">·</span>
+            <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/50">·</span>
             <span>palma de mallorca</span>
           </p>
           <h1
-            class="max-w-4xl text-5xl leading-[0.96] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem]"
+            class="max-w-4xl text-5xl leading-[0.96] font-display text-cobalt-500 dark:text-white sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem]"
           >
             Interfaces that feel
-            <span class="italic text-cobalt-400 dark:text-cobalt-200">decisive</span>
+            <span class="italic text-cobalt-400 dark:text-cobalt-100">decisive</span>
             before they feel decorative.
           </h1>
           <p
-            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
+            class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100 md:text-xl"
           >
             Product frontend for teams that need sharper UX, cleaner systems, and case-study-worthy
             execution across Vue, React, Nuxt, and TypeScript.
           </p>
 
           <dl
-            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-4"
+            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/20 dark:text-white sm:grid-cols-4"
           >
             <div class="flex flex-col gap-1">
-              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
+              <dt class="text-cobalt-500/55 dark:text-cobalt-200/80">experience</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">06 yrs</dd>
             </div>
             <div class="flex flex-col gap-1">
-              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">stack</dt>
+              <dt class="text-cobalt-500/55 dark:text-cobalt-200/80">stack</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">Vue · React · Nuxt · TS</dd>
             </div>
             <div class="flex flex-col gap-1">
-              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">case studies</dt>
+              <dt class="text-cobalt-500/55 dark:text-cobalt-200/80">case studies</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">03 shipped</dd>
             </div>
             <div class="flex flex-col gap-1">
-              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">availability</dt>
+              <dt class="text-cobalt-500/55 dark:text-cobalt-200/80">availability</dt>
               <dd
                 class="text-sm font-semibold tracking-[0.12em] text-cobalt-500 dark:text-cobalt-100"
               >
@@ -84,7 +86,7 @@
           class="reveal relative border border-cobalt-500/14 bg-white/60 p-6 dark:border-cobalt-300/15 dark:bg-charcoal-50/60 md:p-7"
         >
           <p class="editorial-kicker mb-4">why teams bring me in</p>
-          <ul class="space-y-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <ul class="space-y-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             <li>Complex frontend systems without enterprise bloat.</li>
             <li>Interfaces with clear hierarchy, credible polish, and strong usability.</li>
             <li>Case studies that prove range: commerce, maps, component libraries.</li>
@@ -143,7 +145,7 @@
             </h2>
           </div>
           <p
-            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-lg lg:justify-self-end"
+            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100 md:text-lg lg:justify-self-end"
           >
             Each project highlights a different strength: product complexity, system design, or UI
             architecture. Fast scan on top. Deep dive if you want the engineering decisions.
@@ -177,9 +179,7 @@
           <h3 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
             More repos, more experiments, more proof of range.
           </h3>
-          <p
-            class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85"
-          >
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Smaller builds cover inventory tools, job boards, starter templates, automation work,
             and dashboard-style products.
           </p>
@@ -189,7 +189,7 @@
               class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
             >
               <p class="editorial-kicker mb-2">product UI cleanup</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
                 Sharper hierarchy, cleaner states, fewer awkward edges in shipped product surfaces.
               </p>
             </div>
@@ -197,7 +197,7 @@
               class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
             >
               <p class="editorial-kicker mb-2">design systems</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
                 Components, tokens, and interaction patterns that make teams move faster without
                 drift.
               </p>
@@ -206,7 +206,7 @@
               class="border border-cobalt-500/12 bg-cobalt-500/[0.03] p-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.04]"
             >
               <p class="editorial-kicker mb-2">complex frontend builds</p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
                 Maps, commerce flows, dashboards, and logic-heavy interfaces that still feel calm.
               </p>
             </div>
@@ -221,7 +221,7 @@
             <p class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
               Hierarchy, systems, and trust.
             </p>
-            <p class="mt-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+            <p class="mt-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
               The work usually starts where the product feels busy, inconsistent, or harder to trust
               than it should.
             </p>

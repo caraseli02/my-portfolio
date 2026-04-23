@@ -9,7 +9,7 @@
           Everything I've shipped — from case-studied builds to late-night experiments.
         </h1>
         <p
-          class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
+          class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100 md:text-xl"
         >
           Three featured projects with full case studies, plus a longer list of smaller builds:
           starter templates, component work, automation tools, and product experiments.
@@ -38,7 +38,7 @@
               Featured — with full context
             </h2>
           </div>
-          <p class="max-w-md text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="max-w-md text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Each has a long-form case study covering architecture, tradeoffs, and what shipped.
           </p>
         </div>
@@ -73,7 +73,7 @@
               Smaller builds, starters, experiments
             </h2>
           </div>
-          <p class="max-w-md text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+          <p class="max-w-md text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100">
             Components, automation, dashboards, and starter kits. Each one source-linked on GitHub.
           </p>
         </div>
@@ -103,7 +103,7 @@
                   ↗
                 </span>
               </div>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
+              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100">
                 {{ project.description }}
               </p>
               <div
@@ -126,7 +126,7 @@
           58+ public repositories. Dig in wherever you want.
         </h2>
         <p
-          class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85"
+          class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100"
         >
           The full list lives on GitHub — Vue components, experimental projects, starter kits, and
           side work.

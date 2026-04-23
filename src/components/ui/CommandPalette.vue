@@ -50,7 +50,7 @@
                 'flex cursor-pointer items-center justify-between gap-3 px-4 py-2.5 font-mono text-sm transition-colors',
                 index === activeIndex
                   ? 'bg-cobalt-500/10 text-cobalt-700 dark:bg-cobalt-300/12 dark:text-cobalt-100'
-                  : 'text-cobalt-600 dark:text-cobalt-100/80 hover:bg-cobalt-500/5 dark:hover:bg-cobalt-300/5',
+                  : 'text-cobalt-600 dark:text-cobalt-100 hover:bg-cobalt-500/5 dark:hover:bg-cobalt-300/5',
               ]"
               @click="runItem(item)"
               @mouseenter="activeIndex = index"
@@ -85,7 +85,7 @@
           </div>
 
           <div
-            class="flex items-center justify-between border-t border-cobalt-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cobalt-500/55 dark:border-cobalt-300/15 dark:text-cobalt-300/55"
+            class="flex items-center justify-between border-t border-cobalt-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cobalt-500/55 dark:border-cobalt-300/15 dark:text-cobalt-200/80"
           >
             <span>↑↓ navigate</span>
             <span>↵ select</span>
