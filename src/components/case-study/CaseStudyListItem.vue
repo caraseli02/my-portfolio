@@ -1,7 +1,5 @@
 <template>
-  <article
-    class="group panel-surface relative overflow-hidden [contain:layout_style_paint] before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
-  >
+  <article class="group card-case-study relative overflow-hidden [contain:layout_style_paint]">
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
       class="grid gap-6 px-5 py-6 md:px-7 md:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
@@ -75,7 +73,7 @@
             loading="lazy"
             width="640"
             height="400"
-            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
+            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-all duration-500 group-hover:scale-[1.06] md:max-h-[16rem]"
           />
         </picture>
       </div>
@@ -114,3 +112,73 @@ const webpBase = computed(() => {
   return props.image.replace(/\.[^.]+$/, "");
 });
 </script>
+
+<style scoped>
+.card-case-study {
+  background: rgb(255 255 255 / 0.92);
+  border: 1px solid rgb(31 50 255 / 0.12);
+  box-shadow: 0 10px 30px -12px rgb(17 27 143 / 0.1);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+}
+
+:global(.dark) .card-case-study {
+  background: rgb(20 26 42 / 0.92);
+  border-color: rgb(204 209 255 / 0.12);
+  box-shadow: 0 10px 28px -14px rgb(0 0 0 / 0.32);
+}
+
+.card-case-study:hover {
+  transform: translateY(-6px);
+  border-color: rgb(31 50 255 / 0.3);
+  box-shadow:
+    0 24px 56px -16px rgb(17 27 143 / 0.2),
+    0 8px 20px -10px rgb(17 27 143 / 0.12);
+}
+
+:global(.dark) .card-case-study:hover {
+  border-color: rgb(153 161 255 / 0.3);
+  box-shadow:
+    0 24px 56px -16px rgb(0 0 0 / 0.45),
+    0 8px 20px -10px rgb(0 0 0 / 0.3);
+}
+
+/* Animated accent line at bottom on hover */
+.card-case-study::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.44 0.23 270),
+    oklch(0.6 0.18 200),
+    transparent
+  );
+  opacity: 0;
+  transform: scaleX(0.3);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:global(.dark) .card-case-study::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.72 0.18 270),
+    oklch(0.65 0.14 200),
+    transparent
+  );
+}
+
+.card-case-study:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+</style>

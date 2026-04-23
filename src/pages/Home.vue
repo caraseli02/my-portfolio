@@ -2,18 +2,12 @@
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
     <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
       <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
-      <!-- Hero visual anchor -->
-      <div class="absolute top-20 right-10 hidden lg:block" aria-hidden="true">
-        <div class="relative h-72 w-72">
-          <div
-            class="absolute inset-0 rounded-full bg-cobalt-500/[0.06] dark:bg-cobalt-300/[0.08] blur-3xl"
-          ></div>
-          <div
-            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-[2rem] border border-cobalt-500/10 dark:border-cobalt-300/10"
-          ></div>
-          <div
-            class="absolute top-16 left-16 h-40 w-40 -rotate-6 rounded-xl border border-cobalt-500/15 dark:border-cobalt-300/15 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]"
-          ></div>
+      <!-- Hero visual anchor — animated gradient orbs -->
+      <div class="absolute top-16 right-4 hidden lg:block" aria-hidden="true">
+        <div class="hero-orb-container relative h-80 w-80">
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+          <div class="hero-orb hero-orb-3"></div>
         </div>
       </div>
       <div
@@ -272,3 +266,93 @@ useJsonLd({
   },
 });
 </script>
+
+<style scoped>
+.hero-orb-container {
+  filter: blur(1px);
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.hero-orb-1 {
+  inset: 0;
+  background: radial-gradient(circle, oklch(0.5 0.2 270 / 0.12), transparent 70%);
+  animation: orb-float-1 12s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+  top: 20%;
+  left: 15%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, oklch(0.6 0.15 200 / 0.08), transparent 65%);
+  animation: orb-float-2 16s ease-in-out infinite;
+}
+
+.hero-orb-3 {
+  top: 30%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, oklch(0.7 0.12 300 / 0.1), transparent 60%);
+  animation: orb-float-3 10s ease-in-out infinite;
+}
+
+:global(.dark) .hero-orb-1 {
+  background: radial-gradient(circle, oklch(0.65 0.18 270 / 0.15), transparent 70%);
+}
+
+:global(.dark) .hero-orb-2 {
+  background: radial-gradient(circle, oklch(0.7 0.14 200 / 0.1), transparent 65%);
+}
+
+:global(.dark) .hero-orb-3 {
+  background: radial-gradient(circle, oklch(0.75 0.12 300 / 0.12), transparent 60%);
+}
+
+@keyframes orb-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -15px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.97);
+  }
+}
+
+@keyframes orb-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-18px, 12px) scale(1.08);
+  }
+}
+
+@keyframes orb-float-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  40% {
+    transform: translate(12px, 18px) scale(1.04);
+  }
+  80% {
+    transform: translate(-8px, -10px) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb {
+    animation: none;
+  }
+}
+</style>

@@ -13,7 +13,11 @@
     <CustomCursor v-if="cursorEnabled" />
     <Header @open-palette="openPalette" @open-shortcuts="openShortcuts" />
     <main id="main-content" class="flex-grow">
-      <router-view />
+      <router-view v-slot="{ Component, route: currentRoute }">
+        <Transition name="page" mode="out-in">
+          <component :is="Component" :key="currentRoute.path" />
+        </Transition>
+      </router-view>
     </main>
 
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
@@ -100,6 +104,36 @@ a:active:not(:disabled) {
 
 html {
   transition: background-color 0.3s ease;
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 html.theme-transition,
