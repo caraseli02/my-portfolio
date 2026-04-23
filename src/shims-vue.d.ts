@@ -4,5 +4,5 @@ declare module "*.vue" {
   export default component;
 }
 
-declare module "@fontsource/jetbrains-mono/latin-400.css";
+declare module "@fontsource/jetbrains-mono/*";
 declare module "@fontsource-variable/*";

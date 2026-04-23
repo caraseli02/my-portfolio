@@ -1,7 +1,9 @@
 <template>
   <div class="min-h-screen bg-cream-100 pt-28 dark:bg-charcoal md:pt-32">
     <div class="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12">
-      <section class="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_22rem] lg:items-start">
+      <section
+        class="reveal-stagger grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_22rem] lg:items-start"
+      >
         <div>
           <p class="editorial-kicker mb-4">about vlad caraseli</p>
           <h1
@@ -59,7 +61,7 @@
         </aside>
       </section>
 
-      <section class="mt-14 grid gap-5 md:grid-cols-3">
+      <section class="reveal mt-14 grid gap-5 md:grid-cols-3">
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">01 — what I do best</p>
           <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
@@ -83,7 +85,9 @@
         </article>
       </section>
 
-      <section class="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
+      <section
+        class="reveal mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start"
+      >
         <div>
           <p class="editorial-kicker mb-4">working style</p>
           <h2 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
@@ -141,7 +145,7 @@
       </section>
     </div>
 
-    <Footer />
+    <Footer class="footer-reveal" />
   </div>
 </template>
 
