@@ -248,15 +248,39 @@ function runItem(item: Item) {
   close();
 }
 
+function close() {
+  open.value = false;
+  if (triggerEl) {
+    triggerEl.focus();
+    triggerEl = null;
+  }
+}
+
+let triggerEl: HTMLElement | null = null;
+
 function openPalette() {
+  triggerEl = document.activeElement instanceof HTMLElement ? document.activeElement : null;
   open.value = true;
   query.value = "";
   activeIndex.value = 0;
   nextTick(() => inputRef.value?.focus());
 }
 
-function close() {
-  open.value = false;
+function handleTabTrap(e: KeyboardEvent) {
+  if (e.key !== "Tab" || !panelRef.value) return;
+  const focusable = panelRef.value.querySelectorAll<HTMLElement>(
+    'input, button, [tabindex]:not([tabindex="-1"])',
+  );
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
 }
 
 function handleKey(e: KeyboardEvent) {
@@ -288,10 +312,12 @@ function handleKey(e: KeyboardEvent) {
 
 onMounted(() => {
   window.addEventListener("keydown", handleKey);
+  window.addEventListener("keydown", handleTabTrap);
 });
 
 onUnmounted(() => {
   window.removeEventListener("keydown", handleKey);
+  window.removeEventListener("keydown", handleTabTrap);
 });
 
 defineExpose({ open: openPalette, close });

@@ -238,4 +238,20 @@ import Footer from "../components/layout/Footer.vue";
 import Marquee from "../components/ui/Marquee.vue";
 import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
 import { featuredProjects } from "../data/projects";
+import { useJsonLd } from "../composables/useJsonLd";
+
+useJsonLd({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Vlad Caraseli",
+  url: "https://vladcaraseli.com",
+  description:
+    "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences.",
+  author: {
+    "@type": "Person",
+    name: "Vlad Caraseli",
+    jobTitle: "Frontend Engineer",
+    url: "https://vladcaraseli.com",
+  },
+});
 </script>

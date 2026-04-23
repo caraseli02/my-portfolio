@@ -149,6 +149,7 @@
                 :alt="`${project.title} screenshot`"
                 class="h-auto max-h-[70vh] w-full object-cover object-top"
                 loading="eager"
+                fetchpriority="high"
                 width="1280"
                 height="800"
                 @error="handleImageError"

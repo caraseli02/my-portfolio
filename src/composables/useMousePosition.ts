@@ -41,8 +41,16 @@ function stop() {
 function onVisibilityChange() {
   isVisible = !document.hidden;
   if (isVisible && refCount > 0) {
-    // Restart the rAF loop
+    // Restart the rAF loop and re-add listeners
+    document.addEventListener("mousemove", onMouseMove, { passive: true });
     if (rafId === null) rafId = requestAnimationFrame(tick);
+  } else if (!isVisible) {
+    // Remove listeners to allow bfcache restoration
+    document.removeEventListener("mousemove", onMouseMove);
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 }
 

@@ -18,12 +18,12 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/jetbrains-mono':
-        specifier: ^5.2.8
-        version: 5.2.8
       '@fontsource/figtree':
         specifier: ^5.2.10
         version: 5.2.10
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/young-serif':
         specifier: ^5.2.7
         version: 5.2.7
@@ -250,11 +250,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/jetbrains-mono@5.2.8':
-    resolution: {integrity: sha512-WBA9elru6Jdp5df2mES55wuOO0WIrn3kpXnI4+W2ek5u3ZgLS9XS4gmIlcQhiZOWEKl95meYdvK7xI+ETLCq/Q==}
-
   '@fontsource/figtree@5.2.10':
     resolution: {integrity: sha512-nlO06N1qad88ySqzi/a2xwDBkamfZ4MFilP8la5dDyRY36ED0UYTs2hhtwJf8fM52+Nn7dQO2r27reKaXOyOIg==}
+
+  '@fontsource/jetbrains-mono@5.2.8':
+    resolution: {integrity: sha512-6w8/SG4kqvIMu7xd7wt6x3idn1Qux3p9N62s6G3rfldOUYHpWcc2FKrqf+Vo44jRvqWj2oAtTHrZXEP23oSKwQ==}
 
   '@fontsource/young-serif@5.2.7':
     resolution: {integrity: sha512-BltTmAlXLWQpu9XCQa+dfDJHQXt0EHUA4h9Q53VToDW3Onq0dkWzCPM1EyhinqfuwD9tb/5cEcGoRcRwiyiUUA==}
@@ -1442,9 +1442,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
-  '@fontsource-variable/jetbrains-mono@5.2.8': {}
-
   '@fontsource/figtree@5.2.10': {}
+
+  '@fontsource/jetbrains-mono@5.2.8': {}
 
   '@fontsource/young-serif@5.2.7': {}
 
