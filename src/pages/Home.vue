@@ -2,10 +2,24 @@
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
     <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
       <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
+      <!-- Hero visual anchor -->
+      <div class="absolute top-20 right-10 hidden lg:block" aria-hidden="true">
+        <div class="relative h-72 w-72">
+          <div
+            class="absolute inset-0 rounded-full bg-cobalt-500/[0.06] dark:bg-cobalt-300/[0.08] blur-3xl"
+          ></div>
+          <div
+            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-[2rem] border border-cobalt-500/10 dark:border-cobalt-300/10"
+          ></div>
+          <div
+            class="absolute top-16 left-16 h-40 w-40 -rotate-6 rounded-xl border border-cobalt-500/15 dark:border-cobalt-300/15 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]"
+          ></div>
+        </div>
+      </div>
       <div
         class="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1.25fr)_20rem] lg:items-start"
       >
-        <div>
+        <div class="reveal-stagger">
           <p class="editorial-kicker mb-6 flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>vlad caraseli</span>
             <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/40">·</span>
@@ -73,7 +87,7 @@
         </div>
 
         <aside
-          class="relative border border-cobalt-500/14 bg-white/60 p-6 dark:border-cobalt-300/15 dark:bg-charcoal-50/60 md:p-7"
+          class="reveal relative border border-cobalt-500/14 bg-white/60 p-6 dark:border-cobalt-300/15 dark:bg-charcoal-50/60 md:p-7"
         >
           <p class="editorial-kicker mb-4">why teams bring me in</p>
           <ul class="space-y-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
@@ -123,7 +137,9 @@
 
     <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
       <div class="mx-auto max-w-7xl">
-        <div class="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+        <div
+          class="reveal mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end"
+        >
           <div>
             <p class="editorial-kicker mb-3">selected case studies</p>
             <h2
@@ -140,7 +156,7 @@
           </p>
         </div>
 
-        <div class="space-y-5">
+        <div class="reveal-stagger space-y-5">
           <CaseStudyListItem
             v-for="(project, index) in featuredProjects"
             :key="project.caseStudy?.slug || project.id"
@@ -152,12 +168,13 @@
             :image="project.caseStudy?.image || ''"
             :description="project.description"
             :github="project.github"
+            class="card-lift"
           />
         </div>
       </div>
     </section>
 
-    <section class="px-6 pb-16 md:px-10 lg:px-12">
+    <section class="reveal px-6 pb-16 md:px-10 lg:px-12">
       <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
         <div
           class="border border-cobalt-500/14 bg-white/70 p-6 dark:border-cobalt-300/14 dark:bg-charcoal-50/60 md:p-8"
@@ -229,7 +246,7 @@
       </div>
     </section>
 
-    <Footer />
+    <Footer class="footer-reveal" />
   </div>
 </template>
 

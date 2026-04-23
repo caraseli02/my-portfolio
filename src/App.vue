@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen flex flex-col bg-cream-100 dark:bg-charcoal"
+    class="min-h-screen flex flex-col bg-cream-100 dark:bg-charcoal grain-overlay"
     :class="{ 'custom-cursor-active': cursorEnabled }"
   >
     <!-- Full-app grid background — uncomment to evaluate site-wide squares -->
@@ -13,7 +13,11 @@
     <CustomCursor v-if="cursorEnabled" />
     <Header @open-palette="openPalette" @open-shortcuts="openShortcuts" />
     <main id="main-content" class="flex-grow">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <Transition name="page" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </router-view>
     </main>
 
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
@@ -55,6 +59,57 @@ function openShortcuts() {
   .custom-cursor-active * {
     cursor: auto !important;
   }
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* Button press states */
+button:active:not(:disabled),
+a:active:not(:disabled) {
+  transform: scale(0.97);
+  transition-duration: 0.1s;
+}
+
+/* Card lift on hover */
+.card-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -16px rgba(17, 27, 143, 0.18),
+    0 8px 20px -10px rgba(17, 27, 143, 0.1);
+}
+
+.dark .card-lift:hover {
+  box-shadow:
+    0 20px 50px -16px rgba(0, 0, 0, 0.4),
+    0 8px 20px -10px rgba(0, 0, 0, 0.25);
+}
+
+/* Footer parallax reveal */
+.footer-reveal {
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-reveal.revealed {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 html {

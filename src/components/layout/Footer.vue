@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="border-t border-cobalt-500/10 bg-cream-100/70 px-6 py-8 dark:bg-charcoal dark:border-cobalt-300/10"
+    class="footer-reveal border-t border-cobalt-500/10 bg-cream-100/70 px-6 py-8 dark:bg-charcoal dark:border-cobalt-300/10"
   >
     <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
       <div

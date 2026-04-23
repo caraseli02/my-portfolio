@@ -3,7 +3,7 @@
     <div
       class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:px-12"
     >
-      <section>
+      <section class="reveal">
         <p class="editorial-kicker mb-4">contact</p>
         <h1
           class="max-w-4xl text-[3.2rem] leading-[0.94] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.4rem]"
@@ -95,7 +95,7 @@
       </aside>
     </div>
 
-    <Footer />
+    <Footer class="footer-reveal" />
   </div>
 </template>
 
