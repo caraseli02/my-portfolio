@@ -23,12 +23,30 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import Header from "./components/layout/Header.vue";
 import CustomCursor from "./components/CustomCursor.vue";
 import CommandPalette from "./components/ui/CommandPalette.vue";
 import ShortcutLegend from "./components/ui/ShortcutLegend.vue";
 import { useCursorPreference } from "./composables/useCursorPreference";
 import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
+
+const router = useRouter();
+
+// View Transitions API integration
+router.beforeEach((to, from) => {
+  if (from.path === to.path) return;
+  // @ts-expect-error — View Transitions API not yet in all TS libs
+  if (!document.startViewTransition) return;
+  // @ts-expect-error
+  return new Promise((resolve) => {
+    // @ts-expect-error
+    document.startViewTransition(async () => {
+      resolve();
+      await new Promise((r) => requestAnimationFrame(r));
+    });
+  });
+});
 
 const { enabled: cursorEnabled } = useCursorPreference();
 const { shortcutsOpen } = useGlobalShortcuts();
@@ -100,6 +118,35 @@ a:active:not(:disabled) {
 
 html {
   transition: background-color 0.3s ease;
+}
+
+/* Page transitions — View Transitions API */
+::view-transition-old(root) {
+  animation: 180ms ease-out both page-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 200ms ease-in both page-fade-in;
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 html.theme-transition,
