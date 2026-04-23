@@ -15,9 +15,9 @@
     <main id="main-content" class="flex-grow">
       <router-view />
     </main>
-
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
     <ShortcutLegend :open="shortcutsOpen" @close="shortcutsOpen = false" />
+    <ChatWidget />
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import Header from "./components/layout/Header.vue";
 import CustomCursor from "./components/CustomCursor.vue";
 import CommandPalette from "./components/ui/CommandPalette.vue";
 import ShortcutLegend from "./components/ui/ShortcutLegend.vue";
+import ChatWidget from "./components/chat/ChatWidget.vue";
 import { useCursorPreference } from "./composables/useCursorPreference";
 import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
 
