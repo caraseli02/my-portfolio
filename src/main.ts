@@ -39,6 +39,6 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
   observeReveals();
   router.afterEach(() => {
-    requestAnimationFrame(observeReveals);
+    setTimeout(observeReveals, 100);
   });
 }

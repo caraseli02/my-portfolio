@@ -13,11 +13,7 @@
     <CustomCursor v-if="cursorEnabled" />
     <Header @open-palette="openPalette" @open-shortcuts="openShortcuts" />
     <main id="main-content" class="flex-grow">
-      <router-view v-slot="{ Component }">
-        <Transition name="page" mode="out-in">
-          <component :is="Component" />
-        </Transition>
-      </router-view>
+      <router-view />
     </main>
 
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
@@ -59,16 +55,6 @@ function openShortcuts() {
   .custom-cursor-active * {
     cursor: auto !important;
   }
-}
-
-/* Page transitions */
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.2s ease;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
 }
 
 /* Button press states */
