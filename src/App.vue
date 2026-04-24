@@ -33,15 +33,18 @@ import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
 
 const router = useRouter();
 
+type DocumentWithViewTransition = Document & {
+  startViewTransition?: (callback: () => Promise<void> | void) => unknown;
+};
+
+const documentWithViewTransition = document as DocumentWithViewTransition;
+
 // View Transitions API integration
 router.beforeEach((to, from) => {
   if (from.path === to.path) return;
-  // @ts-expect-error — View Transitions API not yet in all TS libs
-  if (!document.startViewTransition) return;
-  // @ts-expect-error
+  if (!documentWithViewTransition.startViewTransition) return;
   return new Promise((resolve) => {
-    // @ts-expect-error
-    document.startViewTransition(async () => {
+    documentWithViewTransition.startViewTransition!(async () => {
       resolve();
       await new Promise((r) => requestAnimationFrame(r));
     });
