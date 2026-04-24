@@ -13,7 +13,11 @@
     <CustomCursor v-if="cursorEnabled" />
     <Header @open-palette="openPalette" @open-shortcuts="openShortcuts" />
     <main id="main-content" class="flex-grow">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <Transition name="page" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </Transition>
+      </router-view>
     </main>
 
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
@@ -23,33 +27,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useRouter } from "vue-router";
 import Header from "./components/layout/Header.vue";
 import CustomCursor from "./components/CustomCursor.vue";
 import CommandPalette from "./components/ui/CommandPalette.vue";
 import ShortcutLegend from "./components/ui/ShortcutLegend.vue";
 import { useCursorPreference } from "./composables/useCursorPreference";
 import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
-
-const router = useRouter();
-
-type DocumentWithViewTransition = Document & {
-  startViewTransition?: (callback: () => Promise<void> | void) => unknown;
-};
-
-const documentWithViewTransition = document as DocumentWithViewTransition;
-
-// View Transitions API integration
-router.beforeEach((to, from) => {
-  if (from.path === to.path) return;
-  if (!documentWithViewTransition.startViewTransition) return;
-  return new Promise((resolve) => {
-    documentWithViewTransition.startViewTransition!(async () => {
-      resolve();
-      await new Promise((r) => requestAnimationFrame(r));
-    });
-  });
-});
 
 const { enabled: cursorEnabled } = useCursorPreference();
 const { shortcutsOpen } = useGlobalShortcuts();
@@ -123,32 +106,28 @@ html {
   transition: background-color 0.3s ease;
 }
 
-/* Page transitions — View Transitions API */
-::view-transition-old(root) {
-  animation: 180ms ease-out both page-fade-out;
+/* Page transitions — Vue <Transition> */
+.page-leave-active {
+  transition: opacity 180ms ease-out;
 }
 
-::view-transition-new(root) {
-  animation: 200ms ease-in both page-fade-in;
+.page-enter-active {
+  transition: opacity 200ms ease-in, transform 200ms ease-in;
 }
 
-@keyframes page-fade-out {
-  to {
-    opacity: 0;
-  }
+.page-leave-to {
+  opacity: 0;
 }
 
-@keyframes page-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
+  .page-leave-active,
+  .page-enter-active {
+    transition: none;
   }
 }
 
