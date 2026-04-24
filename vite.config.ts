@@ -14,4 +14,9 @@ export default defineConfig({
     environment: "happy-dom",
   },
   plugins: [vue(), tailwindcss()],
+  server: {
+    proxy: {
+      "/api": "https://amarillo-rho.vercel.app",
+    },
+  },
 });

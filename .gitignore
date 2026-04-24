@@ -24,3 +24,5 @@ node-compile-cache/
 # Other lockfiles (using pnpm)
 package-lock.json
 yarn.lock
+.vercel
+.env*.local
