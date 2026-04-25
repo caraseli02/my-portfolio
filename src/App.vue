@@ -48,6 +48,8 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   const el = mainRef.value;
   if (!el) return;
+  // Scroll to top while content is faded out (invisible to user)
+  window.scrollTo({ top: 0 });
   // Wait for DOM to update, then fade back in
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {

@@ -86,7 +86,8 @@ const router = createRouter({
       };
     }
 
-    return { top: 0, behavior: "smooth" };
+    // Scroll is handled by App.vue afterEach to avoid jarring jump before transition completes
+    return false;
   },
 });
 
