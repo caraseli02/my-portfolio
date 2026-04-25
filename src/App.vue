@@ -35,29 +35,19 @@ import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
 const router = useRouter();
 const mainRef = ref<HTMLElement | null>(null);
 
-// Page transitions — simple fade
-router.beforeEach((to, from, next) => {
-  const el = mainRef.value;
-  if (el && to.path !== from.path) {
-    // Instant hide — no transition on leave (disable transition temporarily)
-    el.style.transition = "none";
-    el.style.opacity = "0";
-    // Scroll while invisible
-    window.scrollTo({ top: 0 });
-    // Force reflow so browser processes the instant hide + scroll
-    void el.offsetHeight;
-  }
-  next();
-});
-
+// Page transitions
 router.afterEach(() => {
   const el = mainRef.value;
   if (!el) return;
-  // Re-enable transition, then fade in on next frame
+  // Hide entire page to mask scroll
+  document.documentElement.style.opacity = "0";
+  document.documentElement.style.transition = "none";
+  window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  void document.documentElement.offsetHeight;
+  // Fade in
   requestAnimationFrame(() => {
-    el.style.transition = "";
-    el.style.opacity = "";
-    el.style.transform = "";
+    document.documentElement.style.transition = "opacity 200ms ease";
+    document.documentElement.style.opacity = "1";
   });
 });
 
