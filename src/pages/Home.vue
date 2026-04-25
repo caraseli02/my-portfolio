@@ -71,18 +71,18 @@
           </dl>
 
           <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#case-studies"
-              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
-            >
-              View case studies
-            </a>
             <router-link
               to="/contact"
-              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
             >
               Start a conversation
             </router-link>
+            <a
+              href="#case-studies"
+              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            >
+              View case studies
+            </a>
           </div>
         </div>
 
@@ -104,35 +104,33 @@
       </div>
     </section>
 
+    <!-- Trust bar — key signals at a glance -->
     <section
-      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.02] py-3 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.03]"
+      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.02] py-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.03]"
     >
-      <Marquee :duration="36" pause-on-hover>
-        <div
-          class="flex items-center gap-10 pr-10 font-mono text-xs tracking-[0.14em] text-cobalt-500/80 dark:text-cobalt-200/80"
+      <div
+        class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 font-mono text-xs tracking-[0.14em] text-cobalt-500/80 dark:text-cobalt-200/80 md:px-10"
+      >
+        <span
+          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">shipped &gt;</span>
+          topproperties · ecas · component library</span
         >
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">shipped &gt;</span>
-            topproperties · ecas · component library</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">stack &gt;</span> vue 3.5 ·
-            vite 8 · tailwind 4 · typescript 5.8</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">repos &gt;</span> 58+ public
-            on github</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">now &gt;</span> open to senior
-            frontend roles</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-        </div>
-      </Marquee>
+        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
+        <span
+          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">stack &gt;</span> vue 3.5 · vite
+          8 · tailwind 4 · typescript 5.8</span
+        >
+        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
+        <span
+          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">repos &gt;</span> 58+ public on
+          github</span
+        >
+        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
+        <span class="flex items-center gap-1.5"
+          ><span class="inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+          open to senior frontend roles</span
+        >
+      </div>
     </section>
 
     <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
@@ -246,13 +244,80 @@
       </div>
     </section>
 
+    <!-- Social proof — what others say -->
+    <section
+      class="reveal border-t border-cobalt-500/10 bg-white/40 px-6 py-14 dark:border-cobalt-300/10 dark:bg-charcoal-50/40 md:px-10 md:py-20 lg:px-12"
+    >
+      <div class="mx-auto max-w-7xl">
+        <p class="editorial-kicker mb-3">what others say</p>
+        <h2
+          class="mb-10 max-w-2xl text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl"
+        >
+          Feedback from teams I have worked with.
+        </h2>
+        <div class="grid gap-5 md:grid-cols-3">
+          <blockquote
+            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
+          >
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              &ldquo;Vlad brought clarity to a frontend that had grown messy over two years. The
+              refactor shipped clean, on time, and the design system he left behind is still
+              running.&rdquo;
+            </p>
+            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
+              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
+                Your Name Here
+              </p>
+              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
+                Role · Company
+              </p>
+            </footer>
+          </blockquote>
+          <blockquote
+            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
+          >
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              &ldquo;Strong eye for hierarchy and interaction. He turned rough mockups into
+              something that felt finished without needing constant design hand-holding.&rdquo;
+            </p>
+            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
+              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
+                Your Name Here
+              </p>
+              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
+                Role · Company
+              </p>
+            </footer>
+          </blockquote>
+          <blockquote
+            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
+          >
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              &ldquo;Rare combo: ships fast but does not cut corners on accessibility or edge
+              states. The component library he built became the team default within a month.&rdquo;
+            </p>
+            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
+              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
+                Your Name Here
+              </p>
+              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
+                Role · Company
+              </p>
+            </footer>
+          </blockquote>
+        </div>
+        <p class="mt-6 text-xs tracking-wide text-cobalt-500/50 dark:text-cobalt-300/50">
+          Replace with real endorsements — reach out to past colleagues or clients.
+        </p>
+      </div>
+    </section>
+
     <Footer class="footer-reveal" />
   </div>
 </template>
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
-import Marquee from "../components/ui/Marquee.vue";
 import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
 import { featuredProjects } from "../data/projects";
 import { useJsonLd } from "../composables/useJsonLd";
