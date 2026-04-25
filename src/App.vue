@@ -12,7 +12,7 @@
     >
     <CustomCursor v-if="cursorEnabled" />
     <Header @open-palette="openPalette" @open-shortcuts="openShortcuts" />
-    <main id="main-content" class="flex-grow">
+    <main id="main-content" class="flex-grow" ref="mainRef">
       <router-view />
     </main>
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import Header from "./components/layout/Header.vue";
 import CustomCursor from "./components/CustomCursor.vue";
 import CommandPalette from "./components/ui/CommandPalette.vue";
@@ -30,6 +31,31 @@ import ShortcutLegend from "./components/ui/ShortcutLegend.vue";
 import ChatWidget from "./components/chat/ChatWidget.vue";
 import { useCursorPreference } from "./composables/useCursorPreference";
 import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
+
+const router = useRouter();
+const mainRef = ref<HTMLElement | null>(null);
+
+// Page transitions — simple fade
+router.beforeEach((to, from, next) => {
+  const el = mainRef.value;
+  if (el && to.path !== from.path) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(6px)";
+  }
+  next();
+});
+
+router.afterEach(() => {
+  const el = mainRef.value;
+  if (!el) return;
+  // Wait for DOM to update, then fade back in
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      el.style.opacity = "";
+      el.style.transform = "";
+    });
+  });
+});
 
 const { enabled: cursorEnabled } = useCursorPreference();
 const { shortcutsOpen } = useGlobalShortcuts();
@@ -101,6 +127,18 @@ a:active:not(:disabled) {
 
 html {
   transition: background-color 0.3s ease;
+}
+
+/* Page transitions — fade <main> on route change */
+#main-content {
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-content {
+    transition: none;
+  }
 }
 
 html.theme-transition,
