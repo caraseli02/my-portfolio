@@ -39,8 +39,13 @@ const mainRef = ref<HTMLElement | null>(null);
 router.beforeEach((to, from, next) => {
   const el = mainRef.value;
   if (el && to.path !== from.path) {
+    // Instant hide — no transition on leave (disable transition temporarily)
+    el.style.transition = "none";
     el.style.opacity = "0";
-    el.style.transform = "translateY(6px)";
+    // Scroll while invisible
+    window.scrollTo({ top: 0 });
+    // Force reflow so browser processes the instant hide + scroll
+    void el.offsetHeight;
   }
   next();
 });
@@ -48,14 +53,11 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   const el = mainRef.value;
   if (!el) return;
-  // Scroll to top while content is faded out (invisible to user)
-  window.scrollTo({ top: 0 });
-  // Wait for DOM to update, then fade back in
+  // Re-enable transition, then fade in on next frame
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      el.style.opacity = "";
-      el.style.transform = "";
-    });
+    el.style.transition = "";
+    el.style.opacity = "";
+    el.style.transform = "";
   });
 });
 
