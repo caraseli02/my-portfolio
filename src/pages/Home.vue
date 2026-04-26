@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
     <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
-      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
+      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-2xl opacity-60"></div>
       <!-- Hero visual anchor -->
       <div class="absolute top-20 right-10 hidden lg:block" aria-hidden="true">
         <div class="relative h-72 w-72">
@@ -9,7 +9,7 @@
             class="absolute inset-0 rounded-full bg-cobalt-500/[0.06] dark:bg-cobalt-300/[0.08] blur-3xl"
           ></div>
           <div
-            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-[2rem] border border-cobalt-500/10 dark:border-cobalt-300/10"
+            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-2xl border border-cobalt-500/10 dark:border-cobalt-300/10"
           ></div>
           <div
             class="absolute top-16 left-16 h-40 w-40 -rotate-6 rounded-xl border border-cobalt-500/15 dark:border-cobalt-300/15 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]"
@@ -42,7 +42,7 @@
           </p>
 
           <dl
-            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-4"
+            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-6"
           >
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
@@ -51,6 +51,14 @@
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">stack</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">Vue · React · Nuxt · TS</dd>
+            </div>
+            <div class="flex flex-col gap-1">
+              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">shipped</dt>
+              <dd class="text-sm font-semibold tracking-[0.12em]">topproperties · ecas · abs</dd>
+            </div>
+            <div class="flex flex-col gap-1">
+              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">repos</dt>
+              <dd class="text-sm font-semibold tracking-[0.12em]">58+ public</dd>
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">case studies</dt>
@@ -71,18 +79,18 @@
           </dl>
 
           <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#case-studies"
-              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
-            >
-              View case studies
-            </a>
             <router-link
               to="/contact"
-              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
             >
               Start a conversation
             </router-link>
+            <a
+              href="#case-studies"
+              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            >
+              View case studies
+            </a>
           </div>
         </div>
 
@@ -102,37 +110,6 @@
           </div>
         </aside>
       </div>
-    </section>
-
-    <section
-      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.02] py-3 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.03]"
-    >
-      <Marquee :duration="36" pause-on-hover>
-        <div
-          class="flex items-center gap-10 pr-10 font-mono text-xs tracking-[0.14em] text-cobalt-500/80 dark:text-cobalt-200/80"
-        >
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">shipped &gt;</span>
-            topproperties · ecas · component library</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">stack &gt;</span> vue 3.5 ·
-            vite 8 · tailwind 4 · typescript 5.8</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">repos &gt;</span> 58+ public
-            on github</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-          <span
-            ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">now &gt;</span> open to senior
-            frontend roles</span
-          >
-          <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-        </div>
-      </Marquee>
     </section>
 
     <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
@@ -252,7 +229,6 @@
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
-import Marquee from "../components/ui/Marquee.vue";
 import CaseStudyListItem from "../components/case-study/CaseStudyListItem.vue";
 import { featuredProjects } from "../data/projects";
 import { useJsonLd } from "../composables/useJsonLd";
