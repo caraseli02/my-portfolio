@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
     <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
-      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-[2rem] opacity-60"></div>
+      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-2xl opacity-60"></div>
       <!-- Hero visual anchor -->
       <div class="absolute top-20 right-10 hidden lg:block" aria-hidden="true">
         <div class="relative h-72 w-72">
@@ -9,7 +9,7 @@
             class="absolute inset-0 rounded-full bg-cobalt-500/[0.06] dark:bg-cobalt-300/[0.08] blur-3xl"
           ></div>
           <div
-            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-[2rem] border border-cobalt-500/10 dark:border-cobalt-300/10"
+            class="absolute top-8 left-8 h-56 w-56 rotate-12 rounded-2xl border border-cobalt-500/10 dark:border-cobalt-300/10"
           ></div>
           <div
             class="absolute top-16 left-16 h-40 w-40 -rotate-6 rounded-xl border border-cobalt-500/15 dark:border-cobalt-300/15 bg-cobalt-500/[0.02] dark:bg-cobalt-300/[0.03]"
@@ -42,7 +42,7 @@
           </p>
 
           <dl
-            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-4"
+            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-6"
           >
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
@@ -51,6 +51,14 @@
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">stack</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">Vue · React · Nuxt · TS</dd>
+            </div>
+            <div class="flex flex-col gap-1">
+              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">shipped</dt>
+              <dd class="text-sm font-semibold tracking-[0.12em]">topproperties · ecas · abs</dd>
+            </div>
+            <div class="flex flex-col gap-1">
+              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">repos</dt>
+              <dd class="text-sm font-semibold tracking-[0.12em]">58+ public</dd>
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">case studies</dt>
@@ -101,35 +109,6 @@
             scroll for 03 case studies ↓
           </div>
         </aside>
-      </div>
-    </section>
-
-    <!-- Trust bar — key signals at a glance -->
-    <section
-      class="border-y border-cobalt-500/12 bg-cobalt-500/[0.02] py-4 dark:border-cobalt-300/12 dark:bg-cobalt-300/[0.03]"
-    >
-      <div
-        class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 font-mono text-xs tracking-[0.14em] text-cobalt-500/80 dark:text-cobalt-200/80 md:px-10"
-      >
-        <span
-          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">shipped &gt;</span>
-          topproperties · ecas · component library</span
-        >
-        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-        <span
-          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">stack &gt;</span> vue 3.5 · vite
-          8 · tailwind 4 · typescript 5.8</span
-        >
-        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-        <span
-          ><span class="text-cobalt-500/50 dark:text-cobalt-300/50">repos &gt;</span> 58+ public on
-          github</span
-        >
-        <span class="text-cobalt-500/30 dark:text-cobalt-300/30">//</span>
-        <span class="flex items-center gap-1.5"
-          ><span class="inline-block h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
-          open to senior frontend roles</span
-        >
       </div>
     </section>
 
@@ -241,74 +220,6 @@
             <span aria-hidden="true">↗</span>
           </a>
         </div>
-      </div>
-    </section>
-
-    <!-- Social proof — what others say -->
-    <section
-      class="reveal border-t border-cobalt-500/10 bg-white/40 px-6 py-14 dark:border-cobalt-300/10 dark:bg-charcoal-50/40 md:px-10 md:py-20 lg:px-12"
-    >
-      <div class="mx-auto max-w-7xl">
-        <p class="editorial-kicker mb-3">what others say</p>
-        <h2
-          class="mb-10 max-w-2xl text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl"
-        >
-          Feedback from teams I have worked with.
-        </h2>
-        <div class="grid gap-5 md:grid-cols-3">
-          <blockquote
-            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
-          >
-            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              &ldquo;Vlad brought clarity to a frontend that had grown messy over two years. The
-              refactor shipped clean, on time, and the design system he left behind is still
-              running.&rdquo;
-            </p>
-            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
-              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
-                Your Name Here
-              </p>
-              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
-                Role · Company
-              </p>
-            </footer>
-          </blockquote>
-          <blockquote
-            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
-          >
-            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              &ldquo;Strong eye for hierarchy and interaction. He turned rough mockups into
-              something that felt finished without needing constant design hand-holding.&rdquo;
-            </p>
-            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
-              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
-                Your Name Here
-              </p>
-              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
-                Role · Company
-              </p>
-            </footer>
-          </blockquote>
-          <blockquote
-            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60"
-          >
-            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              &ldquo;Rare combo: ships fast but does not cut corners on accessibility or edge
-              states. The component library he built became the team default within a month.&rdquo;
-            </p>
-            <footer class="mt-5 border-t border-cobalt-500/10 pt-4 dark:border-cobalt-300/10">
-              <p class="text-sm font-semibold text-cobalt-500 dark:text-cobalt-200">
-                Your Name Here
-              </p>
-              <p class="text-xs tracking-wide text-cobalt-500/60 dark:text-cobalt-300/60">
-                Role · Company
-              </p>
-            </footer>
-          </blockquote>
-        </div>
-        <p class="mt-6 text-xs tracking-wide text-cobalt-500/50 dark:text-cobalt-300/50">
-          Replace with real endorsements — reach out to past colleagues or clients.
-        </p>
       </div>
     </section>
 
