@@ -22,7 +22,7 @@
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
-              href="https://linkedin.com/in/vlad-caraseli"
+              href="https://linkedin.com/in/caraseli"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center justify-center bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-opacity hover:opacity-85"
@@ -56,7 +56,7 @@
               GitHub ↗
             </a>
             <a
-              href="https://linkedin.com/in/vlad-caraseli"
+              href="https://linkedin.com/in/caraseli"
               target="_blank"
               rel="noopener noreferrer"
               class="ink-link"

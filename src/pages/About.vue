@@ -16,7 +16,8 @@
           >
             Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
             under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
-            layers teams actually rely on.
+            layers teams actually rely on. AI-native workflow with Claude Code and Codex baked into
+            every project cycle.
           </p>
         </div>
 
@@ -41,8 +42,20 @@
                 specialty
               </p>
               <p class="mt-1">
-                Frontend architecture, UX clarity, design systems, and product-facing
-                implementation.
+                Frontend architecture, UX clarity, design systems, AI-powered development, and
+                product-facing implementation.
+              </p>
+            </div>
+            <div class="editorial-rule"></div>
+            <div>
+              <p
+                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
+              >
+                languages
+              </p>
+              <p class="mt-1">
+                Moldovan (native) · Russian (full professional) · English (professional working) ·
+                Spanish (professional working)
               </p>
             </div>
             <div class="editorial-rule"></div>
@@ -72,8 +85,8 @@
         <article class="panel-surface p-6">
           <p class="editorial-kicker mb-3">02 — how I work</p>
           <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            Design-minded engineering: thoughtful systems, clean implementation, and enough visual
-            restraint that the important moments hit harder.
+            AI-native engineering: Claude Code and Codex in the dev cycle, thoughtful systems, clean
+            implementation, and enough visual restraint that the important moments hit harder.
           </p>
         </article>
         <article class="panel-surface p-6">
@@ -85,62 +98,129 @@
         </article>
       </section>
 
+      <!-- Work Experience -->
+      <section class="reveal mt-16">
+        <p class="editorial-kicker mb-6">experience</p>
+        <div class="space-y-6">
+          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <div>
+                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
+                  Hotelverse
+                </h3>
+                <p
+                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
+                >
+                  UI/UX Engineer
+                </p>
+              </div>
+              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">
+                Nov 2024 — Dec 2025 · Palma, Spain
+              </p>
+            </div>
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              Architected complex UI flows using React and TypeScript, ensuring pixel-perfect
+              execution of Figma designs. Focused on performance optimization and creating highly
+              reusable UI patterns to streamline future development.
+            </p>
+          </div>
+
+          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <div>
+                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">Nezo Hub</h3>
+                <p
+                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
+                >
+                  Senior Frontend Engineer
+                </p>
+              </div>
+              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">Apr 2023 — Oct 2024</p>
+            </div>
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              Developed and maintained core features for a SaaS platform using Vue 3 + TypeScript.
+              Integrated custom UI components with backend APIs, collaborated on high-level
+              architectural decisions, and conducted thorough code reviews.
+            </p>
+          </div>
+
+          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+              <div>
+                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
+                  Freelance — Skipso, Santandreatopproperties, Kassebil, Moonflow Club
+                </h3>
+                <p
+                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
+                >
+                  Frontend Developer
+                </p>
+              </div>
+              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">Sep 2021 — Apr 2023</p>
+            </div>
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              Collaborated with diverse teams to conceptualize and design reusable Vue.js
+              components, ensuring consistent quality and adherence to coding standards across
+              multiple client projects.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Certifications -->
       <section
         class="reveal mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start"
       >
         <div>
-          <p class="editorial-kicker mb-4">working style</p>
-          <h2 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
-            I care about interfaces that earn trust fast.
-          </h2>
-          <div
-            class="mt-6 space-y-5 text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85"
-          >
-            <p>
-              That usually means fewer gimmicks, stronger copy hierarchy, and components that feel
-              like they belong to the same product universe.
-            </p>
-            <p>
-              I enjoy the work between “looks good” and “actually holds up” — accessibility,
-              resilience, edge states, motion restraint, and making dense product logic feel
-              legible.
-            </p>
+          <p class="editorial-kicker mb-4">education</p>
+          <div class="space-y-5">
+            <div>
+              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">Vue School</h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                Mastering Web Application Development with Vue.js
+              </p>
+            </div>
+            <div>
+              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">Vue Mastery</h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                From Vue.js Basics to Deep Dive
+              </p>
+            </div>
+            <div>
+              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+                DesignCourse
+              </h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                Foundations of UI/UX Design, HTML/CSS
+              </p>
+            </div>
           </div>
         </div>
 
         <div class="border border-cobalt-500/15 p-6 md:p-8">
-          <p class="editorial-kicker mb-5">good fit projects</p>
-          <div class="space-y-4 text-cobalt-600 dark:text-cobalt-100/85">
-            <div>
-              <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
-              >
-                product UI
-              </p>
-              <p class="mt-1 text-lg">Dashboards, commerce flows, account areas, internal tools.</p>
-            </div>
-            <div>
-              <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
-              >
-                systems
-              </p>
-              <p class="mt-1 text-lg">
-                Component libraries, design systems, typed frontend architecture.
-              </p>
-            </div>
-            <div>
-              <p
-                class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
-              >
-                polish
-              </p>
-              <p class="mt-1 text-lg">
-                UX cleanup, visual hierarchy, interaction refinement, and handoff-ready frontend
-                implementation.
-              </p>
-            </div>
-          </div>
+          <p class="editorial-kicker mb-5">certifications</p>
+          <ul class="space-y-3 text-cobalt-600 dark:text-cobalt-100/85">
+            <li class="flex items-start gap-2">
+              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
+              <span>Certified Nuxt Master</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
+              <span>Certified Pinia Master</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
+              <span>Certified Web Professional — Site Designer (CWP)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
+              <span>Advanced Frontend Course Completion</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
+              <span>UI/UX Course</span>
+            </li>
+          </ul>
         </div>
       </section>
     </div>
@@ -159,8 +239,18 @@ useJsonLd({
   name: "Vlad Caraseli",
   jobTitle: "Frontend Engineer",
   url: "https://vladcaraseli.com",
-  sameAs: ["https://github.com/caraseli02", "https://linkedin.com/in/vlad-caraseli"],
-  knowsAbout: ["Vue", "React", "TypeScript", "Nuxt", "Design Systems", "Frontend Architecture"],
+  sameAs: ["https://github.com/caraseli02", "https://linkedin.com/in/caraseli"],
+  knowsAbout: [
+    "Vue",
+    "React",
+    "TypeScript",
+    "Nuxt",
+    "Design Systems",
+    "Frontend Architecture",
+    "AI-Powered Development",
+    "Claude Code",
+    "Codex",
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Palma de Mallorca",

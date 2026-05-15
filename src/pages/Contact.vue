@@ -37,7 +37,7 @@
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
           <a
-            href="https://linkedin.com/in/vlad-caraseli"
+            href="https://linkedin.com/in/caraseli"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"

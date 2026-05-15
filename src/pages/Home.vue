@@ -37,8 +37,8 @@
           <p
             class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
           >
-            Product frontend for teams that need sharper UX, cleaner systems, and case-study-worthy
-            execution across Vue, React, Nuxt, and TypeScript.
+            Frontend engineer with 4+ years shipping product UI — Vue, React, Nuxt, TypeScript, and
+            an AI-native workflow with Claude Code and Codex.
           </p>
 
           <dl
@@ -46,7 +46,7 @@
           >
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
-              <dd class="text-sm font-semibold tracking-[0.12em]">06 yrs</dd>
+              <dd class="text-sm font-semibold tracking-[0.12em]">04+ yrs</dd>
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">stack</dt>
@@ -54,7 +54,9 @@
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">shipped</dt>
-              <dd class="text-sm font-semibold tracking-[0.12em]">topproperties · ecas · abs</dd>
+              <dd class="text-sm font-semibold tracking-[0.12em]">
+                Hotelverse · Nezo Hub · Skipso
+              </dd>
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">repos</dt>
@@ -100,8 +102,8 @@
           <p class="editorial-kicker mb-4">why teams bring me in</p>
           <ul class="space-y-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
             <li>Complex frontend systems without enterprise bloat.</li>
+            <li>AI-native workflow: Claude Code and Codex integrated into the dev cycle.</li>
             <li>Interfaces with clear hierarchy, credible polish, and strong usability.</li>
-            <li>Case studies that prove range: commerce, maps, component libraries.</li>
           </ul>
           <div
             class="mt-6 border-t border-cobalt-500/12 pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt-500/60 dark:border-cobalt-300/12 dark:text-cobalt-200/70"
@@ -239,7 +241,7 @@ useJsonLd({
   name: "Vlad Caraseli",
   url: "https://vladcaraseli.com",
   description:
-    "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences.",
+    "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences with an AI-native workflow.",
   author: {
     "@type": "Person",
     name: "Vlad Caraseli",
