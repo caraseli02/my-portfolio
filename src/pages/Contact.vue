@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-cream-100 dark:bg-charcoal pt-28 md:pt-32">
+  <div class="min-h-screen bg-cream-100 pt-24 dark:bg-charcoal md:pt-32">
     <div
-      class="mx-auto grid max-w-7xl gap-10 px-6 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:px-12"
+      class="mx-auto grid max-w-7xl gap-10 px-4 pb-20 sm:px-6 md:px-10 lg:grid-cols-[minmax(0,1.1fr)_24rem] lg:px-12"
     >
       <section class="reveal">
         <p class="editorial-kicker mb-4">contact</p>
         <h1
-          class="max-w-4xl text-[3.2rem] leading-[0.94] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.4rem]"
+          class="max-w-4xl text-[clamp(2.65rem,12vw,5.4rem)] leading-[0.94] font-display text-charcoal dark:text-cobalt-100"
         >
           Bring me in when the interface needs to feel
           <span class="italic">sharper</span>, <span class="italic">clearer</span>, and harder to
@@ -40,7 +40,7 @@
             href="https://linkedin.com/in/caraseli"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
+            class="inline-flex min-h-12 w-full items-center justify-center bg-cobalt-500 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85 sm:w-auto sm:px-6 sm:tracking-[0.18em]"
           >
             Start on LinkedIn ↗
           </a>
@@ -48,14 +48,14 @@
             href="https://github.com/caraseli02?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            class="inline-flex min-h-12 w-full items-center justify-center border border-cobalt-500 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal sm:w-auto sm:px-6 sm:tracking-[0.18em]"
           >
             Browse GitHub ↗
           </a>
         </div>
       </section>
 
-      <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
+      <aside class="panel-surface rounded-2xl p-5 sm:p-6 md:rounded-[2rem] md:p-8">
         <p class="editorial-kicker mb-4">good first message</p>
         <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/85">
           <div>

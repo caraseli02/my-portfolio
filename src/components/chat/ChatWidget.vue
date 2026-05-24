@@ -50,7 +50,7 @@ const SUGGESTIONS = [
   <!-- Floating bubble -->
   <button
     v-if="!isOpen"
-    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+    class="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105 sm:bottom-6 sm:right-6"
     style="background-color: var(--color-primary); color: white"
     aria-label="Open chat"
     @click="toggle"
@@ -75,10 +75,10 @@ const SUGGESTIONS = [
   <Transition name="slide-up">
     <div
       v-if="isOpen"
-      class="fixed z-50 flex flex-col overflow-hidden rounded-2xl shadow-2xl border"
+      class="fixed z-[90] flex flex-col overflow-hidden border shadow-2xl"
       style="background-color: var(--color-bg); border-color: var(--color-border)"
       :class="[
-        'bottom-0 right-0 w-full h-full sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-auto sm:max-h-[70vh]',
+        'inset-0 h-[100dvh] w-full rounded-none sm:inset-auto sm:bottom-6 sm:right-6 sm:h-auto sm:max-h-[70vh] sm:w-[400px] sm:rounded-2xl',
       ]"
     >
       <!-- Header -->
@@ -97,7 +97,7 @@ const SUGGESTIONS = [
           >
         </div>
         <button
-          class="p-1 rounded-md transition-colors cursor-pointer"
+          class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-md transition-colors"
           style="color: var(--color-text-muted)"
           @click="toggle"
           aria-label="Close chat"
@@ -128,7 +128,7 @@ const SUGGESTIONS = [
               <button
                 v-for="suggestion in SUGGESTIONS"
                 :key="suggestion"
-                class="text-xs px-3 py-1.5 rounded-full border transition-colors cursor-pointer"
+                class="min-h-10 cursor-pointer rounded-full border px-3 py-1.5 text-xs transition-colors"
                 style="
                   border-color: var(--color-border);
                   color: var(--color-text-muted);

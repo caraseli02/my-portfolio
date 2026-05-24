@@ -15,7 +15,7 @@
     </div>
 
     <template v-else>
-      <section class="px-6 pb-10 pt-28 md:px-10 md:pt-36 lg:px-12">
+      <section class="px-4 pb-10 pt-24 sm:px-6 md:px-10 md:pt-36 lg:px-12">
         <div class="mx-auto max-w-7xl">
           <div class="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_20rem] lg:items-start">
             <div>
@@ -25,7 +25,7 @@
                 {{ formattedNumber }} • {{ project.category }}
               </p>
               <h1
-                class="max-w-4xl text-[3.1rem] leading-[0.92] font-display text-charcoal dark:text-cobalt-100 sm:text-[4rem] md:text-[5rem] lg:text-[5.7rem]"
+                class="max-w-4xl text-[clamp(2.65rem,12vw,5.7rem)] leading-[0.92] font-display text-charcoal dark:text-cobalt-100"
               >
                 {{ project.title }}
               </h1>
@@ -56,7 +56,7 @@
                   :href="caseStudy.liveUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
+                  class="inline-flex min-h-12 w-full items-center justify-center bg-cobalt-500 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85 sm:w-auto sm:px-6 sm:tracking-[0.18em]"
                 >
                   View live ↗
                 </a>
@@ -65,14 +65,14 @@
                   :href="project.github"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center border border-cobalt-500/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300/20 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+                  class="inline-flex min-h-12 w-full items-center justify-center border border-cobalt-500/20 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300/20 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal sm:w-auto sm:px-6 sm:tracking-[0.18em]"
                 >
                   View source ↗
                 </a>
               </div>
             </div>
 
-            <aside class="border border-cobalt-500/14 p-6 md:p-8 dark:border-cobalt-300/16">
+            <aside class="border border-cobalt-500/14 p-5 dark:border-cobalt-300/16 sm:p-6 md:p-8">
               <p
                 class="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
@@ -137,7 +137,7 @@
         </div>
       </section>
 
-      <section v-if="!heroImageFailed" class="px-6 pb-14 md:px-10 lg:px-12">
+      <section v-if="!heroImageFailed" class="px-4 pb-14 sm:px-6 md:px-10 lg:px-12">
         <div class="mx-auto max-w-7xl">
           <div
             class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
@@ -159,7 +159,7 @@
         </div>
       </section>
 
-      <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <section class="px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
         <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
           <div>
             <p class="editorial-kicker mb-4">why this project matters</p>
@@ -202,18 +202,18 @@
         </div>
       </section>
 
-      <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <section class="px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
         <div class="mx-auto max-w-7xl">
           <p class="editorial-kicker mb-6">system view</p>
           <div
-            class="border border-cobalt-500/12 bg-white/70 p-6 dark:border-cobalt-300/12 dark:bg-charcoal-50/60 md:p-8"
+            class="overflow-hidden border border-cobalt-500/12 bg-white/70 p-4 dark:border-cobalt-300/12 dark:bg-charcoal-50/60 sm:p-6 md:p-8"
           >
             <ArchitectureDiagram :slug="slug" />
           </div>
         </div>
       </section>
 
-      <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <section class="px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
         <div
           class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.1fr)_22rem] lg:items-start"
         >
@@ -223,7 +223,7 @@
 
           <aside
             v-if="caseStudy.metaphor"
-            class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-6 text-white shadow-[0_20px_60px_-28px_rgba(17,27,143,0.5)] md:p-8"
+            class="relative overflow-hidden border border-cobalt-500/18 bg-cobalt-700 p-5 text-white shadow-[0_20px_60px_-28px_rgba(17,27,143,0.5)] sm:p-6 md:p-8"
           >
             <div class="absolute inset-0 opacity-[0.08]" aria-hidden="true">
               <div class="paper-grid h-full w-full"></div>
@@ -243,7 +243,7 @@
         </div>
       </section>
 
-      <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <section class="px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
         <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:gap-12">
           <div>
             <OutcomesGrid :outcomes="caseStudy.outcomes" />
@@ -254,7 +254,7 @@
         </div>
       </section>
 
-      <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <section class="px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
         <div class="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
           <router-link
             v-if="prevProject"
@@ -280,7 +280,7 @@
           <router-link
             v-if="nextProject"
             :to="{ name: 'case-study', params: { slug: nextProject.slug } }"
-            class="panel-surface group p-5 text-right transition-transform hover:-translate-y-1"
+            class="panel-surface group p-5 text-left transition-transform hover:-translate-y-1 md:text-right"
           >
             <p class="editorial-kicker mb-3 font-mono">next →</p>
             <p

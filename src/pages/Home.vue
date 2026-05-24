@@ -1,7 +1,11 @@
 <template>
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
-    <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
-      <div class="paper-grid absolute inset-x-4 inset-y-8 rounded-2xl opacity-60"></div>
+    <section
+      class="relative overflow-hidden px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pb-16 md:pt-36 lg:px-12"
+    >
+      <div
+        class="paper-grid absolute inset-x-3 inset-y-6 rounded-2xl opacity-50 sm:inset-x-4 sm:inset-y-8 sm:opacity-60"
+      ></div>
       <!-- Hero visual anchor -->
       <div class="absolute top-20 right-10 hidden lg:block" aria-hidden="true">
         <div class="relative h-72 w-72">
@@ -28,7 +32,7 @@
             <span>palma de mallorca</span>
           </p>
           <h1
-            class="max-w-4xl text-5xl leading-[0.96] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem]"
+            class="max-w-4xl text-[clamp(2.75rem,13vw,4.75rem)] leading-[0.96] font-display text-cobalt-500 dark:text-cobalt-100"
           >
             Interfaces that feel
             <span class="italic text-cobalt-400 dark:text-cobalt-200">decisive</span>
@@ -42,31 +46,33 @@
           </p>
 
           <dl
-            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-6"
+            class="mt-10 grid grid-cols-2 gap-x-4 gap-y-4 border-y border-cobalt-500/15 py-5 font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-6"
           >
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">04+ yrs</dd>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">stack</dt>
-              <dd class="text-sm font-semibold tracking-[0.12em]">Vue · React · Nuxt · TS</dd>
+              <dd class="break-words text-sm font-semibold tracking-[0.12em]">
+                Vue · React · Nuxt · TS
+              </dd>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">shipped</dt>
-              <dd class="text-sm font-semibold tracking-[0.12em]">
+              <dd class="break-words text-sm font-semibold tracking-[0.12em]">
                 Hotelverse · Nezo Hub · Skipso
               </dd>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">repos</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">58+ public</dd>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">case studies</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">03 shipped</dd>
             </div>
-            <div class="flex flex-col gap-1">
+            <div class="min-w-0 flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">availability</dt>
               <dd
                 class="text-sm font-semibold tracking-[0.12em] text-cobalt-500 dark:text-cobalt-100"
@@ -83,13 +89,13 @@
           <div class="mt-10 flex flex-wrap items-center gap-4">
             <router-link
               to="/contact"
-              class="inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
+              class="inline-flex min-h-12 w-full items-center justify-center bg-cobalt-500 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85 sm:w-auto sm:px-6 sm:tracking-[0.18em]"
             >
               Start a conversation
             </router-link>
             <a
               href="#case-studies"
-              class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+              class="inline-flex min-h-12 w-full items-center justify-center border border-cobalt-500 px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal sm:w-auto sm:px-6 sm:tracking-[0.18em]"
             >
               View case studies
             </a>
@@ -114,7 +120,7 @@
       </div>
     </section>
 
-    <section id="case-studies" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
+    <section id="case-studies" class="px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-12">
       <div class="mx-auto max-w-7xl">
         <div
           class="reveal mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end"
@@ -122,7 +128,7 @@
           <div>
             <p class="editorial-kicker mb-3">selected case studies</p>
             <h2
-              class="max-w-3xl text-4xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-6xl"
+              class="max-w-3xl text-[clamp(2.35rem,10vw,3.75rem)] font-display leading-tight text-cobalt-500 dark:text-cobalt-200"
             >
               Proof first. Three projects that show how I think, ship, and refine.
             </h2>
@@ -153,7 +159,7 @@
       </div>
     </section>
 
-    <section class="reveal px-6 pb-16 md:px-10 lg:px-12">
+    <section class="reveal px-4 pb-16 sm:px-6 md:px-10 lg:px-12">
       <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)]">
         <div
           class="border border-cobalt-500/14 bg-white/70 p-6 dark:border-cobalt-300/14 dark:bg-charcoal-50/60 md:p-8"
@@ -216,7 +222,7 @@
             href="https://github.com/caraseli02?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex min-h-[9.5rem] items-end justify-between border border-cobalt-500 px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+            class="inline-flex min-h-28 items-end justify-between border border-cobalt-500 px-6 py-5 text-left text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal sm:min-h-[9.5rem]"
           >
             <span>Browse GitHub</span>
             <span aria-hidden="true">↗</span>

@@ -2,8 +2,8 @@
   <header
     class="fixed top-0 left-0 right-0 z-50 bg-cream-100/95 dark:bg-charcoal/95 backdrop-blur-sm border-b border-cobalt-500/10 dark:border-charcoal-200/30"
   >
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <nav class="flex items-center justify-between h-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-12">
+      <nav class="flex h-16 items-center justify-between md:h-20">
         <!-- Logo Mark -->
         <router-link
           to="/"
@@ -119,7 +119,7 @@
         <!-- Mobile hamburger -->
         <button
           type="button"
-          class="md:hidden w-9 h-9 flex items-center justify-center text-cobalt-500 dark:text-cobalt-300"
+          class="flex h-11 w-11 items-center justify-center border border-cobalt-500/15 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2 dark:border-charcoal-200/50 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] md:hidden"
           :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
@@ -157,27 +157,31 @@
     <Transition name="mobile-nav">
       <div
         v-if="mobileOpen"
-        class="fixed inset-0 top-20 z-40 bg-cream-100/98 dark:bg-charcoal/98 backdrop-blur-sm md:hidden"
+        class="absolute inset-x-0 top-full z-40 h-[calc(100dvh-4rem)] overflow-y-auto bg-cream-100/[0.98] px-4 pb-[max(2rem,env(safe-area-inset-bottom))] dark:bg-charcoal/[0.98] md:hidden"
       >
-        <nav class="flex flex-col items-center gap-6 pt-12">
+        <nav
+          class="mx-auto flex min-h-full max-w-sm flex-col items-stretch justify-center gap-3 py-8"
+        >
           <router-link
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 dark:text-cobalt-300"
+            class="flex min-h-12 items-center justify-center border border-cobalt-500/12 px-4 text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] dark:border-cobalt-300/14 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08]"
+            :class="{ 'bg-cobalt-500/[0.08] dark:bg-cobalt-300/[0.1]': isActive(link.path) }"
+            :aria-current="isActive(link.path) ? 'page' : undefined"
             @click="mobileOpen = false"
           >
             {{ link.label }}
           </router-link>
 
-          <div class="flex items-center gap-3 mt-4">
+          <div class="mt-4 grid grid-cols-2 gap-3">
             <button
               type="button"
               @click="
                 $emit('open-palette');
                 mobileOpen = false;
               "
-              class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300"
+              class="flex min-h-12 items-center justify-center gap-2 border border-cobalt-500/20 px-4 font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
               aria-label="Open command palette"
             >
               <svg
@@ -192,11 +196,12 @@
                 <circle cx="11" cy="11" r="7" />
                 <path d="m21 21-4.3-4.3" />
               </svg>
+              <span>cmd</span>
             </button>
 
             <button
               @click="toggle"
-              class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300"
+              class="flex min-h-12 items-center justify-center gap-2 border border-cobalt-500/20 px-4 font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
               :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             >
               <svg
@@ -229,6 +234,7 @@
               >
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
+              <span>theme</span>
             </button>
           </div>
         </nav>
@@ -238,7 +244,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, shallowRef, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useCursorPreference } from "../../composables/useCursorPreference";
@@ -249,11 +255,10 @@ const route = useRoute();
 const { theme, toggle } = useTheme();
 const { enabled: cursorEnabled, toggle: toggleCursor } = useCursorPreference();
 
-const cursorAvailable = ref(false);
-const mobileOpen = ref(false);
+const cursorAvailable = shallowRef(false);
+const mobileOpen = shallowRef(false);
 
 // Close mobile menu on route change
-import { watch } from "vue";
 watch(route, () => {
   mobileOpen.value = false;
 });

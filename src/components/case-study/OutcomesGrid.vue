@@ -16,7 +16,7 @@
           if (el) outcomeRefs[i] = el as HTMLElement;
         }
       "
-      class="flex items-baseline gap-6 py-4 border-b border-cobalt-500/10 dark:border-charcoal-200/20 reveal group last:border-b-0"
+      class="reveal group flex flex-col gap-2 border-b border-cobalt-500/10 py-4 last:border-b-0 dark:border-charcoal-200/20 sm:flex-row sm:items-baseline sm:gap-6"
       :class="{ revealed: outcomeVisibility[i] }"
       :style="{ transitionDelay: i * 100 + 'ms' }"
     >
@@ -29,7 +29,7 @@
 
       <!-- Metric -->
       <span
-        class="text-2xl md:text-3xl font-display font-bold text-cobalt-500 dark:text-cobalt-300 shrink-0 tabular-nums w-24 md:w-32"
+        class="w-full shrink-0 font-display text-2xl font-bold tabular-nums text-cobalt-500 dark:text-cobalt-300 sm:w-24 md:w-32 md:text-3xl"
       >
         {{ outcome.metric }}
       </span>

@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-cream-100 pt-28 dark:bg-charcoal md:pt-32">
-    <div class="mx-auto max-w-7xl px-6 pb-20 md:px-10 lg:px-12">
+  <div class="min-h-screen bg-cream-100 pt-24 dark:bg-charcoal md:pt-32">
+    <div class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 md:px-10 lg:px-12">
       <section
         class="reveal-stagger grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_22rem] lg:items-start"
       >
         <div>
           <p class="editorial-kicker mb-4">about vlad caraseli</p>
           <h1
-            class="max-w-5xl text-[3.3rem] leading-[0.95] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.6rem]"
+            class="max-w-5xl text-[clamp(2.65rem,12vw,5.6rem)] leading-[0.95] font-display text-charcoal dark:text-cobalt-100"
           >
             I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
           </h1>
@@ -21,7 +21,7 @@
           </p>
         </div>
 
-        <aside class="panel-surface rounded-[2rem] p-6 md:p-8">
+        <aside class="panel-surface rounded-2xl p-5 sm:p-6 md:rounded-[2rem] md:p-8">
           <p class="editorial-kicker mb-4">snapshot</p>
           <div class="space-y-5 text-cobalt-600 dark:text-cobalt-100/85">
             <div>
@@ -75,21 +75,21 @@
       </section>
 
       <section class="reveal mt-14 grid gap-5 md:grid-cols-3">
-        <article class="panel-surface p-6">
+        <article class="panel-surface p-5 sm:p-6">
           <p class="editorial-kicker mb-3">01 — what I do best</p>
           <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
             Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
             better decision-making built into the layout.
           </p>
         </article>
-        <article class="panel-surface p-6">
+        <article class="panel-surface p-5 sm:p-6">
           <p class="editorial-kicker mb-3">02 — how I work</p>
           <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
             AI-native engineering: Claude Code and Codex in the dev cycle, thoughtful systems, clean
             implementation, and enough visual restraint that the important moments hit harder.
           </p>
         </article>
-        <article class="panel-surface p-6">
+        <article class="panel-surface p-5 sm:p-6">
           <p class="editorial-kicker mb-3">03 — where I add leverage</p>
           <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
             Complex frontends, refactors that improve trust, and design-system work that keeps teams
@@ -102,7 +102,7 @@
       <section class="reveal mt-16">
         <p class="editorial-kicker mb-6">experience</p>
         <div class="space-y-6">
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+          <div class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12 sm:p-6 md:p-8">
             <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div>
                 <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
@@ -125,7 +125,7 @@
             </p>
           </div>
 
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+          <div class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12 sm:p-6 md:p-8">
             <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div>
                 <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">Nezo Hub</h3>
@@ -144,7 +144,7 @@
             </p>
           </div>
 
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
+          <div class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12 sm:p-6 md:p-8">
             <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
               <div>
                 <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
@@ -197,7 +197,7 @@
           </div>
         </div>
 
-        <div class="border border-cobalt-500/15 p-6 md:p-8">
+        <div class="border border-cobalt-500/15 p-5 sm:p-6 md:p-8">
           <p class="editorial-kicker mb-5">certifications</p>
           <ul class="space-y-3 text-cobalt-600 dark:text-cobalt-100/85">
             <li class="flex items-start gap-2">

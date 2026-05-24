@@ -19,7 +19,7 @@
             if (el) lessonRefs[i] = el as HTMLElement;
           }
         "
-        class="flex items-start gap-5 p-6 border border-cobalt-500/15 dark:border-charcoal-200/40 bg-cream-100 dark:bg-charcoal-50 reveal group"
+        class="reveal group flex items-start gap-3 border border-cobalt-500/15 bg-cream-100 p-4 dark:border-charcoal-200/40 dark:bg-charcoal-50 sm:gap-5 sm:p-6"
         :class="{ revealed: lessonVisibility[i] }"
         :style="{ transitionDelay: i * 100 + 'ms' }"
       >
@@ -36,7 +36,7 @@
         <div class="w-px self-stretch bg-cobalt-500/15 dark:bg-charcoal-200/30 flex-shrink-0"></div>
 
         <!-- Content -->
-        <p class="text-cobalt-700 dark:text-cobalt-100 leading-relaxed pt-1">{{ lesson }}</p>
+        <p class="pt-1 leading-relaxed text-cobalt-700 dark:text-cobalt-100">{{ lesson }}</p>
       </div>
     </div>
   </section>

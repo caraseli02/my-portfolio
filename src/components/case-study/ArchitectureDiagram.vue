@@ -4,7 +4,7 @@
   >
     <!-- Top Properties -->
     <template v-if="slug === 'topproperties'">
-      <div class="grid grid-cols-3 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30">
+      <div class="grid grid-cols-1 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 sm:grid-cols-3">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">client</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Browser</p>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div
-        class="grid grid-cols-2 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30"
+        class="grid grid-cols-1 gap-px border-t border-cobalt-500/10 bg-cobalt-500/10 dark:border-charcoal-200/30 dark:bg-charcoal-200/30 sm:grid-cols-2"
       >
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">services</p>
@@ -64,7 +64,7 @@
 
     <!-- ECAS -->
     <template v-else-if="slug === 'ecas'">
-      <div class="grid grid-cols-3 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30">
+      <div class="grid grid-cols-1 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 sm:grid-cols-3">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">frontend</p>
           <p class="text-sm font-display font-bold text-cobalt-500 dark:text-cobalt-300">Nuxt 3</p>
@@ -90,7 +90,7 @@
         </div>
       </div>
       <div
-        class="grid grid-cols-2 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30"
+        class="grid grid-cols-1 gap-px border-t border-cobalt-500/10 bg-cobalt-500/10 dark:border-charcoal-200/30 dark:bg-charcoal-200/30 sm:grid-cols-2"
       >
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">api layer</p>
@@ -122,7 +122,7 @@
 
     <!-- ABS Storybook -->
     <template v-else-if="slug === 'abs-storybook'">
-      <div class="grid grid-cols-3 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30">
+      <div class="grid grid-cols-1 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 sm:grid-cols-3">
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">
             components
@@ -152,7 +152,7 @@
         </div>
       </div>
       <div
-        class="grid grid-cols-3 gap-px bg-cobalt-500/10 dark:bg-charcoal-200/30 border-t border-cobalt-500/10 dark:border-charcoal-200/30"
+        class="grid grid-cols-1 gap-px border-t border-cobalt-500/10 bg-cobalt-500/10 dark:border-charcoal-200/30 dark:bg-charcoal-200/30 sm:grid-cols-3"
       >
         <div class="bg-cream-100 dark:bg-charcoal-50 p-4 md:p-5">
           <p class="text-xs font-mono text-cobalt-500/50 dark:text-cobalt-300/50 mb-2">types</p>

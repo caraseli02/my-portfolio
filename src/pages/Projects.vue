@@ -1,10 +1,12 @@
 <template>
   <div class="min-h-screen bg-cream-100 dark:bg-charcoal">
-    <section class="relative overflow-hidden px-6 pb-12 pt-28 md:px-10 md:pb-16 md:pt-36 lg:px-12">
+    <section
+      class="relative overflow-hidden px-4 pb-12 pt-24 sm:px-6 md:px-10 md:pb-16 md:pt-36 lg:px-12"
+    >
       <div class="relative mx-auto max-w-7xl">
         <p class="editorial-kicker mb-5">projects index</p>
         <h1
-          class="max-w-4xl text-[3rem] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-[3.8rem] md:text-[4.6rem] lg:text-[5.4rem]"
+          class="max-w-4xl text-[clamp(2.65rem,12vw,5.4rem)] leading-[0.94] font-display text-cobalt-500 dark:text-cobalt-100"
         >
           Everything I've shipped — from case-studied builds to late-night experiments.
         </h1>
@@ -16,7 +18,7 @@
         </p>
 
         <div
-          class="mt-10 flex flex-wrap items-center gap-4 font-mono text-xs tracking-[0.18em] uppercase text-cobalt-500/75 dark:text-cobalt-200/75"
+          class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-cobalt-500/75 dark:text-cobalt-200/75 sm:text-xs sm:tracking-[0.18em]"
         >
           <span>{{ featuredProjects.length }} case studies</span>
           <span aria-hidden="true" class="text-cobalt-500/30 dark:text-cobalt-300/30">·</span>
@@ -27,7 +29,7 @@
       </div>
     </section>
 
-    <section id="featured" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
+    <section id="featured" class="px-4 py-14 sm:px-6 md:px-10 md:py-20 lg:px-12">
       <div class="mx-auto max-w-7xl">
         <div class="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -61,7 +63,7 @@
     </section>
 
     <section
-      class="border-y border-cobalt-500/12 bg-cream-50 px-6 py-14 md:px-10 md:py-20 lg:px-12 dark:border-cobalt-300/12 dark:bg-charcoal-50/40"
+      class="border-y border-cobalt-500/12 bg-cream-50 px-4 py-14 dark:border-cobalt-300/12 dark:bg-charcoal-50/40 sm:px-6 md:px-10 md:py-20 lg:px-12"
     >
       <div class="mx-auto max-w-7xl">
         <div class="mb-10 flex flex-wrap items-end justify-between gap-6">
@@ -117,7 +119,7 @@
       </div>
     </section>
 
-    <section class="px-6 py-20 md:px-10 md:py-28 lg:px-12">
+    <section class="px-4 py-20 sm:px-6 md:px-10 md:py-28 lg:px-12">
       <div class="mx-auto max-w-4xl text-center">
         <p class="editorial-kicker mb-4">still more</p>
         <h2
@@ -135,7 +137,7 @@
           href="https://github.com/caraseli02?tab=repositories"
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-10 inline-flex items-center gap-3 border border-cobalt-500 px-8 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+          class="mt-10 inline-flex min-h-12 w-full items-center justify-center gap-3 border border-cobalt-500 px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.16em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal sm:w-auto sm:px-8 sm:tracking-[0.18em]"
         >
           Browse all repositories
           <span aria-hidden="true">↗</span>

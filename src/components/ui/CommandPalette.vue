@@ -3,7 +3,7 @@
     <Transition name="palette">
       <div
         v-if="open"
-        class="fixed inset-0 z-[200] flex items-start justify-center px-4 pt-[15vh] backdrop-blur-sm"
+        class="fixed inset-0 z-[200] flex items-end justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-sm sm:items-start sm:px-4 sm:pt-[15vh]"
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
@@ -14,7 +14,7 @@
 
         <div
           ref="panelRef"
-          class="relative w-full max-w-xl border border-cobalt-500/25 bg-cream-50 shadow-[0_30px_80px_-24px_rgba(17,27,143,0.35)] dark:border-cobalt-300/25 dark:bg-charcoal-50"
+          class="relative flex max-h-[calc(100dvh-1.5rem)] w-full max-w-xl flex-col overflow-hidden border border-cobalt-500/25 bg-cream-50 shadow-[0_30px_80px_-24px_rgba(17,27,143,0.35)] dark:border-cobalt-300/25 dark:bg-charcoal-50 sm:max-h-[70vh]"
         >
           <div
             class="flex items-center gap-3 border-b border-cobalt-500/15 px-4 py-3 dark:border-cobalt-300/15"
@@ -28,7 +28,7 @@
               v-model="query"
               type="text"
               placeholder="Jump to… case study, page, action"
-              class="flex-1 bg-transparent font-mono text-sm text-cobalt-700 placeholder:text-cobalt-500/40 focus:outline-none dark:text-cobalt-100 dark:placeholder:text-cobalt-300/40"
+              class="min-h-11 flex-1 bg-transparent font-mono text-sm text-cobalt-700 placeholder:text-cobalt-500/40 focus:outline-none dark:text-cobalt-100 dark:placeholder:text-cobalt-300/40"
               @keydown.down.prevent="move(1)"
               @keydown.up.prevent="move(-1)"
               @keydown.enter.prevent="select()"
@@ -41,13 +41,13 @@
             </kbd>
           </div>
 
-          <ul v-if="filtered.length" ref="listRef" class="max-h-[50vh] overflow-y-auto py-2">
+          <ul v-if="filtered.length" ref="listRef" class="min-h-0 flex-1 overflow-y-auto py-2">
             <li
               v-for="(item, index) in filtered"
               :key="item.id"
               :data-index="index"
               :class="[
-                'flex cursor-pointer items-center justify-between gap-3 px-4 py-2.5 font-mono text-sm transition-colors',
+                'flex min-h-12 cursor-pointer items-center justify-between gap-3 px-4 py-2.5 font-mono text-sm transition-colors',
                 index === activeIndex
                   ? 'bg-cobalt-500/10 text-cobalt-700 dark:bg-cobalt-300/12 dark:text-cobalt-100'
                   : 'text-cobalt-600 dark:text-cobalt-100/80 hover:bg-cobalt-500/5 dark:hover:bg-cobalt-300/5',
@@ -85,7 +85,7 @@
           </div>
 
           <div
-            class="flex items-center justify-between border-t border-cobalt-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cobalt-500/55 dark:border-cobalt-300/15 dark:text-cobalt-300/55"
+            class="hidden items-center justify-between border-t border-cobalt-500/15 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cobalt-500/55 dark:border-cobalt-300/15 dark:text-cobalt-300/55 sm:flex"
           >
             <span>↑↓ navigate</span>
             <span>↵ select</span>

@@ -16,7 +16,7 @@
         ></div>
 
         <div
-          class="relative w-full max-w-md border border-cobalt-500/25 bg-cream-50 p-6 shadow-[0_30px_80px_-24px_rgba(17,27,143,0.35)] dark:border-cobalt-300/25 dark:bg-charcoal-50 md:p-7"
+          class="relative max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto border border-cobalt-500/25 bg-cream-50 p-5 shadow-[0_30px_80px_-24px_rgba(17,27,143,0.35)] dark:border-cobalt-300/25 dark:bg-charcoal-50 sm:p-6 md:p-7"
         >
           <div
             class="flex items-center justify-between gap-4 border-b border-cobalt-500/15 pb-3 dark:border-cobalt-300/15"
@@ -24,7 +24,7 @@
             <p class="editorial-kicker">keyboard shortcuts</p>
             <button
               type="button"
-              class="font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 transition-colors hover:text-cobalt-700 dark:text-cobalt-300/60 dark:hover:text-cobalt-100"
+              class="inline-flex min-h-11 min-w-11 items-center justify-center font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 transition-colors hover:text-cobalt-700 dark:text-cobalt-300/60 dark:hover:text-cobalt-100"
               aria-label="Close"
               @click="$emit('close')"
             >
