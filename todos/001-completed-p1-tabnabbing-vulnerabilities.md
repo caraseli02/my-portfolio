@@ -1,5 +1,5 @@
 ---
-status: pending
+status: completed
 priority: p1
 issue_id: "001"
 tags: [security, external-links, tabnabbing]
@@ -107,14 +107,14 @@ Implement Option 1 (add `rel="noopener noreferrer"` to all affected links) as im
 
 ## Acceptance Criteria
 
-- [ ] All acceptance criteria checked
-- [ ] `rel="noopener noreferrer"` added to Contact.vue links (lines 45-48)
-- [ ] `rel="noopener noreferrer"` added to Projects.vue links (lines 77-80, 127-132, 177-180)
-- [ ] `rel="noopener noreferrer"` added to NavBar.vue links (lines 34-37, 88-91)
-- [ ] `rel="noopener noreferrer"` added to CaseStudyHero.vue links (lines 71-73)
-- [ ] `rel="noopener noreferrer"` added to Footer.vue links (lines 20-22, 31-33)
-- [ ] All 9 external links verified with proper security attributes
-- [ ] No regression in link functionality (links still open in new tab)
+- [x] All acceptance criteria checked
+- [x] `rel="noopener noreferrer"` added to Contact.vue links (lines 45-48)
+- [x] `rel="noopener noreferrer"` added to Projects.vue links (lines 77-80, 127-132, 177-180)
+- [x] `rel="noopener noreferrer"` added to NavBar.vue links (lines 34-37, 88-91)
+- [x] `rel="noopener noreferrer"` added to CaseStudyHero.vue links (lines 71-73)
+- [x] `rel="noopener noreferrer"` added to Footer.vue links (lines 20-22, 31-33)
+- [x] All 9 external links verified with proper security attributes
+- [x] No regression in link functionality (links still open in new tab)
 
 ## Work Log
 
