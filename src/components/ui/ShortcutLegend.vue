@@ -13,6 +13,7 @@
         <div
           class="absolute inset-0 bg-charcoal/45 backdrop-blur-sm dark:bg-charcoal/70"
           aria-hidden="true"
+          @click="$emit('close')"
         ></div>
 
         <div
@@ -24,7 +25,7 @@
             <p class="editorial-kicker">keyboard shortcuts</p>
             <button
               type="button"
-              class="font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 transition-colors hover:text-cobalt-700 dark:text-cobalt-300/60 dark:hover:text-cobalt-100"
+              class="flex min-h-11 items-center px-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 transition-colors hover:text-cobalt-700 dark:text-cobalt-300/60 dark:hover:text-cobalt-100"
               aria-label="Close"
               @click="$emit('close')"
             >
@@ -77,9 +78,9 @@ defineEmits<{ (e: "close"): void }>();
   align-items: center;
   justify-content: center;
   padding: 0 0.4rem;
-  border: 1px solid rgba(31, 50, 255, 0.25);
-  background: rgba(255, 255, 255, 0.7);
-  color: rgb(31, 50, 255);
+  border: 1px solid color-mix(in oklch, var(--color-primary) 25%, transparent);
+  background: color-mix(in oklch, var(--color-surface) 70%, transparent);
+  color: var(--color-primary);
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 600;
@@ -88,9 +89,9 @@ defineEmits<{ (e: "close"): void }>();
 }
 
 :global(.dark) .kbd {
-  border-color: rgba(204, 209, 255, 0.3);
-  background: rgba(204, 209, 255, 0.08);
-  color: rgb(204, 209, 255);
+  border-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+  background: color-mix(in oklch, var(--color-primary) 8%, transparent);
+  color: var(--color-primary);
 }
 
 .legend-enter-active,
