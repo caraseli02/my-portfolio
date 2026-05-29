@@ -17,23 +17,24 @@
     </main>
     <CommandPalette ref="paletteRef" @open-shortcuts="openShortcuts" />
     <ShortcutLegend :open="shortcutsOpen" @close="shortcutsOpen = false" />
-    <ChatWidget />
+    <ChatWidget v-if="chatWidgetReady" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { defineAsyncComponent, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import Header from "./components/layout/Header.vue";
 import CustomCursor from "./components/CustomCursor.vue";
 import CommandPalette from "./components/ui/CommandPalette.vue";
 import ShortcutLegend from "./components/ui/ShortcutLegend.vue";
-import ChatWidget from "./components/chat/ChatWidget.vue";
 import { useCursorPreference } from "./composables/useCursorPreference";
 import { useGlobalShortcuts } from "./composables/useGlobalShortcuts";
 
 const router = useRouter();
 const mainRef = ref<HTMLElement | null>(null);
+const chatWidgetReady = ref(false);
+const ChatWidget = defineAsyncComponent(() => import("./components/chat/ChatWidget.vue"));
 
 // Page transitions
 router.afterEach(() => {
@@ -63,6 +64,19 @@ function openPalette() {
 function openShortcuts() {
   shortcutsOpen.value = true;
 }
+
+onMounted(() => {
+  const loadChat = () => {
+    chatWidgetReady.value = true;
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(loadChat, { timeout: 2500 });
+    return;
+  }
+
+  globalThis.setTimeout(loadChat, 1600);
+});
 </script>
 
 <style>

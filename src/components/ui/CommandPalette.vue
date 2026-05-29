@@ -10,7 +10,11 @@
         @click.self="close"
         @keydown.esc="close"
       >
-        <div class="absolute inset-0 bg-charcoal/40 dark:bg-charcoal/70" aria-hidden="true"></div>
+        <div
+          class="absolute inset-0 bg-charcoal/40 dark:bg-charcoal/70"
+          aria-hidden="true"
+          @click="close"
+        ></div>
 
         <div
           ref="panelRef"
@@ -27,6 +31,12 @@
               ref="inputRef"
               v-model="query"
               type="text"
+              role="combobox"
+              aria-label="Search commands"
+              aria-autocomplete="list"
+              aria-controls="command-palette-list"
+              aria-expanded="true"
+              :aria-activedescendant="activeOptionId"
               placeholder="Jump to… case study, page, action"
               class="flex-1 bg-transparent font-mono text-sm text-cobalt-700 placeholder:text-cobalt-500/40 focus:outline-none dark:text-cobalt-100 dark:placeholder:text-cobalt-300/40"
               @keydown.down.prevent="move(1)"
@@ -41,11 +51,21 @@
             </kbd>
           </div>
 
-          <ul v-if="filtered.length" ref="listRef" class="max-h-[50vh] overflow-y-auto py-2">
+          <ul
+            v-if="filtered.length"
+            id="command-palette-list"
+            ref="listRef"
+            class="max-h-[50vh] overflow-y-auto py-2"
+            role="listbox"
+            aria-label="Command results"
+          >
             <li
               v-for="(item, index) in filtered"
               :key="item.id"
+              :id="optionId(index)"
               :data-index="index"
+              role="option"
+              :aria-selected="index === activeIndex"
               :class="[
                 'flex cursor-pointer items-center justify-between gap-3 px-4 py-2.5 font-mono text-sm transition-colors',
                 index === activeIndex
@@ -221,6 +241,14 @@ const filtered = computed(() => {
 watch(filtered, () => {
   activeIndex.value = 0;
 });
+
+const activeOptionId = computed(() =>
+  filtered.value.length ? optionId(activeIndex.value) : undefined,
+);
+
+function optionId(index: number) {
+  return `command-palette-option-${index}`;
+}
 
 function move(delta: number) {
   const len = filtered.value.length;

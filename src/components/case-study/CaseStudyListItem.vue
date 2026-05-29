@@ -1,10 +1,9 @@
 <template>
   <article
-    class="group panel-surface relative overflow-hidden [contain:layout_style_paint] before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
+    class="group panel-surface relative overflow-hidden transition-colors hover:border-cobalt-500/30 dark:hover:border-cobalt-300/30"
   >
-    <router-link
-      :to="{ name: 'case-study', params: { slug } }"
-      class="grid gap-6 px-5 py-6 md:px-7 md:py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
+    <div
+      class="grid gap-6 px-5 py-6 md:px-7 md:py-8"
       :class="
         reverse
           ? 'md:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)]'
@@ -21,16 +20,19 @@
       </div>
 
       <div class="min-w-0 space-y-4" :class="reverse ? 'md:order-3' : 'md:order-2'">
-        <div>
+        <router-link
+          :to="{ name: 'case-study', params: { slug } }"
+          class="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4"
+        >
           <h3
-            class="text-2xl md:text-3xl font-display leading-[0.96] text-cobalt-500 dark:text-cobalt-200"
+            class="text-2xl font-display leading-[0.96] text-cobalt-500 transition-colors hover:text-cobalt-700 dark:text-cobalt-200 dark:hover:text-cobalt-100 md:text-3xl"
           >
             {{ title }}
           </h3>
           <p class="mt-3 max-w-2xl text-base md:text-lg text-cobalt-600 dark:text-cobalt-100/85">
             {{ description }}
           </p>
-        </div>
+        </router-link>
 
         <div class="flex flex-wrap gap-2">
           <span v-for="tag in tags" :key="tag" class="pill-badge">
@@ -39,18 +41,17 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-5 pt-2">
-          <span class="ink-link">
+          <router-link :to="{ name: 'case-study', params: { slug } }" class="ink-link min-h-11">
             open case study
             <span aria-hidden="true">↗</span>
-          </span>
+          </router-link>
 
           <a
             v-if="github"
             :href="github"
             target="_blank"
             rel="noopener noreferrer"
-            class="ink-link"
-            @click.stop
+            class="ink-link min-h-11"
           >
             source
             <span aria-hidden="true">↗</span>
@@ -58,8 +59,9 @@
         </div>
       </div>
 
-      <div
+      <router-link
         v-if="image"
+        :to="{ name: 'case-study', params: { slug } }"
         class="overflow-hidden rounded-[1.5rem] border border-cobalt-500/15 bg-cobalt-500/[0.04] md:self-start"
         :class="reverse ? 'md:order-2' : 'md:order-3'"
       >
@@ -78,8 +80,8 @@
             class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
           />
         </picture>
-      </div>
-    </router-link>
+      </router-link>
+    </div>
   </article>
 </template>
 
