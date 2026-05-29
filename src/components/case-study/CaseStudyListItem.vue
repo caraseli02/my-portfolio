@@ -1,6 +1,8 @@
 <template>
   <article
     class="group panel-surface relative overflow-hidden [contain:layout_style_paint] before:absolute before:inset-y-0 before:left-0 before:w-1 before:bg-cobalt-500 before:opacity-0 before:transition-opacity hover:before:opacity-100"
+    @mouseenter="prefetchAssets"
+    @focusin="prefetchAssets"
   >
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
@@ -84,7 +86,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -113,4 +115,19 @@ const webpBase = computed(() => {
   if (!props.image) return "";
   return props.image.replace(/\.[^.]+$/, "");
 });
+
+const prefetched = ref(false);
+
+function prefetchAssets() {
+  if (prefetched.value || !webpBase.value) return;
+  prefetched.value = true;
+
+  // Prefetch the full desktop webp screenshot in background
+  const imgDesktop = new Image();
+  imgDesktop.src = `${webpBase.value}.webp`;
+
+  // Prefetch the tablet 640w webp screenshot in background
+  const imgTablet = new Image();
+  imgTablet.src = `${webpBase.value}-640.webp`;
+}
 </script>
