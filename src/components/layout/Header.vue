@@ -36,7 +36,7 @@
           <button
             type="button"
             @click="$emit('open-palette')"
-            class="hidden sm:inline-flex items-center gap-2 border border-cobalt-500/20 dark:border-charcoal-200/60 px-2.5 h-9 text-cobalt-500 dark:text-cobalt-300 hover:bg-cobalt-500/[0.06] dark:hover:bg-cobalt-300/[0.08] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-2"
+            class="hidden min-h-11 items-center gap-2 border border-cobalt-500/20 px-3 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300 sm:inline-flex"
             aria-label="Open command palette"
             title="Command palette (⌘K)"
           >
@@ -58,8 +58,9 @@
           <!-- Custom cursor toggle -->
           <button
             v-if="cursorAvailable"
+            type="button"
             @click="toggleCursor"
-            class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300 hover:bg-cobalt-500/[0.06] dark:hover:bg-cobalt-300/[0.08] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-2"
+            class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
             :class="{ 'bg-cobalt-500/[0.08] dark:bg-cobalt-300/[0.1]': cursorEnabled }"
             :aria-label="cursorEnabled ? 'Disable custom cursor' : 'Enable custom cursor'"
             :aria-pressed="cursorEnabled"
@@ -80,8 +81,9 @@
 
           <!-- Theme Toggle -->
           <button
+            type="button"
             @click="toggle"
-            class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300 hover:bg-cobalt-500/[0.06] dark:hover:bg-cobalt-300/[0.08] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-2"
+            class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
             :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
           >
             <svg
@@ -119,7 +121,7 @@
         <!-- Mobile hamburger -->
         <button
           type="button"
-          class="md:hidden w-9 h-9 flex items-center justify-center text-cobalt-500 dark:text-cobalt-300"
+          class="flex h-11 w-11 items-center justify-center text-cobalt-500 dark:text-cobalt-300 md:hidden"
           :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
@@ -177,7 +179,7 @@
                 $emit('open-palette');
                 mobileOpen = false;
               "
-              class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300"
+              class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
               aria-label="Open command palette"
             >
               <svg
@@ -195,8 +197,9 @@
             </button>
 
             <button
+              type="button"
               @click="toggle"
-              class="w-9 h-9 flex items-center justify-center border border-cobalt-500/20 dark:border-charcoal-200/60 text-cobalt-500 dark:text-cobalt-300"
+              class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
               :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             >
               <svg
