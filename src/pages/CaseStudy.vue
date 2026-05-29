@@ -143,7 +143,11 @@
             class="overflow-hidden border border-cobalt-500/15 bg-white dark:border-cobalt-300/15 dark:bg-charcoal-50"
           >
             <picture>
-              <source type="image/webp" :srcset="heroWebpSrc" />
+              <source
+                type="image/webp"
+                :srcset="`${webpBase}-320.webp 320w, ${webpBase}-640.webp 640w, ${webpBase}.webp 1280w`"
+                sizes="(max-width: 640px) 320px, (max-width: 1024px) 640px, 1280px"
+              />
               <img
                 :src="heroImgSrc"
                 :alt="`${project.title} screenshot`"
@@ -320,7 +324,10 @@ const formattedNumber = computed(() => {
 });
 
 const heroImgSrc = computed(() => caseStudy.value?.image || `/project-images/${props.slug}.jpg`);
-const heroWebpSrc = computed(() => heroImgSrc.value.replace(/\.[^.]+$/, ".webp"));
+const webpBase = computed(() => {
+  if (!heroImgSrc.value) return "";
+  return heroImgSrc.value.replace(/\.[^.]+$/, "");
+});
 
 const heroOutcomes = computed(() => caseStudy.value?.outcomes.slice(0, 3) ?? []);
 const projectHighlights = computed(() => project.value?.highlights.slice(0, 4) ?? []);

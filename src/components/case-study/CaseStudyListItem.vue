@@ -1,6 +1,8 @@
 <template>
   <article
     class="group panel-surface relative overflow-hidden transition-colors hover:border-cobalt-500/30 dark:hover:border-cobalt-300/30"
+    @mouseenter="prefetchAssets"
+    @focusin="prefetchAssets"
   >
     <div
       class="grid gap-6 px-5 py-6 md:px-7 md:py-8"
@@ -86,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -115,4 +117,19 @@ const webpBase = computed(() => {
   if (!props.image) return "";
   return props.image.replace(/\.[^.]+$/, "");
 });
+
+const prefetched = ref(false);
+
+function prefetchAssets() {
+  if (prefetched.value || !webpBase.value) return;
+  prefetched.value = true;
+
+  // Prefetch the full desktop webp screenshot in background
+  const imgDesktop = new Image();
+  imgDesktop.src = `${webpBase.value}.webp`;
+
+  // Prefetch the tablet 640w webp screenshot in background
+  const imgTablet = new Image();
+  imgTablet.src = `${webpBase.value}-640.webp`;
+}
 </script>
