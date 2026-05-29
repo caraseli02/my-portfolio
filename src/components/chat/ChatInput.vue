@@ -20,8 +20,9 @@ const emit = defineEmits<{
       :value="modelValue"
       :disabled="disabled"
       type="text"
+      aria-label="Ask about Vlad's projects, tech, or experience"
       placeholder="Ask about projects, tech, experience..."
-      class="flex-1 rounded-lg px-3 py-2 text-sm outline-none transition-colors"
+      class="min-h-11 flex-1 rounded-lg px-3 py-2 text-sm outline-none transition-colors"
       style="
         background-color: var(--color-bg-subtle);
         color: var(--color-text);
@@ -32,8 +33,9 @@ const emit = defineEmits<{
     <button
       type="submit"
       :disabled="disabled || !modelValue.trim()"
-      class="flex items-center justify-center h-9 w-9 rounded-lg transition-colors disabled:opacity-40 cursor-pointer"
-      style="background-color: var(--color-primary); color: white"
+      class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg transition-colors disabled:opacity-40"
+      style="background-color: var(--color-primary); color: var(--color-on-primary)"
+      aria-label="Send message"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
