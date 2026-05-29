@@ -50,8 +50,9 @@ const SUGGESTIONS = [
   <!-- Floating bubble -->
   <button
     v-if="!isOpen"
-    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
-    style="background-color: var(--color-primary); color: white"
+    type="button"
+    class="fixed bottom-6 right-6 z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+    style="background-color: var(--color-primary); color: var(--color-on-primary)"
     aria-label="Open chat"
     @click="toggle"
   >
@@ -77,6 +78,8 @@ const SUGGESTIONS = [
       v-if="isOpen"
       class="fixed z-50 flex flex-col overflow-hidden rounded-2xl shadow-2xl border"
       style="background-color: var(--color-bg); border-color: var(--color-border)"
+      role="dialog"
+      aria-label="Portfolio assistant chat"
       :class="[
         'bottom-0 right-0 w-full h-full sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-auto sm:max-h-[70vh]',
       ]"
@@ -97,7 +100,8 @@ const SUGGESTIONS = [
           >
         </div>
         <button
-          class="p-1 rounded-md transition-colors cursor-pointer"
+          type="button"
+          class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-md transition-colors"
           style="color: var(--color-text-muted)"
           @click="toggle"
           aria-label="Close chat"
@@ -128,7 +132,8 @@ const SUGGESTIONS = [
               <button
                 v-for="suggestion in SUGGESTIONS"
                 :key="suggestion"
-                class="text-xs px-3 py-1.5 rounded-full border transition-colors cursor-pointer"
+                type="button"
+                class="min-h-11 cursor-pointer rounded-full border px-3 py-1.5 text-xs transition-colors"
                 style="
                   border-color: var(--color-border);
                   color: var(--color-text-muted);
@@ -155,15 +160,15 @@ const SUGGESTIONS = [
           <!-- Streaming indicator -->
           <div v-if="chat.status === 'streaming'" class="flex items-center gap-1 px-3 py-2">
             <span
-              class="inline-block h-2 w-2 rounded-full animate-bounce"
+              class="typing-dot inline-block h-2 w-2 rounded-full"
               style="background-color: var(--color-primary); animation-delay: 0ms"
             />
             <span
-              class="inline-block h-2 w-2 rounded-full animate-bounce"
+              class="typing-dot inline-block h-2 w-2 rounded-full"
               style="background-color: var(--color-primary); animation-delay: 150ms"
             />
             <span
-              class="inline-block h-2 w-2 rounded-full animate-bounce"
+              class="typing-dot inline-block h-2 w-2 rounded-full"
               style="background-color: var(--color-primary); animation-delay: 300ms"
             />
           </div>
@@ -179,8 +184,9 @@ const SUGGESTIONS = [
             Something went wrong. Please try again.
           </p>
           <button
-            class="text-xs px-2 py-1 rounded-md cursor-pointer"
-            style="background-color: var(--color-primary); color: white"
+            type="button"
+            class="min-h-11 cursor-pointer rounded-md px-3 py-2 text-xs"
+            style="background-color: var(--color-primary); color: var(--color-on-primary)"
             @click="chat.regenerate()"
           >
             Retry
@@ -200,5 +206,38 @@ const SUGGESTIONS = [
 }
 .slide-up-leave-active {
   animation: slideUp 0.2s ease-in reverse;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-dot {
+  animation: typingPulse 1s ease-in-out infinite;
+}
+
+@keyframes typingPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-up-enter-active,
+  .slide-up-leave-active,
+  .typing-dot {
+    animation: none;
+  }
 }
 </style>

@@ -44,7 +44,7 @@ const { isTouchDevice, cursorX, cursorY, smoothCursorX, smoothCursorY, cursorVis
   left: 0;
   width: 32px;
   height: 32px;
-  border: 2px solid white;
+  border: 2px solid var(--color-on-primary);
   border-radius: 50%;
   pointer-events: none;
   transition:
@@ -60,7 +60,7 @@ const { isTouchDevice, cursorX, cursorY, smoothCursorX, smoothCursorY, cursorVis
   left: 0;
   width: 8px;
   height: 8px;
-  background: white;
+  background: var(--color-on-primary);
   border-radius: 50%;
   pointer-events: none;
   transition:
@@ -101,7 +101,7 @@ const { isTouchDevice, cursorX, cursorY, smoothCursorX, smoothCursorY, cursorVis
   width: 48px;
   height: 48px;
   border-radius: 8px;
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: color-mix(in oklch, var(--color-on-primary) 60%, transparent);
 }
 .cursor-dot--card {
   width: 6px;
@@ -114,7 +114,7 @@ const { isTouchDevice, cursorX, cursorY, smoothCursorX, smoothCursorY, cursorVis
   height: 28px;
   border-radius: 2px;
   border: none;
-  background: white;
+  background: var(--color-on-primary);
 }
 .cursor-dot--text {
   opacity: 0 !important;
