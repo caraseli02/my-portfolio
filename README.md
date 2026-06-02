@@ -12,7 +12,7 @@ Live goals for this site:
 
 - Vue 3
 - TypeScript
-- Vite
+- Vite Plus / Vite
 - Tailwind CSS v4
 - Vue Router
 
@@ -41,8 +41,9 @@ pnpm preview
 
 This iteration leans into an editorial portfolio aesthetic:
 
-- Bodoni Moda for high-impact display moments
-- Familjen Grotesk for cleaner body copy
+- Young Serif for high-impact display moments
+- Figtree for cleaner body copy
+- JetBrains Mono for technical labels and metadata
 - cream paper background + cobalt accents
 - stronger proof-first homepage structure
 - more scannable about/contact pages
@@ -50,5 +51,5 @@ This iteration leans into an editorial portfolio aesthetic:
 ## Notes
 
 - Route metadata is updated per page for stronger SEO/share text.
-- `/projects` redirects to the homepage case studies section.
+- `/projects` provides a full projects index.
 - External links use `rel="noopener noreferrer"`.

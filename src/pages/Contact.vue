@@ -105,7 +105,7 @@ import Footer from "../components/layout/Footer.vue";
 
 const words = ["decisive", "editorial", "usable", "faster", "clearer", "credible", "memorable"];
 const currentWord = ref(words[0]);
-let interval: ReturnType<typeof setInterval> | null = null;
+let interval: number | null = null;
 let currentIndex = 0;
 
 const startInterval = () => {
