@@ -4,44 +4,47 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 ## Project Overview
 
-Personal portfolio website built with Vue 3, TypeScript, Vite, and Tailwind CSS.
+Personal portfolio website built with Vue 3, TypeScript, Vite Plus, and Tailwind CSS v4.
 
 ## Development Commands
 
 ```bash
-npm run dev      # Start development server (Vite)
-npm run build    # Production build
-npm run serve    # Preview production build
+pnpm dev       # Start development server (Vite Plus)
+pnpm build     # Type-check and production build
+pnpm test      # Run Vitest smoke tests
+pnpm preview   # Preview production build
 ```
-
-No test framework is configured.
 
 ## Architecture
 
 ### Tech Stack
 
-- **Framework**: Vue 3 with Options API (`defineComponent`)
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom `vue-*` color palette
-- **Routing**: Vue Router with history mode
-- **State**: Vuex (store.ts exists but is not actively used)
+- **Framework**: Vue 3 with Composition API and `<script setup lang="ts">`
+- **Build Tool**: Vite Plus on Vite
+- **Styling**: Tailwind CSS v4 with global custom tokens and utilities in `src/assets/index.css`
+- **Routing**: Vue Router with history mode and route-level metadata
+- **State**: Local composables; no global store is currently configured
+- **Testing**: Vitest with Happy DOM
 
 ### Structure
 
-- `src/pages/` - Route-level components (Home, Projects, About)
-- `src/components/` - Shared components (NavBar, Footer)
-- `src/router/index.ts` - Route definitions
+- `src/pages/` - Route-level components (Home, Projects, About, Contact, CaseStudy, Extra, NotFound)
+- `src/components/` - Shared UI, layout, chat, and case-study components
+- `src/composables/` - Reusable Vue Composition API behavior
+- `src/data/` - Portfolio project and case-study content
+- `src/router/index.ts` - Route definitions and metadata updates
 - `src/assets/index.css` - Global styles with Tailwind layers and custom utility classes
+- `api/` - Serverless API endpoints
 
 ### Styling Conventions
 
-- Custom color palette: `vue-50` through `vue-900` (defined in `tailwind.config.js`)
-- Reusable CSS classes: `.card-hover`, `.section-heading`, `.section-subheading`, `.tech-badge`, `.glass`, `.gradient-text`
-- Custom animations: `animate-fade-in`, `animate-slide-up`, `animate-float`, `animate-pulse-slow`
-- Animation delays: `.animation-delay-200`, `.animation-delay-400`, `.animation-delay-600`
+- Prefer existing semantic colors and utility classes from `src/assets/index.css` before adding new one-off styles.
+- Reusable CSS classes include `.section-shell`, `.section-label`, `.editorial-card`, `.magnetic-link`, `.reveal`, `.reveal-stagger`, `.footer-reveal`, `.gradient-orb`, `.grain-overlay`, and `.paper-grid`.
+- Respect reduced-motion preferences when adding animations or scroll effects.
 
 ### Component Patterns
 
-- TypeScript interfaces defined inline within `<script lang="ts">` blocks
-- Data typed via function return annotation: `data(): { ... }`
-- Components use Options API with `defineComponent`
+- Use Vue 3 Composition API with `<script setup lang="ts">` for new or updated Vue SFCs.
+- Keep route-level pages focused on composition and move reusable UI into `src/components/`.
+- Keep stateful or side-effect-heavy behavior in typed composables under `src/composables/`.
+- Use typed props/emits contracts (`defineProps`, `defineEmits`) for component boundaries.
