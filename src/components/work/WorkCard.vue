@@ -1,6 +1,6 @@
 <template>
   <article
-    class="group panel-surface relative overflow-hidden transition-transform duration-300 hover:-translate-y-1"
+    class="group panel-surface relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
   >
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
@@ -21,19 +21,19 @@
             loading="lazy"
             width="800"
             height="1000"
-            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </picture>
         <div
           class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/55 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         >
-          <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-white">Open work →</p>
+          <p class="font-mono text-xs uppercase tracking-[0.18em] text-white">Open work →</p>
         </div>
       </div>
 
       <div class="space-y-3 p-5 md:p-6">
         <div
-          class="flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/65 dark:text-cobalt-200/65"
+          class="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/65 dark:text-cobalt-200/65"
         >
           <span>{{ company }}</span>
           <span aria-hidden="true">·</span>

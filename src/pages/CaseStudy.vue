@@ -20,7 +20,7 @@
           <div class="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_18rem] lg:items-start">
             <div>
               <p
-                class="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                class="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
                 {{ formattedNumber }} · {{ caseStudy.company }} · {{ project.category }}
               </p>
@@ -44,7 +44,7 @@
                 <span
                   v-for="tag in project.tech"
                   :key="tag"
-                  class="inline-flex items-center rounded-md border border-cobalt-500/18 bg-cobalt-500/[0.04] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-600 dark:border-cobalt-300/18 dark:bg-cobalt-300/[0.05] dark:text-cobalt-100"
+                  class="inline-flex items-center rounded-md border border-cobalt-500/18 bg-cobalt-500/[0.04] px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-600 dark:border-cobalt-300/18 dark:bg-cobalt-300/[0.05] dark:text-cobalt-100"
                 >
                   {{ tag }}
                 </span>
@@ -71,14 +71,14 @@
 
             <aside class="border border-cobalt-500/14 p-6 md:p-8 dark:border-cobalt-300/16">
               <p
-                class="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                class="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
                 from the CV
               </p>
               <dl class="space-y-4">
                 <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                   <dt
-                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                    class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
                   >
                     company
                   </dt>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="border-b border-cobalt-500/10 pb-4 dark:border-cobalt-300/12">
                   <dt
-                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                    class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
                   >
                     role
                   </dt>
@@ -98,7 +98,7 @@
                 </div>
                 <div>
                   <dt
-                    class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                    class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
                   >
                     period
                   </dt>
@@ -152,7 +152,7 @@
               class="bg-cream-50 p-6 dark:bg-charcoal-50"
             >
               <p
-                class="font-mono text-[11px] uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
+                class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
                 outcome
               </p>

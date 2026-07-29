@@ -37,7 +37,7 @@
             class="max-h-[78vh] w-auto max-w-full object-contain shadow-2xl"
           />
           <figcaption
-            class="flex flex-wrap items-center justify-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/75"
+            class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-white/75"
           >
             <span>{{ current?.label }}</span>
             <span v-if="assets.length > 1" aria-hidden="true">·</span>

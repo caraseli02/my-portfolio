@@ -32,7 +32,7 @@
             <a
               :href="links.cv"
               download
-              class="inline-flex items-center justify-center border border-cobalt-100/30 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-cobalt-700"
+              class="inline-flex min-h-11 items-center justify-center border border-cobalt-100/30 px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-cobalt-700"
             >
               Download CV ↓
             </a>
@@ -58,7 +58,7 @@
         <div class="editorial-rule"></div>
 
         <div
-          class="flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500/60 dark:text-cobalt-100/60"
+          class="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-cobalt-500/60 dark:text-cobalt-100/60"
         >
           <span>vlad caraseli © {{ year }}</span>
           <span>palma de mallorca</span>

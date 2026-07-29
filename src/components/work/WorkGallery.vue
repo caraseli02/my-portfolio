@@ -4,7 +4,7 @@
       <p class="editorial-kicker">visual assets</p>
       <p
         v-if="assets.length > 1"
-        class="font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+        class="font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
       >
         click to enlarge · {{ assets.length }} frames
       </p>
@@ -18,7 +18,7 @@
         v-for="(asset, i) in assets"
         :key="asset.src"
         type="button"
-        class="group relative overflow-hidden border border-cobalt-500/15 bg-white text-left transition-transform hover:-translate-y-0.5 dark:border-cobalt-300/15 dark:bg-charcoal-50"
+        class="group relative overflow-hidden border border-cobalt-500/15 bg-white text-left transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 dark:border-cobalt-300/15 dark:bg-charcoal-50"
         @click="openAt(i, $event.currentTarget as HTMLButtonElement)"
       >
         <picture>
@@ -33,11 +33,11 @@
             loading="lazy"
             width="900"
             height="1120"
-            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </picture>
         <span
-          class="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-charcoal/70 to-transparent px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-white"
+          class="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-charcoal/70 to-transparent px-4 py-3 font-mono text-xs uppercase tracking-[0.16em] text-white"
         >
           <span>{{ asset.label }}</span>
           <span aria-hidden="true">⤢</span>

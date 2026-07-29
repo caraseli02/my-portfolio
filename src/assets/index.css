@@ -197,7 +197,7 @@
   }
 
   .editorial-kicker {
-    @apply text-[11px] font-semibold uppercase tracking-[0.24em] text-cobalt-500/72 dark:text-cobalt-100/90;
+    @apply text-xs font-semibold uppercase tracking-[0.24em] text-cobalt-500/72 dark:text-cobalt-100/90;
   }
 
   .editorial-rule {

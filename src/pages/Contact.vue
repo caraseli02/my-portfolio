@@ -32,11 +32,13 @@
             class="ink-link text-base"
             >GitHub ↗</a
           >
-          <a :href="links.cv" download class="ink-link text-base">Download CV ↓</a>
+          <a :href="links.cv" download class="ink-link inline-flex min-h-11 items-center text-base"
+            >Download CV ↓</a
+          >
         </div>
 
         <p
-          class="mt-12 font-mono text-[11px] uppercase tracking-[0.18em] text-cobalt-500/60 dark:text-cobalt-200/60"
+          class="mt-12 font-mono text-xs uppercase tracking-[0.18em] text-cobalt-500/60 dark:text-cobalt-200/60"
         >
           Palma de Mallorca · open to roles
         </p>

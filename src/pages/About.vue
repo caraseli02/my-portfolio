@@ -85,7 +85,7 @@
             class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12"
           >
             <p
-              class="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+              class="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
             >
               {{ group.label }}
             </p>
@@ -121,7 +121,7 @@
               {{ role.summary }}
             </p>
             <p
-              class="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/55 dark:text-cobalt-200/60"
+              class="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/55 dark:text-cobalt-200/60"
             >
               {{ role.tech }}
             </p>
@@ -185,7 +185,7 @@
           <a
             :href="links.cv"
             download
-            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
+            class="mt-6 inline-flex min-h-11 items-center gap-2 px-1 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
           >
             Download CV
             <span aria-hidden="true">↓</span>

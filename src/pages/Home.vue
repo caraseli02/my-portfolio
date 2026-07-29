@@ -71,7 +71,7 @@
             <a
               :href="links.cv"
               download
-              class="inline-flex items-center justify-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
+              class="inline-flex min-h-11 items-center justify-center px-1 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
             >
               Download CV ↓
             </a>
@@ -109,7 +109,7 @@
               </p>
             </div>
             <p
-              class="font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+              class="font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
             >
               {{ group.period }}
             </p>

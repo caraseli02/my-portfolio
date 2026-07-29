@@ -20,7 +20,7 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="relative inline-flex min-h-11 items-center rounded-sm pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:text-cobalt-300 dark:hover:text-cobalt-100 dark:focus-visible:outline-cobalt-300"
+            class="relative inline-flex min-h-11 items-center rounded-sm pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:text-cobalt-300 dark:hover:text-cobalt-100 dark:focus-visible:outline-cobalt-300"
             :class="{ 'border-b-2 border-cobalt-500 dark:border-cobalt-300': isActive(link.path) }"
             :aria-current="isActive(link.path) ? 'page' : undefined"
           >
