@@ -1,71 +1,50 @@
-/** Phase in the Hero's Journey timeline */
-export interface TimelinePhase {
-  id: string;
+/** Gallery asset for a work sample */
+export interface WorkAsset {
+  src: string;
+  alt: string;
   label: string;
-  icon: string;
-  title: string;
-  narrative: string;
-  detail?: string;
-  highlight?: string;
-}
-
-/** The conceptual metaphor anchoring the project narrative */
-export interface ProjectMetaphor {
-  phrase: string;
-  description: string;
-  icon: string;
-  color: string;
 }
 
 /** Measurable project outcome */
 export interface Outcome {
   metric: string;
   label: string;
-  description?: string;
 }
 
-/** Full case study data for a project */
+/** Case study / work detail */
 export interface CaseStudy {
   slug: string;
-  image?: string;
-  liveUrl?: string;
-  metaphor: ProjectMetaphor;
+  image: string;
+  gallery: WorkAsset[];
   tagline: string;
-  description?: string;
-  duration: string;
+  description: string;
   role: string;
   year: string;
-  timeline: TimelinePhase[];
+  company: string;
   outcomes: Outcome[];
-  lessonsLearned: string[];
   nextProject?: string;
   prevProject?: string;
 }
 
-/** Base project */
-export interface Project {
+/** Featured CV-aligned work sample */
+export interface FeaturedProject {
   id: number;
   title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  accent?: string;
-}
-
-/** Featured project with optional case study */
-export interface FeaturedProject extends Project {
   category: string;
-  highlights: string[];
-  caseStudy?: CaseStudy;
-}
-
-/** Simplified project for Home.vue featured cards */
-export interface HomeFeaturedProject {
-  id: number;
-  title: string;
   description: string;
+  highlights: string[];
   tech: string[];
   github?: string;
-  accent: string;
-  slug?: string;
+  image: string;
+  caseStudy: CaseStudy;
+}
+
+/** Employer group for the home work section */
+export interface ExperienceGroup {
+  id: string;
+  kicker: string;
+  title: string;
+  period: string;
+  blurb: string;
+  companyKeys: string[];
 }

@@ -8,10 +8,14 @@ const routes: RouteRecordRaw[] = [
     name: "home",
     component: () => import("../pages/Home.vue"),
     meta: {
-      title: "Vlad Caraseli | Frontend Engineer for Product Teams",
+      title: "Vlad Caraseli | Frontend Developer",
       description:
-        "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences with Vue, React, TypeScript, and Nuxt.",
+        "Frontend developer with 4+ years experience — Vue, Nuxt, React, TypeScript, and AI-assisted development. Based in Palma de Mallorca.",
     },
+  },
+  {
+    path: "/projects",
+    redirect: "/#work",
   },
   {
     path: "/projects/:slug",
@@ -19,9 +23,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import("../pages/CaseStudy.vue"),
     props: true,
     meta: {
-      title: "Case Study | Vlad Caraseli",
-      description:
-        "Deep dives into frontend engineering, interface architecture, and product-facing UI systems.",
+      title: "Work | Vlad Caraseli",
+      description: "Visual work sample aligned to Vlad Caraseli's CV experience.",
     },
   },
   {
@@ -29,9 +32,9 @@ const routes: RouteRecordRaw[] = [
     name: "about",
     component: () => import("../pages/About.vue"),
     meta: {
-      title: "About Vlad Caraseli | Frontend Engineer",
+      title: "About Vlad Caraseli | Frontend Developer",
       description:
-        "Learn how Vlad Caraseli approaches product UI, design systems, and frontend engineering from Palma de Mallorca.",
+        "Frontend Developer based in Palma de Mallorca — Vue, Nuxt, React, TypeScript. Experience at Hotelverse, Nezo Hub, and client products.",
     },
   },
   {
@@ -39,29 +42,13 @@ const routes: RouteRecordRaw[] = [
     name: "contact",
     component: () => import("../pages/Contact.vue"),
     meta: {
-      title: "Contact Vlad Caraseli | Product UI & Frontend",
-      description:
-        "Get in touch with Vlad Caraseli for frontend builds, design systems, and product-facing interface work.",
+      title: "Contact Vlad Caraseli",
+      description: "Contact Vlad Caraseli for frontend roles — LinkedIn, email, or phone.",
     },
   },
   {
     path: "/extra",
-    name: "extra",
-    component: () => import("../pages/Extra.vue"),
-    meta: {
-      title: "Extra | Vlad Caraseli",
-      description: "Additional experiments, side projects, and interface explorations.",
-    },
-  },
-  {
-    path: "/projects",
-    name: "projects",
-    component: () => import("../pages/Projects.vue"),
-    meta: {
-      title: "Projects | Vlad Caraseli",
-      description:
-        "Full index of shipped projects: case-studied product work, component libraries, starters, and experiments across Vue, React, and TypeScript.",
-    },
+    redirect: "/",
   },
   {
     path: "/:pathMatch(.*)*",
@@ -79,16 +66,10 @@ const router = createRouter({
   routes,
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
-
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: "smooth",
-      };
+      return { el: to.hash, behavior: "smooth" };
     }
-
-    // Scroll is handled by App.vue afterEach to avoid jarring jump before transition completes
-    return false;
+    return { top: 0 };
   },
 });
 
@@ -113,8 +94,8 @@ router.beforeEach((to, _from, next) => {
     const project = getProjectBySlug(to.params.slug);
 
     if (project?.caseStudy) {
-      title = `${project.title} Case Study | Vlad Caraseli`;
-      description = `${project.description} Built with ${project.tech.slice(0, 3).join(", ")} and documented as a product-focused frontend case study.`;
+      title = `${project.title} | Vlad Caraseli`;
+      description = `${project.description} Built with ${project.tech.slice(0, 3).join(", ")}.`;
     }
   }
 

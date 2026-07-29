@@ -1,28 +1,26 @@
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 bg-cream-100/95 dark:bg-charcoal/95 backdrop-blur-sm border-b border-cobalt-500/10 dark:border-charcoal-200/30"
+    class="fixed top-0 right-0 left-0 z-50 border-b border-cobalt-500/10 bg-cream-100/95 backdrop-blur-sm dark:border-charcoal-200/30 dark:bg-charcoal/95"
   >
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <nav class="flex items-center justify-between h-20">
-        <!-- Logo Mark -->
+    <div class="mx-auto max-w-7xl px-6 lg:px-12">
+      <nav class="flex h-20 items-center justify-between">
         <router-link
           to="/"
-          class="flex items-center group focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300 focus-visible:outline-offset-4 rounded-sm"
+          class="group flex items-center rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:focus-visible:outline-cobalt-300"
           aria-label="Home"
         >
           <span
-            class="text-2xl font-display font-medium tracking-[-0.04em] text-cobalt-500 dark:text-cobalt-300 lowercase group-hover:opacity-70 transition-opacity"
+            class="font-display text-2xl font-medium tracking-[-0.04em] text-cobalt-500 lowercase transition-opacity group-hover:opacity-70 dark:text-cobalt-300"
             >vlad</span
           >
         </router-link>
 
-        <!-- Navigation Links (desktop) -->
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden items-center gap-8 md:flex">
           <router-link
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="relative inline-flex min-h-[44px] items-center pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-4 rounded-sm dark:text-cobalt-300 dark:hover:text-cobalt-100"
+            class="relative inline-flex min-h-11 items-center rounded-sm pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:text-cobalt-300 dark:hover:text-cobalt-100 dark:focus-visible:outline-cobalt-300"
             :class="{ 'border-b-2 border-cobalt-500 dark:border-cobalt-300': isActive(link.path) }"
             :aria-current="isActive(link.path) ? 'page' : undefined"
           >
@@ -30,66 +28,17 @@
           </router-link>
         </div>
 
-        <!-- Desktop controls -->
-        <div class="hidden md:flex items-center gap-2">
-          <!-- Command palette trigger -->
+        <div class="hidden items-center gap-2 md:flex">
           <button
             type="button"
-            @click="$emit('open-palette')"
-            class="hidden min-h-11 items-center gap-2 border border-cobalt-500/20 px-3 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300 sm:inline-flex"
-            aria-label="Open command palette"
-            title="Command palette (⌘K)"
-          >
-            <svg
-              class="w-3.5 h-3.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="11" cy="11" r="7" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <span class="font-mono text-[10px] uppercase tracking-[0.18em]">⌘K</span>
-          </button>
-
-          <!-- Custom cursor toggle -->
-          <button
-            v-if="cursorAvailable"
-            type="button"
-            @click="toggleCursor"
-            class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
-            :class="{ 'bg-cobalt-500/[0.08] dark:bg-cobalt-300/[0.1]': cursorEnabled }"
-            :aria-label="cursorEnabled ? 'Disable custom cursor' : 'Enable custom cursor'"
-            :aria-pressed="cursorEnabled"
-            :title="cursorEnabled ? 'Cursor: on' : 'Cursor: off'"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              class="w-4 h-4"
-              :fill="cursorEnabled ? 'currentColor' : 'none'"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 3l6 18 2.5-7.5L21 11z" />
-            </svg>
-          </button>
-
-          <!-- Theme Toggle -->
-          <button
-            type="button"
-            @click="toggle"
             class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
             :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+            @click="toggle"
           >
             <svg
               v-if="theme === 'dark'"
               viewBox="0 0 24 24"
-              class="w-4 h-4"
+              class="h-4 w-4"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -108,7 +57,7 @@
             <svg
               v-else
               viewBox="0 0 24 24"
-              class="w-4 h-4"
+              class="h-4 w-4"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -118,7 +67,7 @@
             </svg>
           </button>
         </div>
-        <!-- Mobile hamburger -->
+
         <button
           type="button"
           class="flex h-11 w-11 items-center justify-center text-cobalt-500 dark:text-cobalt-300 md:hidden"
@@ -129,7 +78,7 @@
           <svg
             v-if="!mobileOpen"
             viewBox="0 0 24 24"
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -142,7 +91,7 @@
           <svg
             v-else
             viewBox="0 0 24 24"
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -155,85 +104,58 @@
       </nav>
     </div>
 
-    <!-- Mobile overlay -->
     <Transition name="mobile-nav">
       <div
         v-if="mobileOpen"
-        class="fixed inset-0 top-20 z-40 bg-cream-100/98 dark:bg-charcoal/98 backdrop-blur-sm md:hidden"
+        class="fixed inset-0 top-20 z-40 bg-cream-100/98 backdrop-blur-sm dark:bg-charcoal/98 md:hidden"
       >
         <nav class="flex flex-col items-center gap-6 pt-12">
           <router-link
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 dark:text-cobalt-300"
+            class="inline-flex min-h-11 items-center text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 dark:text-cobalt-300"
             @click="mobileOpen = false"
           >
             {{ link.label }}
           </router-link>
-
-          <div class="flex items-center gap-3 mt-4">
-            <button
-              type="button"
-              @click="
-                $emit('open-palette');
-                mobileOpen = false;
-              "
-              class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
-              aria-label="Open command palette"
+          <button
+            type="button"
+            class="mt-4 flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
+            :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+            @click="toggle"
+          >
+            <svg
+              v-if="theme === 'dark'"
+              viewBox="0 0 24 24"
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
             >
-              <svg
-                class="w-3.5 h-3.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </button>
-
-            <button
-              type="button"
-              @click="toggle"
-              class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
-              :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+            <svg
+              v-else
+              viewBox="0 0 24 24"
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
             >
-              <svg
-                v-if="theme === 'dark'"
-                viewBox="0 0 24 24"
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-                <circle cx="12" cy="12" r="5" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-              </svg>
-              <svg
-                v-else
-                viewBox="0 0 24 24"
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            </button>
-          </div>
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
         </nav>
       </div>
     </Transition>
@@ -241,46 +163,27 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
-import { useCursorPreference } from "../../composables/useCursorPreference";
-
-defineEmits<{ (e: "open-palette"): void; (e: "open-shortcuts"): void }>();
 
 const route = useRoute();
 const { theme, toggle } = useTheme();
-const { enabled: cursorEnabled, toggle: toggleCursor } = useCursorPreference();
-
-const cursorAvailable = ref(false);
 const mobileOpen = ref(false);
 
-// Close mobile menu on route change
-import { watch } from "vue";
 watch(route, () => {
   mobileOpen.value = false;
 });
 
-onMounted(() => {
-  cursorAvailable.value =
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-    !window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-});
-
-interface NavLink {
-  label: string;
-  path: string;
-}
-
-const navLinks: NavLink[] = [
-  { label: "work", path: "/" },
+const navLinks = [
+  { label: "work", path: "/#work" },
   { label: "about", path: "/about" },
   { label: "contact", path: "/contact" },
 ];
 
 const isActive = (path: string): boolean => {
-  if (path === "/") {
-    return route.path === "/";
+  if (path === "/#work") {
+    return route.path === "/" || route.path.startsWith("/projects/");
   }
   return route.path.startsWith(path);
 };

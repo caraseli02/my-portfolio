@@ -7,17 +7,17 @@
         <div>
           <p class="editorial-kicker mb-4">about vlad caraseli</p>
           <h1
-            class="max-w-5xl text-[3.3rem] leading-[0.95] font-display text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.6rem]"
+            class="max-w-5xl font-display text-[3.3rem] leading-[0.95] text-charcoal dark:text-cobalt-100 sm:text-[4.2rem] md:text-[5.6rem]"
           >
-            I like product interfaces with strong hierarchy, useful tension, and zero fake polish.
+            Frontend Developer.
           </h1>
           <p
             class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85 md:text-xl"
           >
-            Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
-            under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
-            layers teams actually rely on. AI-native workflow with Claude Code and Codex baked into
-            every project cycle.
+            More than 4 years in cross-functional agile teams, collaborating with designers, product
+            managers, and backend developers. Translating Figma designs into production-ready
+            interfaces, optimizing Core Web Vitals, and integrating REST APIs — with Claude Code and
+            Codex in the delivery cycle.
           </p>
         </div>
 
@@ -30,7 +30,7 @@
               >
                 base
               </p>
-              <p class="mt-1 text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
+              <p class="mt-1 font-display text-2xl text-cobalt-500 dark:text-cobalt-200">
                 Palma de Mallorca
               </p>
             </div>
@@ -39,12 +39,9 @@
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
               >
-                specialty
+                focus
               </p>
-              <p class="mt-1">
-                Frontend architecture, UX clarity, design systems, AI-powered development, and
-                product-facing implementation.
-              </p>
+              <p class="mt-1">Vue · Nuxt · React · TypeScript · AI-assisted development</p>
             </div>
             <div class="editorial-rule"></div>
             <div>
@@ -54,8 +51,8 @@
                 languages
               </p>
               <p class="mt-1">
-                Moldovan (native) · Russian (full professional) · English (professional working) ·
-                Spanish (professional working)
+                Moldovan (native / bilingual) · Russian (full professional) · English (professional
+                working) · Spanish (professional working)
               </p>
             </div>
             <div class="editorial-rule"></div>
@@ -63,111 +60,75 @@
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
               >
-                off-screen
+                contact
               </p>
               <p class="mt-1">
-                Sailing, long walks, open-source rabbit holes, and interface references I probably
-                should not be collecting.
+                <a :href="`mailto:${links.email}`" class="underline-offset-4 hover:underline">{{
+                  links.email
+                }}</a>
+                ·
+                <a :href="links.phoneHref" class="underline-offset-4 hover:underline">{{
+                  links.phone
+                }}</a>
               </p>
             </div>
           </div>
         </aside>
       </section>
 
-      <section class="reveal mt-14 grid gap-5 md:grid-cols-3">
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">01 — what I do best</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
-            better decision-making built into the layout.
-          </p>
-        </article>
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">02 — how I work</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            AI-native engineering: Claude Code and Codex in the dev cycle, thoughtful systems, clean
-            implementation, and enough visual restraint that the important moments hit harder.
-          </p>
-        </article>
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">03 — where I add leverage</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            Complex frontends, refactors that improve trust, and design-system work that keeps teams
-            shipping without turning every screen into a one-off.
-          </p>
-        </article>
+      <section class="reveal mt-14">
+        <p class="editorial-kicker mb-4">core skills</p>
+        <div class="grid gap-4 md:grid-cols-2">
+          <article
+            v-for="group in skillGroups"
+            :key="group.label"
+            class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12"
+          >
+            <p
+              class="mb-2 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+            >
+              {{ group.label }}
+            </p>
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              {{ group.items }}
+            </p>
+          </article>
+        </div>
       </section>
 
-      <!-- Work Experience -->
       <section class="reveal mt-16">
         <p class="editorial-kicker mb-6">experience</p>
         <div class="space-y-6">
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
-            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+          <div
+            v-for="role in experienceRoles"
+            :key="role.company"
+            class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12"
+          >
+            <div class="mb-3 flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
-                  Hotelverse
+                <h3 class="font-display text-2xl text-cobalt-500 dark:text-cobalt-200">
+                  {{ role.company }}
                 </h3>
                 <p
-                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
+                  class="mt-1 text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70"
                 >
-                  UI/UX Engineer
+                  {{ role.role }}
                 </p>
               </div>
-              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">
-                Nov 2024 — Dec 2025 · Palma, Spain
-              </p>
+              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">{{ role.period }}</p>
             </div>
             <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              Architected complex UI flows using React and TypeScript, ensuring pixel-perfect
-              execution of Figma designs. Focused on performance optimization and creating highly
-              reusable UI patterns to streamline future development.
+              {{ role.summary }}
             </p>
-          </div>
-
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
-            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-              <div>
-                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">Nezo Hub</h3>
-                <p
-                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
-                >
-                  Senior Frontend Engineer
-                </p>
-              </div>
-              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">Apr 2023 — Oct 2024</p>
-            </div>
-            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              Developed and maintained core features for a SaaS platform using Vue 3 + TypeScript.
-              Integrated custom UI components with backend APIs, collaborated on high-level
-              architectural decisions, and conducted thorough code reviews.
-            </p>
-          </div>
-
-          <div class="border border-cobalt-500/12 p-6 md:p-8 dark:border-cobalt-300/12">
-            <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
-              <div>
-                <h3 class="text-2xl font-display text-cobalt-500 dark:text-cobalt-200">
-                  Freelance — Skipso, Santandreatopproperties, Kassebil, Moonflow Club
-                </h3>
-                <p
-                  class="text-sm uppercase tracking-[0.18em] text-cobalt-500/70 dark:text-cobalt-100/70 mt-1"
-                >
-                  Frontend Developer
-                </p>
-              </div>
-              <p class="text-sm text-cobalt-500/60 dark:text-cobalt-100/60">Sep 2021 — Apr 2023</p>
-            </div>
-            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-              Collaborated with diverse teams to conceptualize and design reusable Vue.js
-              components, ensuring consistent quality and adherence to coding standards across
-              multiple client projects.
+            <p
+              class="mt-3 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/55 dark:text-cobalt-200/60"
+            >
+              {{ role.tech }}
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Education & Certifications -->
       <section
         class="reveal mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start"
       >
@@ -175,19 +136,35 @@
           <p class="editorial-kicker mb-4">education</p>
           <div class="space-y-5">
             <div>
-              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">Vue School</h3>
+              <h3 class="font-display text-xl text-cobalt-500 dark:text-cobalt-200">
+                Ibecon Palma
+              </h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                Web Application Development · Apr 2019 — Feb 2020
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-cobalt-500 dark:text-cobalt-200">
+                CWP Site Designer
+              </h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                Certified Web Professional · Apr 2018 — Feb 2019
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-cobalt-500 dark:text-cobalt-200">Vue School</h3>
               <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
                 Mastering Web Application Development with Vue.js
               </p>
             </div>
             <div>
-              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">Vue Mastery</h3>
+              <h3 class="font-display text-xl text-cobalt-500 dark:text-cobalt-200">Vue Mastery</h3>
               <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
                 From Vue.js Basics to Deep Dive
               </p>
             </div>
             <div>
-              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+              <h3 class="font-display text-xl text-cobalt-500 dark:text-cobalt-200">
                 DesignCourse
               </h3>
               <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
@@ -200,54 +177,58 @@
         <div class="border border-cobalt-500/15 p-6 md:p-8">
           <p class="editorial-kicker mb-5">certifications</p>
           <ul class="space-y-3 text-cobalt-600 dark:text-cobalt-100/85">
-            <li class="flex items-start gap-2">
-              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
-              <span>Certified Nuxt Master</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
-              <span>Certified Pinia Master</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
-              <span>Certified Web Professional — Site Designer (CWP)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
-              <span>Advanced Frontend Course Completion</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cobalt-500/50 dark:text-cobalt-300/50 mt-1">✓</span>
-              <span>UI/UX Course</span>
+            <li v-for="item in certifications" :key="item" class="flex items-start gap-2">
+              <span class="mt-1 text-cobalt-500/50 dark:text-cobalt-300/50">✓</span>
+              <span>{{ item }}</span>
             </li>
           </ul>
+          <a
+            :href="links.cv"
+            download
+            class="mt-6 inline-flex min-h-11 items-center gap-2 px-1 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
+          >
+            Download CV
+            <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </section>
     </div>
 
-    <Footer class="footer-reveal" />
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
+import { experienceRoles, links, skillGroups } from "../data/cv";
 import { useJsonLd } from "../composables/useJsonLd";
+
+const certifications = [
+  "Certified Nuxt Master",
+  "Certified Pinia Master",
+  "Certified Web Professional — Site Designer (CWP)",
+  "Advanced Frontend Course Completion",
+  "UI/UX Course",
+];
 
 useJsonLd({
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Vlad Caraseli",
-  jobTitle: "Frontend Engineer",
+  jobTitle: "Frontend Developer",
   url: "https://vladcaraseli.com",
-  sameAs: ["https://github.com/caraseli02", "https://linkedin.com/in/caraseli"],
+  email: links.email,
+  telephone: links.phoneHref.replace("tel:", ""),
+  sameAs: [links.github, links.linkedin],
   knowsAbout: [
     "Vue",
-    "React",
-    "TypeScript",
     "Nuxt",
-    "Design Systems",
-    "Frontend Architecture",
-    "AI-Powered Development",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Storybook",
+    "AI-assisted development",
     "Claude Code",
     "Codex",
   ],

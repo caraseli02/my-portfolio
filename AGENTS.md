@@ -1,50 +1,66 @@
 # AGENTS.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+Guidance for agents working in this repository.
 
 ## Project Overview
 
-Personal portfolio website built with Vue 3, TypeScript, Vite Plus, and Tailwind CSS v4.
+Personal portfolio for Vlad Caraseli — a CV-aligned Vue 3 site with visual work samples from LinkedIn showcases.
 
 ## Development Commands
 
 ```bash
-pnpm dev       # Start development server (Vite Plus)
-pnpm build     # Type-check and production build
-pnpm test      # Run Vitest smoke tests
-pnpm preview   # Preview production build
+vp install   # Install dependencies
+vp dev       # Start development server
+vp build     # Production build
+vp check     # Format, lint, and typecheck
+vp test      # Run tests
+vp preview   # Preview production build
 ```
+
+Do not use npm/pnpm/yarn directly — use `vp`.
 
 ## Architecture
 
 ### Tech Stack
 
-- **Framework**: Vue 3 with Composition API and `<script setup lang="ts">`
-- **Build Tool**: Vite Plus on Vite
-- **Styling**: Tailwind CSS v4 with global custom tokens and utilities in `src/assets/index.css`
-- **Routing**: Vue Router with history mode and route-level metadata
-- **State**: Local composables; no global store is currently configured
+- **Framework**: Vue 3 with Composition API (`<script setup lang="ts">`)
+- **Build**: Vite+ (`vite-plus`)
+- **Styling**: Tailwind CSS v4 with cobalt/cream/charcoal palette
+- **Routing**: Vue Router (history mode) with route-level metadata
+- **State**: Local composables; no global store
 - **Testing**: Vitest with Happy DOM
+
+### Routes
+
+- `/` — Home: hero + work grouped by CV employer blocks
+- `/projects/:slug` — Work detail with gallery lightbox
+- `/about` — CV: skills, experience, education, certifications
+- `/contact` — Contact links
+- `/projects` redirects to `/#work`
 
 ### Structure
 
-- `src/pages/` - Route-level components (Home, Projects, About, Contact, CaseStudy, Extra, NotFound)
-- `src/components/` - Shared UI, layout, chat, and case-study components
-- `src/composables/` - Reusable Vue Composition API behavior
-- `src/data/` - Portfolio project and case-study content
-- `src/router/index.ts` - Route definitions and metadata updates
-- `src/assets/index.css` - Global styles with Tailwind layers and custom utility classes
-- `api/` - Serverless API endpoints
+- `src/pages/` — route pages
+- `src/components/layout/` — Header, Footer
+- `src/components/work/` — WorkCard, WorkGallery, ImageLightbox
+- `src/data/projects.ts` — work samples + experience groups
+- `src/data/cv.ts` — skills, experience roles, contact links
+- `src/composables/` — `useTheme`, `useJsonLd`
+- `src/router/index.ts` — route definitions and metadata
+- `src/assets/index.css` — global styles and utilities
 
 ### Styling Conventions
 
-- Prefer existing semantic colors and utility classes from `src/assets/index.css` before adding new one-off styles.
-- Reusable CSS classes include `.section-shell`, `.section-label`, `.editorial-card`, `.magnetic-link`, `.reveal`, `.reveal-stagger`, `.footer-reveal`, `.gradient-orb`, `.grain-overlay`, and `.paper-grid`.
-- Respect reduced-motion preferences when adding animations or scroll effects.
+Reusable classes in `src/assets/index.css`:
+
+- `.panel-surface`, `.editorial-kicker`, `.editorial-rule`, `.ink-link`, `.pill-badge`, `.paper-grid`
+- `.reveal`, `.reveal-stagger` (scroll reveal; reduced-motion safe)
+
+Respect `prefers-reduced-motion` when adding animations.
 
 ### Component Patterns
 
-- Use Vue 3 Composition API with `<script setup lang="ts">` for new or updated Vue SFCs.
-- Keep route-level pages focused on composition and move reusable UI into `src/components/`.
-- Keep stateful or side-effect-heavy behavior in typed composables under `src/composables/`.
-- Use typed props/emits contracts (`defineProps`, `defineEmits`) for component boundaries.
+- Composition API with `<script setup lang="ts">`
+- Shared CV/work data imported from `src/data/`
+- Prefer simplifying over adding chrome (no chat widget, custom cursor, or command palette)
+- Use typed props/emits (`defineProps`, `defineEmits`) for component boundaries
