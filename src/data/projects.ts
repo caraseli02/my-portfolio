@@ -68,34 +68,40 @@ export const featuredProjects: FeaturedProject[] = [
     title: "Nezo Hub",
     category: "SaaS & crypto product UI",
     description:
-      "Frontend features for SaaS and business applications — reusable Vue 3 components, dashboards, auth flows, and a crypto wallet / ecosystem mobile experience.",
+      "SaaS and business product UI — B2B commerce admin (orders, vendors, shipping, categories) plus a crypto wallet / ecosystem mobile experience.",
     highlights: [
-      "Reusable UI components integrated with backend services",
-      "Dashboards, forms, authentication, and data-driven interfaces",
+      "B2B commerce admin: orders, analytics, agents, shipping, and category tools",
+      "Reusable Vue 3 components integrated with backend services",
       "Wallet overview, stake/earn hub, and multi-service feature grid",
-      "Vue 3 + Nuxt + Pinia state management across responsive production UIs",
+      "Vue 3 + Nuxt + Pinia across responsive production UIs",
     ],
     tech: ["Vue 3", "Nuxt", "TypeScript", "Pinia", "Tailwind CSS", "REST APIs"],
-    image: "/project-images/nezo.jpg",
+    github: "https://github.com/caraseli02/Ecas",
+    image: "/project-images/nezo-b2b.jpg",
     caseStudy: {
       slug: "nezo",
       company: "Nezo Hub",
-      image: "/project-images/nezo.jpg",
+      image: "/project-images/nezo-b2b.jpg",
       gallery: [
+        {
+          src: "/project-images/nezo-b2b.jpg",
+          alt: "Nezo B2B commerce admin dashboard and marketplace experience",
+          label: "B2B commerce platform",
+        },
         {
           src: "/project-images/nezo.jpg",
           alt: "Nezo crypto wallet and ecosystem mobile app",
           label: "Wallet & ecosystem",
         },
       ],
-      tagline: "SaaS product UI and crypto wallet experience",
+      tagline: "B2B SaaS surfaces and crypto wallet experience",
       description:
-        "Frontend Developer at Nezo Hub (Apr 2023 — Oct 2024). Developed and maintained features for SaaS and business apps using Vue 3, TypeScript, Nuxt, Pinia, and Tailwind — including wallet, stake, and markets hub surfaces.",
+        "Frontend Developer at Nezo Hub (Apr 2023 — Oct 2024). Built and maintained Vue 3 / Nuxt / Pinia product UI — including the B2B commerce admin and marketplace flows (orders, vendors, shipping, categories) and the crypto wallet / ecosystem hub.",
       role: "Frontend Developer",
       year: "Apr 2023 — Oct 2024",
       outcomes: [
+        { metric: "B2B", label: "orders, agents, shipping, categories" },
         { metric: "Vue 3", label: "Nuxt + Pinia production stack" },
-        { metric: "SaaS", label: "dashboards, auth, and forms shipped" },
         { metric: "Mobile", label: "wallet and ecosystem hub UI" },
       ],
       prevProject: "hotelverse",
@@ -217,46 +223,6 @@ export const featuredProjects: FeaturedProject[] = [
         { metric: "Wallet", label: "connect and manage orders" },
       ],
       prevProject: "traffice",
-      nextProject: "skipso",
-    },
-  },
-  {
-    id: 6,
-    title: "B2B Commerce Platform",
-    category: "B2B marketplace",
-    description:
-      "Scalable B2B commerce interface for order tracking, category management, vendor tools, shipping, and navigation — with tiered pricing and admin workflows.",
-    highlights: [
-      "Admin dashboard with orders, analytics, and account management",
-      "Order tracking across mobile and desktop",
-      "Category creation with smart/tiered pricing",
-      "Agents table, shipping addresses, and mega-menu navigation",
-    ],
-    tech: ["Nuxt 3", "TypeScript", "Pinia", "Tailwind CSS", "Firebase", "Stripe"],
-    github: "https://github.com/caraseli02/Ecas",
-    image: "/project-images/ecas.jpg",
-    caseStudy: {
-      slug: "skipso",
-      company: "Skipso",
-      image: "/project-images/ecas.jpg",
-      gallery: [
-        {
-          src: "/project-images/ecas.jpg",
-          alt: "B2B commerce admin dashboard and marketplace experience",
-          label: "Admin & marketplace",
-        },
-      ],
-      tagline: "Order tracking, vendors, and smart workflows",
-      description:
-        "Client frontend aligned with Skipso / B2B commerce work (Sep 2021 — Apr 2023). Shipped dashboards, category tools, shipping flows, and marketplace navigation connected to backend and CMS services.",
-      role: "Frontend Developer",
-      year: "2021 — 2023",
-      outcomes: [
-        { metric: "Admin", label: "orders, credit, agents" },
-        { metric: "Pricing", label: "tiered / smart pricing UI" },
-        { metric: "Shipping", label: "addresses and tracking" },
-      ],
-      prevProject: "moonflow",
     },
   },
 ];
@@ -265,7 +231,8 @@ export function getProjectBySlug(slug: string): FeaturedProject | undefined {
   // Keep old case-study URLs working after CV-aligned slug rename
   const aliases: Record<string, string> = {
     "abs-storybook": "hotelverse",
-    ecas: "skipso",
+    ecas: "nezo",
+    skipso: "nezo",
   };
   const resolved = aliases[slug] ?? slug;
   return featuredProjects.find((p) => p.caseStudy.slug === resolved);
@@ -292,17 +259,18 @@ export const experienceGroups: ExperienceGroup[] = [
     kicker: "02 — previous role",
     title: "Nezo Hub",
     period: "Apr 2023 — Oct 2024",
-    blurb: "SaaS and business app frontend — dashboards, auth, and crypto wallet / ecosystem UI.",
+    blurb:
+      "B2B commerce admin and SaaS product UI — plus crypto wallet / ecosystem mobile experience.",
     companyKeys: ["Nezo Hub"],
   },
   {
     id: "freelance",
     kicker: "03 — client work",
-    title: "Skipso, TopProperties, Moonflow, Traffice",
+    title: "TopProperties, Moonflow, Traffice",
     period: "Sep 2021 — Apr 2023",
     blurb:
-      "SaaS, real estate, community, and marketing frontends — dashboards, landing pages, and custom flows.",
-    companyKeys: ["TopProperties", "Traffice", "Moonflow Club", "Skipso"],
+      "Real estate, DeFi, and traffic-analytics frontends — dashboards, maps, and custom product flows.",
+    companyKeys: ["TopProperties", "Traffice", "Moonflow Club"],
   },
 ];
 
