@@ -75,7 +75,7 @@
             loading="lazy"
             width="640"
             height="400"
-            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04] md:max-h-[16rem]"
+            class="aspect-[16/10] h-auto max-h-[18rem] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] md:max-h-[20rem]"
           />
         </picture>
       </div>

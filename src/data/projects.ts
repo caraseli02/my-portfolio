@@ -3,10 +3,115 @@ import type { FeaturedProject, Project, HomeFeaturedProject } from "../types/pro
 export const featuredProjects: FeaturedProject[] = [
   {
     id: 1,
+    title: "Hotelverse Upsell",
+    category: "Hospitality Product UI",
+    description:
+      "Post-booking upsell experience for hotel guests and front-desk staff — room upgrades, stay customizations, special offers, order management, and commission visibility. Built as a pure UI component library with Storybook.",
+    highlights: [
+      "Multi-room booking flows where guests manage upgrades per reserved room",
+      "Front-desk recommendation workspace with order totals and commission tracking",
+      "Enforced pure UI layer — OfferCard receives 30+ pre-computed fields, zero logic",
+      "Storybook 10 + Chromatic CI with Playwright/Vitest coverage for critical flows",
+    ],
+    tech: [
+      "React 19",
+      "TypeScript",
+      "Next.js",
+      "Storybook 10",
+      "Tailwind CSS",
+      "Zustand",
+      "Playwright",
+    ],
+    github: "https://github.com/caraseli02/ABS_StoryBook",
+    accent: "bg-cobalt-700",
+    caseStudy: {
+      slug: "abs-storybook",
+      image: "/project-images/abs-storybook.jpg",
+      metaphor: {
+        phrase: "Dumb UI, Rich Contracts",
+        description:
+          "The smartest UI component is the one that does zero thinking. When components receive pre-computed data through rich type contracts, the compiler becomes your QA team.",
+        icon: "HV",
+        color: "cobalt-700",
+      },
+      tagline: "From reservation details to confirmation-ready selections",
+      duration: "14 months",
+      role: "Frontend Developer",
+      year: "2024–2025",
+      timeline: [
+        {
+          id: "challenge",
+          label: "The Challenge",
+          icon: "⚠️",
+          title: "Upsell Logic Bleeding Into UI",
+          narrative:
+            "Four pricing models (per stay, per person, per night, all-inclusive) with different date selection and validation rules. Guests needed to customize each reserved room independently while front-desk staff tracked orders and commissions.",
+          highlight: "Guest journey × front-desk tools × four pricing models",
+        },
+        {
+          id: "discovery",
+          label: "Discovery",
+          icon: "🔍",
+          title: "The Pure UI Contract",
+          narrative:
+            "If OfferCard receives a pre-computed OfferCardData with 30+ fields, the component literally cannot do business logic — even if someone tries. The type system enforces separation.",
+          detail:
+            "OfferCardData: formatted prices, validation results, state flags — zero logic needed.",
+        },
+        {
+          id: "approach",
+          label: "The Approach",
+          icon: "🛠️",
+          title: "Three-Tier Plus Front-desk Surfaces",
+          narrative:
+            "UI primitives → domain composites → Storybook stories. Discriminated unions for pricing variants. Separate guest and front-desk surfaces sharing the same component contracts.",
+          highlight: "Discriminated unions make invalid pricing states unrepresentable",
+        },
+        {
+          id: "struggle",
+          label: "The Struggle",
+          icon: "🔥",
+          title: "Responsive Pricing Sidebar Performance",
+          narrative:
+            "The sticky pricing sidebar needed dynamic height based on scroll and viewport. Naive approaches caused jank — recalculating on every scroll event tanks frame rate.",
+        },
+        {
+          id: "breakthrough",
+          label: "Breakthrough",
+          icon: "💡",
+          title: "The useDynamicMaxHeight Pipeline",
+          narrative:
+            "ResizeObserver + throttled scroll (100ms) + debounced scroll-end (200ms) + 10px threshold + RAF calculations. On mobile, the hook disables entirely — no wasted cycles.",
+          highlight: "Throttle + debounce + threshold + RAF = smooth sticky sidebar",
+        },
+        {
+          id: "impact",
+          label: "The Impact",
+          icon: "🚀",
+          title: "Shipped Guest and Staff Upsell Tools",
+          narrative:
+            "Production upsell flows for room upgrades, stay enhancements, and front-desk recommendations. Pricing changes touch calculation utilities, not components — the compiler flags every place that needs updating.",
+        },
+      ],
+      outcomes: [
+        { metric: "30+", label: "pre-computed fields per OfferCard — zero UI logic" },
+        { metric: "4", label: "pricing models enforced by discriminated unions" },
+        { metric: "70%", label: "test coverage threshold (Vitest + Playwright)" },
+      ],
+      lessonsLearned: [
+        "Dumb UI components with rich type contracts beat smart components with loose types.",
+        "Discriminated unions are TypeScript's pattern matching — use them everywhere.",
+        "Visual regression testing (Chromatic) catches CSS bugs that unit tests can't.",
+      ],
+      nextProject: "topproperties",
+    },
+  },
+  {
+    id: 2,
     title: "Top Properties",
     category: "Full-Stack Application",
     description:
-      "A luxury real estate browser with interactive map, multi-currency pricing, and advanced filtering. Built for the international property market where homes are listed in EUR, GBP, CHF, and more.",
+      "A luxury real estate platform with interactive map, multi-currency pricing, and advanced filtering. Built for the international property market where homes are listed in EUR, GBP, CHF, and more.",
     highlights: [
       "Interactive Leaflet map with auto-fitting bounds and custom markers",
       "Multi-currency price normalization (8 currencies to USD)",
@@ -26,10 +131,10 @@ export const featuredProjects: FeaturedProject[] = [
         icon: "TP",
         color: "cobalt-500",
       },
-      tagline: "Luxury listings without borders",
+      tagline: "Find your extraordinary home",
       duration: "6 weeks",
-      role: "Solo Developer",
-      year: "2024",
+      role: "Frontend Developer",
+      year: "2022–2023",
       timeline: [
         {
           id: "challenge",
@@ -94,15 +199,16 @@ export const featuredProjects: FeaturedProject[] = [
         "Portal rendering solves z-index problems that CSS alone can't touch.",
         "Image resilience must be built in from day one — broken images destroy trust.",
       ],
+      prevProject: "abs-storybook",
       nextProject: "ecas",
     },
   },
   {
-    id: 2,
-    title: "ECAS",
+    id: 3,
+    title: "B2B Commerce Platform",
     category: "Full-Stack Application",
     description:
-      "A production-grade e-commerce platform with tiered pricing engine, Stripe payments, Firebase auth, and a full admin dashboard. Complete shopping flow from browsing to order tracking.",
+      "A scalable B2B commerce interface for order tracking, category management, vendor tools, shipping, and navigation flows — with a tiered pricing engine, Stripe payments, and a full admin dashboard.",
     highlights: [
       "Three-dimensional smart pricing engine (price ranges × quantity tiers × margins)",
       "Stripe multi-payment: cards, customer credit, bank transfer, cash on delivery",
@@ -122,10 +228,10 @@ export const featuredProjects: FeaturedProject[] = [
         icon: "EC",
         color: "cobalt-600",
       },
-      tagline: "Full-stack commerce beyond the tutorial",
+      tagline: "Admin dashboard and marketplace experience",
       duration: "4 months",
-      role: "Solo Developer",
-      year: "2024",
+      role: "Frontend Developer",
+      year: "2023–2024",
       timeline: [
         {
           id: "challenge",
@@ -192,112 +298,6 @@ export const featuredProjects: FeaturedProject[] = [
         "Defense-in-depth mock mode prevents demo code from reaching production.",
       ],
       prevProject: "topproperties",
-      nextProject: "abs-storybook",
-    },
-  },
-  {
-    id: 3,
-    title: "ABS Storybook",
-    category: "Component Library",
-    description:
-      "A hotel booking upsell component library with strict UI/business logic separation. Components receive 30+ pre-computed fields — zero logic in the render layer. Documented with Storybook 10 and tested with Chromatic.",
-    highlights: [
-      "Enforced pure UI layer — OfferCard receives 30+ pre-computed fields, zero logic",
-      "TypeScript discriminated unions for 4 pricing models",
-      "Storybook 10 + Chromatic CI pipeline with auto-baseline on main",
-      "i18next with 70+ typed translation keys (English + Spanish)",
-    ],
-    tech: [
-      "React 19",
-      "TypeScript",
-      "Storybook 10",
-      "Tailwind CSS 4",
-      "Radix UI",
-      "Chromatic",
-      "i18next",
-    ],
-    github: "https://github.com/caraseli02/ABS_StoryBook",
-    accent: "bg-cobalt-700",
-    caseStudy: {
-      slug: "abs-storybook",
-      image: "/project-images/abs-storybook.jpg",
-      metaphor: {
-        phrase: "Dumb UI, Rich Contracts",
-        description:
-          "The smartest UI component is the one that does zero thinking. When components receive pre-computed data through rich type contracts, the compiler becomes your QA team.",
-        icon: "ABS",
-        color: "cobalt-700",
-      },
-      tagline: "Where the compiler is the QA team",
-      duration: "3 months",
-      role: "Solo Developer",
-      year: "2025",
-      timeline: [
-        {
-          id: "challenge",
-          label: "The Challenge",
-          icon: "⚠️",
-          title: "Business Logic Bleeding Into UI",
-          narrative:
-            "Four pricing models (per stay, per person, per night, all-inclusive) with different date selection and validation rules. Every pricing change meant rewriting UI code.",
-          highlight: "Four pricing models × multiple booking flows = combinatorial explosion",
-        },
-        {
-          id: "discovery",
-          label: "Discovery",
-          icon: "🔍",
-          title: "The Pure UI Contract",
-          narrative:
-            "If OfferCard receives a pre-computed OfferCardData with 30+ fields, the component literally cannot do business logic — even if someone tries. The type system enforces separation.",
-          detail:
-            "OfferCardData: formatted prices, validation results, state flags — zero logic needed.",
-        },
-        {
-          id: "approach",
-          label: "The Approach",
-          icon: "🛠️",
-          title: "Three-Tier Architecture with Discriminated Unions",
-          narrative:
-            "UI primitives → domain composites → Storybook stories. TypeScript discriminated unions enforce that each pricing variant carries only its relevant fields.",
-          highlight: "Discriminated unions make invalid pricing states unrepresentable",
-        },
-        {
-          id: "struggle",
-          label: "The Struggle",
-          icon: "🔥",
-          title: "Responsive Pricing Sidebar Performance",
-          narrative:
-            "The sticky pricing sidebar needed dynamic height based on scroll and viewport. Naive approaches caused jank — recalculating on every scroll event tanks frame rate.",
-        },
-        {
-          id: "breakthrough",
-          label: "Breakthrough",
-          icon: "💡",
-          title: "The useDynamicMaxHeight Pipeline",
-          narrative:
-            "ResizeObserver + throttled scroll (100ms) + debounced scroll-end (200ms) + 10px threshold + RAF calculations. On mobile, the hook disables entirely — no wasted cycles.",
-          highlight: "Throttle + debounce + threshold + RAF = smooth sticky sidebar",
-        },
-        {
-          id: "impact",
-          label: "The Impact",
-          icon: "🚀",
-          title: "Fearless Refactoring Through Types",
-          narrative:
-            "Pricing changes touch calculation utilities, not components. Adding a new offer type means extending a union — the compiler tells you every place that needs updating.",
-        },
-      ],
-      outcomes: [
-        { metric: "30+", label: "pre-computed fields per OfferCard — zero UI logic" },
-        { metric: "4", label: "pricing models enforced by discriminated unions" },
-        { metric: "70%", label: "test coverage threshold (Vitest + Playwright)" },
-      ],
-      lessonsLearned: [
-        "Dumb UI components with rich type contracts beat smart components with loose types.",
-        "Discriminated unions are TypeScript's pattern matching — use them everywhere.",
-        "Visual regression testing (Chromatic) catches CSS bugs that unit tests can't.",
-      ],
-      prevProject: "ecas",
     },
   },
 ];
@@ -305,6 +305,36 @@ export const featuredProjects: FeaturedProject[] = [
 export const otherProjects: Project[] = [
   {
     id: 4,
+    title: "Traffice",
+    description:
+      "Smart traffic monitoring dashboard — data management, scene editor with flow overlays, OD matrix reports, map view, and site creation workflows.",
+    tech: ["Vue.js", "Nuxt", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/caraseli02",
+    accent: "bg-cobalt-500",
+    image: "/project-images/traffice.jpg",
+  },
+  {
+    id: 5,
+    title: "Moonflow",
+    description:
+      "DeFi trading dashboard and mobile trading experience — limit orders, candlestick charts, wallet connection, and slippage settings.",
+    tech: ["Vue.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/caraseli02",
+    accent: "bg-cobalt-600",
+    image: "/project-images/moonflow.jpg",
+  },
+  {
+    id: 6,
+    title: "Nezo Wallet",
+    description:
+      "Crypto wallet and ecosystem mobile app — portfolio overview, stake/earn flows, markets hub, and multi-service feature grid.",
+    tech: ["Vue 3", "Nuxt", "TypeScript", "Pinia"],
+    github: "https://github.com/caraseli02",
+    accent: "bg-cobalt-700",
+    image: "/project-images/nezo.jpg",
+  },
+  {
+    id: 7,
     title: "Inventory Management App",
     description:
       "TypeScript-based inventory management with real-time tracking and CRUD operations.",
@@ -313,7 +343,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-500",
   },
   {
-    id: 5,
+    id: 8,
     title: "MoldovaDirect",
     description:
       "A TypeScript web application connecting users with services and information about Moldova.",
@@ -322,7 +352,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-600",
   },
   {
-    id: 6,
+    id: 9,
     title: "Jobs Hub",
     description:
       "A job listing platform built with TypeScript for browsing and managing job postings.",
@@ -331,7 +361,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-700",
   },
   {
-    id: 7,
+    id: 10,
     title: "Vite Vue 3 Starter",
     description:
       "A starter template for Vue 3 projects with Vite, TypeScript, and modern tooling pre-configured.",
@@ -340,7 +370,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-500",
   },
   {
-    id: 8,
+    id: 11,
     title: "Tailwind Tabs Component",
     description:
       "A reusable tabs component built with Vite and Tailwind CSS for Vue 3 applications.",
@@ -349,7 +379,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-600",
   },
   {
-    id: 9,
+    id: 12,
     title: "Invoice Processing",
     description:
       "A Python-based invoice processing tool for automating document handling and data extraction.",
@@ -358,7 +388,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-400",
   },
   {
-    id: 10,
+    id: 13,
     title: "Vuetify Barbershop",
     description:
       "A responsive barbershop website built with Vue.js and Vuetify material design components.",
@@ -367,7 +397,7 @@ export const otherProjects: Project[] = [
     accent: "bg-cobalt-700",
   },
   {
-    id: 11,
+    id: 14,
     title: "Metrics App",
     description:
       "A Vue.js application for tracking and visualizing metrics with interactive dashboards.",
@@ -401,11 +431,11 @@ export const homeFeaturedProjects: HomeFeaturedProject[] = [
   })),
   {
     id: 4,
-    title: "Inventory Management App",
+    title: "Traffice",
     description:
-      "A TypeScript-based inventory management application with real-time tracking, CRUD operations, and a clean component architecture.",
-    tech: ["TypeScript", "Vue 3", "Vite", "Tailwind CSS"],
-    github: "https://github.com/caraseli02/inventory-app",
+      "Smart traffic monitoring dashboard for data management, scene analysis, OD matrix reports, and interactive map views.",
+    tech: ["Vue.js", "Nuxt", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/caraseli02",
     accent: "bg-cobalt-500",
   },
 ];

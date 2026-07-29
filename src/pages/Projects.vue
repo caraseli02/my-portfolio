@@ -11,8 +11,8 @@
         <p
           class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
         >
-          Three featured projects with full case studies, plus a longer list of smaller builds:
-          starter templates, component work, automation tools, and product experiments.
+          Three featured projects with full case studies — Hotelverse upsell, luxury real estate,
+          and B2B commerce — plus Traffice, Moonflow, Nezo, and a longer list of smaller builds.
         </p>
 
         <div
@@ -92,6 +92,19 @@
               rel="noopener noreferrer"
               class="group flex h-full flex-col gap-4 px-5 py-7 transition-colors hover:bg-cobalt-500/[0.04] dark:hover:bg-cobalt-300/[0.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-[-2px]"
             >
+              <div
+                v-if="project.image"
+                class="overflow-hidden rounded-xl border border-cobalt-500/12 bg-cobalt-500/[0.03] dark:border-cobalt-300/12"
+              >
+                <img
+                  :src="project.image"
+                  :alt="`${project.title} preview`"
+                  loading="lazy"
+                  width="640"
+                  height="400"
+                  class="aspect-[4/5] h-auto max-h-56 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
               <div class="flex items-start justify-between gap-3">
                 <h3 class="text-xl font-display leading-tight text-cobalt-500 dark:text-cobalt-200">
                   {{ project.title }}

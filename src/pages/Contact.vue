@@ -52,6 +52,13 @@
           >
             Browse GitHub ↗
           </a>
+          <a
+            href="/Vladislav_Caraseli_CV_EN.pdf"
+            download
+            class="inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+          >
+            Download CV ↓
+          </a>
         </div>
       </section>
 

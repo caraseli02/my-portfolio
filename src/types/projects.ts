@@ -50,6 +50,7 @@ export interface Project {
   tech: string[];
   github?: string;
   accent?: string;
+  image?: string;
 }
 
 /** Featured project with optional case study */

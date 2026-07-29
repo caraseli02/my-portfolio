@@ -147,7 +147,7 @@
               <img
                 :src="heroImgSrc"
                 :alt="`${project.title} screenshot`"
-                class="h-auto max-h-[70vh] w-full object-cover object-top"
+                class="h-auto max-h-[70vh] w-full object-contain object-top bg-charcoal/[0.03] dark:bg-white/[0.03]"
                 loading="eager"
                 fetchpriority="high"
                 width="1280"

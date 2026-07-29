@@ -23,7 +23,7 @@
           <p class="editorial-kicker mb-6 flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>vlad caraseli</span>
             <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/40">·</span>
-            <span>frontend engineer</span>
+            <span>frontend developer</span>
             <span aria-hidden="true" class="text-cobalt-500/40 dark:text-cobalt-300/40">·</span>
             <span>palma de mallorca</span>
           </p>
@@ -37,8 +37,8 @@
           <p
             class="mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
           >
-            Frontend engineer with 4+ years shipping product UI — Vue, React, Nuxt, TypeScript, and
-            an AI-native workflow with Claude Code and Codex.
+            Frontend developer with 4+ years shipping product UI — Vue, Nuxt, React, TypeScript, and
+            an AI-assisted workflow with Claude Code and Codex.
           </p>
 
           <dl
@@ -54,9 +54,7 @@
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">shipped</dt>
-              <dd class="text-sm font-semibold tracking-[0.12em]">
-                Hotelverse · Nezo Hub · Skipso
-              </dd>
+              <dd class="text-sm font-semibold tracking-[0.12em]">Hotelverse · Nezo · Traffice</dd>
             </div>
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">repos</dt>
@@ -165,8 +163,8 @@
           <p
             class="mt-4 max-w-2xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85"
           >
-            Smaller builds cover inventory tools, job boards, starter templates, automation work,
-            and dashboard-style products.
+            Smaller builds cover traffic dashboards, DeFi trading UIs, crypto wallets, inventory
+            tools, job boards, and starter templates.
           </p>
 
           <div class="mt-8 grid gap-4 sm:grid-cols-3">
@@ -245,7 +243,7 @@ useJsonLd({
   author: {
     "@type": "Person",
     name: "Vlad Caraseli",
-    jobTitle: "Frontend Engineer",
+    jobTitle: "Frontend Developer",
     url: "https://vladcaraseli.com",
   },
 });
