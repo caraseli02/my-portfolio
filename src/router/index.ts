@@ -13,14 +13,17 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: "/projects",
+    redirect: "/#work",
+  },
+  {
     path: "/projects/:slug",
     name: "case-study",
     component: () => import("../pages/CaseStudy.vue"),
     props: true,
     meta: {
-      title: "Case Study | Vlad Caraseli",
-      description:
-        "Deep dives into frontend engineering, interface architecture, and product-facing UI systems.",
+      title: "Work | Vlad Caraseli",
+      description: "Visual work sample aligned to Vlad Caraseli's CV experience.",
     },
   },
   {
@@ -30,7 +33,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       title: "About Vlad Caraseli | Frontend Developer",
       description:
-        "Frontend Developer based in Palma de Mallorca — Vue, Nuxt, React, TypeScript, and AI-assisted development. Experience at Hotelverse, Nezo Hub, and client products.",
+        "Frontend Developer based in Palma de Mallorca — Vue, Nuxt, React, TypeScript. Experience at Hotelverse, Nezo Hub, and client products.",
     },
   },
   {
@@ -38,29 +41,13 @@ const routes: RouteRecordRaw[] = [
     name: "contact",
     component: () => import("../pages/Contact.vue"),
     meta: {
-      title: "Contact Vlad Caraseli | Product UI & Frontend",
-      description:
-        "Get in touch with Vlad Caraseli for frontend builds, design systems, and product-facing interface work.",
+      title: "Contact Vlad Caraseli",
+      description: "Contact Vlad Caraseli for frontend roles — LinkedIn, email, or phone.",
     },
   },
   {
     path: "/extra",
-    name: "extra",
-    component: () => import("../pages/Extra.vue"),
-    meta: {
-      title: "Extra | Vlad Caraseli",
-      description: "Additional experiments, side projects, and interface explorations.",
-    },
-  },
-  {
-    path: "/projects",
-    name: "projects",
-    component: () => import("../pages/Projects.vue"),
-    meta: {
-      title: "Projects | Vlad Caraseli",
-      description:
-        "Visual work samples aligned to the CV: Hotelverse upsell, Nezo Hub, TopProperties, Traffice, Moonflow, and B2B commerce.",
-    },
+    redirect: "/",
   },
   {
     path: "/:pathMatch(.*)*",
@@ -78,16 +65,10 @@ const router = createRouter({
   routes,
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
-
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: "smooth",
-      };
+      return { el: to.hash, behavior: "smooth" };
     }
-
-    // Scroll is handled by App.vue afterEach to avoid jarring jump before transition completes
-    return false;
+    return { top: 0 };
   },
 });
 
@@ -112,8 +93,8 @@ router.beforeEach((to, _from, next) => {
     const project = getProjectBySlug(to.params.slug);
 
     if (project?.caseStudy) {
-      title = `${project.title} Case Study | Vlad Caraseli`;
-      description = `${project.description} Built with ${project.tech.slice(0, 3).join(", ")} and documented as a product-focused frontend case study.`;
+      title = `${project.title} | Vlad Caraseli`;
+      description = `${project.description} Built with ${project.tech.slice(0, 3).join(", ")}.`;
     }
   }
 

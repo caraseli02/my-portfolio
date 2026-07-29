@@ -19,16 +19,23 @@
         :key="asset.src"
         type="button"
         class="group relative overflow-hidden border border-cobalt-500/15 bg-white text-left transition-transform hover:-translate-y-0.5 dark:border-cobalt-300/15 dark:bg-charcoal-50"
-        @click="openAt(i)"
+        @click="openAt(i, $event.currentTarget as HTMLButtonElement)"
       >
-        <img
-          :src="asset.src"
-          :alt="asset.alt"
-          loading="lazy"
-          width="900"
-          height="1120"
-          class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            :srcset="`${webpBase(asset.src)}-320.webp 320w, ${webpBase(asset.src)}-640.webp 640w, ${webpBase(asset.src)}.webp 1280w`"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 400px"
+          />
+          <img
+            :src="asset.src"
+            :alt="asset.alt"
+            loading="lazy"
+            width="900"
+            height="1120"
+            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </picture>
         <span
           class="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-charcoal/70 to-transparent px-4 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-white"
         >
@@ -42,7 +49,8 @@
       :open="lightboxOpen"
       :assets="assets"
       :start-index="activeIndex"
-      @close="lightboxOpen = false"
+      :return-focus="returnFocus"
+      @close="closeLightbox"
       @update:index="activeIndex = $event"
     />
   </div>
@@ -59,9 +67,17 @@ defineProps<{
 
 const lightboxOpen = ref(false);
 const activeIndex = ref(0);
+const returnFocus = ref<HTMLElement | null>(null);
 
-const openAt = (index: number) => {
+const webpBase = (src: string) => src.replace(/\.[^.]+$/, "");
+
+const openAt = (index: number, el: HTMLButtonElement) => {
   activeIndex.value = index;
+  returnFocus.value = el;
   lightboxOpen.value = true;
+};
+
+const closeLightbox = () => {
+  lightboxOpen.value = false;
 };
 </script>

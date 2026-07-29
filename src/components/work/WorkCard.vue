@@ -4,19 +4,26 @@
   >
     <router-link
       :to="{ name: 'case-study', params: { slug } }"
-      class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-cobalt-500 focus-visible:outline-offset-2"
+      class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500"
     >
       <div
         class="relative overflow-hidden border-b border-cobalt-500/12 bg-cobalt-500/[0.03] dark:border-cobalt-300/12"
       >
-        <img
-          :src="image"
-          :alt="`${title} preview`"
-          loading="lazy"
-          width="800"
-          height="1000"
-          class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            :srcset="`${webpBase}-320.webp 320w, ${webpBase}-640.webp 640w, ${webpBase}.webp 1280w`"
+            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 400px"
+          />
+          <img
+            :src="image"
+            :alt="`${title} preview`"
+            loading="lazy"
+            width="800"
+            height="1000"
+            class="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </picture>
         <div
           class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-charcoal/55 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         >
@@ -32,10 +39,10 @@
           <span aria-hidden="true">·</span>
           <span>{{ period }}</span>
         </div>
-        <h3 class="text-2xl font-display leading-tight text-cobalt-500 dark:text-cobalt-200">
+        <h3 class="font-display text-2xl leading-tight text-cobalt-500 dark:text-cobalt-200">
           {{ title }}
         </h3>
-        <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80 line-clamp-3">
+        <p class="line-clamp-3 text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/80">
           {{ description }}
         </p>
         <div class="flex flex-wrap gap-2 pt-1">
@@ -47,7 +54,9 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(
+import { computed } from "vue";
+
+const props = withDefaults(
   defineProps<{
     title: string;
     slug: string;
@@ -61,4 +70,6 @@ withDefaults(
     tags: () => [],
   },
 );
+
+const webpBase = computed(() => props.image.replace(/\.[^.]+$/, ""));
 </script>

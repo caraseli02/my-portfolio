@@ -4,10 +4,10 @@
       v-if="!project || !caseStudy"
       class="flex min-h-screen flex-col items-center justify-center px-6"
     >
-      <span class="mb-4 text-6xl font-display text-cobalt-500/20 dark:text-cobalt-300/20">404</span>
+      <span class="mb-4 font-display text-6xl text-cobalt-500/20 dark:text-cobalt-300/20">404</span>
       <p class="mb-8 text-lg text-cobalt-700 dark:text-cobalt-100">Project not found</p>
       <router-link
-        to="/projects"
+        to="/#work"
         class="border border-cobalt-500/20 px-4 py-2 font-mono text-sm text-cobalt-700 transition-colors hover:bg-cobalt-500/5 dark:border-cobalt-300/20 dark:text-cobalt-100 dark:hover:bg-cobalt-300/5"
       >
         Back to work
@@ -25,7 +25,7 @@
                 {{ formattedNumber }} · {{ caseStudy.company }} · {{ project.category }}
               </p>
               <h1
-                class="max-w-4xl text-[3.1rem] leading-[0.92] font-display text-charcoal dark:text-cobalt-100 sm:text-[4rem] md:text-[5rem]"
+                class="max-w-4xl font-display text-[3.1rem] leading-[0.92] text-charcoal dark:text-cobalt-100 sm:text-[4rem] md:text-[5rem]"
               >
                 {{ project.title }}
               </h1>
@@ -37,7 +37,7 @@
               <p
                 class="mt-5 max-w-3xl text-base leading-relaxed text-charcoal-200 dark:text-cobalt-100/84 md:text-lg"
               >
-                {{ caseStudy.description || project.description }}
+                {{ caseStudy.description }}
               </p>
 
               <div class="mt-8 flex flex-wrap gap-2.5">
@@ -61,7 +61,7 @@
                   View source ↗
                 </a>
                 <router-link
-                  to="/projects"
+                  to="/#work"
                   class="inline-flex items-center justify-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
                 >
                   All work →
@@ -82,7 +82,7 @@
                   >
                     company
                   </dt>
-                  <dd class="mt-2 text-2xl font-display text-charcoal dark:text-cobalt-100">
+                  <dd class="mt-2 font-display text-2xl text-charcoal dark:text-cobalt-100">
                     {{ caseStudy.company }}
                   </dd>
                 </div>
@@ -114,7 +114,7 @@
 
       <section class="px-6 pb-14 md:px-10 lg:px-12">
         <div class="mx-auto max-w-7xl">
-          <WorkGallery :assets="galleryAssets" />
+          <WorkGallery :assets="caseStudy.gallery" />
         </div>
       </section>
 
@@ -130,7 +130,9 @@
               class="border-b border-cobalt-500/12 px-1 py-5 dark:border-cobalt-300/12 sm:[&:not(:nth-child(2n))]:border-r sm:[&:not(:nth-child(2n))]:pr-5 sm:[&:nth-child(2n)]:pl-5"
             >
               <p class="editorial-kicker mb-3 font-mono">
-                <span class="text-cobalt-500/50 dark:text-cobalt-300/50">0{{ index + 1 }}</span>
+                <span class="text-cobalt-500/50 dark:text-cobalt-300/50">{{
+                  String(index + 1).padStart(2, "0")
+                }}</span>
                 <span class="mx-2 text-cobalt-500/30 dark:text-cobalt-300/30">—</span>
                 <span>highlight</span>
               </p>
@@ -141,7 +143,7 @@
           </div>
 
           <div
-            v-if="caseStudy.outcomes?.length"
+            v-if="caseStudy.outcomes.length"
             class="mt-10 grid gap-px overflow-hidden border border-cobalt-500/14 bg-cobalt-500/10 dark:border-cobalt-300/14 dark:bg-cobalt-300/10 md:grid-cols-3"
           >
             <div
@@ -154,7 +156,7 @@
               >
                 outcome
               </p>
-              <p class="mt-2 text-3xl font-display text-charcoal dark:text-cobalt-100">
+              <p class="mt-2 font-display text-3xl text-charcoal dark:text-cobalt-100">
                 {{ outcome.metric }}
               </p>
               <p class="mt-2 text-sm leading-relaxed text-charcoal-200 dark:text-cobalt-100/82">
@@ -174,7 +176,7 @@
           >
             <p class="editorial-kicker mb-3 font-mono">← prev</p>
             <p
-              class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
+              class="font-display text-2xl text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
             >
               {{ prevProject.title }}
             </p>
@@ -182,7 +184,7 @@
           <div v-else class="hidden md:block"></div>
 
           <router-link
-            to="/projects"
+            to="/#work"
             class="panel-surface flex items-center justify-center p-5 text-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-transform hover:-translate-y-1 dark:text-cobalt-100"
           >
             All work
@@ -195,7 +197,7 @@
           >
             <p class="editorial-kicker mb-3 font-mono">next →</p>
             <p
-              class="text-2xl font-display text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
+              class="font-display text-2xl text-charcoal transition-colors group-hover:text-cobalt-700 dark:text-cobalt-100 dark:group-hover:text-white"
             >
               {{ nextProject.title }}
             </p>
@@ -214,7 +216,6 @@ import { computed } from "vue";
 import { getProjectBySlug, getProjectIndex } from "../data/projects";
 import WorkGallery from "../components/work/WorkGallery.vue";
 import Footer from "../components/layout/Footer.vue";
-import type { WorkAsset } from "../types/projects";
 
 const props = defineProps<{
   slug: string;
@@ -226,13 +227,6 @@ const caseStudy = computed(() => project.value?.caseStudy);
 const formattedNumber = computed(() => {
   const index = getProjectIndex(props.slug);
   return (index + 1).toString().padStart(2, "0");
-});
-
-const galleryAssets = computed<WorkAsset[]>(() => {
-  if (caseStudy.value?.gallery?.length) return caseStudy.value.gallery;
-  const src = caseStudy.value?.image;
-  if (!src) return [];
-  return [{ src, alt: `${project.value?.title} preview`, label: "Overview" }];
 });
 
 const prevProject = computed(() => {

@@ -1,4 +1,4 @@
-import type { FeaturedProject, HomeFeaturedProject } from "../types/projects";
+import type { ExperienceGroup, FeaturedProject } from "../types/projects";
 
 /**
  * Work samples aligned to the CV experience sections.
@@ -28,7 +28,6 @@ export const featuredProjects: FeaturedProject[] = [
       "Supabase",
     ],
     github: "https://github.com/caraseli02/ABS_StoryBook",
-    accent: "bg-cobalt-700",
     image: "/project-images/abs-storybook.jpg",
     caseStudy: {
       slug: "hotelverse",
@@ -54,7 +53,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "From reservation details to confirmation-ready selections",
       description:
         "Built the multi-room booking and upselling experience at Hotelverse (Nov 2024 — Dec 2025). Guests manage upgrades and extras independently for each reserved room; staff recommend services and track orders and commissions.",
-      duration: "14 months",
       role: "Frontend Developer",
       year: "Nov 2024 — Dec 2025",
       outcomes: [
@@ -78,7 +76,6 @@ export const featuredProjects: FeaturedProject[] = [
       "Vue 3 + Nuxt + Pinia state management across responsive production UIs",
     ],
     tech: ["Vue 3", "Nuxt", "TypeScript", "Pinia", "Tailwind CSS", "REST APIs"],
-    accent: "bg-cobalt-600",
     image: "/project-images/nezo.jpg",
     caseStudy: {
       slug: "nezo",
@@ -94,7 +91,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "SaaS product UI and crypto wallet experience",
       description:
         "Frontend Developer at Nezo Hub (Apr 2023 — Oct 2024). Developed and maintained features for SaaS and business apps using Vue 3, TypeScript, Nuxt, Pinia, and Tailwind — including wallet, stake, and markets hub surfaces.",
-      duration: "19 months",
       role: "Frontend Developer",
       year: "Apr 2023 — Oct 2024",
       outcomes: [
@@ -120,7 +116,6 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Leaflet"],
     github: "https://github.com/caraseli02/Toppropertiesdemo",
-    accent: "bg-cobalt-500",
     image: "/project-images/topproperties.jpg",
     caseStudy: {
       slug: "topproperties",
@@ -136,7 +131,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "Find your extraordinary home",
       description:
         "Client frontend work for TopProperties (within Sep 2021 — Apr 2023 freelance period). Built responsive real estate interfaces, map browsing, filters, and listing detail experiences.",
-      duration: "Client engagement",
       role: "Frontend Developer",
       year: "2021 — 2023",
       outcomes: [
@@ -161,7 +155,6 @@ export const featuredProjects: FeaturedProject[] = [
       "Map view and site creation with timeline and preview",
     ],
     tech: ["Vue.js", "Nuxt", "TypeScript", "Tailwind CSS", "REST APIs"],
-    accent: "bg-cobalt-500",
     image: "/project-images/traffice.jpg",
     caseStudy: {
       slug: "traffice",
@@ -177,7 +170,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "Actionable traffic insights at scale",
       description:
         "Client frontend for Traffice (Sep 2021 — Apr 2023). Delivered dashboards, scene analysis UI, reporting flows, and map-based site management connected to backend services.",
-      duration: "Client engagement",
       role: "Frontend Developer",
       year: "2021 — 2023",
       outcomes: [
@@ -202,7 +194,6 @@ export const featuredProjects: FeaturedProject[] = [
       "Responsive dark-theme product interface",
     ],
     tech: ["Vue.js", "TypeScript", "Tailwind CSS"],
-    accent: "bg-cobalt-600",
     image: "/project-images/moonflow.jpg",
     caseStudy: {
       slug: "moonflow",
@@ -218,7 +209,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "Trading dashboard and mobile experience",
       description:
         "Client frontend for Moonflow Club (Sep 2021 — Apr 2023). Built trading surfaces, mobile adaptations, and wallet-connected order flows from product requirements and design references.",
-      duration: "Client engagement",
       role: "Frontend Developer",
       year: "2021 — 2023",
       outcomes: [
@@ -244,7 +234,6 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ["Nuxt 3", "TypeScript", "Pinia", "Tailwind CSS", "Firebase", "Stripe"],
     github: "https://github.com/caraseli02/Ecas",
-    accent: "bg-cobalt-600",
     image: "/project-images/ecas.jpg",
     caseStudy: {
       slug: "skipso",
@@ -260,7 +249,6 @@ export const featuredProjects: FeaturedProject[] = [
       tagline: "Order tracking, vendors, and smart workflows",
       description:
         "Client frontend aligned with Skipso / B2B commerce work (Sep 2021 — Apr 2023). Shipped dashboards, category tools, shipping flows, and marketplace navigation connected to backend and CMS services.",
-      duration: "Client engagement",
       role: "Frontend Developer",
       year: "2021 — 2023",
       outcomes: [
@@ -283,23 +271,46 @@ export function getProjectBySlug(slug: string): FeaturedProject | undefined {
   return featuredProjects.find((p) => p.caseStudy.slug === resolved);
 }
 
-export function getAllCaseStudySlugs(): string[] {
-  return featuredProjects.map((p) => p.caseStudy.slug);
-}
-
 export function getProjectIndex(slug: string): number {
   const project = getProjectBySlug(slug);
   if (!project) return -1;
   return featuredProjects.findIndex((p) => p.caseStudy.slug === project.caseStudy.slug);
 }
 
-export const homeFeaturedProjects: HomeFeaturedProject[] = featuredProjects.map((p) => ({
-  id: p.id,
-  title: p.title,
-  description: p.description,
-  tech: p.tech,
-  github: p.github,
-  accent: p.accent || "bg-cobalt-500",
-  slug: p.caseStudy.slug,
-  image: p.image || p.caseStudy.image,
-}));
+export const experienceGroups: ExperienceGroup[] = [
+  {
+    id: "hotelverse",
+    kicker: "01 — recent role",
+    title: "Hotelverse",
+    period: "Nov 2024 — Dec 2025",
+    blurb:
+      "Multi-room booking and upselling — guest journey, front-desk recommendations, and order visibility.",
+    companyKeys: ["Hotelverse"],
+  },
+  {
+    id: "nezo",
+    kicker: "02 — previous role",
+    title: "Nezo Hub",
+    period: "Apr 2023 — Oct 2024",
+    blurb: "SaaS and business app frontend — dashboards, auth, and crypto wallet / ecosystem UI.",
+    companyKeys: ["Nezo Hub"],
+  },
+  {
+    id: "freelance",
+    kicker: "03 — client work",
+    title: "Skipso, TopProperties, Moonflow, Traffice",
+    period: "Sep 2021 — Apr 2023",
+    blurb:
+      "SaaS, real estate, community, and marketing frontends — dashboards, landing pages, and custom flows.",
+    companyKeys: ["TopProperties", "Traffice", "Moonflow Club", "Skipso"],
+  },
+];
+
+export function projectsForGroup(group: ExperienceGroup): FeaturedProject[] {
+  return featuredProjects.filter((p) => group.companyKeys.includes(p.caseStudy.company));
+}
+
+export const totalVisualAssets = featuredProjects.reduce(
+  (sum, p) => sum + p.caseStudy.gallery.length,
+  0,
+);

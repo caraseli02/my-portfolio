@@ -12,7 +12,7 @@
             <span>palma de mallorca</span>
           </p>
           <h1
-            class="text-5xl leading-[0.96] font-display text-cobalt-500 dark:text-cobalt-100 sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem]"
+            class="font-display text-5xl leading-[0.96] text-cobalt-500 dark:text-cobalt-100 sm:text-6xl md:text-[4.25rem] lg:text-[4.75rem]"
           >
             Frontend developer with
             <span class="italic text-cobalt-400 dark:text-cobalt-200">4+ years</span>
@@ -27,7 +27,7 @@
           </p>
 
           <dl
-            class="mt-10 grid grid-cols-2 gap-y-4 gap-x-6 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-4"
+            class="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 border-y border-cobalt-500/15 py-5 font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500 dark:border-cobalt-300/15 dark:text-cobalt-200 sm:grid-cols-4"
           >
             <div class="flex flex-col gap-1">
               <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
@@ -38,9 +38,9 @@
               <dd class="text-sm font-semibold tracking-[0.12em]">Hotelverse</dd>
             </div>
             <div class="flex flex-col gap-1">
-              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">work samples</dt>
+              <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">projects</dt>
               <dd class="text-sm font-semibold tracking-[0.12em]">
-                {{ featuredProjects.length }} visuals
+                {{ featuredProjects.length }} samples
               </dd>
             </div>
             <div class="flex flex-col gap-1">
@@ -69,7 +69,7 @@
               View work
             </a>
             <a
-              href="/Vladislav_Caraseli_CV_EN.pdf"
+              :href="links.cv"
               download
               class="inline-flex items-center justify-center text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-opacity hover:opacity-75 dark:text-cobalt-200"
             >
@@ -82,128 +82,97 @@
 
     <section id="work" class="px-6 py-14 md:px-10 md:py-20 lg:px-12">
       <div class="mx-auto max-w-7xl">
-        <div
-          class="reveal mb-10 grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end"
-        >
-          <div>
-            <p class="editorial-kicker mb-3">selected work</p>
-            <h2
-              class="max-w-3xl text-4xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-6xl"
-            >
-              The same story as the CV — with the visuals attached.
-            </h2>
-          </div>
+        <div class="reveal mb-12 max-w-3xl">
+          <p class="editorial-kicker mb-3">selected work</p>
+          <h2 class="font-display text-4xl text-cobalt-500 dark:text-cobalt-200 md:text-5xl">
+            The same story as the CV — with the visuals attached.
+          </h2>
           <p
-            class="max-w-xl text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-lg lg:justify-self-end"
+            class="mt-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-lg"
           >
-            Hotelverse, Nezo Hub, and client work across TopProperties, Traffice, Moonflow, and
-            Skipso. Click any card for gallery and role context.
+            {{ featuredProjects.length }} projects · {{ totalVisualAssets }} visual assets · grouped
+            by employer like the CV.
           </p>
         </div>
 
-        <div class="reveal-stagger grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          <WorkCard
-            v-for="project in featuredProjects"
-            :key="project.caseStudy.slug"
-            :title="project.title"
-            :slug="project.caseStudy.slug"
-            :image="project.caseStudy.image || project.image || ''"
-            :description="project.description"
-            :company="project.caseStudy.company"
-            :period="project.caseStudy.year"
-            :tags="project.tech"
-            class="card-lift"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="reveal px-6 pb-16 md:px-10 lg:px-12">
-      <div
-        class="mx-auto grid max-w-7xl gap-6 border border-cobalt-500/14 bg-white/70 p-6 dark:border-cobalt-300/14 dark:bg-charcoal-50/60 md:grid-cols-[1.2fr_0.8fr] md:p-8"
-      >
-        <div>
-          <p class="editorial-kicker mb-3">core skills</p>
-          <h3 class="text-3xl font-display text-cobalt-500 dark:text-cobalt-200 md:text-4xl">
-            Stack from the CV, not a kitchen sink.
-          </h3>
-          <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            <div v-for="group in skillGroups" :key="group.label">
-              <p
-                class="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
-              >
-                {{ group.label }}
-              </p>
-              <p class="text-sm leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-                {{ group.items }}
+        <div v-for="group in experienceGroups" :id="group.id" :key="group.id" class="reveal mb-14">
+          <div
+            class="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-cobalt-500/12 pb-5 dark:border-cobalt-300/12"
+          >
+            <div>
+              <p class="editorial-kicker mb-2">{{ group.kicker }}</p>
+              <h3 class="font-display text-3xl text-cobalt-500 dark:text-cobalt-200">
+                {{ group.title }}
+              </h3>
+              <p class="mt-2 max-w-2xl text-base text-cobalt-600 dark:text-cobalt-100/80">
+                {{ group.blurb }}
               </p>
             </div>
+            <p
+              class="font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+            >
+              {{ group.period }}
+            </p>
           </div>
-        </div>
-        <div
-          class="flex flex-col justify-between gap-4 border-t border-cobalt-500/12 pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-8 dark:border-cobalt-300/12"
-        >
-          <div>
-            <p class="editorial-kicker mb-3">experience arc</p>
-            <ul class="space-y-3 text-sm text-cobalt-600 dark:text-cobalt-100/85">
-              <li>
-                <strong class="font-semibold text-cobalt-500 dark:text-cobalt-200"
-                  >Hotelverse</strong
-                >
-                — Nov 2024–Dec 2025
-              </li>
-              <li>
-                <strong class="font-semibold text-cobalt-500 dark:text-cobalt-200">Nezo Hub</strong>
-                — Apr 2023–Oct 2024
-              </li>
-              <li>
-                <strong class="font-semibold text-cobalt-500 dark:text-cobalt-200"
-                  >Skipso, TopProperties, Moonflow, Traffice</strong
-                >
-                — Sep 2021–Apr 2023
-              </li>
-            </ul>
-          </div>
-          <router-link
-            to="/about"
-            class="inline-flex items-center justify-between border border-cobalt-500 px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+
+          <div
+            class="grid gap-5"
+            :class="
+              projectsForGroup(group).length > 1 ? 'sm:grid-cols-2 xl:grid-cols-3' : 'max-w-xl'
+            "
           >
-            Full CV on site
-            <span aria-hidden="true">→</span>
-          </router-link>
+            <WorkCard
+              v-for="project in projectsForGroup(group)"
+              :key="project.caseStudy.slug"
+              :title="project.title"
+              :slug="project.caseStudy.slug"
+              :image="project.caseStudy.image"
+              :description="project.description"
+              :company="project.caseStudy.company"
+              :period="project.caseStudy.year"
+              :tags="project.tech"
+              class="card-lift"
+            />
+          </div>
         </div>
       </div>
     </section>
 
-    <Footer class="footer-reveal" />
+    <section class="px-6 pb-16 md:px-10 lg:px-12">
+      <div
+        class="reveal mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 border border-cobalt-500/14 p-6 md:flex-row md:items-center md:p-8"
+      >
+        <div>
+          <p class="editorial-kicker mb-2">full CV</p>
+          <p class="font-display text-2xl text-cobalt-500 dark:text-cobalt-200 md:text-3xl">
+            Skills, education, and role details live on About.
+          </p>
+        </div>
+        <router-link
+          to="/about"
+          class="inline-flex shrink-0 items-center gap-3 border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
+        >
+          Open About
+          <span aria-hidden="true">→</span>
+        </router-link>
+      </div>
+    </section>
+
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
 import WorkCard from "../components/work/WorkCard.vue";
-import { featuredProjects } from "../data/projects";
+import {
+  experienceGroups,
+  featuredProjects,
+  projectsForGroup,
+  totalVisualAssets,
+} from "../data/projects";
+import { links } from "../data/cv";
 import { useJsonLd } from "../composables/useJsonLd";
-
-const skillGroups = [
-  {
-    label: "Frontend",
-    items: "Vue 3 · Vue.js · Nuxt · React · Next.js · TypeScript · JavaScript · Tailwind CSS",
-  },
-  {
-    label: "UI and product",
-    items:
-      "Figma · Storybook · Responsive interfaces · Component-based architecture · Core Web Vitals",
-  },
-  {
-    label: "Data and quality",
-    items: "Pinia · Zustand · REST APIs · Firebase · CMS · Vitest · Playwright · Supabase",
-  },
-  {
-    label: "Applied AI",
-    items: "Claude Code · Codex",
-  },
-];
 
 useJsonLd({
   "@context": "https://schema.org",

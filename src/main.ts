@@ -15,8 +15,10 @@ import "./assets/index.css";
 
 createApp(App).use(router).mount("#app");
 
-// Global scroll reveal observer — handles .reveal, .reveal-stagger, .footer-reveal
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+// Global scroll reveal for .reveal / .reveal-stagger
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!prefersReducedMotion) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -30,9 +32,8 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   );
 
   const observeReveals = () => {
-    document.querySelectorAll(".reveal, .reveal-stagger, .footer-reveal").forEach((el) => {
+    document.querySelectorAll(".reveal, .reveal-stagger").forEach((el) => {
       if (el.classList.contains("revealed")) return;
-      // If already in viewport, reveal immediately
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add("revealed");

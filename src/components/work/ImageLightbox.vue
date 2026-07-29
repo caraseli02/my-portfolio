@@ -3,10 +3,12 @@
     <Transition name="lightbox">
       <div
         v-if="open"
-        class="fixed inset-0 z-[80] flex items-center justify-center bg-charcoal/90 p-4 backdrop-blur-sm md:p-8"
+        ref="dialogRef"
+        class="fixed inset-0 z-[10000] flex items-center justify-center bg-charcoal/90 p-4 backdrop-blur-sm md:p-8"
         role="dialog"
         aria-modal="true"
         :aria-label="current?.label || 'Image preview'"
+        tabindex="-1"
         @click.self="close"
       >
         <button
@@ -21,7 +23,7 @@
         <button
           v-if="assets.length > 1"
           type="button"
-          class="absolute left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 text-white transition-colors hover:bg-white/10 sm:inline-flex md:left-6"
+          class="absolute top-1/2 left-3 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 text-white transition-colors hover:bg-white/10 sm:inline-flex md:left-6"
           aria-label="Previous image"
           @click.stop="prev"
         >
@@ -46,7 +48,7 @@
         <button
           v-if="assets.length > 1"
           type="button"
-          class="absolute right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 text-white transition-colors hover:bg-white/10 sm:inline-flex md:right-6"
+          class="absolute top-1/2 right-3 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 text-white transition-colors hover:bg-white/10 sm:inline-flex md:right-6"
           aria-label="Next image"
           @click.stop="next"
         >
@@ -58,19 +60,22 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import type { WorkAsset } from "../../types/projects";
 
 const props = defineProps<{
   open: boolean;
   assets: WorkAsset[];
   startIndex?: number;
+  returnFocus?: HTMLElement | null;
 }>();
 
 const emit = defineEmits<{
   close: [];
   "update:index": [number];
 }>();
+
+const dialogRef = ref<HTMLElement | null>(null);
 
 const index = computed({
   get: () => props.startIndex ?? 0,
@@ -100,8 +105,14 @@ const onKeydown = (event: KeyboardEvent) => {
 
 watch(
   () => props.open,
-  (isOpen) => {
+  async (isOpen) => {
     document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      await nextTick();
+      dialogRef.value?.focus();
+    } else {
+      props.returnFocus?.focus();
+    }
   },
 );
 

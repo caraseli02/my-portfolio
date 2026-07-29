@@ -1,14 +1,3 @@
-/** Phase in the Hero's Journey timeline (legacy case-study components) */
-export interface TimelinePhase {
-  id: string;
-  label: string;
-  icon: string;
-  title: string;
-  narrative: string;
-  detail?: string;
-  highlight?: string;
-}
-
 /** Gallery asset for a work sample */
 export interface WorkAsset {
   src: string;
@@ -20,52 +9,42 @@ export interface WorkAsset {
 export interface Outcome {
   metric: string;
   label: string;
-  description?: string;
 }
 
-/** Full case study data for a project */
+/** Case study / work detail */
 export interface CaseStudy {
   slug: string;
-  image?: string;
-  gallery?: WorkAsset[];
-  liveUrl?: string;
+  image: string;
+  gallery: WorkAsset[];
   tagline: string;
-  description?: string;
-  duration: string;
+  description: string;
   role: string;
   year: string;
   company: string;
-  outcomes?: Outcome[];
+  outcomes: Outcome[];
   nextProject?: string;
   prevProject?: string;
 }
 
-/** Base project */
-export interface Project {
+/** Featured CV-aligned work sample */
+export interface FeaturedProject {
   id: number;
   title: string;
+  category: string;
   description: string;
+  highlights: string[];
   tech: string[];
   github?: string;
-  accent?: string;
-  image?: string;
-}
-
-/** Featured project with case study */
-export interface FeaturedProject extends Project {
-  category: string;
-  highlights: string[];
+  image: string;
   caseStudy: CaseStudy;
 }
 
-/** Simplified project for Home.vue featured cards */
-export interface HomeFeaturedProject {
-  id: number;
+/** Employer group for the home work section */
+export interface ExperienceGroup {
+  id: string;
+  kicker: string;
   title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  accent: string;
-  slug?: string;
-  image?: string;
+  period: string;
+  blurb: string;
+  companyKeys: string[];
 }

@@ -1,47 +1,59 @@
 # AGENTS.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+Guidance for agents working in this repository.
 
 ## Project Overview
 
-Personal portfolio website built with Vue 3, TypeScript, Vite, and Tailwind CSS.
+Personal portfolio for Vlad Caraseli — a CV-aligned Vue 3 site with visual work samples from LinkedIn showcases.
 
 ## Development Commands
 
 ```bash
-npm run dev      # Start development server (Vite)
-npm run build    # Production build
-npm run serve    # Preview production build
+vp install   # Install dependencies
+vp dev       # Start development server
+vp build     # Production build
+vp check     # Format, lint, and typecheck
+vp test      # Run tests
 ```
 
-No test framework is configured.
+Do not use npm/pnpm/yarn directly — use `vp`.
 
 ## Architecture
 
 ### Tech Stack
 
-- **Framework**: Vue 3 with Options API (`defineComponent`)
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom `vue-*` color palette
-- **Routing**: Vue Router with history mode
-- **State**: Vuex (store.ts exists but is not actively used)
+- **Framework**: Vue 3 with Composition API (`<script setup lang="ts">`)
+- **Build**: Vite+ (`vite-plus`)
+- **Styling**: Tailwind CSS v4 with cobalt/cream/charcoal palette
+- **Routing**: Vue Router (history mode)
+- **No global store**
+
+### Routes
+
+- `/` — Home: hero + work grouped by CV employer blocks
+- `/projects/:slug` — Work detail with gallery lightbox
+- `/about` — CV: skills, experience, education, certifications
+- `/contact` — Contact links
+- `/projects` redirects to `/#work`
 
 ### Structure
 
-- `src/pages/` - Route-level components (Home, Projects, About)
-- `src/components/` - Shared components (NavBar, Footer)
-- `src/router/index.ts` - Route definitions
-- `src/assets/index.css` - Global styles with Tailwind layers and custom utility classes
+- `src/pages/` — route pages
+- `src/components/layout/` — Header, Footer
+- `src/components/work/` — WorkCard, WorkGallery, ImageLightbox
+- `src/data/projects.ts` — work samples + experience groups
+- `src/data/cv.ts` — skills, experience roles, contact links
+- `src/composables/` — `useTheme`, `useJsonLd`
 
 ### Styling Conventions
 
-- Custom color palette: `vue-50` through `vue-900` (defined in `tailwind.config.js`)
-- Reusable CSS classes: `.card-hover`, `.section-heading`, `.section-subheading`, `.tech-badge`, `.glass`, `.gradient-text`
-- Custom animations: `animate-fade-in`, `animate-slide-up`, `animate-float`, `animate-pulse-slow`
-- Animation delays: `.animation-delay-200`, `.animation-delay-400`, `.animation-delay-600`
+Reusable classes in `src/assets/index.css`:
+
+- `.panel-surface`, `.editorial-kicker`, `.editorial-rule`, `.ink-link`, `.pill-badge`, `.paper-grid`
+- `.reveal`, `.reveal-stagger` (scroll reveal; reduced-motion safe)
 
 ### Component Patterns
 
-- TypeScript interfaces defined inline within `<script lang="ts">` blocks
-- Data typed via function return annotation: `data(): { ... }`
-- Components use Options API with `defineComponent`
+- Composition API with `<script setup lang="ts">`
+- Shared CV/work data imported from `src/data/`
+- Prefer simplifying over adding chrome (no chat widget, custom cursor, or command palette)
