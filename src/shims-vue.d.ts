@@ -5,4 +5,3 @@ declare module "*.vue" {
 }
 
 declare module "@fontsource/jetbrains-mono/*";
-declare module "@fontsource-variable/*";

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 border-b border-cobalt-500/10 bg-cream-100/95 backdrop-blur-sm dark:border-charcoal-200/30 dark:bg-charcoal/95"
+    class="fixed top-0 right-0 left-0 z-50 border-b border-cobalt-500/10 bg-cream-100/95 backdrop-blur-sm dark:border-charcoal-200/30 dark:bg-charcoal/95"
   >
     <div class="mx-auto max-w-7xl px-6 lg:px-12">
       <nav class="flex h-20 items-center justify-between">
@@ -20,7 +20,7 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="relative inline-flex min-h-[44px] items-center rounded-sm pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:text-cobalt-300 dark:hover:text-cobalt-100 dark:focus-visible:outline-cobalt-300"
+            class="relative inline-flex min-h-11 items-center rounded-sm pb-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-cobalt-500 transition-colors hover:text-cobalt-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cobalt-500 dark:text-cobalt-300 dark:hover:text-cobalt-100 dark:focus-visible:outline-cobalt-300"
             :class="{ 'border-b-2 border-cobalt-500 dark:border-cobalt-300': isActive(link.path) }"
             :aria-current="isActive(link.path) ? 'page' : undefined"
           >
@@ -31,7 +31,7 @@
         <div class="hidden items-center gap-2 md:flex">
           <button
             type="button"
-            class="flex h-9 w-9 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
+            class="flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 transition-colors hover:bg-cobalt-500/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300 dark:hover:bg-cobalt-300/[0.08] dark:focus-visible:outline-cobalt-300"
             :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             @click="toggle"
           >
@@ -70,7 +70,7 @@
 
         <button
           type="button"
-          class="flex h-9 w-9 items-center justify-center text-cobalt-500 dark:text-cobalt-300 md:hidden"
+          class="flex h-11 w-11 items-center justify-center text-cobalt-500 dark:text-cobalt-300 md:hidden"
           :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
@@ -114,14 +114,14 @@
             v-for="link in navLinks"
             :key="link.path"
             :to="link.path"
-            class="text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 dark:text-cobalt-300"
+            class="inline-flex min-h-11 items-center text-sm font-semibold uppercase tracking-[0.2em] text-cobalt-500 dark:text-cobalt-300"
             @click="mobileOpen = false"
           >
             {{ link.label }}
           </router-link>
           <button
             type="button"
-            class="mt-4 flex h-9 w-9 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
+            class="mt-4 flex h-11 w-11 items-center justify-center border border-cobalt-500/20 text-cobalt-500 dark:border-charcoal-200/60 dark:text-cobalt-300"
             :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             @click="toggle"
           >
