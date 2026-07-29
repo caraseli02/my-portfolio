@@ -14,10 +14,10 @@
           <p
             class="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85 md:text-xl"
           >
-            Born in Moldova, now based in Palma de Mallorca. I build frontend systems that stay calm
-            under complexity — commerce flows, dashboard interfaces, component libraries, and the UI
-            layers teams actually rely on. AI-assisted development workflow with Claude Code and
-            Codex baked into every project cycle.
+            Frontend Developer with more than 4 years of experience in cross-functional agile teams,
+            collaborating with designers, product managers, and backend developers. Translating
+            Figma designs into production-ready interfaces, optimizing Core Web Vitals, and
+            integrating REST APIs — with Claude Code and Codex in the delivery cycle.
           </p>
         </div>
 
@@ -39,12 +39,9 @@
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
               >
-                specialty
+                focus
               </p>
-              <p class="mt-1">
-                Frontend architecture, UX clarity, design systems, AI-powered development, and
-                product-facing implementation.
-              </p>
+              <p class="mt-1">Vue · Nuxt · React · TypeScript · AI-assisted development</p>
             </div>
             <div class="editorial-rule"></div>
             <div>
@@ -54,8 +51,8 @@
                 languages
               </p>
               <p class="mt-1">
-                Moldovan (native) · Russian (full professional) · English (professional working) ·
-                Spanish (professional working)
+                Moldovan (native / bilingual) · Russian (full professional) · English (professional
+                working) · Spanish (professional working)
               </p>
             </div>
             <div class="editorial-rule"></div>
@@ -63,39 +60,37 @@
               <p
                 class="text-sm uppercase tracking-[0.22em] text-cobalt-500/70 dark:text-cobalt-100/70"
               >
-                off-screen
+                contact
               </p>
               <p class="mt-1">
-                Sailing, long walks, open-source rabbit holes, and interface references I probably
-                should not be collecting.
+                <a href="mailto:caraseli02@gmail.com" class="underline-offset-4 hover:underline"
+                  >caraseli02@gmail.com</a
+                >
+                · +34 675 167 719
               </p>
             </div>
           </div>
         </aside>
       </section>
 
-      <section class="reveal mt-14 grid gap-5 md:grid-cols-3">
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">01 — what I do best</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            Turn vague product needs into sharp, production-ready interfaces with real hierarchy and
-            better decision-making built into the layout.
-          </p>
-        </article>
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">02 — how I work</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            AI-native engineering: Claude Code and Codex in the dev cycle, thoughtful systems, clean
-            implementation, and enough visual restraint that the important moments hit harder.
-          </p>
-        </article>
-        <article class="panel-surface p-6">
-          <p class="editorial-kicker mb-3">03 — where I add leverage</p>
-          <p class="text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
-            Complex frontends, refactors that improve trust, and design-system work that keeps teams
-            shipping without turning every screen into a one-off.
-          </p>
-        </article>
+      <section class="reveal mt-14">
+        <p class="editorial-kicker mb-4">core skills</p>
+        <div class="grid gap-4 md:grid-cols-2">
+          <article
+            v-for="group in skillGroups"
+            :key="group.label"
+            class="border border-cobalt-500/12 p-5 dark:border-cobalt-300/12"
+          >
+            <p
+              class="mb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
+            >
+              {{ group.label }}
+            </p>
+            <p class="text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85">
+              {{ group.items }}
+            </p>
+          </article>
+        </div>
       </section>
 
       <!-- Work Experience -->
@@ -201,6 +196,14 @@
               </p>
             </div>
             <div>
+              <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">
+                CWP Site Designer
+              </h3>
+              <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
+                Certified Web Professional · Apr 2018 — Feb 2019
+              </p>
+            </div>
+            <div>
               <h3 class="text-xl font-display text-cobalt-500 dark:text-cobalt-200">Vue School</h3>
               <p class="text-sm text-cobalt-600 dark:text-cobalt-100/80">
                 Mastering Web Application Development with Vue.js
@@ -267,12 +270,35 @@
 import Footer from "../components/layout/Footer.vue";
 import { useJsonLd } from "../composables/useJsonLd";
 
+const skillGroups = [
+  {
+    label: "Frontend",
+    items: "Vue 3 · Vue.js · Nuxt · React · Next.js · TypeScript · JavaScript · Tailwind CSS",
+  },
+  {
+    label: "UI and product",
+    items:
+      "Figma · Storybook · Responsive interfaces · Component-based architecture · Core Web Vitals",
+  },
+  {
+    label: "Data and quality",
+    items:
+      "Pinia · Zustand · REST APIs · Firebase · CMS integration · Vitest · Playwright · Supabase",
+  },
+  {
+    label: "Applied AI",
+    items: "Claude Code · Codex",
+  },
+];
+
 useJsonLd({
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Vlad Caraseli",
   jobTitle: "Frontend Developer",
   url: "https://vladcaraseli.com",
+  email: "caraseli02@gmail.com",
+  telephone: "+34675167719",
   sameAs: ["https://github.com/caraseli02", "https://linkedin.com/in/caraseli"],
   knowsAbout: [
     "Vue",
@@ -281,8 +307,7 @@ useJsonLd({
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "Design Systems",
-    "Frontend Architecture",
+    "Storybook",
     "AI-assisted development",
     "Claude Code",
     "Codex",

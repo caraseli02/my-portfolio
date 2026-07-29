@@ -7,9 +7,9 @@ const routes: RouteRecordRaw[] = [
     name: "home",
     component: () => import("../pages/Home.vue"),
     meta: {
-      title: "Vlad Caraseli | Frontend Engineer for Product Teams",
+      title: "Vlad Caraseli | Frontend Developer",
       description:
-        "Frontend engineer building polished product interfaces, design systems, and high-trust web experiences with Vue, React, TypeScript, and Nuxt.",
+        "Frontend developer with 4+ years experience — Vue, Nuxt, React, TypeScript, and AI-assisted development. Based in Palma de Mallorca.",
     },
   },
   {
@@ -28,9 +28,9 @@ const routes: RouteRecordRaw[] = [
     name: "about",
     component: () => import("../pages/About.vue"),
     meta: {
-      title: "About Vlad Caraseli | Frontend Engineer",
+      title: "About Vlad Caraseli | Frontend Developer",
       description:
-        "Learn how Vlad Caraseli approaches product UI, design systems, and frontend engineering from Palma de Mallorca.",
+        "Frontend Developer based in Palma de Mallorca — Vue, Nuxt, React, TypeScript, and AI-assisted development. Experience at Hotelverse, Nezo Hub, and client products.",
     },
   },
   {
@@ -59,7 +59,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       title: "Projects | Vlad Caraseli",
       description:
-        "Full index of shipped projects: case-studied product work, component libraries, starters, and experiments across Vue, React, and TypeScript.",
+        "Visual work samples aligned to the CV: Hotelverse upsell, Nezo Hub, TopProperties, Traffice, Moonflow, and B2B commerce.",
     },
   },
   {

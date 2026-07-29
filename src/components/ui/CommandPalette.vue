@@ -127,16 +127,14 @@ const listRef = ref<HTMLElement | null>(null);
 const emit = defineEmits<{ (e: "open-shortcuts"): void }>();
 
 const baseItems = computed<Item[]>(() => {
-  const caseStudyItems: Item[] = featuredProjects
-    .filter((p) => p.caseStudy)
-    .map((p, i) => ({
-      id: `case-${p.caseStudy!.slug}`,
-      group: "case",
-      label: p.title,
-      hint: `0${i + 1}`,
-      keywords: `${p.tech.join(" ")} ${p.description}`,
-      run: () => router.push({ name: "case-study", params: { slug: p.caseStudy!.slug } }),
-    }));
+  const caseStudyItems: Item[] = featuredProjects.map((p, i) => ({
+    id: `case-${p.caseStudy.slug}`,
+    group: "case",
+    label: p.title,
+    hint: `0${i + 1}`,
+    keywords: `${p.tech.join(" ")} ${p.description} ${p.caseStudy.company}`,
+    run: () => router.push({ name: "case-study", params: { slug: p.caseStudy.slug } }),
+  }));
 
   const nav: Item[] = [
     { id: "nav-home", group: "nav", label: "Home", hint: "/", run: () => router.push("/") },

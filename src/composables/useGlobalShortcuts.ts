@@ -13,7 +13,15 @@ function inEditable(target: EventTarget | null): boolean {
 }
 
 function caseStudySlugs(): string[] {
-  return featuredProjects.filter((p) => p.caseStudy).map((p) => p.caseStudy!.slug);
+  return featuredProjects.map((p) => p.caseStudy.slug);
+}
+
+function resolveSlug(slug: string): string {
+  const aliases: Record<string, string> = {
+    "abs-storybook": "hotelverse",
+    ecas: "skipso",
+  };
+  return aliases[slug] ?? slug;
 }
 
 export function useGlobalShortcuts() {
@@ -47,7 +55,7 @@ export function useGlobalShortcuts() {
     if (!slugs.length) return;
 
     if (route.name === "case-study" && typeof route.params.slug === "string") {
-      const idx = slugs.indexOf(route.params.slug);
+      const idx = slugs.indexOf(resolveSlug(route.params.slug));
       if (idx === -1) return;
       const nextIdx = (idx + delta + slugs.length) % slugs.length;
       void router.push({ name: "case-study", params: { slug: slugs[nextIdx] } });
