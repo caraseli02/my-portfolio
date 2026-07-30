@@ -14,6 +14,10 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: "/v2",
+    redirect: "/",
+  },
+  {
     path: "/projects",
     redirect: "/#work",
   },

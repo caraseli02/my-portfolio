@@ -43,9 +43,10 @@ Do not use npm/pnpm/yarn directly — use `vp`.
 - `src/pages/` — route pages
 - `src/components/layout/` — Header, Footer
 - `src/components/work/` — WorkCard, WorkGallery, ImageLightbox
+- `src/components/motion/` — WordMask and other motion primitives
 - `src/data/projects.ts` — work samples + experience groups
 - `src/data/cv.ts` — skills, experience roles, contact links
-- `src/composables/` — `useTheme`, `useJsonLd`
+- `src/composables/` — `useTheme`, `useJsonLd`, `useInView`, `useScrollMotion`
 - `src/router/index.ts` — route definitions and metadata
 - `src/assets/index.css` — global styles and utilities
 
