@@ -7,16 +7,40 @@
     >
     <Header />
     <main id="main-content" class="flex-grow">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <transition name="page" mode="out-in" @enter="refreshReveals">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import Header from "./components/layout/Header.vue";
+import { refreshReveals } from "./composables/reveal";
 </script>
 
 <style>
+.page-enter-active {
+  transition:
+    opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-leave-active {
+  transition: opacity 0.18s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-leave-to {
+  opacity: 0;
+}
+
 button:active:not(:disabled),
 a:active:not(:disabled) {
   transform: scale(0.97);
@@ -59,6 +83,15 @@ html.theme-transition *::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+
+  .page-enter-from {
+    transform: none;
+  }
+
   html.theme-transition,
   html.theme-transition *,
   html.theme-transition *::before,

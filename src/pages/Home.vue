@@ -133,64 +133,12 @@
             class="mv mt-4 text-base leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-lg"
             style="--d: 260ms"
           >
-            {{ featuredProjects.length }} projects · {{ totalVisualAssets }} visual assets · grouped
-            by employer like the CV.
+            {{ featuredProjects.length }} projects · {{ totalVisualAssets }} visual assets · ordered
+            like the CV — recent roles first.
           </p>
         </div>
 
-        <div v-for="group in experienceGroups" :id="group.id" :key="group.id" class="mb-14">
-          <div v-in class="relative mb-6">
-            <div class="flex flex-wrap items-end justify-between gap-4 pb-5">
-              <div>
-                <p class="editorial-kicker mv mb-2">{{ group.kicker }}</p>
-                <h3
-                  class="mv font-display text-3xl text-cobalt-500 dark:text-cobalt-200"
-                  style="--d: 90ms"
-                >
-                  {{ group.title }}
-                </h3>
-                <p
-                  class="mv mt-2 max-w-2xl text-base text-cobalt-600 dark:text-cobalt-100/80"
-                  style="--d: 170ms"
-                >
-                  {{ group.blurb }}
-                </p>
-              </div>
-              <p
-                class="mv font-mono text-xs uppercase tracking-[0.16em] text-cobalt-500/60 dark:text-cobalt-200/60"
-                style="--d: 220ms"
-              >
-                {{ group.period }}
-              </p>
-            </div>
-            <span
-              aria-hidden="true"
-              class="rule absolute bottom-0 left-0 h-px w-full bg-cobalt-500/12 dark:bg-cobalt-300/12"
-            ></span>
-          </div>
-
-          <div
-            class="grid gap-5"
-            :class="
-              projectsForGroup(group).length > 1 ? 'sm:grid-cols-2 xl:grid-cols-3' : 'max-w-xl'
-            "
-          >
-            <WorkCard
-              v-for="(project, i) in projectsForGroup(group)"
-              :key="project.caseStudy.slug"
-              v-in
-              :title="project.title"
-              :slug="project.caseStudy.slug"
-              :image="project.caseStudy.image"
-              :description="project.description"
-              :company="project.caseStudy.company"
-              :period="project.caseStudy.year"
-              :tags="project.tech"
-              class="card-lift mv-card"
-              :style="{ '--d': `${i * 130}ms` }"
-            />
-          </div>
-        </div>
+        <WorkShowcase v-in :projects="featuredProjects" class="mv" style="--d: 0ms" />
       </div>
     </section>
 
@@ -225,16 +173,11 @@
 
 <script setup lang="ts">
 import Footer from "../components/layout/Footer.vue";
-import WorkCard from "../components/work/WorkCard.vue";
+import WorkShowcase from "../components/work/WorkShowcase.vue";
 import WordMask from "../components/motion/WordMask.vue";
 import { vIn } from "../composables/useInView";
 import { useScrollMotion } from "../composables/useScrollMotion";
-import {
-  experienceGroups,
-  featuredProjects,
-  projectsForGroup,
-  totalVisualAssets,
-} from "../data/projects";
+import { featuredProjects, totalVisualAssets } from "../data/projects";
 import { links } from "../data/cv";
 import { useJsonLd } from "../composables/useJsonLd";
 

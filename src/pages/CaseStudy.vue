@@ -18,7 +18,7 @@
       <section class="px-6 pb-10 pt-28 md:px-10 md:pt-36 lg:px-12">
         <div class="mx-auto max-w-7xl">
           <div class="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_18rem] lg:items-start">
-            <div>
+            <div class="reveal-stagger">
               <p
                 class="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
@@ -69,7 +69,7 @@
               </div>
             </div>
 
-            <aside class="border border-cobalt-500/14 p-6 md:p-8 dark:border-cobalt-300/16">
+            <aside class="reveal border border-cobalt-500/14 p-6 md:p-8 dark:border-cobalt-300/16">
               <p
                 class="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-cobalt-500/72 dark:text-cobalt-100/76"
               >
@@ -113,7 +113,7 @@
       </section>
 
       <section class="px-6 pb-14 md:px-10 lg:px-12">
-        <div class="mx-auto max-w-7xl">
+        <div class="reveal mx-auto max-w-7xl">
           <WorkGallery :assets="caseStudy.gallery" />
         </div>
       </section>
@@ -122,7 +122,7 @@
         <div class="mx-auto max-w-7xl">
           <p class="editorial-kicker mb-6">what shipped</p>
           <div
-            class="grid gap-0 border-t border-cobalt-500/12 dark:border-cobalt-300/12 sm:grid-cols-2"
+            class="reveal-stagger grid gap-0 border-t border-cobalt-500/12 dark:border-cobalt-300/12 sm:grid-cols-2"
           >
             <article
               v-for="(highlight, index) in project.highlights"
@@ -144,7 +144,7 @@
 
           <div
             v-if="caseStudy.outcomes.length"
-            class="mt-10 grid gap-px overflow-hidden border border-cobalt-500/14 bg-cobalt-500/10 dark:border-cobalt-300/14 dark:bg-cobalt-300/10 md:grid-cols-3"
+            class="reveal mt-10 grid gap-px overflow-hidden border border-cobalt-500/14 bg-cobalt-500/10 dark:border-cobalt-300/14 dark:bg-cobalt-300/10 md:grid-cols-3"
           >
             <div
               v-for="outcome in caseStudy.outcomes"
@@ -168,7 +168,7 @@
       </section>
 
       <section class="px-6 pb-16 md:px-10 lg:px-12">
-        <div class="mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+        <div class="reveal mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
           <router-link
             v-if="prevProject"
             :to="{ name: 'case-study', params: { slug: prevProject.slug } }"
