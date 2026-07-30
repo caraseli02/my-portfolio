@@ -71,7 +71,10 @@ const router = createRouter({
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;
     if (to.hash) {
-      return { el: to.hash, behavior: "smooth" };
+      // Page transitions mount the target after the leave phase — wait for it
+      return new Promise((resolve) => {
+        setTimeout(() => resolve({ el: to.hash, behavior: "smooth" }), 400);
+      });
     }
     return { top: 0 };
   },
