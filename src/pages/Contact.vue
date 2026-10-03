@@ -11,11 +11,12 @@
         <p
           class="mt-6 max-w-xl text-lg leading-relaxed text-charcoal-200 dark:text-cobalt-100/85 md:text-xl"
         >
-          Best first touch is LinkedIn. Email and phone work too — send the role, timeline, and
-          where the product currently feels weak.
+          Hiring for a Vue/Nuxt or React frontend role? Email is the fastest way to reach me — send
+          the role and a link to the job description. LinkedIn and phone work too.
         </p>
 
-        <div class="mt-10 space-y-4">
+        <div class="mt-10 flex flex-col items-start gap-4">
+          <a :href="`mailto:${links.email}`" class="ink-link text-base">{{ links.email }}</a>
           <a
             :href="links.linkedin"
             target="_blank"
@@ -23,7 +24,6 @@
             class="ink-link text-base"
             >LinkedIn ↗</a
           >
-          <a :href="`mailto:${links.email}`" class="ink-link text-base">{{ links.email }}</a>
           <a :href="links.phoneHref" class="ink-link text-base">{{ links.phone }}</a>
           <a
             :href="links.github"

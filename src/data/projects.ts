@@ -66,13 +66,13 @@ export const featuredProjects: FeaturedProject[] = [
   {
     id: 2,
     title: "Nezo Hub",
-    category: "SaaS & crypto product UI",
+    category: "SaaS & B2B product UI",
     description:
-      "SaaS and business product UI — B2B commerce admin (orders, vendors, shipping, categories) plus a crypto wallet / ecosystem mobile experience.",
+      "SaaS and business product UI — B2B commerce admin (orders, vendors, shipping, categories) plus a mobile wallet and ecosystem app.",
     highlights: [
       "B2B commerce admin: orders, analytics, agents, shipping, and category tools",
       "Reusable Vue 3 components integrated with backend services",
-      "Wallet overview, stake/earn hub, and multi-service feature grid",
+      "Mobile wallet overview and multi-service ecosystem hub",
       "Vue 3 + Nuxt + Pinia across responsive production UIs",
     ],
     tech: ["Vue 3", "Nuxt", "TypeScript", "Pinia", "Tailwind CSS", "REST APIs"],
@@ -90,13 +90,13 @@ export const featuredProjects: FeaturedProject[] = [
         },
         {
           src: "/project-images/nezo.jpg",
-          alt: "Nezo crypto wallet and ecosystem mobile app",
+          alt: "Nezo mobile wallet and ecosystem app",
           label: "Wallet & ecosystem",
         },
       ],
-      tagline: "B2B SaaS surfaces and crypto wallet experience",
+      tagline: "B2B SaaS surfaces and a mobile wallet experience",
       description:
-        "Frontend Developer at Nezo Hub (Apr 2023 — Oct 2024). Built and maintained Vue 3 / Nuxt / Pinia product UI — including the B2B commerce admin and marketplace flows (orders, vendors, shipping, categories) and the crypto wallet / ecosystem hub.",
+        "Frontend Developer at Nezo Hub (Apr 2023 — Oct 2024). Built and maintained Vue 3 / Nuxt / Pinia product UI — including the B2B commerce admin and marketplace flows (orders, vendors, shipping, categories) and the mobile wallet / ecosystem hub.",
       role: "Frontend Developer",
       year: "Apr 2023 — Oct 2024",
       outcomes: [
@@ -118,9 +118,9 @@ export const featuredProjects: FeaturedProject[] = [
       "Interactive map with property markers and listing cards",
       "Search, filters, and multi-currency price ranges",
       "Desktop and mobile property discovery flows",
-      "Responsive Vue/React interfaces from design references",
+      "Public demo rebuilt in React + TypeScript — source linked below",
     ],
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Leaflet"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
     github: "https://github.com/caraseli02/Toppropertiesdemo",
     image: "/project-images/topproperties.jpg",
     caseStudy: {
@@ -136,7 +136,7 @@ export const featuredProjects: FeaturedProject[] = [
       ],
       tagline: "Find your extraordinary home",
       description:
-        "Client frontend work for TopProperties (within Sep 2021 — Apr 2023 freelance period). Built responsive real estate interfaces, map browsing, filters, and listing detail experiences.",
+        "Client frontend work for TopProperties (within Sep 2021 — Apr 2023 freelance period). Built responsive real estate interfaces, map browsing, filters, and listing detail experiences. The linked source is a public React + TypeScript demo of the platform UI.",
       role: "Frontend Developer",
       year: "2021 — 2023",
       outcomes: [
@@ -259,8 +259,7 @@ export const experienceGroups: ExperienceGroup[] = [
     kicker: "02 — previous role",
     title: "Nezo Hub",
     period: "Apr 2023 — Oct 2024",
-    blurb:
-      "B2B commerce admin and SaaS product UI — plus crypto wallet / ecosystem mobile experience.",
+    blurb: "B2B commerce admin and SaaS product UI — plus a mobile wallet and ecosystem app.",
     companyKeys: ["Nezo Hub"],
   },
   {
