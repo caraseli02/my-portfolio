@@ -14,10 +14,6 @@ const routes: RouteRecordRaw[] = [
     },
   },
   {
-    path: "/v2",
-    redirect: "/",
-  },
-  {
     path: "/projects",
     redirect: "/#work",
   },
@@ -49,10 +45,6 @@ const routes: RouteRecordRaw[] = [
       title: "Contact Vlad Caraseli",
       description: "Contact Vlad Caraseli for frontend roles — LinkedIn, email, or phone.",
     },
-  },
-  {
-    path: "/extra",
-    redirect: "/",
   },
   {
     path: "/:pathMatch(.*)*",

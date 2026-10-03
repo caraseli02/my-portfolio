@@ -1,55 +1,51 @@
-# Vlad Caraseli Portfolio
+# Vlad Caraseli — Portfolio
 
-Personal portfolio built with Vue 3, TypeScript, Vite, and Tailwind CSS v4.
+Personal portfolio for Vlad Caraseli, Frontend Developer (Vue · Nuxt · React · TypeScript) based in Palma de Mallorca. The site mirrors the CV and adds visual work samples for each role.
 
-Live goals for this site:
-
-- make hiring managers understand the value fast
-- show real product/frontend range through case studies
-- keep the visual language editorial, high-contrast, and memorable
+Live: [vladcaraseli.com](https://vladcaraseli.com)
 
 ## Stack
 
-- Vue 3
+- Vue 3 (Composition API, `<script setup lang="ts">`)
 - TypeScript
-- Vite Plus / Vite
+- Vite+ (`vite-plus`)
 - Tailwind CSS v4
-- Vue Router
+- Vue Router (history mode, per-route meta for SEO)
+- Vitest + Happy DOM
 
-## Main sections
+## Routes
 
-- Home: positioning, proof, and featured case studies
-- About: working style, specialties, and background
-- Contact: fast path for LinkedIn/GitHub outreach
-- Case studies: deep dives into selected projects
+- `/` — hero and work samples, ordered like the CV
+- `/projects/:slug` — work detail with gallery lightbox
+- `/about` — skills, experience, education, certifications
+- `/contact` — email, LinkedIn, phone, CV download
 
-## Local development
+## Project structure
 
-```bash
-pnpm install
-pnpm dev
+```
+src/
+  pages/          route pages
+  components/     layout, work showcase/gallery, motion primitives
+  composables/    theme, JSON-LD, in-view and scroll motion helpers
+  data/           cv.ts (skills, roles, links) and projects.ts (work samples)
+  router/         routes and metadata
 ```
 
-## Production build
+Content lives in `src/data/` — update the CV and work samples there.
+
+## Development
 
 ```bash
-pnpm build
-pnpm preview
+vp install   # install dependencies
+vp dev       # start dev server
+vp check     # format, lint, typecheck
+vp test      # run tests
+vp build     # production build
+vp preview   # preview production build
 ```
 
-## Design direction
+## Design
 
-This iteration leans into an editorial portfolio aesthetic:
-
-- Young Serif for high-impact display moments
-- Figtree for cleaner body copy
-- JetBrains Mono for technical labels and metadata
-- cream paper background + cobalt accents
-- stronger proof-first homepage structure
-- more scannable about/contact pages
-
-## Notes
-
-- Route metadata is updated per page for stronger SEO/share text.
-- `/projects` provides a full projects index.
-- External links use `rel="noopener noreferrer"`.
+- Young Serif (display), Figtree (body), JetBrains Mono (labels)
+- Cream paper background with cobalt accents, plus dark mode
+- Scroll reveals and transitions that respect `prefers-reduced-motion`

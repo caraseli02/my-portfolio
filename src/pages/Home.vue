@@ -35,9 +35,9 @@
           class="mv mt-6 max-w-2xl text-lg leading-relaxed text-cobalt-600 dark:text-cobalt-100/85 md:text-xl"
           style="--d: 550ms"
         >
-          Vue · Nuxt · React · TypeScript · AI-assisted development. Cross-functional agile teams,
-          Figma-to-production interfaces, Core Web Vitals, REST APIs — with Claude Code and Codex in
-          the delivery cycle.
+          I turn Figma designs into fast, tested product interfaces — booking and upsell flows, SaaS
+          dashboards, and admin tools — in Vue/Nuxt and React/Next.js, working closely with
+          designers, PMs, and backend developers.
         </p>
 
         <dl
@@ -55,7 +55,7 @@
           ></span>
           <div class="mv flex flex-col gap-1" style="--d: 780ms">
             <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">experience</dt>
-            <dd class="text-sm font-semibold tracking-[0.12em]">04+ yrs</dd>
+            <dd class="text-sm font-semibold tracking-[0.12em]">4+ yrs</dd>
           </div>
           <div class="mv flex flex-col gap-1" style="--d: 840ms">
             <dt class="text-cobalt-500/55 dark:text-cobalt-300/55">recent</dt>
@@ -80,13 +80,13 @@
         </dl>
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
-          <router-link
-            to="/contact"
+          <a
+            :href="`mailto:${links.email}`"
             class="mv inline-flex items-center justify-center bg-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-opacity hover:opacity-85"
             style="--d: 1040ms"
           >
-            Start a conversation
-          </router-link>
+            Email me
+          </a>
           <a
             href="#work"
             class="mv inline-flex items-center justify-center border border-cobalt-500 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-cobalt-500 transition-colors hover:bg-cobalt-500 hover:text-white dark:border-cobalt-300 dark:text-cobalt-200 dark:hover:bg-cobalt-300 dark:hover:text-charcoal"
@@ -194,17 +194,15 @@ const headlineWords = [
 ];
 
 const workHeadingWords = [
-  "The",
-  "same",
-  "story",
-  "as",
-  "the",
-  "CV",
-  "—",
-  "with",
-  "the",
-  "visuals",
-  "attached.",
+  "Product",
+  "UI",
+  "for",
+  "hospitality,",
+  "SaaS,",
+  "real",
+  "estate,",
+  "and",
+  "trading.",
 ].map((t) => ({ t }));
 
 useJsonLd({

@@ -12,8 +12,8 @@
             Frontend roles and product UI work that needs to ship clean.
           </h2>
           <p class="mt-4 max-w-lg text-base leading-relaxed text-cobalt-100/85">
-            Best first touch is LinkedIn. Send the role, timeline, and where the product currently
-            feels weak.
+            Hiring for a Vue/Nuxt or React frontend role? Email is the fastest way to reach me — I
+            usually reply within a day.
           </p>
           <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-cobalt-100/85">
             <span>Palma de Mallorca</span>
@@ -22,12 +22,10 @@
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <a
-              :href="links.linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
+              :href="`mailto:${links.email}`"
               class="inline-flex items-center justify-center bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-cobalt-700 transition-opacity hover:opacity-85"
             >
-              Start on LinkedIn ↗
+              Email me →
             </a>
             <a
               :href="links.cv"
@@ -43,7 +41,7 @@
       <div class="flex flex-col justify-between gap-5 border border-cobalt-500/15 p-6 md:p-8">
         <div>
           <p class="editorial-kicker mb-4">find me fast</p>
-          <div class="space-y-3">
+          <div class="flex flex-col items-start gap-3">
             <a :href="`mailto:${links.email}`" class="ink-link">{{ links.email }}</a>
             <a :href="links.phoneHref" class="ink-link">{{ links.phone }}</a>
             <a :href="links.github" target="_blank" rel="noopener noreferrer" class="ink-link"
